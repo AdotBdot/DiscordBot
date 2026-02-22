@@ -11,12 +11,14 @@ def create_embed(num):
 
 class Bot(discord.Client):
     def __init__(self, logs_handler):
-        self.logger = logging.getLogger("Bot")
-        if logs_handler:
-            self.logger.addHandler(logs_handler)
-
         intents = discord.Intents.all()
         super().__init__(intents=intents)
+
+        self.logger = logging.getLogger("Bot")
+        self.logger.setLevel(logging.INFO)
+        self.logger.propagate = False
+        self.logger.addHandler(logs_handler)
+
 
         self.tree = discord.app_commands.CommandTree(self)
 

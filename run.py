@@ -9,6 +9,7 @@ handler.setFormatter(formatter)
 discord_logger = logging.getLogger("discord")
 discord_logger.setLevel(logging.INFO)
 discord_logger.addHandler(handler)
+discord_logger.propagate = False
 
 args = sys.argv[1:]
 options = "t:"
