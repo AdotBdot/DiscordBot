@@ -1,9 +1,10 @@
 import logging
-from xml.sax import handler
 import discord
 from discord.ext import commands
 
-from . import PageView
+from .Views import PageView
+
+from .Data import Card
 
 def create_embed(num):
     embed = discord.Embed(description=num)
@@ -29,7 +30,8 @@ class Bot(discord.Client):
         
         @self.tree.command(name="test", description="A test command")
         async def test(interation: discord.Interaction):
-            pages = [create_embed(i) for i in range(1, 6)]
+            cards = [Card.Card(f"Card {i}") for i in range(1, 6)]
+            pages = [card.to_embed() for card in cards]
             view = PageView.PageView(pages, interation.user.id)
             await interation.response.send_message(embed=pages[0], view=view)
 
