@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-import PageView
+from . import PageView
 
 def create_embed(num):
     embed = discord.Embed(description=num)
