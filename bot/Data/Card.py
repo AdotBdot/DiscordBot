@@ -1,17 +1,17 @@
 import discord
 
 class Card():
-    def __init__(self, name="None"):
+    def __init__(self, name="None", description="None", bundle="None", collection="None", rarity="Common", image_url="https://i.imgur.com/izgPuO1.jpeg"):
         self.name = name
-        self.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        self.bundle = None
-        self.collection = None
-        self.rarity = "Common"
-        self.image_url = "https://i.imgur.com/izgPuO1.jpeg"
+        self.description = description
+        self.bundle = bundle
+        self.collection = collection
+        self.rarity = rarity
+        self.image_url = image_url
 
     def to_embed(self):
         embed = discord.Embed()
         embed.title = self.name
-        embed.description = f"**Description:** {self.description}\n**Bundle:** {self.bundle}\n**Collection:** {self.collection}\n**Rarity:** {self.rarity}"
+        embed.description = f"**Bundle:** {self.bundle}\n**Collection:** {self.collection}\n**Rarity:** {self.rarity}\n**Description:** {self.description}"
         embed.set_image(url=self.image_url)
         return embed
