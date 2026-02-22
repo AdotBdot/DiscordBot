@@ -1,5 +1,8 @@
+import logging
+from xml.sax import handler
 import discord
 from discord.ext import commands
+
 from . import PageView
 
 def create_embed(num):
@@ -7,17 +10,18 @@ def create_embed(num):
     return embed
 
 class Bot(discord.Client):
-    def __init__(self, prefix='!'):
+    def __init__(self, logs_handler):
+        self.logger = logging.getLogger("Bot")
+        if logs_handler:
+            self.logger.addHandler(logs_handler)
+
         intents = discord.Intents.all()
         super().__init__(intents=intents)
 
         self.tree = discord.app_commands.CommandTree(self)
 
     async def on_ready(self):
-        print(f'Logged in as: {self.user}')
-
-    def run(self, token):
-        super().run(token)
+        self.logger.info(f'Logged in as: {self.user}')
 
     async def setup_hook(self) -> None:
         
@@ -28,4 +32,7 @@ class Bot(discord.Client):
             await interation.response.send_message(embed=pages[0], view=view)
 
         await self.tree.sync()
+
+    def run(self, token):
+        super().run(token, log_handler=None)
 
