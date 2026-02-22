@@ -1,6 +1,7 @@
 import logging
 import discord
 from discord.ext import commands
+from .Data import JsonDeserializer
 
 from .Views import PageView
 
@@ -20,23 +21,23 @@ class Bot(discord.Client):
         self.logger.propagate = False
         self.logger.addHandler(logs_handler)
 
-
         self.tree = discord.app_commands.CommandTree(self)
 
-    async def on_ready(self):
+    async def on_ready(self) -> None:
         self.logger.info(f'Logged in as: {self.user}')
 
     async def setup_hook(self) -> None:
         
         @self.tree.command(name="test", description="A test command")
         async def test(interation: discord.Interaction):
-            cards = [Card.Card(f"Card {i}") for i in range(1, 6)]
+            data = JsonDeserializer.read_json("data/test.json")
+            cards = JsonDeserializer.to_card_list(data)
             pages = [card.to_embed() for card in cards]
             view = PageView.PageView(pages, interation.user.id)
             await interation.response.send_message(embed=pages[0], view=view)
 
         await self.tree.sync()
 
-    def run(self, token):
+    def run(self, token) -> None:
         super().run(token, log_handler=None)
 
