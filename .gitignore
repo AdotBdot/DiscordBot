@@ -4,6 +4,7 @@
 # Application specific files
 #data/
 data/users
+data/config
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
