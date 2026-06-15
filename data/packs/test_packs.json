@@ -1,0 +1,28 @@
+{
+    "test_pack_all": {
+        "name": "pack_all",
+        "type": "all"
+    },
+    "test_pack_bundle": {
+        "name": "pack_bundle",
+        "type": "bundle",
+        "bundle_name": "test_bundle"
+    },
+    "test_pack_collection": {
+        "name": "pack_collection",
+        "type": "collection",
+        "collection_name": "collection1"
+    },
+    "test_pack_custom": {
+        "name": "pack_custom",
+        "type": "custom",
+        "cards": [
+            "card1",
+            "card2",
+            "card3",
+            "card7",
+            "card8",
+            "card9"
+        ]
+    }
+}
