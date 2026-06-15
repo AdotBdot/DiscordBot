@@ -3,6 +3,7 @@
 
 # Application specific files
 #data/
+.data/users
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
