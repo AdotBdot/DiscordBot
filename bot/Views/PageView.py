@@ -1,27 +1,73 @@
 import discord
+from discord.ext import commands
 
-class PageView(discord.ui.View):
-    def __init__(self, pages, author_id):
-        super().__init__(timeout=60)
+class PageView(discord.ui.LayoutView):
+    def __init__(self, pages: list[discord.ui.Container], author_id: int, header: str):
+        super().__init__()
+
         self.pages = pages
-        for page in self.pages:
-            page.set_footer(text=f"({self.pages.index(page) + 1}/{len(self.pages)})")
-        self.current_page = 0
         self.author_id = author_id
+        self.current_page = 0
+
+        # Header
+        self.header = discord.ui.TextDisplay(content=header)
+
+        # Container
+        self.container = self.pages[self.current_page]
+
+        # Buttons
+        self.prev_btn = discord.ui.Button(
+                label="Prev",
+                style = discord.ButtonStyle.primary,
+                custom_id="prev"
+            )
+        self.next_btn = discord.ui.Button(
+                label="Next",
+                style = discord.ButtonStyle.primary,
+                custom_id="next"
+            )
+        
+        self.prev_btn.callback = self.previous_page
+        self.next_btn.callback = self.next_page
+
+        self.actions = discord.ui.ActionRow(self.prev_btn, self.next_btn)
+
+        # Footer
+        self.footer = discord.ui.TextDisplay(content=f"({self.current_page+1}/{len(self.pages)})")
+
+        self.update_view()
 
     async def interaction_check(self, interaction: discord.Interaction) -> bool:
         return interaction.user.id == self.author_id
     
-    @discord.ui.button(emoji="⬅️", style=discord.ButtonStyle.primary)
-    async def previous(self, interaction: discord.Interaction, button: discord.ui.Button):
+    def update_view(self):
+        # Button states
+        self.prev_btn.disabled = self.current_page == 0
+        self.next_btn.disabled = self.current_page == len(self.pages) - 1
+
+        # Replace container
+        self.container = self.pages[self.current_page]
+
+        # Update footer
+        self.footer = discord.ui.TextDisplay(content=f"({self.current_page+1}/{len(self.pages)})")
+
+        # Update view
+        self.clear_items()
+        self.add_item(self.header)
+        self.add_item(self.container)
+        self.add_item(self.footer)
+        self.add_item(self.actions)
+    
+    async def previous_page(self, interaction: discord.Interaction):
         if self.current_page > 0:
             self.current_page -= 1
-            embed = self.pages[self.current_page]
-            await interaction.response.edit_message(embed=embed, view=self)
 
-    @discord.ui.button(emoji="➡️", style=discord.ButtonStyle.primary)
-    async def next(self, interaction: discord.Interaction, button: discord.ui.Button):
+        self.update_view()
+        await interaction.response.edit_message(view=self)
+
+    async def next_page(self, interaction: discord.Interaction):
         if self.current_page < len(self.pages) - 1:
             self.current_page += 1
-            embed = self.pages[self.current_page]
-            await interaction.response.edit_message(embed=embed, view=self)
+
+        self.update_view()
+        await interaction.response.edit_message(view=self)
