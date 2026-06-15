@@ -1,0 +1,89 @@
+{
+    "test_bundle": {
+        "name": "test_bundle",
+        "collections": [
+            {
+                "name": "collection1",
+                "cards": [
+                    {
+                        "name": "card1",
+                        "description": "test_description_1",
+                        "rarity": "Common",
+                        "image_url": "https://i.imgur.com/izgPuO1.jpeg"
+                    },
+                    {
+                        "name": "card2",
+                        "description": "test_description_2",
+                        "rarity": "Uncommon",
+                        "image_url": "https://i.imgur.com/7PpQAwo.jpeg"
+                    },
+                    {
+                        "name": "card3",
+                        "description": "test_description_3",
+                        "rarity": "Rare",
+                        "image_url": "https://i.imgur.com/Nz7zZNn.jpeg"
+                    },
+                    {
+                        "name": "card4",
+                        "description": "test_description_1",
+                        "rarity": "Epic",
+                        "image_url": "https://i.imgur.com/izgPuO1.jpeg"
+                    },
+                    {
+                        "name": "card5",
+                        "description": "test_description_1",
+                        "rarity": "Legendary",
+                        "image_url": "https://i.imgur.com/izgPuO1.jpeg"
+                    },
+                    {
+                        "name": "card6",
+                        "description": "test_description_1",
+                        "rarity": "Mythic",
+                        "image_url": "https://i.imgur.com/izgPuO1.jpeg"
+                    }
+                ]
+            },
+            {
+                "name": "collection2",
+                "cards": [
+                    {
+                        "name": "card7",
+                        "description": "test_description_1",
+                        "rarity": "Common",
+                        "image_url": "https://i.imgur.com/izgPuO1.jpeg"
+                    },
+                    {
+                        "name": "card8",
+                        "description": "test_description_2",
+                        "rarity": "Uncommon",
+                        "image_url": "https://i.imgur.com/7PpQAwo.jpeg"
+                    },
+                    {
+                        "name": "card9",
+                        "description": "test_description_3",
+                        "rarity": "Rare",
+                        "image_url": "https://i.imgur.com/Nz7zZNn.jpeg"
+                    },
+                    {
+                        "name": "card10",
+                        "description": "test_description_1",
+                        "rarity": "Epic",
+                        "image_url": "https://i.imgur.com/izgPuO1.jpeg"
+                    },
+                    {
+                        "name": "card11",
+                        "description": "test_description_1",
+                        "rarity": "Legendary",
+                        "image_url": "https://i.imgur.com/izgPuO1.jpeg"
+                    },
+                    {
+                        "name": "card12",
+                        "description": "test_description_1",
+                        "rarity": "Mythic",
+                        "image_url": "https://i.imgur.com/izgPuO1.jpeg"
+                    }
+                ]
+            }   
+        ]
+    }
+}
