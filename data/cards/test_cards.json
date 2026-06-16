@@ -3,84 +3,96 @@
         "name": "test_bundle",
         "collections": [
             {
-                "name": "collection1",
+                "name": "Card Collection Dump 1",
                 "cards": [
                     {
-                        "name": "card1",
+                        "name": "The Nozzle",
                         "description": "test_description_1",
                         "rarity": "Common",
-                        "image_url": "https://i.imgur.com/izgPuO1.jpeg"
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/EQ58Uvb.jpeg"
                     },
                     {
-                        "name": "card2",
+                        "name": "Loops Brother",
                         "description": "test_description_2",
                         "rarity": "Uncommon",
-                        "image_url": "https://i.imgur.com/7PpQAwo.jpeg"
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/lWBpW5c.jpeg"
                     },
                     {
-                        "name": "card3",
+                        "name": "Exodia the Forbidden One",
                         "description": "test_description_3",
                         "rarity": "Rare",
-                        "image_url": "https://i.imgur.com/Nz7zZNn.jpeg"
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/sjJQYRX.jpeg"
                     },
                     {
-                        "name": "card4",
+                        "name": "Goblin Chirurgeon",
                         "description": "test_description_1",
                         "rarity": "Epic",
-                        "image_url": "https://i.imgur.com/izgPuO1.jpeg"
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/DcHzsfp.jpeg"
                     },
                     {
-                        "name": "card5",
+                        "name": "Keep Your Kool",
                         "description": "test_description_1",
                         "rarity": "Legendary",
-                        "image_url": "https://i.imgur.com/izgPuO1.jpeg"
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/v76ztNZ.jpeg"
                     },
                     {
-                        "name": "card6",
+                        "name": "Bitch Hold On",
                         "description": "test_description_1",
                         "rarity": "Mythic",
-                        "image_url": "https://i.imgur.com/izgPuO1.jpeg"
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/ZsFlbTP.jpeg"
                     }
                 ]
             },
             {
-                "name": "collection2",
+                "name": "Card Collection Dump 2",
                 "cards": [
                     {
-                        "name": "card7",
+                        "name": "Wednesdayfrog",
                         "description": "test_description_1",
                         "rarity": "Common",
-                        "image_url": "https://i.imgur.com/izgPuO1.jpeg"
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/2nC6gYv.jpeg"
                     },
                     {
-                        "name": "card8",
+                        "name": "Thoughts and Prayers",
                         "description": "test_description_2",
                         "rarity": "Uncommon",
-                        "image_url": "https://i.imgur.com/7PpQAwo.jpeg"
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/gVQ1IdR.jpeg"
                     },
                     {
-                        "name": "card9",
+                        "name": "Delete this nephew",
                         "description": "test_description_3",
                         "rarity": "Rare",
-                        "image_url": "https://i.imgur.com/Nz7zZNn.jpeg"
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/yHersYP.jpeg"
                     },
                     {
-                        "name": "card10",
+                        "name": "That's a lot of words",
                         "description": "test_description_1",
                         "rarity": "Epic",
-                        "image_url": "https://i.imgur.com/izgPuO1.jpeg"
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/ROEL5w9.jpeg"
                     },
                     {
-                        "name": "card11",
+                        "name": "Bearscape",
                         "description": "test_description_1",
                         "rarity": "Legendary",
-                        "image_url": "https://i.imgur.com/izgPuO1.jpeg"
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/c98RTEX.jpeg"
                     },
                     {
-                        "name": "card12",
+                        "name": "Meme Merchant",
                         "description": "test_description_1",
                         "rarity": "Mythic",
-                        "image_url": "https://i.imgur.com/izgPuO1.jpeg"
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/WgEZ8xe.jpeg"
                     }
                 ]
             }   
