@@ -10,11 +10,6 @@ from discord.ext import commands
 # Data
 from bot.Utils.DataDriver import DataDriver
 
-# Cogs
-from bot.Cogs.General import General
-
-GUILD_ID = discord.Object(id=786999655413579807)
-
 class Bot(commands.Bot):
     _uptime: datetime.datetime = datetime.datetime.utcnow()
 
@@ -38,7 +33,8 @@ class Bot(commands.Bot):
 
     async def setup_hook(self) -> None:
         await self.load_extensions()
-        await self.tree.sync(guild=GUILD_ID)
+        await self.tree.sync()
+        self.logger.info("Sync Done")
 
     async def load_extensions(self) -> None:
         for file in Path("bot/Cogs").glob("*.py"):
@@ -49,9 +45,15 @@ class Bot(commands.Bot):
 
             try:
                 await self.load_extension(ext)
-                self.logger.info(f"Loaded {ext}")
+                cog = self.get_cog(file.stem.capitalize())
+
+                if cog:
+                    commands_list = cog.get_app_commands()
+                    self.logger.info(f"Loaded {ext} with {len(commands_list)} command(s):")
+                    for cmd in commands_list:
+                        print(f"  - /{cmd.name}")
             except Exception as e:
-                self.logger.error(f"Failed loading {ext}: e")
+                self.logger.error(f"Failed loading {ext}: {e}")
         
     @property
     def uptime(self) -> datetime.timedelta:
