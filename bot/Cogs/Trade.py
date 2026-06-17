@@ -29,9 +29,9 @@ class Trade(commands.Cog):
 
     trade = app_commands.Group(name="trade", description="Trade related commands")
 
-    @trade.command(name="give", description="Give card to user.")
+    @trade.command(name="give_card", description="Give card to user.")
     @app_commands.autocomplete(card_name=card_autocomplete)
-    async def trade_give(self, interaction: discord.Interaction, to: discord.Member, card_name: str):
+    async def trade_give_card(self, interaction: discord.Interaction, to: discord.Member, card_name: str):
         user = self.datadriver.get_user(interaction.user.id)
         target_user = self.datadriver.get_user(to.id)
 
