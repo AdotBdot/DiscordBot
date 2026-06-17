@@ -1,5 +1,6 @@
 from collections import defaultdict
 import random
+from typing import Optional
 
 import discord
 from discord import app_commands
@@ -16,6 +17,10 @@ class Packs(commands.Cog):
         self.bot = bot
         self.datadriver = datadriver
 
+    # ====================
+    # Autocomplete
+    # ====================
+
     async def pack_autocomplete(self, interaction: discord.Interaction, current:str) -> list[app_commands.Choice[str]]:
         user = self.datadriver.get_user(interaction.user.id)
 
@@ -26,11 +31,15 @@ class Packs(commands.Cog):
 
         return choices[:25]
 
+    # ====================
+    # Pack commands
+    # ====================
+
     pack = app_commands.Group(name="pack", description="Pack related commands.")
 
     @pack.command(name="open", description="Open pack from your inventory.")
     @app_commands.autocomplete(pack_name=pack_autocomplete)
-    async def pack_open(self, interaction:discord.Interaction, pack_name:str):
+    async def pack_open(self, interaction: discord.Interaction, pack_name: str, count: Optional[int]):
         user = self.datadriver.get_user(interaction.user.id)
 
         if user is None:
@@ -45,6 +54,8 @@ class Packs(commands.Cog):
         if not pack["name"] in user["packs"]:
             await interaction.response.send_message(f"You don't have pack {pack["name"]} in your inventory")
             return
+        
+        user["packs"].remove(pack_name)
 
         cards = self.datadriver.get_cards_from_list(pack["cards"])
         by_rarity = defaultdict(list)
