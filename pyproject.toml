@@ -3,5 +3,6 @@ name = "bsg-bot"
 version = "0.0.0"
 requires-python = ">=3.8"
 dependencies = [
-    "discord.py"
+    "discord.py",
+    "pandas"
 ]
