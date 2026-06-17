@@ -20,6 +20,7 @@ class DataDriver:
         self.bundle_cache = []
         self.collection_cache = []
         self.tag_cache = []
+        self.packs_cache = []
 
     def initialize_database(self):
         self.logger.info("Initializing database...")
@@ -90,6 +91,7 @@ class DataDriver:
                     
                 pack = {"name": pack_name, "cards": card_names}
                 packs.append(pack)
+                self.packs_cache.append(pack["name"])
 
             return packs
 
@@ -125,7 +127,7 @@ class DataDriver:
         user = {
             "id": user_id,
             "cards": [],
-            "packs": [],
+            "packs": ["Common Pack"],
             "cash": 0,
             "melons": 0
         }
@@ -225,7 +227,7 @@ class DataDriver:
 
         return cards
     
-    def get_cards_by_traits(self, bundle: Optional[str] = None, collection: Optional[str] = None, rarity: Optional[str] = None, tags: Optional[list[str]] = None):
+    def get_cards_by_traits(self, bundle: Optional[str] = None, collection: Optional[str] = None, rarity: Optional[str] = None, tag: Optional[str] = None):
         bundle_cards = []
         collection_cards = []
         rarity_cards = []
@@ -240,11 +242,14 @@ class DataDriver:
         if rarity:
             rarity_cards = self.get_cards_by_rarity(rarity)
 
-        if tags:
-            for tag in tags:
-                tagged_cards = self.get_cards_by_tag(tag)
-                if tagged_cards:
-                    tags_cards = tags_cards + tagged_cards
+        if tag:
+            tags_cards = self.get_cards_by_tag(tag)
+        # if tags:
+        #     for tag in tags:
+        #         tagged_cards = self.get_cards_by_tag(tag)
+        #         if tagged_cards:
+        #             tags_cards = tags_cards + tagged_cards
+
 
         lists = [lst for lst in [bundle_cards, collection_cards, rarity_cards, tags_cards] if lst]
         
