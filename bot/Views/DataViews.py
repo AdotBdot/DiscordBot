@@ -41,7 +41,6 @@ def inv_to_container(user: dict, avatar_url: str) -> discord.ui.Container:
             packs[pack_name] = packs.get(pack_name, 0) + 1
 
         msg = ""
-
         for key, value in packs.items():
             msg = msg + f"**{key}**: {value}x\n"
 

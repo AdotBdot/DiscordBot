@@ -265,9 +265,7 @@ class DataDriver:
         ]
 
         name_sets = [set(m.keys()) for m in maps]
-
         common_names = set.intersection(*name_sets)
-
         base_map = maps[0]
 
         return [base_map[name] for name in common_names]
