@@ -1,12 +1,12 @@
 {
     "test_pack_all": {
-        "name": "pack_all",
+        "name": "Common Pack",
         "type": "all"
     },
     "test_pack_bundle": {
-        "name": "pack_bundle",
+        "name": "Cartoons Pack",
         "type": "bundle",
-        "bundle_name": "test_bundle"
+        "bundle_name": "Cartoons"
     },
     "test_pack_collection": {
         "name": "pack_collection",
@@ -17,12 +17,19 @@
         "name": "pack_custom",
         "type": "custom",
         "cards": [
-            "card1",
-            "card2",
-            "card3",
-            "card7",
-            "card8",
-            "card9"
+            "The Nozzle",
+            "Loops Brother",
+            "Goblin Chirurgeon"
         ]
+    },
+    "adventure_time_pack": {
+        "name": "The Enchiridion",
+        "type": "collection",
+        "collection_name": "Adventure Time"
+    },
+    "Influ Pack": {
+        "name": "Instagram",
+        "type": "collection",
+        "collection_name": "Polskie Influencerki"
     }
 }
