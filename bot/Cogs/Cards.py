@@ -112,7 +112,7 @@ class Cards(commands.Cog):
                         sort_by: Optional[str] = None
                         ):
         cards = self.datadriver.get_cards_by_traits(bundle=bundle, collection=collection, rarity=rarity, tag=tag)
-
+        
         if sort_by:
             reversed = False
             key = ""
