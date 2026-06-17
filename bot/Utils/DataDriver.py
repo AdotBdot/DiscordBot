@@ -250,7 +250,6 @@ class DataDriver:
         #         if tagged_cards:
         #             tags_cards = tags_cards + tagged_cards
 
-
         lists = [lst for lst in [bundle_cards, collection_cards, rarity_cards, tags_cards] if lst]
         
         if len(lists) == 1:
