@@ -19,7 +19,7 @@ class General(commands.Cog):
     @app_commands.command(name="lesgo", description="Creates user profile")
     async def lesgo(self, interaction:discord.Interaction):
         if self.datadriver.user_exist(interaction.user.id):
-            await interaction.response.send_message("User already exist.")
+            await interaction.response.send_message("You already have your profile created.")
             return
         
         self.datadriver.create_user(user_id=interaction.user.id)
@@ -27,7 +27,8 @@ class General(commands.Cog):
 
     @app_commands.command(name="help", description="Displays help.")
     async def help(self, interaction: discord.Interaction):
-        pass
+        await interaction.response.send_message("**/help** is not implemented yet.")
 
+# Setup Cog
 async def setup(bot):
     await bot.add_cog(General(bot, bot.datadriver))
