@@ -22,12 +22,21 @@ class Packs(commands.Cog):
     # ====================
 
     async def pack_autocomplete(self, interaction: discord.Interaction, current:str) -> list[app_commands.Choice[str]]:
-        user = self.datadriver.get_user(interaction.user.id)
+        user_id = interaction.user.id
 
-        if not user:
+        if user_id not in self.datadriver.users_df.index:
             return []
+        
+        user_packs = self.datadriver.get_user_packs(user_id)
 
-        choices = [app_commands.Choice(name=pack, value=pack) for pack in set(user["packs"]) if current.lower() in pack.lower()]
+        if not user_packs:
+            return []
+        
+        choices = [
+            app_commands.Choice(name=pack, value=pack) 
+            for pack in set(user_packs) 
+            if current.lower() in pack.lower()
+            ]
 
         return choices[:25]
 
@@ -40,50 +49,61 @@ class Packs(commands.Cog):
     @pack.command(name="open", description="Open pack from your inventory.")
     @app_commands.autocomplete(pack_name=pack_autocomplete)
     async def pack_open(self, interaction: discord.Interaction, pack_name: str, count: Optional[int]):
-        user = self.datadriver.get_user(interaction.user.id)
-
-        if user is None:
+        user_id = interaction.user.id
+        
+        if not self.datadriver.user_exist(user_id):
             await interaction.response.send_message("User does not exist in database.")
             return
         
-        pack = self.datadriver.get_pack_by_name(pack_name)
-        if pack is None:
-            await interaction.response.send_message("Pack not found")
+        if pack_name not in self.datadriver.packs_df.index:
+            await interaction.response.send_message("Pack not found.")
             return
         
-        if not pack["name"] in user["packs"]:
-            await interaction.response.send_message(f"You don't have pack {pack["name"]} in your inventory")
-            return
+        user_packs = self.datadriver.users_df.at[user_id, "packs"] or []
         
-        user["packs"].remove(pack_name)
+        if pack_name not in user_packs: # type: ignore
+            await interaction.response.send_message(f"You don't have pack {pack_name} in your inventory")
+            return
 
-        cards = self.datadriver.get_cards_from_list(pack["cards"])
-        by_rarity = defaultdict(list)
+        # Remove pack from user inventory
+        user_packs.remove(pack_name) # type: ignore
+        self.datadriver.users_df.at[user_id, "packs"] = user_packs  # type: ignore
 
-        for card in cards:
-            by_rarity[card["rarity"]].append(card)
+        # Get cards from pack
+        pack_cards = self.datadriver.packs_df.at[pack_name, "cards"]
+        cards = self.datadriver.cards_df.loc[pack_cards]
+
+        # Group by rarity
+        by_rarity = {rarity: group for rarity, group in cards.groupby("rarity")}
 
         rarities = list(by_rarity.keys())
-        weights = [RARITY_WEIGHT[r] for r in rarities]
+        weights = [RARITY_WEIGHT[r] for r in rarities]  # type: ignore
 
+        # Open pack
         result = []
-        for _ in range(5):
-            chosen_rarity = random.choices(rarities, weights=weights, k=5)[0]
-            chosen_card = random.choice(by_rarity[chosen_rarity])
-            result.append(chosen_card)
 
-        user["cards"] = user["cards"] + [card["name"] for card in result]
-        self.datadriver.save_user(user_id=user["id"])
+        for _ in range(5):
+            chosen_rarity = random.choices(rarities, weights=weights, k=1)[0]
+            pool = by_rarity[chosen_rarity]
+            result.append(pool.iloc[random.randrange(len(pool))])
+
+        # Add card to user
+        user_cards = self.datadriver.users_df.at[user_id, "cards"] or []
+        user_cards.extend([card.name for card in result]) # type: ignore
+        self.datadriver.users_df.at[user_id, "cards"] = user_cards # type: ignore
+
+        # Save user
+        self.datadriver.save_user(user_id)
 
         pages = [card_to_container(card) for card in result]
-        view = PageView(pages, interaction.user.id, f"You've opened {pack["name"]}")
+        view = PageView(pages, interaction.user.id, f"You've opened **{pack_name}**")
         await interaction.response.send_message(view=view)
 
     @pack.command(name="list", description="List all available packs.")
     async def list_packs(self, interaction:discord.Interaction):
-        packs = self.datadriver.packs
+        packs = self.datadriver.packs_cache
 
-        names = ", ".join([p["name"] for p in packs])
+        names = ", ".join([p for p in packs])
 
         await interaction.response.send_message(f"Packs: {names}")
 

@@ -4,9 +4,8 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from bot.Utils.Enums import RARITY_WEIGHT, RARITY_EMOJI
+from bot.Utils.Enums import RARITY_WEIGHT, RARITY_EMOJI, RARITY_ORDER
 from bot.Utils.DataDriver import DataDriver
-from bot.Utils.Helpers import chunk_list, sort_list_by_key
 
 from bot.Views.PageView import PageView
 from bot.Views.DataViews import card_to_container
@@ -37,20 +36,20 @@ class Cards(commands.Cog):
         choices = [app_commands.Choice(name=rarity, value=rarity) for rarity in rarities if current.lower() in rarity.lower()]
         
         return choices[:25]
-    
+
     async def tag_autocomplete(self, interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
         tags = self.datadriver.tag_cache
         choices = [app_commands.Choice(name=tag, value=tag) for tag in tags if current.lower() in tag.lower()]
         
         return choices[:25]
-    
+
     async def sort_by_autocomplete(self, interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
         sort_bys = ["RarityAscending", "NameAscending", "CollectionAscending", "BundleAscending", 
                     "RarityDescending", "NameDescending", "CollectionDescending", "BundleDescending"]
         choices = [app_commands.Choice(name=sort_by, value=sort_by) for sort_by in sort_bys if current.lower() in sort_by.lower()]
         
         return choices[:25]
-
+    
     # ====================
     # Card commands
     # ====================
@@ -67,36 +66,39 @@ class Cards(commands.Cog):
                         sort_by: Optional[str] = None
                         ):
         
-        cards = self.datadriver.get_cards_by_traits(bundle=bundle, collection=collection, rarity=rarity, tag=tag)
+        df = self.datadriver.get_cards_by_traits(bundle=bundle, collection=collection, rarity=rarity, tag=tag)
+
+        if df.empty:
+            await interaction.response.send_message("No cards found.")
+            return
 
         if sort_by:
-            reversed = False
-            key = ""
-            if "Descending" in sort_by:
-                reversed = True
+            reversed = "Descending" in sort_by
 
             if "Rarity" in sort_by:
-                key = "rarity"
+                df = df.copy()
+                df["rarity_rank"] = df["rarity"].map(RARITY_ORDER)
+                df = df.sort_values("rarity_rank", ascending=not reversed)
             elif "Name" in sort_by:
-                key = "name"
+                df = df.sort_values("name", ascending=not reversed)
             elif "Collection" in sort_by:
-                key = "collection"
+                df = df.sort_values("collection", ascending=not reversed)
             elif "Bundle" in sort_by:
-                key = "bundle"
+                df = df.sort_values("bundle", ascending=not reversed)
             else:
                 await interaction.response.send_message(content=f"Invalid key: {sort_by}")
                 return
-            
-            cards = sort_list_by_key(cards, key, reversed)
-
-        cards_chunks = chunk_list(cards, 20)
 
         pages = []
-        for chunk in cards_chunks:
-            container = discord.ui.Container()
-            msg = "\n".join(f"**{RARITY_EMOJI[card["rarity"]]} {card["rarity"]}**: {card["name"]}" for card in chunk)
-            container.add_item(discord.ui.TextDisplay(content=msg))
+        for i in range(0, len(df), 20):
+            chunk = df.iloc[i:i + 20]
+            msg = "\n".join(
+                f"**{RARITY_EMOJI[row["rarity"]]} {row["rarity"]}**: {key}" 
+                for key, row in chunk.iterrows()
+            )
 
+            container = discord.ui.Container()
+            container.add_item(discord.ui.TextDisplay(content=msg))
             pages.append(container)
 
         view = PageView(pages=pages, author_id=interaction.user.id)
@@ -111,30 +113,33 @@ class Cards(commands.Cog):
                         tag: Optional[str] = None,
                         sort_by: Optional[str] = None
                         ):
-        cards = self.datadriver.get_cards_by_traits(bundle=bundle, collection=collection, rarity=rarity, tag=tag)
-        
+        df = self.datadriver.get_cards_by_traits(bundle=bundle, collection=collection, rarity=rarity, tag=tag)
+
+        if df.empty:
+            await interaction.response.send_message("No cards found.")
+            return
+
         if sort_by:
-            reversed = False
-            key = ""
-            if "Descending" in sort_by:
-                reversed = True
+            reversed = "Descending" in sort_by
 
             if "Rarity" in sort_by:
-                key = "rarity"
+                df = df.copy()
+                df["rarity_rank"] = df["rarity"].map(RARITY_ORDER)
+                df = df.sort_values("rarity_rank", ascending=not reversed)
             elif "Name" in sort_by:
-                key = "name"
+                df = df.sort_values("name", ascending=not reversed)
             elif "Collection" in sort_by:
-                key = "collection"
+                df = df.sort_values("collection", ascending=not reversed)
             elif "Bundle" in sort_by:
-                key = "bundle"
+                df = df.sort_values("bundle", ascending=not reversed)
             else:
                 await interaction.response.send_message(content=f"Invalid key: {sort_by}")
                 return
-            
-            cards = sort_list_by_key(cards, key, reversed)
 
-        pages = [card_to_container(card) for card in cards]
+        pages = [card_to_container(row) for _, row in df.iterrows()]
         view = PageView(pages=pages, author_id=interaction.user.id)
         await interaction.response.send_message(view=view)
+
+# Setup Cog
 async def setup(bot):
     await bot.add_cog(Cards(bot, bot.datadriver))

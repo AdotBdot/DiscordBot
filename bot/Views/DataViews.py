@@ -1,10 +1,12 @@
+import pandas as pd
+
 import discord
 from discord.ext import commands
 
 from bot.Utils.Enums import RARITY_COLOR, RARITY_EMOJI
 from bot.Utils.Helpers import wrap_text
 
-def card_to_container(card: dict) -> discord.ui.Container:
+def card_to_container(card: pd.Series) -> discord.ui.Container:
     rarity = card["rarity"]
     description = "\n".join(wrap_text("**Description**: " + card["description"]))
 
@@ -15,7 +17,7 @@ def card_to_container(card: dict) -> discord.ui.Container:
         tags = "None" 
 
     container = discord.ui.Container(
-            discord.ui.TextDisplay(content=f"## {card["name"]}"),
+            discord.ui.TextDisplay(content=f"## {card.name}"),
             discord.ui.TextDisplay(content=f"**Rarity**: {rarity} {RARITY_EMOJI[rarity]}\n**Bundle:** {card["bundle"]}\n**Collection:** {card["collection"]}\n**Tags**: {tags}"),
             discord.ui.MediaGallery(
                 discord.MediaGalleryItem(media=card["image_url"])
@@ -35,7 +37,7 @@ def user_to_container(user: dict, total_cards: int) -> discord.ui.Container:
 
     return container
 
-def inv_to_container(user: dict, avatar_url: str) -> discord.ui.Container:
+def inv_to_container(user: pd.Series, avatar_url: str) -> discord.ui.Container:
         packs = {}
         for pack_name in user["packs"]:
             packs[pack_name] = packs.get(pack_name, 0) + 1

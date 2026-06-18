@@ -5,7 +5,7 @@ from discord import app_commands
 from discord.ext import commands
 
 from bot.Utils.DataDriver import DataDriver
-from bot.Utils.Enums import RARITY_EMOJI
+from bot.Utils.Enums import RARITY_EMOJI, RARITY_ORDER
 from bot.Utils.Helpers import chunk_dict
 
 from bot.Views.DataViews import card_to_container, user_to_container, inv_to_container
@@ -21,27 +21,34 @@ class Users(commands.Cog):
     # Autocomplete
     # ====================
 
-    async def bundle_autocomplete(self, interaction: discord.Interaction, current:str) -> list[app_commands.Choice[str]]:
+    async def bundle_autocomplete(self, interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
         bundles = self.datadriver.bundle_cache
         choices = [app_commands.Choice(name=bundle, value=bundle) for bundle in bundles if current.lower() in bundle.lower()]
         
         return choices[:25]
 
-    async def collection_autocomplete(self, interaction: discord.Interaction, current:str) -> list[app_commands.Choice[str]]:
-        collections = self.datadriver.bundle_cache
+    async def collection_autocomplete(self, interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
+        collections = self.datadriver.collection_cache
         choices = [app_commands.Choice(name=collection, value=collection) for collection in collections if current.lower() in collection.lower()]
         
         return choices[:25]
 
-    async def rarity_autocomplete(self, interaction: discord.Interaction, current:str) -> list[app_commands.Choice[str]]:
+    async def rarity_autocomplete(self, interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
         rarities = ["Common", "Uncommon", "Rare", "Epic", "Legendary", "Mythic"]
         choices = [app_commands.Choice(name=rarity, value=rarity) for rarity in rarities if current.lower() in rarity.lower()]
         
         return choices[:25]
-    
-    async def tag_autocomplete(self, interaction: discord.Interaction, current:str) -> list[app_commands.Choice[str]]:
+
+    async def tag_autocomplete(self, interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
         tags = self.datadriver.tag_cache
         choices = [app_commands.Choice(name=tag, value=tag) for tag in tags if current.lower() in tag.lower()]
+        
+        return choices[:25]
+
+    async def sort_by_autocomplete(self, interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
+        sort_bys = ["RarityAscending", "NameAscending", "CollectionAscending", "BundleAscending", 
+                    "RarityDescending", "NameDescending", "CollectionDescending", "BundleDescending"]
+        choices = [app_commands.Choice(name=sort_by, value=sort_by) for sort_by in sort_bys if current.lower() in sort_by.lower()]
         
         return choices[:25]
 
@@ -57,7 +64,7 @@ class Users(commands.Cog):
             await interaction.response.send_message(f"User does not exist in database.")
             return
 
-        container = user_to_container(user, self.datadriver.get_cards_count())
+        container = user_to_container(user, self.datadriver.get_cards_count()) # type: ignore
         view = SimpleView(content=container, header=f"{interaction.user.mention}\n## Profile", thumbnail=interaction.user.display_avatar.url)
 
         await interaction.response.send_message(view=view)
@@ -70,92 +77,137 @@ class Users(commands.Cog):
 
     @inventory.command(name="packs", description="Displays packs in users inventory.")
     async def inventory_packs(self, interaction: discord.Interaction):
+        user_id = interaction.user.id
         user = self.datadriver.get_user(interaction.user.id)
-
-        if user is None:
+        if not self.datadriver.user_exist(user_id):
             await interaction.response.send_message("User does not exist in database.")
             return
-        
-        if user["packs"] == []:
-            await interaction.response.send_message("You don't have any packs in your inventory.")
-            return      
 
-        container = inv_to_container(user, interaction.user.display_avatar.url)
+        user = self.datadriver.users_df.loc[user_id]
+
+        if not user["packs"]: # type: ignore
+            await interaction.response.send_message("You don't have any packs in your inventory.")
+            return        
+
+        #UI
+        container = inv_to_container(user, interaction.user.display_avatar.url) # type: ignore
         view = SimpleView(container, header=f"{interaction.user.mention}\n## Inventory", thumbnail=interaction.user.display_avatar.url)
 
         await interaction.response.send_message(view=view)
 
     @inventory.command(name="cards_gallery", description="Display cards in user inventory")
-    @app_commands.autocomplete(bundle=bundle_autocomplete, collection=collection_autocomplete, rarity=rarity_autocomplete, tag=tag_autocomplete)
+    @app_commands.autocomplete(bundle=bundle_autocomplete, collection=collection_autocomplete, rarity=rarity_autocomplete, tag=tag_autocomplete, sort_by=sort_by_autocomplete)
     async def inventory_cards_gallery(self, interaction: discord.Interaction, 
                         bundle: Optional[str] = None, 
                         collection: Optional[str] = None,
                         rarity: Optional[str] = None,
-                        tag: Optional[str] = None
+                        tag: Optional[str] = None,
+                        sort_by: Optional[str] = None
                         ):
-        user = self.datadriver.get_user(interaction.user.id)
+        user_id = interaction.user.id
 
+        user = self.datadriver.get_user(user_id)
         if user is None:
-            await interaction.response.send_message("User does not exist in database.")
+            await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
+            return
+
+        df = self.datadriver.get_user_cards(user_id, bundle=bundle, collection=collection, rarity=rarity, tag=tag)
+        if df.empty:
+            await interaction.response.send_message(content="You don't have any cards in your collection.")
             return
         
-        if user["cards"] == []:
-            await interaction.response.send_message("You don't have any cards in your inventory.")
-            return           
+        # Sort cards
+        if sort_by:
+            reversed = "Descending" in sort_by
 
-        cards = {}
-        for card in user["cards"]:
-            cards[card] = cards.get(card, 0) + 1
+            if "Rarity" in sort_by:
+                df = df.copy()
+                df["rarity_rank"] = df["rarity"].map(RARITY_ORDER)
+                df = df.sort_values("rarity_rank", ascending=not reversed)
+            elif "Name" in sort_by:
+                df = df.sort_values("name", ascending=not reversed)
+            elif "Collection" in sort_by:
+                df = df.sort_values("collection", ascending=not reversed)
+            elif "Bundle" in sort_by:
+                df = df.sort_values("bundle", ascending=not reversed)
+            else:
+                await interaction.response.send_message(content=f"Invalid key: {sort_by}")
+                return
 
+        # Count cards
+        df_counts = df.groupby(level=0).size()
+        df = df[~df.index.duplicated(keep="first")]
+
+        # UI
         pages = []
-        for key, value in cards.items():
-            card = self.datadriver.get_card_by_name(key)
-            if card:
-                page = card_to_container(card)
-                page.add_item(discord.ui.TextDisplay(content=f"**{value}x**"))
-                pages.append(page)
+        for key, value in df.iterrows():
+            page = card_to_container(value)
+            page.add_item(discord.ui.TextDisplay(content=f"**x{df_counts[key]}**")) # type: ignore
+            pages.append(page)
         
-        view = PageView(pages, interaction.user.id, f"{interaction.user.mention}\n## Collection", thumbnail=interaction.user.display_avatar.url)
+        view = PageView(pages, user_id, f"{interaction.user.mention}\n## Collection", thumbnail=interaction.user.display_avatar.url)
         await interaction.response.send_message(view=view)
 
     @inventory.command(name="cards_list", description="Display cards in user inventory")
-    @app_commands.autocomplete(bundle=bundle_autocomplete, collection=collection_autocomplete, rarity=rarity_autocomplete, tag=tag_autocomplete)
+    @app_commands.autocomplete(bundle=bundle_autocomplete, collection=collection_autocomplete, rarity=rarity_autocomplete, tag=tag_autocomplete, sort_by=sort_by_autocomplete)
     async def inventory_cards_list(self, interaction: discord.Interaction, 
                         bundle: Optional[str] = None, 
                         collection: Optional[str] = None,
                         rarity: Optional[str] = None,
-                        tag: Optional[str] = None
+                        tag: Optional[str] = None,
+                        sort_by: Optional[str] = None
                         ):
-        user = self.datadriver.get_user(interaction.user.id)
+        user_id = interaction.user.id
 
+        user = self.datadriver.get_user(user_id)
         if user is None:
-            await interaction.response.send_message("User does not exist in database.")
+            await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
+            return
+
+        df = self.datadriver.get_user_cards(user_id, bundle=bundle, collection=collection, rarity=rarity, tag=tag)
+        if df.empty:
+            await interaction.response.send_message(content="You don't have any cards in your collection.")
             return
         
-        if user["cards"] == []:
-            await interaction.response.send_message("You don't have any cards in your inventory.")
-            return           
+        # Sort cards
+        if sort_by:
+            reversed = "Descending" in sort_by
+
+            if "Rarity" in sort_by:
+                df = df.copy()
+                df["rarity_rank"] = df["rarity"].map(RARITY_ORDER)
+                df = df.sort_values("rarity_rank", ascending=not reversed)
+            elif "Name" in sort_by:
+                df = df.sort_values("name", ascending=not reversed)
+            elif "Collection" in sort_by:
+                df = df.sort_values("collection", ascending=not reversed)
+            elif "Bundle" in sort_by:
+                df = df.sort_values("bundle", ascending=not reversed)
+            else:
+                await interaction.response.send_message(content=f"Invalid key: {sort_by}")
+                return
         
-        cards = {}
-        for card in user["cards"]:
-            cards[card] = cards.get(card, 0) + 1
+        # Count cards
+        df_counts = df.groupby(level=0).size()
+        df = df[~df.index.duplicated(keep="first")]
 
-        cards_chunks = chunk_dict(cards, 20)
-
+        #UI
         pages = []
-        for chunk in cards_chunks:
+        for i in range(0, len(df), 20):
+            chunk = df.iloc[i:i + 20]
+
+            msg = "\n".join(
+                f"**{RARITY_EMOJI[row["rarity"]]} {row["rarity"]}**: {key} **x{df_counts[key]}**"  # type: ignore
+                for key, row in chunk.iterrows()
+            )
+
             container = discord.ui.Container()
-            msg = ""
-            for key, value in chunk.items():
-                card = self.datadriver.get_card_by_name(key)
-                if card:
-                    entry = f"**{RARITY_EMOJI[card["rarity"]]} {card["rarity"]}**: {card["name"]} **{value}x**\n"
-                    msg = msg + entry
             container.add_item(discord.ui.TextDisplay(content=msg))
             pages.append(container)
-        
-        view = PageView(pages, interaction.user.id, f"{interaction.user.mention}\n## Collection", thumbnail=interaction.user.display_avatar.url)
-        await interaction.response.send_message(view=view) 
 
+        view = PageView(pages=pages, author_id=user_id, header=f"{interaction.user.mention}\n## Collection", thumbnail=interaction.user.display_avatar.url)
+        await interaction.response.send_message(view=view)
+
+# Setup Cog
 async def setup(bot):
     await bot.add_cog(Users(bot, bot.datadriver))

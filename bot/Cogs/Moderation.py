@@ -31,7 +31,7 @@ class Moderation(commands.Cog):
     @app_commands.command(name="setup", description="Setups bot on server.")
     @admin_only()
     async def setup(self, interaction: discord.Interaction):
-        await interaction.response.send_message("ok")
+        await interaction.response.send_message("**/setup** is not implemented yet.")
 
     @app_commands.command(name="reload_module", description="Reloads module.")
     @admin_only()
@@ -48,7 +48,9 @@ class Moderation(commands.Cog):
     @admin_only()
     async def update_users(self, interaction: discord.Interaction):
         try:
-            self.datadriver.update_users()
+            for user_id in self.datadriver.users_df.index:
+                self.datadriver.update_user(user_id)
+
             await interaction.response.send_message(f"Updated user database.")
         except Exception as e:
             await interaction.response.send_message(f"Error updating users: '{e}'.")
@@ -70,8 +72,8 @@ class Moderation(commands.Cog):
         container = discord.ui.Container(
             discord.ui.TextDisplay(content=f"**Uptime**: {days}d {hours}h {minutes}m {seconds}s"),
             discord.ui.Separator(visible=True),
-            discord.ui.TextDisplay(content=f"**Users**: {len(self.datadriver.users)}"),
-            discord.ui.TextDisplay(content=f"**Bundles**: {len(self.datadriver.bundle_cache)}\n**Collections**: {len(self.datadriver.collection_cache)}\n**Cards**: {self.datadriver.get_cards_count()}\n**Packs**: {len(self.datadriver.packs)}")
+            discord.ui.TextDisplay(content=f"**Users**: {len(self.datadriver.users_df)}"),
+            discord.ui.TextDisplay(content=f"**Bundles**: {len(self.datadriver.bundle_cache)}\n**Collections**: {len(self.datadriver.collection_cache)}\n**Cards**: {self.datadriver.get_cards_count()}\n**Packs**: {len(self.datadriver.packs_df)}")
         )
 
         view = SimpleView(content=container, header="## Bot stats")
@@ -82,7 +84,7 @@ class Moderation(commands.Cog):
     # ====================
 
     give = app_commands.Group(name="give", description="Give item to user inventory.")
-
+    
     @give.command(name="pack")
     @admin_only()
     @app_commands.autocomplete(pack=pack_autocomplete)
@@ -93,47 +95,45 @@ class Moderation(commands.Cog):
             await interaction.response.send_message(f"User does not exist in database.")
             return
         
-        for _ in range(count):
-            user["packs"].append(pack)
+        user_packs = user["packs"]
 
-        self.datadriver.save_user(user["id"])
+        for _ in range(count):
+            user_packs.append(pack)
+
+        self.datadriver.users_df.at[interaction.user.id, "packs"] = user_packs # type: ignore
+
+        self.datadriver.save_user(interaction.user.id)
         
         await interaction.response.send_message(f"Gave {count} pack(s): {pack} to user {target_user.mention}")
 
     @give.command(name="cocoses")
     @admin_only()
     async def give_cocoses(self, interaction: discord.Interaction, target_user: discord.Member, cocoses: int):
-        user = self.datadriver.get_user(target_user.id)
+        user_id = interaction.user.id
 
-        if user is None:
+        if not self.datadriver.user_exist(user_id):
             await interaction.response.send_message(f"User does not exist in database.")
             return
         
-        user["cash"] += cocoses
-        self.datadriver.save_user(user["id"])
+        self.datadriver.users_df.at[user_id, "cash"] += cocoses # type: ignore
+        self.datadriver.save_user(user_id)
         
         await interaction.response.send_message(f"Gave {cocoses} 🥥 to user {target_user.mention}")
 
     @give.command(name="melones")
     @admin_only()
     async def give_melones(self, interaction: discord.Interaction, target_user: discord.Member, melones: int):
-        user = self.datadriver.get_user(target_user.id)
+        user_id = interaction.user.id
 
-        if user is None:
+        if not self.datadriver.user_exist(user_id):
             await interaction.response.send_message(f"User does not exist in database.")
             return
         
-        user["melons"] += melones
-        self.datadriver.save_user(user["id"])
+        self.datadriver.users_df.at[user_id, "melons"] += melones # type: ignore
+        self.datadriver.save_user(user_id)
         
         await interaction.response.send_message(f"Gave {melones} 🍉 to user {target_user.mention}")
-    
-    # /config group
-    # config = discord.app_commands.Group(name="config", description="Bot configuration commands.")
 
-    # @config.command(name="set")
-    # async def set_config(self, interaction: discord.Interaction, key:str, value:str):
-    #     pass
-
+# Setup Cog
 async def setup(bot):
     await bot.add_cog(Moderation(bot, bot.datadriver))

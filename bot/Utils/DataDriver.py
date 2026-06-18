@@ -3,6 +3,12 @@ import json
 from pathlib import Path
 from typing import Optional
 
+import pandas as pd
+
+CARDS_FOLDER = Path("data/cards")
+PACKS_FOLDER = Path("data/packs")
+USERS_FOLDER = Path("data/users")
+
 class DataDriver:
     def __init__(self, logs_handler):
         self.logger = logging.getLogger("DataDriver")
@@ -12,15 +18,14 @@ class DataDriver:
 
         self.config = {}
 
-        self.cards:list = []
-        self.packs:list = []
-        self.users:list = []
-        
-        self.card_map:dict = {}
-        self.bundle_cache = []
-        self.collection_cache = []
-        self.tag_cache = []
-        self.packs_cache = []
+        self.bundle_cache: list[str] = []
+        self.collection_cache: list[str] = []
+        self.tag_cache: list[str] = []
+        self.packs_cache: list[str] = []
+
+        self.cards_df = pd.DataFrame(columns=["rarity", "bundle", "collection", "tags"]).set_index(pd.Index([], name="name"))
+        self.packs_df = pd.DataFrame(columns=["cards"]).set_index(pd.Index([], name="name"))
+        self.users_df = pd.DataFrame(columns=["cards", "packs", "cash", "melons"]).set_index(pd.Index([], name="id"))
 
     def initialize_database(self):
         self.logger.info("Initializing database...")
@@ -29,92 +34,87 @@ class DataDriver:
         self.load_packs()
         self.load_users()
 
+        self.init_card_caches()
+
+    def init_card_caches(self):
+        self.bundle_cache = sorted(self.cards_df["bundle"].dropna().unique().tolist())
+        self.collection_cache = sorted(self.cards_df["collection"].dropna().unique().tolist())
+        self.packs_cache = sorted(self.packs_df.index.unique().tolist())
+
+        self.tags_cache = sorted({
+            tag
+            for tags in self.cards_df["tags"].dropna()
+            for tag in tags
+        })
+
     def load_cards(self):
         cards_data = []
         for file in Path("data/cards").glob("*.json"):
             with open(file, "r", encoding="utf-8") as f:
                 cards_data.append(json.load(f))
 
+        cards = []
         for data in cards_data:
-            cards = []
-            for bundle in data.values():
-                if not bundle["name"] in self.bundle_cache: self.bundle_cache.append(bundle["name"])
+            for bundle in data:
                 for collection in bundle["collections"]:
-                    if not collection["name"] in self.collection_cache: self.collection_cache.append(collection["name"])
                     for card in collection["cards"]:
-                        card["bundle"] = bundle["name"]
-                        card["collection"] = collection["name"]
-                        cards.append(card)
+                        cards.append({
+                            "name": card["name"],
+                            "bundle": bundle["name"],
+                            "collection": collection["name"],
+                            "rarity": card["rarity"],
+                            "description": card["description"],
+                            "image_url": card["image_url"],
+                            "tags": card["tags"]
+                        })
 
-                        for tag in card["tags"]:
-                            if not tag in self.tag_cache: self.tag_cache.append(tag)
-
-            self.cards = self.cards + cards
-
-        self.card_map = {card["name"]: card for card in self.cards}
-        
-        self.logger.info(f"Loaded {len(self.cards)} card(s)")
+        self.cards_df = pd.DataFrame(cards).set_index("name")
+        self.logger.info(f"Loaded {len(self.cards_df)} card(s)")
 
     def load_packs(self):
-        def deserialize_packs(data: dict) -> list:
-            packs = []
-            for pack_data in data.values():
-                pack_name = pack_data["name"]
-                pack_type = pack_data["type"]
+        all_cards = set(self.cards_df.index)
+        bundles = self.cards_df.groupby("bundle").apply(lambda df: df.index.to_list()).to_dict() if "bundle" in self.cards_df.columns else {}
+        collections = self.cards_df.groupby("collection").apply(lambda df: df.index.to_list()).to_dict() if "collection" in self.cards_df.columns else {}
 
-                cards = []
-                if pack_type == "all":
-                    cards = self.get_all_cards()
-                elif pack_type == "bundle":
-                    cards = self.get_cards_by_bundle(pack_data["bundle_name"])
-                elif pack_type == "collection":
-                    cards = self.get_cards_by_collection(pack_data["collection_name"])
-                elif pack_type == "custom":
-                    card_names = pack_data["cards"]
-                    for name in card_names:
-                        card = self.get_card_by_name(name)
-                        if not card:
-                            self.logger.warning(f"Pack '{pack_name}': Card '{name}' not found. Skipping")
-                            continue
-                        cards.append(card)
-                else:
-                    self.logger.warning(f"Pack '{pack_name}': Invalid pack type '{pack_type}'. Skipping")
-                    continue
-
-                if not cards:
-                    self.logger.warning(f"Pack '{pack_name}': Got empty cards list. Skipping")
-                    continue
-
-                card_names = []
-                for card in cards:
-                    card_names.append(card["name"])
-                    
-                pack = {"name": pack_name, "cards": card_names}
-                packs.append(pack)
-                self.packs_cache.append(pack["name"])
-
-            return packs
-
-        packs_data = []
+        packs = []
         for file in Path("data/packs").glob("*.json"):
             with open(file, "r", encoding="utf-8") as f:
-                packs_data.append(json.load(f))
+                file_packs = json.load(f)
         
-        for data in packs_data:
-            self.packs = self.packs + deserialize_packs(data)
-        
-        self.logger.info(f"Loaded {len(self.packs)} pack(s)")
+        for pack in file_packs:
+            name = pack["name"]
+            ptype = pack["type"]
+
+            if ptype == "all":
+                cards = list(all_cards)
+            elif ptype == "bundle":
+                bundle_name = pack["bundle_name"]
+                cards = bundles.get(bundle_name, [])
+            elif ptype == "collection":
+                collection_name = pack["collection_name"]
+                cards = collections.get(collection_name, [])
+            elif ptype == "custom":
+                cards = [c for c in pack.get("cards", []) if c in all_cards]
+            else:
+                self.logger.info(f"Invalid pack type '{ptype}' for pack '{name}'. Skipping")
+                continue
+            
+            packs.append({"name": name, "cards": cards})
+
+        self.packs_df = pd.DataFrame(packs).set_index("name")
+        self.logger.info(f"Loaded {len(self.packs_df)} pack(s)")
     
     def load_users(self):
         users_data = []
+
         for file in Path("data/users").glob("*.json"):
             with open(file, "r", encoding="utf-8") as f:
                 users_data.append(json.load(f))
 
-        for data in users_data:
-            self.users.append(data)
-        
-        self.logger.info(f"Loaded {len(self.users)} user(s)")
+        if users_data:
+            self.users_df = pd.DataFrame(users_data).set_index("id")
+
+        self.logger.info(f"Loaded {len(self.users_df)} user(s)")
 
     def load_config(self) -> dict:
         return {}
@@ -123,159 +123,141 @@ class DataDriver:
     # User methods
     # ====================
 
+    def user_exist(self, user_id: int):
+        return user_id in self.users_df.index
+
     def create_user(self, user_id: int):
-        user = {
-            "id": user_id,
+        if self.user_exist(user_id):
+            raise ValueError(f"User {user_id} already exists")
+        
+        user_data = {
             "cards": [],
             "packs": ["Common Pack"],
             "cash": 0,
             "melons": 0
         }
 
-        self.users.append(user)
-        self.save_user(user["id"])
+        self.users_df.loc[user_id] = user_data
 
-        self.logger.info(f"Created user {user["id"]} and saved to database")
+        self.save_user(user_id)
+
+        self.logger.info(f"Created user {user_id} and saved to database")
 
     def save_user(self, user_id: int):
-        user = self.get_user(user_id)
-
-        if not user:
-            self.logger.warning(f"User {user_id} not found.")
+        if not self.user_exist(user_id):
+            self.logger.info(f"User {user_id} doesn't exist in database")
             return
+        
+        user_data = self.users_df.loc[user_id].to_dict()
+        user_data["id"] = user_id
 
-        with open(f"data/users/{user["id"]}.json", "w", encoding="utf-8") as file:
-            json.dump(user, file, indent=4, ensure_ascii=False)
+        file_path = USERS_FOLDER / f"{user_id}.json"
+        file_path.write_text(json.dumps(user_data, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    def update_users(self):
-        for user in self.users:
-            self.save_user(user["id"])
-
-        self.users = []
-        self.load_users()
-
-    def user_exist(self, user_id: int) -> bool:
-        return any(user["id"] == user_id for user in self.users)
+    def update_user(self, user_id: int , **fields) -> pd.Series:
+        if not self.user_exist(user_id):
+            raise KeyError(f"User {user_id} not found")
     
-    def get_user(self, user_id: int) -> Optional[dict]:
-        for user in self.users:
-            if user["id"] == user_id:
-                return user
-            
-        return None
+        for key, value in fields.items():
+            self.users_df.at[user_id, key] = value
+
+        file_path = USERS_FOLDER / f"{user_id}.json"
+
+        user_data = self.users_df.loc[user_id].to_dict()
+        user_data["id"] = user_id
+
+        file_path.write_text(json.dumps(user_data, indent=2, ensure_ascii=False), encoding="utf-8")
+
+        return self.users_df[self.users_df.index == user_id].iloc[0]
+
+    def get_user(self, user_id: int):
+        if not self.user_exist(user_id):
+            return None
+        
+        return self.users_df.loc[user_id]
 
     # ====================
     # Cards methods
     # ====================
 
     def get_cards_count(self) -> int:
-        return len(self.cards)
+        return len(self.cards_df)
 
-    def get_card_by_name(self, name: str) -> Optional[dict]:
-        return self.card_map.get(name)
-    
-    def get_all_cards(self) -> list:
-        return self.cards
-    
-    def get_cards_by_bundle(self, bundle_name: str) -> Optional[list[dict]]:
-        if bundle_name not in self.bundle_cache:
-            return []
-
-        cards = []
-        for card in self.cards:
-            if card["bundle"] == bundle_name:
-                cards.append(card)
-
-        return cards
-
-    def get_cards_by_collection(self, collection_name: str) -> Optional[list[dict]]:
-        if collection_name not in self.collection_cache:
-            return []
-
-        cards = []
-        for card in self.cards:
-            if card["collection"] == collection_name:
-                cards.append(card)
-
-        return cards
-    
-    def get_cards_by_rarity(self, rarity: str) -> Optional[list[dict]]:
-        cards = []
-        for card in self.cards:
-            if card["rarity"] == rarity:
-                cards.append(card)
-
-        return cards
-    
-    def get_cards_by_tag(self, tag: str) -> Optional[list]:
-        if tag not in self.tag_cache:
-            return []
+    def get_card_by_name(self, name: str):
+        if name not in self.cards_df.index:
+            return None
         
-        cards = []
-        for card in self.cards:
-            if tag in card["tags"]:
-                cards.append(card)
-
-        return cards
-
-    def get_cards_from_list(self, card_list: list) -> list[dict]:
-        cards = []
-        for card_name in card_list:
-            card = self.get_card_by_name(card_name)
-            if card is not None:
-                cards.append(card)
-
-        return cards
+        return self.cards_df.loc[name]
     
-    def get_cards_by_traits(self, bundle: Optional[str] = None, collection: Optional[str] = None, rarity: Optional[str] = None, tag: Optional[str] = None):
-        bundle_cards = []
-        collection_cards = []
-        rarity_cards = []
-        tags_cards = []
+    def get_all_cards(self) -> pd.DataFrame:
+        return self.cards_df.copy()
 
-        if bundle:
-            bundle_cards = self.get_cards_by_bundle(bundle)
+    def get_cards_by_names(self, names: list[str]) -> pd.DataFrame:
+        names_set = set(names)
 
-        if collection:
-            collection_cards = self.get_cards_by_collection(collection)
+        existing = names_set.intersection(self.cards_df.index)
 
-        if rarity:
-            rarity_cards = self.get_cards_by_rarity(rarity)
+        if not existing:
+            return pd.DataFrame(columns=self.cards_df.columns)
 
-        if tag:
-            tags_cards = self.get_cards_by_tag(tag)
-        # if tags:
-        #     for tag in tags:
-        #         tagged_cards = self.get_cards_by_tag(tag)
-        #         if tagged_cards:
-        #             tags_cards = tags_cards + tagged_cards
+        return self.cards_df.loc[list(existing)]
+    
+    def get_cards_by_traits(self, bundle: Optional[str] = None, collection: Optional[str] = None, rarity: Optional[str] = None, tag: Optional[str] = None) -> pd.DataFrame:
+        if all(x is None for x in [bundle, collection, rarity, tag]):
+            raise ValueError("At least one trait must be provided")  
 
-        lists = [lst for lst in [bundle_cards, collection_cards, rarity_cards, tags_cards] if lst]
+        df = self.cards_df
+
+        if bundle is not None:
+            df = df[df["bundle"] == bundle]
+        if collection is not None:
+            df = df[df["collection"] == collection]
+        if rarity is not None:
+            df = df[df["rarity"] == rarity]
+        if tag is not None:
+            df = df[df["tags"].apply(lambda tags: tag in tags)]
+
+        return df
+    
+    def get_user_cards(self, user_id: int, bundle: Optional[str] = None, collection: Optional[str] = None, rarity: Optional[str] = None, tag: Optional[str] = None) -> pd.DataFrame:
+        if user_id not in self.users_df.index:
+            return pd.DataFrame(columns=self.cards_df.columns)
         
-        if len(lists) == 1:
-            return lists[0]
-        
-        if not lists:
-            return []
-        
-        maps = [
-            {item["name"]: item for item in lst}
-            for lst in lists
-        ]
+        user_cards = self.users_df.at[user_id, "cards"]
 
-        name_sets = [set(m.keys()) for m in maps]
-        common_names = set.intersection(*name_sets)
-        base_map = maps[0]
+        if not user_cards:
+            return pd.DataFrame(columns=self.cards_df.columns)
+        
+        df = self.cards_df.loc[user_cards]
 
-        return [base_map[name] for name in common_names]
+        if bundle is not None:
+            df = df[df["bundle"] == bundle]
+        if collection is not None:
+            df = df[df["collection"] == collection]
+        if rarity is not None:
+            df = df[df["rarity"] == rarity]
+        if tag is not None:
+            df = df[df["tags"].apply(lambda tags: tag in tags)]
+
+        return df # type: ignore
 
     # ====================
     # Packs methods
     # ====================
 
-    def get_pack_by_name(self, name: str) -> Optional[dict]:
-        for pack in self.packs:
-            if pack["name"] == name:
-                return pack
-            
-        return None
+    def get_pack_by_name(self, name: str):
+        if not name in self.packs_df.index:
+            return None
+
+        return self.packs_df.loc[name]
+    
+    def get_user_packs(self, user_id: int) -> list[str]:
+        if not self.user_exist(user_id):
+            return []
+        
+        packs = self.users_df.at[user_id, "packs"]
+
+        if isinstance(packs, list):
+            return packs
+        
+        return []
