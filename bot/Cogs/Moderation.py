@@ -17,6 +17,19 @@ class Moderation(commands.Cog):
     # Autocomplete
     # ====================
 
+    async def card_autocomplete(self, interaction: discord.Interaction, current:str) -> list[app_commands.Choice[str]]:
+        if len(current) < 3:
+            return[]
+        
+        df = self.datadriver.cards_df
+
+        matches = df.index[df.index.str.contains(current, case=False, na=False)]
+
+        return [
+            app_commands.Choice(name=name, value=name)
+            for name in matches[:25]
+        ]
+
     async def pack_autocomplete(self, interaction: discord.Interaction, current:str) -> list[app_commands.Choice[str]]:
         packs = self.datadriver.packs_cache
         choices = [app_commands.Choice(name=pack, value=pack) for pack in packs if current.lower() in pack.lower()]
@@ -80,6 +93,28 @@ class Moderation(commands.Cog):
 
     give = app_commands.Group(name="give", description="Gives item to user inventory.")
     
+    @give.command(name="card", description="Gives card to user collection.")
+    @admin_only()
+    @app_commands.autocomplete(card=card_autocomplete)
+    async def give_card(self, interaction: discord.Interaction, target_user: discord.Member, card: str):
+        target_user_id = target_user.id
+
+        if target_user_id not in self.datadriver.users_df.index:
+            await interaction.response.send_message("User does not exist in database.")
+            return
+        
+        if card not in self.datadriver.cards_df.index:
+            await interaction.response.send_message("Card not found.")
+            return
+        
+        user_cards = self.datadriver.users_df.at[target_user_id, "cards"] or []
+        user_cards.append(card) # type: ignore
+        self.datadriver.users_df.at[target_user_id, "cards"] = user_cards # type: ignore
+
+        self.datadriver.save_user(target_user_id)
+
+        await interaction.response.send_message(f"Gave **{card}** to {target_user.mention}")
+
     @give.command(name="pack")
     @admin_only()
     @app_commands.autocomplete(pack=pack_autocomplete)
