@@ -59,14 +59,17 @@ class Packs(commands.Cog):
             await interaction.response.send_message("Pack not found.")
             return
         
+        open_count = count or 1
         user_packs = self.datadriver.users_df.at[user_id, "packs"] or []
         
-        if pack_name not in user_packs: # type: ignore
-            await interaction.response.send_message(f"You don't have pack {pack_name} in your inventory")
+        if user_packs.count(pack_name) < open_count: # type: ignore
+            await interaction.response.send_message(f"You don't have enough **{pack_name}** in your inventory")
             return
 
         # Remove pack from user inventory
-        user_packs.remove(pack_name) # type: ignore
+        for _ in range(open_count):
+            user_packs.remove(pack_name) # type: ignore
+            
         self.datadriver.users_df.at[user_id, "packs"] = user_packs  # type: ignore
 
         # Get cards from pack
@@ -82,7 +85,7 @@ class Packs(commands.Cog):
         # Open pack
         result = []
 
-        for _ in range(5):
+        for _ in range(5 * open_count):
             chosen_rarity = random.choices(rarities, weights=weights, k=1)[0]
             pool = by_rarity[chosen_rarity]
             result.append(pool.iloc[random.randrange(len(pool))])
