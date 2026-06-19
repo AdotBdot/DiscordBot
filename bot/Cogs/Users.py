@@ -56,7 +56,7 @@ class Users(commands.Cog):
     # Profile commands
     # ====================
 
-    @app_commands.command(name="profile", description="Display user profile.")
+    @app_commands.command(name="profile", description="Displays user profile.")
     async def profile(self, interaction: discord.Interaction):
         user = self.datadriver.get_user(interaction.user.id)
 
@@ -95,7 +95,7 @@ class Users(commands.Cog):
 
         await interaction.response.send_message(view=view)
 
-    @inventory.command(name="cards_gallery", description="Display cards in user inventory")
+    @inventory.command(name="cards_gallery", description="Displays cards in user inventory")
     @app_commands.autocomplete(bundle=bundle_autocomplete, collection=collection_autocomplete, rarity=rarity_autocomplete, tag=tag_autocomplete, sort_by=sort_by_autocomplete)
     async def inventory_cards_gallery(self, interaction: discord.Interaction, 
                         bundle: Optional[str] = None, 
@@ -148,7 +148,7 @@ class Users(commands.Cog):
         view = PageView(pages, user_id, f"{interaction.user.mention}\n## Collection", thumbnail=interaction.user.display_avatar.url)
         await interaction.response.send_message(view=view)
 
-    @inventory.command(name="cards_list", description="Display cards in user inventory")
+    @inventory.command(name="cards_list", description="Displays cards in user inventory")
     @app_commands.autocomplete(bundle=bundle_autocomplete, collection=collection_autocomplete, rarity=rarity_autocomplete, tag=tag_autocomplete, sort_by=sort_by_autocomplete)
     async def inventory_cards_list(self, interaction: discord.Interaction, 
                         bundle: Optional[str] = None, 

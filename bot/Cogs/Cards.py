@@ -104,7 +104,7 @@ class Cards(commands.Cog):
         view = PageView(pages=pages, author_id=interaction.user.id)
         await interaction.response.send_message(view=view)
 
-    @card.command(name="gallery", description="Lists cards with selected traits.")
+    @card.command(name="gallery", description="Displays cards gallery with selected traits.")
     @app_commands.autocomplete(bundle=bundle_autocomplete, collection=collection_autocomplete, rarity=rarity_autocomplete, tag=tag_autocomplete, sort_by=sort_by_autocomplete)
     async def card_gallery(self, interaction: discord.Interaction, 
                         bundle: Optional[str] = None, 

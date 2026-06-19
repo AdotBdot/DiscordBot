@@ -46,7 +46,7 @@ class Packs(commands.Cog):
 
     pack = app_commands.Group(name="pack", description="Pack related commands.")
 
-    @pack.command(name="open", description="Open pack from your inventory.")
+    @pack.command(name="open", description="Opens pack from your inventory.")
     @app_commands.autocomplete(pack_name=pack_autocomplete)
     async def pack_open(self, interaction: discord.Interaction, pack_name: str, count: Optional[int]):
         user_id = interaction.user.id
@@ -69,7 +69,7 @@ class Packs(commands.Cog):
         # Remove pack from user inventory
         for _ in range(open_count):
             user_packs.remove(pack_name) # type: ignore
-            
+
         self.datadriver.users_df.at[user_id, "packs"] = user_packs  # type: ignore
 
         # Get cards from pack

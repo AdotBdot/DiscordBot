@@ -44,7 +44,7 @@ class Moderation(commands.Cog):
         except Exception as e:
             await interaction.response.send_message(f"Error reloading module {ext}: '{e}'.")
 
-    @app_commands.command(name="update_users", description="Forces user database update.")
+    @app_commands.command(name="update_users", description="Forces users database update.")
     @admin_only()
     async def update_users(self, interaction: discord.Interaction):
         try:
@@ -54,11 +54,6 @@ class Moderation(commands.Cog):
             await interaction.response.send_message(f"Updated user database.")
         except Exception as e:
             await interaction.response.send_message(f"Error updating users: '{e}'.")
-
-    @app_commands.command(name="uptime", description="Display bot uptime")
-    @admin_only()
-    async def uptime(self, interaction: discord.Interaction):
-        await interaction.response.send_message(f"{self.bot.uptime}")
 
     @app_commands.command(name="stats", description="Displays bot stats.")
     @admin_only()
@@ -83,7 +78,7 @@ class Moderation(commands.Cog):
     # Give commands
     # ====================
 
-    give = app_commands.Group(name="give", description="Give item to user inventory.")
+    give = app_commands.Group(name="give", description="Gives item to user inventory.")
     
     @give.command(name="pack")
     @admin_only()
@@ -106,7 +101,7 @@ class Moderation(commands.Cog):
         
         await interaction.response.send_message(f"Gave {count} pack(s): {pack} to user {target_user.mention}")
 
-    @give.command(name="cocoses")
+    @give.command(name="cocoses", description="Gives Cocoses to user inventory.")
     @admin_only()
     async def give_cocoses(self, interaction: discord.Interaction, target_user: discord.Member, cocoses: int):
         user_id = interaction.user.id
@@ -120,7 +115,7 @@ class Moderation(commands.Cog):
         
         await interaction.response.send_message(f"Gave {cocoses} 🥥 to user {target_user.mention}")
 
-    @give.command(name="melones")
+    @give.command(name="melones", description="Gives Melones to user inventory.")
     @admin_only()
     async def give_melones(self, interaction: discord.Interaction, target_user: discord.Member, melones: int):
         user_id = interaction.user.id
