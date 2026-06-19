@@ -34,7 +34,7 @@ class Users(commands.Cog):
         return choices[:25]
 
     async def rarity_autocomplete(self, interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
-        rarities = ["Common", "Uncommon", "Rare", "Epic", "Legendary", "Mythic"]
+        rarities = ["Common", "Uncommon", "Rare", "Epic", "Legendary", "Mythic", "Divine"]
         choices = [app_commands.Choice(name=rarity, value=rarity) for rarity in rarities if current.lower() in rarity.lower()]
         
         return choices[:25]

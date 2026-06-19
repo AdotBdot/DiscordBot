@@ -4,25 +4,28 @@ RARITY_COLOR = {
     "Rare": 0x2471a3,
     "Epic": 0x7d3c98,
     "Legendary": 0xf1c40f,
-    "Mythic": 0xd35400
+    "Mythic": 0xd35400,
+    "Divine": 0x34d8eb
 }
 
 RARITY_WEIGHT = {
-    "Common": 7000,
-    "Uncommon": 2000,
-    "Rare": 700,
-    "Epic": 250,
-    "Legendary": 40,
-    "Mythic": 10
+    "Common": 70000,
+    "Uncommon": 20000,
+    "Rare": 7000,
+    "Epic": 2000,
+    "Legendary": 800,
+    "Mythic": 190,
+    "Divine": 10
 }
 
 RARITY_EMOJI = {
-    "Common": "👎",
-    "Uncommon": "👍",
-    "Rare": "🤙",
-    "Epic": "😎",
-    "Legendary": "🥵",
-    "Mythic": "🔥"
+    "Common": "🪨",
+    "Uncommon": "🍃",
+    "Rare": "💎",
+    "Epic": "🔮",
+    "Legendary": "🔥",
+    "Mythic": "🌌",
+    "Divine": "🌟"
 }
 
 RARITY_ORDER = {
@@ -31,5 +34,6 @@ RARITY_ORDER = {
     "Rare": 3,
     "Epic": 4,
     "Legendary": 5,
-    "Mythic": 6
+    "Mythic": 6,
+    "Divine": 7
 }
