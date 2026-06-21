@@ -6,10 +6,11 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from bot.Utils.Enums import BASE_RARITY_WEIGHT
+from bot.Utils.Enums import BASE_RARITY_WEIGHT, RARITY_EMOJI
 from bot.Utils.DataDriver import DataDriver
 
 from bot.Views.PageView import PageView
+from bot.Views.SimpleView import SimpleView
 from bot.Views.DataViews import card_to_container
 
 class Packs(commands.Cog):
@@ -22,6 +23,12 @@ class Packs(commands.Cog):
     # ====================
 
     async def pack_autocomplete(self, interaction: discord.Interaction, current:str) -> list[app_commands.Choice[str]]:
+        packs = self.datadriver.packs_cache
+        choices = [app_commands.Choice(name=pack, value=pack) for pack in packs if current.lower() in pack.lower()]
+        
+        return choices[:25]
+
+    async def user_pack_autocomplete(self, interaction: discord.Interaction, current:str) -> list[app_commands.Choice[str]]:
         user_id = interaction.user.id
 
         if not self.datadriver.user_exist(user_id):
@@ -46,8 +53,41 @@ class Packs(commands.Cog):
 
     pack = app_commands.Group(name="pack", description="Pack related commands.")
 
-    @pack.command(name="open", description="Opens pack from your inventory.")
+    @pack.command(name="info", description="Displays information about pack.")
     @app_commands.autocomplete(pack_name=pack_autocomplete)
+    async def pack_info(self, interaction: discord.Interaction, pack_name: str):
+        if pack_name not in self.datadriver.packs_df.index:
+            await interaction.response.send_message("Pack not found.")
+            return
+        
+        pack = self.datadriver.get_pack_by_name(pack_name)
+
+        pack_cards = self.datadriver.get_cards_by_names(pack["cards"]) # type: ignore
+
+        all_rarities = ["Common", "Uncommon", "Rare", "Epic", "Legendary", "Mythic", "Divine"]
+        rarity_count = pack_cards["rarity"].value_counts().reindex(all_rarities, fill_value=0)
+
+        msg = "\n".join(
+            f"{RARITY_EMOJI[rarity]} **{rarity}**: {count}" # type: ignore
+            for rarity, count in rarity_count.items()
+        )
+
+        container = discord.ui.Container(
+            discord.ui.TextDisplay(content=f"### Cards: {len(pack["cards"])}"), # type: ignore
+            discord.ui.Separator(visible=True, spacing=discord.SeparatorSpacing.small),
+            discord.ui.TextDisplay(content=msg)
+        )
+
+        view = SimpleView(
+            author_id=interaction.user.id,
+            content=container,
+            header=f"## {pack_name}"
+        )
+
+        await interaction.response.send_message(view=view)
+
+    @pack.command(name="open", description="Opens pack from your inventory.")
+    @app_commands.autocomplete(pack_name=user_pack_autocomplete)
     async def pack_open(self, interaction: discord.Interaction, pack_name: str, count: Optional[int]):
         user_id = interaction.user.id
         
