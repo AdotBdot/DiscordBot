@@ -1,4 +1,3 @@
-from collections import defaultdict
 import random
 from typing import Optional
 
@@ -6,12 +5,12 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from bot.Utils.Enums import BASE_RARITY_WEIGHT, RARITY_EMOJI
 from bot.Utils.DataDriver import DataDriver
+from bot.Utils.Enums import BASE_RARITY_WEIGHT, RARITY_EMOJI
 
+from bot.Views.DataViews import card_to_container
 from bot.Views.PageView import PageView
 from bot.Views.SimpleView import SimpleView
-from bot.Views.DataViews import card_to_container
 
 class Packs(commands.Cog):
     def __init__(self, bot, datadriver: DataDriver):

@@ -1,7 +1,6 @@
 from typing import Optional
 
 import discord
-from discord.ext import commands
 
 from bot.Utils.DataDriver import DataDriver
 from bot.Utils.Enums import UPGRADES_INFO
@@ -75,7 +74,7 @@ class UpgradesView(discord.ui.LayoutView):
                 )
             )
 
-            section.accessory.disabled = user_cash < cost
+            section.accessory.disabled = user_cash < cost # type: ignore
 
             container.add_item(section)
 

@@ -2,9 +2,8 @@ import discord
 from discord.ext import commands
 from discord import app_commands
 
-# Utils
-from bot.Utils.Permissions import admin_only, owner_only
 from bot.Utils.DataDriver import DataDriver
+from bot.Utils.Permissions import admin_only
 
 from bot.Views.SimpleView import SimpleView
 

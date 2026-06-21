@@ -4,11 +4,11 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from bot.Utils.Enums import BASE_RARITY_WEIGHT, RARITY_EMOJI, RARITY_ORDER
 from bot.Utils.DataDriver import DataDriver
+from bot.Utils.Enums import BASE_RARITY_WEIGHT, RARITY_EMOJI, RARITY_ORDER
 
-from bot.Views.PageView import PageView
 from bot.Views.DataViews import card_to_container
+from bot.Views.PageView import PageView
 
 class Cards(commands.Cog):
     def __init__(self, bot, datadriver: DataDriver):

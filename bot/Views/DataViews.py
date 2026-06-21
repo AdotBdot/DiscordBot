@@ -1,7 +1,6 @@
 import pandas as pd
 
 import discord
-from discord.ext import commands
 
 from bot.Utils.Enums import RARITY_COLOR, RARITY_EMOJI
 from bot.Utils.Helpers import wrap_text

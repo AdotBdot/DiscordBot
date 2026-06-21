@@ -1,5 +1,4 @@
 import discord
-from discord.ext import commands
 
 class PageView(discord.ui.LayoutView):
     def __init__(self, author_id: int, pages: list[discord.ui.Container], header: str|None=None, thumbnail: str|None=None):

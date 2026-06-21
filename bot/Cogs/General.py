@@ -1,14 +1,9 @@
-import random
-
 import discord
 from discord.ext import commands
 from discord import app_commands
 
-# Views
 from bot.Views.PageView import PageView
 
-# Utils
-from bot.Utils.Enums import BASE_RARITY_WEIGHT
 from bot.Utils.DataDriver import DataDriver
 
 class General(commands.Cog):

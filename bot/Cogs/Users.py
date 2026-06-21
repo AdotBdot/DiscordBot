@@ -6,11 +6,10 @@ from discord.ext import commands
 
 from bot.Utils.DataDriver import DataDriver
 from bot.Utils.Enums import RARITY_EMOJI, RARITY_ORDER
-from bot.Utils.Helpers import chunk_dict
 
-from bot.Views.DataViews import card_to_container, user_to_container, inv_to_container
-from bot.Views.SimpleView import SimpleView
+from bot.Views.DataViews import card_to_container
 from bot.Views.PageView import PageView
+from bot.Views.SimpleView import SimpleView
 from bot.Views.UpgradesView import UpgradesView
 
 class Users(commands.Cog):

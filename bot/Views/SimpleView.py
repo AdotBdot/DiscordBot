@@ -1,5 +1,4 @@
 import discord
-from discord.ext import commands
 
 class SimpleView(discord.ui.LayoutView):
     def __init__(self, author_id: int,  content: discord.ui.Container, header: str|None=None, thumbnail: str|None=None):
