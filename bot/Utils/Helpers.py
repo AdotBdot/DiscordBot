@@ -1,4 +1,4 @@
-from bot.Utils.Enums import RARITY_ORDER
+from bot.Utils.Enums import RARITY_ORDER, BASE_RARITY_WEIGHT, RARITY_TRANSFER, RARITY_FLOOR
 
 def chunk_dict(data: dict, size: int = 10):
     items = list(data.items())
@@ -34,3 +34,47 @@ def sort_list_by_key(list: list[dict], key: str, reversed: bool = False) -> list
     else:
         list_sorted = sorted(list, key=lambda x: x[key], reverse=reversed)
     return list_sorted
+
+def get_rarity_weights(level: int) -> dict[str, int]:
+    if level <= 1:
+        return BASE_RARITY_WEIGHT.copy()
+    
+    weights = BASE_RARITY_WEIGHT.copy()
+
+    shift_per_level = 4000
+
+    for _ in range (level - 1):
+        remaining_shift = shift_per_level
+
+        for rarity, targets in RARITY_TRANSFER.items():
+            available = weights[rarity] - RARITY_FLOOR[rarity]
+
+            if available <= 0:
+                continue
+
+            transfer = min(available, remaining_shift)
+
+            if transfer <= 0:
+                break
+
+            weights[rarity] -= transfer
+            remaining_shift -= transfer
+
+            distributed = 0
+
+            for target, ratio in targets.items():
+                amount = int(transfer * ratio)
+                weights[target] += amount
+                distributed += amount
+
+            last_target = list(targets.keys())[-1]
+            weights[last_target] += transfer - distributed
+
+            if remaining_shift <= 0:
+                break
+
+        if sum(weights.values()) != sum(BASE_RARITY_WEIGHT.values()):
+            diff = sum(BASE_RARITY_WEIGHT.values()) - sum(weights.values())
+            weights["Divine"] += diff
+
+    return weights

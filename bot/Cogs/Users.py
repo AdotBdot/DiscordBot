@@ -11,6 +11,7 @@ from bot.Utils.Helpers import chunk_dict
 from bot.Views.DataViews import card_to_container, user_to_container, inv_to_container
 from bot.Views.SimpleView import SimpleView
 from bot.Views.PageView import PageView
+from bot.Views.UpgradesView import UpgradesView
 
 class Users(commands.Cog):
     def __init__(self, bot, datadriver: DataDriver):
@@ -53,6 +54,10 @@ class Users(commands.Cog):
         return choices[:25]
 
     # ====================
+    # Callbacks commands
+    # ====================
+
+    # ====================
     # Profile commands
     # ====================
 
@@ -65,7 +70,12 @@ class Users(commands.Cog):
             return
 
         container = user_to_container(user, self.datadriver.get_cards_count()) # type: ignore
-        view = SimpleView(content=container, header=f"{interaction.user.mention}\n## Profile", thumbnail=interaction.user.display_avatar.url)
+        view = SimpleView(
+            author_id=interaction.user.id,
+            content=container, 
+            header=f"{interaction.user.mention}\n## Profile", 
+            thumbnail=interaction.user.display_avatar.url
+            )
 
         await interaction.response.send_message(view=view)
 
@@ -91,7 +101,12 @@ class Users(commands.Cog):
 
         #UI
         container = inv_to_container(user, interaction.user.display_avatar.url) # type: ignore
-        view = SimpleView(container, header=f"{interaction.user.mention}\n## Inventory", thumbnail=interaction.user.display_avatar.url)
+        view = SimpleView(
+            author_id=interaction.user.id,
+            content=container, 
+            header=f"{interaction.user.mention}\n## Inventory", 
+            thumbnail=interaction.user.display_avatar.url
+            )
 
         await interaction.response.send_message(view=view)
 
@@ -145,7 +160,13 @@ class Users(commands.Cog):
             page.add_item(discord.ui.TextDisplay(content=f"**x{df_counts[key]}**")) # type: ignore
             pages.append(page)
         
-        view = PageView(pages, user_id, f"{interaction.user.mention}\n## Collection", thumbnail=interaction.user.display_avatar.url)
+        view = PageView(
+            author_id=user_id,
+            pages=pages, 
+            header=f"{interaction.user.mention}\n## Collection", 
+            thumbnail=interaction.user.display_avatar.url
+            )
+        
         await interaction.response.send_message(view=view)
 
     @inventory.command(name="cards_list", description="Displays cards in user inventory")
@@ -205,9 +226,37 @@ class Users(commands.Cog):
             container.add_item(discord.ui.TextDisplay(content=msg))
             pages.append(container)
 
-        view = PageView(pages=pages, author_id=user_id, header=f"{interaction.user.mention}\n## Collection", thumbnail=interaction.user.display_avatar.url)
+        view = PageView(
+            author_id=user_id, 
+            pages=pages, 
+            header=f"{interaction.user.mention}\n## Collection", 
+            thumbnail=interaction.user.display_avatar.url
+            )
+        
         await interaction.response.send_message(view=view)
 
+    # ====================
+    # Upgrades commands
+    # ====================
+
+    @app_commands.command(name="upgrades", description="Manage your upgrades.")
+    async def upgrades(self, interaction: discord.Interaction):
+        user_id = interaction.user.id
+
+        user = self.datadriver.get_user(user_id)
+        if user is None:
+            await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
+            return
+
+        view = UpgradesView(
+            author_id=user_id, 
+            datadriver=self.datadriver, 
+            header=f"{interaction.user.mention}\n## Upgrades", 
+            thumbnail=interaction.user.display_avatar.url
+            )
+
+        await interaction.response.send_message(view=view)
+       
 # Setup Cog
 async def setup(bot):
     await bot.add_cog(Users(bot, bot.datadriver))

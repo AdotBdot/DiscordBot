@@ -4,7 +4,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from bot.Utils.Enums import RARITY_WEIGHT, RARITY_EMOJI, RARITY_ORDER
+from bot.Utils.Enums import BASE_RARITY_WEIGHT, RARITY_EMOJI, RARITY_ORDER
 from bot.Utils.DataDriver import DataDriver
 
 from bot.Views.PageView import PageView
