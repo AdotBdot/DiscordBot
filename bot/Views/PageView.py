@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 class PageView(discord.ui.LayoutView):
-    def __init__(self, pages: list[discord.ui.Container], author_id: int, header: str|None=None, thumbnail: str|None=None):
+    def __init__(self, author_id: int, pages: list[discord.ui.Container], header: str|None=None, thumbnail: str|None=None):
         super().__init__()
 
         self.pages = pages
