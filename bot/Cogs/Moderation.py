@@ -87,6 +87,15 @@ class Moderation(commands.Cog):
         view = SimpleView(content=container, header="## Bot stats")
         await interaction.response.send_message(view=view)
 
+    @app_commands.command(name="reload_cards", description="Reloads cards database.")
+    @admin_only()
+    async def reload_cards(self, interaction: discord.Interaction):
+        self.datadriver.load_cards()
+        self.datadriver.load_packs()
+        self.datadriver.init_card_caches()
+
+        await interaction.response.send_message("Reloaded cards database.")
+
     # ====================
     # Give commands
     # ====================
