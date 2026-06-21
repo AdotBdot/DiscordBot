@@ -52,6 +52,25 @@ class Packs(commands.Cog):
 
     pack = app_commands.Group(name="pack", description="Pack related commands.")
 
+    @pack.command(name="list", description="Lists all available packs.")
+    async def pack_list(self, interaction:discord.Interaction):
+        packs = self.datadriver.packs_cache
+
+        msg = "\n".join(f"**{p}**" for p in packs)
+
+        container = discord.ui.Container(
+            discord.ui.TextDisplay(content=msg)
+        )
+
+        view = SimpleView(
+            author_id=interaction.user.id,
+            content=container,
+            header="## Available Packs"
+        )
+
+        await interaction.response.send_message(view=view)
+
+
     @pack.command(name="info", description="Displays information about pack.")
     @app_commands.autocomplete(pack_name=pack_autocomplete)
     async def pack_info(self, interaction: discord.Interaction, pack_name: str):
@@ -145,14 +164,6 @@ class Packs(commands.Cog):
             )
         
         await interaction.response.send_message(view=view)
-
-    @pack.command(name="list", description="List all available packs.")
-    async def list_packs(self, interaction:discord.Interaction):
-        packs = self.datadriver.packs_cache
-
-        names = ", ".join([p for p in packs])
-
-        await interaction.response.send_message(f"Packs: {names}")
 
 async def setup(bot):
     await bot.add_cog(Packs(bot, bot.datadriver))
