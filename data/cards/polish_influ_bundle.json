@@ -1,5 +1,5 @@
-{
-    "test_bundle": {
+[
+    {
         "name": "People",
         "collections": [
             {
@@ -163,4 +163,4 @@
             } 
         ]
     }
-}
+]

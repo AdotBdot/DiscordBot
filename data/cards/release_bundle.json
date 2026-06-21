@@ -1,5 +1,5 @@
-{
-    "cartoon_bundle": {
+[
+    {
         "name": "Cartoons",
         "collections": [
             {
@@ -403,10 +403,114 @@
                         "rarity": "Common",
                         "tags": [],
                         "image_url": "https://i.imgur.com/E6WmYHS.png"
+                    },
+                    {
+                        "name": "Jake the Egg",
+                        "description": "Mmm, egg in me.",
+                        "rarity": "Rare",
+                        "tags": ["character/jake"],
+                        "image_url": "https://i.imgur.com/nK0mfSE.png"
+                    },
+                    {
+                        "name": "Jake the Brick",
+                        "description": "Nah, I think I'm just gonna keep being a brick for a while.",
+                        "rarity": "Rare",
+                        "tags": ["character/jake"],
+                        "image_url": "https://i.imgur.com/vUDmmWt.png"
+                    },
+                    {
+                        "name": "Finn the God",
+                        "description": "I made you do those crummy things!",
+                        "rarity": "Epic",
+                        "tags": ["character/finn"],
+                        "image_url": "https://i.imgur.com/9plZbOb.png"
+                    },
+                    {
+                        "name": "Little Finn",
+                        "description": "All the Little People.",
+                        "rarity": "Rare",
+                        "tags": ["character/finn"],
+                        "image_url": "https://i.imgur.com/dIZOCDE.png"
+                    },
+                    {
+                        "name": "Little Flame Princess",
+                        "description": "All the Little People.",
+                        "rarity": "Rare",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/2nnocGx.png"
+                    },
+                    {
+                        "name": "Little Gunter",
+                        "description": "All the Little People.",
+                        "rarity": "Rare",
+                        "tags": ["character/gunter"],
+                        "image_url": "https://i.imgur.com/e5xuCQo.png"
+                    },
+                    {
+                        "name": "Little Ice King",
+                        "description": "All the Little People.",
+                        "rarity": "Rare",
+                        "tags": ["character/ice-king"],
+                        "image_url": "https://i.imgur.com/iXBLrj3.png"
+                    },
+                    {
+                        "name": "Little Jake",
+                        "description": "All the Little People.",
+                        "rarity": "Rare",
+                        "tags": ["character/jake"],
+                        "image_url": "https://i.imgur.com/O5aNNTU.png"
+                    },
+                    {
+                        "name": "Little Marceline",
+                        "description": "All the Little People.",
+                        "rarity": "Rare",
+                        "tags": ["character/marceline"],
+                        "image_url": "https://i.imgur.com/0TXjN1p.png"
+                    },
+                    {
+                        "name": "Little Princesses Fighting",
+                        "description": "All the Little People.",
+                        "rarity": "Epic",
+                        "tags": ["character/princess-bubblegum", "character/flame-princess"],
+                        "image_url": "https://i.imgur.com/val3CIP.png"
+                    },
+                    {
+                        "name": "Little Vampire King",
+                        "description": "All the Little People.",
+                        "rarity": "Rare",
+                        "tags": ["character/vampire-king"],
+                        "image_url": "https://i.imgur.com/IKXKqCr.png"
+                    },
+                    {
+                        "name": "The Horse",
+                        "description": "All the Little People.",
+                        "rarity": "Epic",
+                        "tags": ["character/ice-king"],
+                        "image_url": "https://i.imgur.com/g7QkuTu.png"
+                    },
+                    {
+                        "name": "Water Nymphs",
+                        "description": "Wet as always.",
+                        "rarity": "Rare",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/ned4oKv.jpeg"
+                    },
+                    {
+                        "name": "Tiffany",
+                        "description": "",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/o7R8OQ4.jpeg"
+                    },
+                    {
+                        "name": "Bussinessmen",
+                        "description": "We. Are. Bussinessmen",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/xL2STVN.png"
                     }
                 ]
             }
         ]
     }
-
-}
+]

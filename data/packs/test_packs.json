@@ -1,35 +1,30 @@
-{
-    "test_pack_all": {
+[
+    {
         "name": "Common Pack",
         "type": "all"
     },
-    "test_pack_bundle": {
+    {
         "name": "Cartoons Pack",
         "type": "bundle",
         "bundle_name": "Cartoons"
     },
-    "test_pack_collection": {
-        "name": "pack_collection",
-        "type": "collection",
-        "collection_name": "collection1"
-    },
-    "test_pack_custom": {
+    {
         "name": "pack_custom",
         "type": "custom",
         "cards": [
-            "The Nozzle",
-            "Loops Brother",
-            "Goblin Chirurgeon"
+            "Ice King",
+            "Cake",
+            "Princess Bubblegum"
         ]
     },
-    "adventure_time_pack": {
+    {
         "name": "The Enchiridion",
         "type": "collection",
         "collection_name": "Adventure Time"
     },
-    "Influ Pack": {
+    {
         "name": "Instagram",
         "type": "collection",
         "collection_name": "Polskie Influencerki"
     }
-}
+]
