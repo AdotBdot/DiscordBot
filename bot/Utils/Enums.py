@@ -87,6 +87,7 @@ RARITY_ORDER = {
 UPGRADES_INFO = {
     "luck": {
         "display_name": "Luck",
-        "description": "Increases chance of getting higher rarity card."
+        "description": "Increases chance of getting higher rarity card.",
+        "cost": 1000
     }
 }

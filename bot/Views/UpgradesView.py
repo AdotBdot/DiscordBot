@@ -16,9 +16,7 @@ class UpgradeButton(discord.ui.Button):
     async def callback(self, interaction: discord.Interaction):
         await self.upgrades_view.upgrade(interaction, self.upgrade_name)
 
-
 class UpgradesView(discord.ui.LayoutView):
-
     def __init__(self, author_id: int, datadriver: DataDriver, header: Optional[str]=None, thumbnail: Optional[str]=None):
         super().__init__()
 
@@ -44,9 +42,13 @@ class UpgradesView(discord.ui.LayoutView):
         return interaction.user.id == self.author_id
 
     def get_upgrades(self) -> dict[str, int]:
-        upgrades = self.datadriver.users_df.at[self.author_id, "upgrades"]
+        return self.datadriver.users_df.at[self.author_id, "upgrades"] or {} # type: ignore
+    
+    def get_cash(self) -> int:
+        return self.datadriver.users_df.at[self.author_id, "cash"] or 0 # type: ignore
 
-        return upgrades or {} # type: ignore
+    def get_melones(self) -> int:
+        return self.datadriver.users_df.at[self.author_id, "melons"] or 0 # type: ignore
 
     def update_view(self):
         self.clear_items()
@@ -55,19 +57,25 @@ class UpgradesView(discord.ui.LayoutView):
         if self.header:
             self.add_item(self.header)
 
+        user_cash = self.get_cash()
+
         # Content
         container = discord.ui.Container()
         upgrades = self.get_upgrades()
 
         for name, level in upgrades.items():
+            cost = UPGRADES_INFO[name]["cost"]
+
             section = discord.ui.Section(
                 discord.ui.TextDisplay(content=f"**{UPGRADES_INFO[name]["display_name"]}**: {level}\n{UPGRADES_INFO[name]["description"]}"),
                 accessory=UpgradeButton(
                     upgrade_name=name,
                     view=self,
-                    label="1000🥥"
+                    label=f"{UPGRADES_INFO[name]["cost"]}🥥"
                 )
             )
+
+            section.accessory.disabled = user_cash < cost
 
             container.add_item(section)
 
@@ -75,15 +83,19 @@ class UpgradesView(discord.ui.LayoutView):
 
     async def upgrade(self, interaction: discord.Interaction, upgrade_name: str):
         try:
-            upgrades = self.get_upgrades()
+            cost = UPGRADES_INFO[upgrade_name]["cost"]
+            user_cash = self.get_cash()
 
+            self.datadriver.users_df.at[self.author_id, "cash"] = user_cash - cost
+
+            upgrades = self.get_upgrades()
             upgrades[upgrade_name] = (
                 upgrades.get(upgrade_name, 0) + 1
             )
 
             self.datadriver.users_df.at[self.author_id, "upgrades"] = upgrades # type: ignore
 
-            self.datadriver.save_user(self.author_id)
+            self.datadriver.mark_dirty(self.author_id)
 
         finally:
             self.update_view()

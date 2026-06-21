@@ -54,10 +54,6 @@ class Users(commands.Cog):
         return choices[:25]
 
     # ====================
-    # Callbacks commands
-    # ====================
-
-    # ====================
     # Profile commands
     # ====================
 
