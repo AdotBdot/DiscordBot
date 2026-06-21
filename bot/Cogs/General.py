@@ -11,19 +11,24 @@ class General(commands.Cog):
         self.bot = bot
         self.datadriver = datadriver
 
-    def format_command(self, command: app_commands.Command | app_commands.Group, prefix="") -> list[str]:
+    def format_command(self, command: app_commands.Command | app_commands.Group, indent: int=0) -> list[str]:
         lines = []
 
-        name = f"{prefix}/{command.name}"
+        prefix = "    " * indent
+
+        if indent == 0:
+            name = f"/{command.name}"
+        else:
+            name = command.name
 
         if isinstance(command, app_commands.Group):
-            lines.append(f"**{name}** - {command.description}")
+            lines.append(f"{prefix}**{name}** - {command.description}")
 
             for child in command._children.values():
-                lines.extend(self.format_command(child, name))
+                lines.extend(self.format_command(child, indent + 1))
 
         else:
-            lines.append(f"**{name}** - {command.description or 'No description.'}")
+            lines.append(f"{prefix}**{name}** - {command.description or 'No description.'}")
 
         return lines
 
@@ -52,7 +57,7 @@ class General(commands.Cog):
                 continue
 
             lines = [
-                f"## {cog_name}"
+                f"### {cog_name}"
             ]
 
             for command in commands:
