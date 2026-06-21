@@ -39,7 +39,7 @@ class General(commands.Cog):
     @app_commands.command(name="lesgo", description="Creates user profile.")
     async def lesgo(self, interaction:discord.Interaction):
         if self.datadriver.user_exist(interaction.user.id):
-            await interaction.response.send_message("You already have your profile created.")
+            await interaction.response.send_message("You already have profile created.")
             return
         
         self.datadriver.create_user(user_id=interaction.user.id)

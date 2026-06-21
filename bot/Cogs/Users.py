@@ -62,7 +62,7 @@ class Users(commands.Cog):
         user = self.datadriver.get_user(interaction.user.id)
 
         if user is None:
-            await interaction.response.send_message(f"User does not exist in database.")
+            await interaction.response.send_message(f"Slow down. You don't have your profile yet. Use **/help** for more information.")
             return
 
         total_cards = self.datadriver.get_cards_count()
@@ -92,7 +92,7 @@ class Users(commands.Cog):
         user_id = interaction.user.id
 
         if not self.datadriver.user_exist(user_id):
-            await interaction.response.send_message("User does not exist in database.")
+            await interaction.response.send_message("Slow down. You don't have your profile yet. Use **/help** for more information.")
             return
 
         user_packs = self.datadriver.users_df.at[user_id, "packs"] or []
