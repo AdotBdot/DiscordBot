@@ -101,7 +101,11 @@ class Cards(commands.Cog):
             container.add_item(discord.ui.TextDisplay(content=msg))
             pages.append(container)
 
-        view = PageView(pages=pages, author_id=interaction.user.id)
+        view = PageView(
+            author_id=interaction.user.id,
+            pages=pages
+        )
+        
         await interaction.response.send_message(view=view)
 
     @card.command(name="gallery", description="Displays cards gallery with selected traits.")
@@ -137,7 +141,11 @@ class Cards(commands.Cog):
                 return
 
         pages = [card_to_container(row) for _, row in df.iterrows()]
-        view = PageView(pages=pages, author_id=interaction.user.id)
+        view = PageView(
+            author_id=interaction.user.id,
+            pages=pages
+        )
+
         await interaction.response.send_message(view=view)
 
 # Setup Cog

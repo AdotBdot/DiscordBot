@@ -76,7 +76,10 @@ class General(commands.Cog):
             await interaction.response.send_message("No commands available.")
             return
 
-        view = PageView(pages=pages, author_id=interaction.user.id, header="## Help")
+        view = PageView(
+            author_id=interaction.user.id, 
+            pages=pages, 
+            header="## Help")
 
         await interaction.response.send_message(view=view)
 

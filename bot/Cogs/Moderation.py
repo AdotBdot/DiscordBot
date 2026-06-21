@@ -62,7 +62,7 @@ class Moderation(commands.Cog):
     async def update_users(self, interaction: discord.Interaction):
         try:
             for user_id in self.datadriver.users_df.index:
-                self.datadriver.update_user(user_id)
+                self.datadriver.save_user(user_id)
 
             await interaction.response.send_message(f"Updated user database.")
         except Exception as e:
@@ -84,7 +84,11 @@ class Moderation(commands.Cog):
             discord.ui.TextDisplay(content=f"**Bundles**: {len(self.datadriver.bundle_cache)}\n**Collections**: {len(self.datadriver.collection_cache)}\n**Cards**: {self.datadriver.get_cards_count()}\n**Packs**: {len(self.datadriver.packs_df)}")
         )
 
-        view = SimpleView(content=container, header="## Bot stats")
+        view = SimpleView(
+            author_id=interaction.user.id,
+            content=container, 
+            header="## Bot stats")
+        
         await interaction.response.send_message(view=view)
 
     @app_commands.command(name="reload_cards", description="Reloads cards database.")
@@ -120,7 +124,7 @@ class Moderation(commands.Cog):
         user_cards.append(card) # type: ignore
         self.datadriver.users_df.at[target_user_id, "cards"] = user_cards # type: ignore
 
-        self.datadriver.save_user(target_user_id)
+        self.datadriver.mark_dirty(target_user_id)
 
         await interaction.response.send_message(f"Gave **{card}** to {target_user.mention}")
 
@@ -141,7 +145,7 @@ class Moderation(commands.Cog):
 
         self.datadriver.users_df.at[interaction.user.id, "packs"] = user_packs # type: ignore
 
-        self.datadriver.save_user(interaction.user.id)
+        self.datadriver.mark_dirty(interaction.user.id)
         
         await interaction.response.send_message(f"Gave {count} pack(s): {pack} to user {target_user.mention}")
 
@@ -155,7 +159,7 @@ class Moderation(commands.Cog):
             return
         
         self.datadriver.users_df.at[user_id, "cash"] += cocoses # type: ignore
-        self.datadriver.save_user(user_id)
+        self.datadriver.mark_dirty(user_id)
         
         await interaction.response.send_message(f"Gave {cocoses} 🥥 to user {target_user.mention}")
 
@@ -169,7 +173,7 @@ class Moderation(commands.Cog):
             return
         
         self.datadriver.users_df.at[user_id, "melons"] += melones # type: ignore
-        self.datadriver.save_user(user_id)
+        self.datadriver.mark_dirty(user_id)
         
         await interaction.response.send_message(f"Gave {melones} 🍉 to user {target_user.mention}")
 
