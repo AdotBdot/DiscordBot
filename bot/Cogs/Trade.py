@@ -65,8 +65,8 @@ class Trade(commands.Cog):
         self.datadriver.users_df.at[target_user_id, "cards"] = target_user_cards # type: ignore
 
         # Save Users
-        self.datadriver.save_user(user_id)
-        self.datadriver.save_user(target_user_id)
+        self.datadriver.mark_dirty(user_id)
+        self.datadriver.mark_dirty(target_user_id)
 
         await interaction.response.send_message(content=f"You gave {card_name} to {to.name}.")
 

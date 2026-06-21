@@ -1,3 +1,4 @@
+import asyncio
 import logging
 import json
 from pathlib import Path
@@ -9,6 +10,25 @@ CARDS_FOLDER = Path("data/cards")
 PACKS_FOLDER = Path("data/packs")
 USERS_FOLDER = Path("data/users")
 
+class DataDriverScheduler:
+    def __init__(self, datadriver: DataDriver):
+        self.datadriver = datadriver
+        self._task = None
+        self.interval = 60
+
+    async def run(self):
+        while True:
+            await asyncio.sleep(self.interval)
+
+            dirty = self.datadriver.get_dirty_users()
+            if not dirty:
+                continue
+            
+            self.datadriver.clear_dirty_users()
+
+            for user_id in dirty:
+                self.datadriver.save_user(user_id)
+
 class DataDriver:
     def __init__(self, logs_handler):
         self.logger = logging.getLogger("DataDriver")
@@ -16,6 +36,7 @@ class DataDriver:
         self.logger.propagate = False
         self.logger.addHandler(logs_handler)
 
+        self.dirty_users: set[int] = set()
         self.config = {}
 
         self.bundle_cache: list[str] = []
@@ -113,6 +134,8 @@ class DataDriver:
 
         if users_data:
             self.users_df = pd.DataFrame(users_data).set_index("id")
+        else:
+            self.users_df = pd.DataFrame(columns=["cards", "packs", "cash", "melons", "upgrades"]).set_index(pd.Index([], name="id"))
 
         self.logger.info(f"Loaded {len(self.users_df)} user(s)")
 
@@ -133,6 +156,9 @@ class DataDriver:
         user_data = {
             "cards": [],
             "packs": ["Common Pack"],
+            "upgrades": {
+                "luck": 1
+            },
             "cash": 0,
             "melons": 0
         }
@@ -142,6 +168,21 @@ class DataDriver:
         self.save_user(user_id)
 
         self.logger.info(f"Created user {user_id} and saved to database")
+
+    def get_user(self, user_id: int):
+        if not self.user_exist(user_id):
+            return None
+
+        return self.users_df.loc[user_id]
+
+    def mark_dirty(self, user_id: int):
+        self.dirty_users.add(user_id)
+
+    def get_dirty_users(self) -> list[int]:
+        return list(self.dirty_users)
+    
+    def clear_dirty_users(self):
+        self.dirty_users.clear()
 
     def save_user(self, user_id: int):
         if not self.user_exist(user_id):
@@ -154,26 +195,6 @@ class DataDriver:
         file_path = USERS_FOLDER / f"{user_id}.json"
         file_path.write_text(json.dumps(user_data, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    def update_user(self, user_id: int , **fields) -> pd.Series:
-        if not self.user_exist(user_id):
-            raise KeyError(f"User {user_id} not found")
-    
-        for key, value in fields.items():
-            self.users_df.at[user_id, key] = value
-
-        file_path = USERS_FOLDER / f"{user_id}.json"
-
-        user_data = self.users_df.loc[user_id].to_dict()
-        user_data["id"] = user_id
-
-        file_path.write_text(json.dumps(user_data, indent=2, ensure_ascii=False), encoding="utf-8")
-
-        return self.users_df[self.users_df.index == user_id].iloc[0]
-
-    def get_user(self, user_id: int):
-        if not self.user_exist(user_id):
-            return None
-        
         return self.users_df.loc[user_id]
 
     # ====================

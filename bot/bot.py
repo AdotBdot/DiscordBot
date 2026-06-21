@@ -1,3 +1,4 @@
+import asyncio
 import datetime
 import logging
 from pathlib import Path
@@ -8,7 +9,7 @@ import discord
 from discord.ext import commands
 
 # Data
-from bot.Utils.DataDriver import DataDriver
+from bot.Utils.DataDriver import DataDriver, DataDriverScheduler
 
 class Bot(commands.Bot):
     _uptime: datetime.datetime = datetime.datetime.utcnow()
@@ -25,6 +26,8 @@ class Bot(commands.Bot):
         self.datadriver = DataDriver(logs_handler)
         self.datadriver.initialize_database()
 
+        self.scheduler = DataDriverScheduler(self.datadriver)
+
     async def on_ready(self) -> None:
         self.logger.info(f'Logged in as: {self.user}')
 
@@ -32,7 +35,10 @@ class Bot(commands.Bot):
         self.logger.info(f"An error has occurred in {event_method}.\n{traceback.format_exc()}")
 
     async def setup_hook(self) -> None:
+        asyncio.create_task(self.scheduler.run())
+
         await self.load_extensions()
+        
         await self.tree.sync()
         self.logger.info("Sync Done")
 
@@ -60,8 +66,4 @@ class Bot(commands.Bot):
         return datetime.datetime.utcnow() - self._uptime
 
     def run(self, token) -> None:
-       # try:
-            super().run(token, log_handler=None)
-       # except:
-         #   self.logger.info("Exiting...")
-        #    exit()
+        super().run(token, log_handler=None)

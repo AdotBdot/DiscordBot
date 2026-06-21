@@ -96,10 +96,15 @@ class Packs(commands.Cog):
         self.datadriver.users_df.at[user_id, "cards"] = user_cards # type: ignore
 
         # Save user
-        self.datadriver.save_user(user_id)
+        self.datadriver.mark_dirty(user_id)
 
         pages = [card_to_container(card) for card in result]
-        view = PageView(pages, interaction.user.id, f"You've opened **{pack_name}**")
+        view = PageView(
+            pages=pages, 
+            author_id=interaction.user.id, 
+            header=f"You've opened **{pack_name}**"
+            )
+        
         await interaction.response.send_message(view=view)
 
     @pack.command(name="list", description="List all available packs.")
