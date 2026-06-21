@@ -2,9 +2,11 @@ import discord
 from discord.ext import commands
 
 class SimpleView(discord.ui.LayoutView):
-    def __init__(self, content: discord.ui.Container, header: str|None=None, thumbnail: str|None=None):
+    def __init__(self, author_id: int,  content: discord.ui.Container, header: str|None=None, thumbnail: str|None=None):
         super().__init__()
         
+        self.author_id = author_id
+
         # Header
         self.header = None
         if header:
@@ -22,3 +24,6 @@ class SimpleView(discord.ui.LayoutView):
         if self.header:
             self.add_item(self.header)
         self.add_item(self.container)
+
+    async def interaction_check(self, interaction: discord.Interaction) -> bool:
+        return interaction.user.id == self.author_id
