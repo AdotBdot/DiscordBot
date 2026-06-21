@@ -6,8 +6,8 @@ from bot.Utils.DataDriver import DataDriver
 from bot.Utils.Enums import UPGRADES_INFO
 
 class UpgradeButton(discord.ui.Button):
-    def __init__(self, upgrade_name: str, view: UpgradesView, label: str="Upgrade"):
-        super().__init__(label=label, style=discord.ButtonStyle.primary)
+    def __init__(self, upgrade_name: str, view: UpgradesView, label: str="Upgrade", style=discord.ButtonStyle.primary):
+        super().__init__(label=label, style=style)
 
         self.upgrade_name = upgrade_name
         self.upgrades_view = view
@@ -64,17 +64,19 @@ class UpgradesView(discord.ui.LayoutView):
 
         for name, level in upgrades.items():
             cost = UPGRADES_INFO[name]["cost"]
+            affordable = user_cash >= cost
 
             section = discord.ui.Section(
                 discord.ui.TextDisplay(content=f"**{UPGRADES_INFO[name]["display_name"]}**: {level}\n{UPGRADES_INFO[name]["description"]}"),
                 accessory=UpgradeButton(
                     upgrade_name=name,
                     view=self,
-                    label=f"{UPGRADES_INFO[name]["cost"]}🥥"
+                    label=f"{UPGRADES_INFO[name]["cost"]}🥥",
+                    style=discord.ButtonStyle.success if affordable else discord.ButtonStyle.primary
                 )
             )
 
-            section.accessory.disabled = user_cash < cost # type: ignore
+            section.accessory.disabled = not affordable # type: ignore
 
             container.add_item(section)
 
