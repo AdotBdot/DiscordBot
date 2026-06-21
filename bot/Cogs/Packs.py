@@ -6,7 +6,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from bot.Utils.Enums import RARITY_WEIGHT
+from bot.Utils.Enums import BASE_RARITY_WEIGHT
 from bot.Utils.DataDriver import DataDriver
 
 from bot.Views.PageView import PageView
@@ -80,7 +80,7 @@ class Packs(commands.Cog):
         by_rarity = {rarity: group for rarity, group in cards.groupby("rarity")}
 
         rarities = list(by_rarity.keys())
-        weights = [RARITY_WEIGHT[r] for r in rarities]  # type: ignore
+        weights = [BASE_RARITY_WEIGHT[r] for r in rarities]  # type: ignore
 
         # Open pack
         result = []

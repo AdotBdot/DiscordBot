@@ -8,7 +8,7 @@ RARITY_COLOR = {
     "Divine": 0x34d8eb
 }
 
-RARITY_WEIGHT = {
+BASE_RARITY_WEIGHT = {
     "Common": 70000,
     "Uncommon": 20000,
     "Rare": 7000,
@@ -16,6 +16,52 @@ RARITY_WEIGHT = {
     "Legendary": 800,
     "Mythic": 190,
     "Divine": 10
+}
+
+RARITY_FLOOR = {
+    "Common": 5000,
+    "Uncommon": 10000,
+    "Rare": 10000,
+    "Epic": 5000,
+    "Legendary": 3000,
+    "Mythic": 1000,
+    "Divine": 500
+}
+
+RARITY_TRANSFER = {
+    "Common": {
+        "Uncommon": 0.40,
+        "Rare": 0.30,
+        "Epic": 0.15,
+        "Legendary": 0.10,
+        "Mythic": 0.04,
+        "Divine": 0.01,
+    },
+    "Uncommon": {
+        "Rare": 0.50,
+        "Epic": 0.25,
+        "Legendary": 0.15,
+        "Mythic": 0.08,
+        "Divine": 0.02,
+    },
+    "Rare": {
+        "Epic": 0.60,
+        "Legendary": 0.25,
+        "Mythic": 0.10,
+        "Divine": 0.05,
+    },
+    "Epic": {
+        "Legendary": 0.60,
+        "Mythic": 0.30,
+        "Divine": 0.10,
+    },
+    "Legendary": {
+        "Mythic": 0.70,
+        "Divine": 0.30,
+    },
+    "Mythic": {
+        "Divine": 1.00,
+    }
 }
 
 RARITY_EMOJI = {
@@ -36,4 +82,11 @@ RARITY_ORDER = {
     "Legendary": 5,
     "Mythic": 6,
     "Divine": 7
+}
+
+UPGRADES_INFO = {
+    "luck": {
+        "display_name": "Luck",
+        "description": "Increases chance of getting higher rarity card."
+    }
 }
