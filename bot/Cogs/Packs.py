@@ -24,7 +24,7 @@ class Packs(commands.Cog):
     async def pack_autocomplete(self, interaction: discord.Interaction, current:str) -> list[app_commands.Choice[str]]:
         user_id = interaction.user.id
 
-        if user_id not in self.datadriver.users_df.index:
+        if not self.datadriver.user_exist(user_id):
             return []
         
         user_packs = self.datadriver.get_user_packs(user_id)

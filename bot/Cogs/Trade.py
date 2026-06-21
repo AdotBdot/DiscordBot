@@ -16,8 +16,7 @@ class Trade(commands.Cog):
     async def card_autocomplete(self, interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
         user_id = interaction.user.id
 
-        user = self.datadriver.get_user(user_id)
-        if user is None:
+        if not self.datadriver.user_exist(user_id):
             return []
         
         user_cards = self.datadriver.cards_df.at[user_id, "cards"]
@@ -38,16 +37,11 @@ class Trade(commands.Cog):
         user_id = interaction.user.id
         target_user_id = to.id
 
-        user = self.datadriver.get_user(user_id)
-        target_user = self.datadriver.get_user(target_user_id)
-        if user is None:
+        if not self.datadriver.user_exist(user_id):
             await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
             return
-        elif target_user is None:
+        elif not self.datadriver.user_exist(target_user_id):
             await interaction.response.send_message(content=f"Slow down. {to.name} don't have his profile yet.")
-            return
-        elif not any([user, target_user]):
-            await interaction.response.send_message(content=f"Slow down. You both haven't haven't created your profiles yet. Use **/help** for more information.")
             return
 
         user_cards = self.datadriver.users_df.at[user_id, "cards"] or []

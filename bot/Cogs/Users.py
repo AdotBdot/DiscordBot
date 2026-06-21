@@ -65,7 +65,13 @@ class Users(commands.Cog):
             await interaction.response.send_message(f"User does not exist in database.")
             return
 
-        container = user_to_container(user, self.datadriver.get_cards_count()) # type: ignore
+        total_cards = self.datadriver.get_cards_count()
+        container = discord.ui.Container(
+                discord.ui.TextDisplay(content=f"### Collection\n**Size**: {len(user["cards"])}\n**Completion**: {len(set(user["cards"]))}/{total_cards}"),
+                discord.ui.Separator(visible=True, spacing=discord.SeparatorSpacing.small),
+                discord.ui.TextDisplay(content=f"### Currency\n**Cocoses**: {user["cash"]} 🥥\n**Melones**: {user["melons"]} 🍉")
+            )
+
         view = SimpleView(
             author_id=interaction.user.id,
             content=container, 
@@ -84,19 +90,31 @@ class Users(commands.Cog):
     @inventory.command(name="packs", description="Displays packs in users inventory.")
     async def inventory_packs(self, interaction: discord.Interaction):
         user_id = interaction.user.id
-        user = self.datadriver.get_user(interaction.user.id)
+
         if not self.datadriver.user_exist(user_id):
             await interaction.response.send_message("User does not exist in database.")
             return
 
-        user = self.datadriver.users_df.loc[user_id]
+        user_packs = self.datadriver.users_df.at[user_id, "packs"] or []
 
-        if not user["packs"]: # type: ignore
+        if not user_packs: # type: ignore
             await interaction.response.send_message("You don't have any packs in your inventory.")
             return        
 
         #UI
-        container = inv_to_container(user, interaction.user.display_avatar.url) # type: ignore
+        packs = {}
+        for pack_name in user_packs: # type: ignore
+            packs[pack_name] = packs.get(pack_name, 0) + 1
+
+        msg = ""
+        for key, value in packs.items():
+            msg = msg + f"**{key}**: {value}x\n"
+
+        container = discord.ui.Container(
+            discord.ui.TextDisplay(content="### Packs"),
+            discord.ui.TextDisplay(content=msg)
+        )
+
         view = SimpleView(
             author_id=interaction.user.id,
             content=container, 
@@ -117,8 +135,7 @@ class Users(commands.Cog):
                         ):
         user_id = interaction.user.id
 
-        user = self.datadriver.get_user(user_id)
-        if user is None:
+        if not self.datadriver.user_exist(user_id):
             await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
             return
 
@@ -176,8 +193,7 @@ class Users(commands.Cog):
                         ):
         user_id = interaction.user.id
 
-        user = self.datadriver.get_user(user_id)
-        if user is None:
+        if not self.datadriver.user_exist(user_id):
             await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
             return
 
@@ -239,8 +255,7 @@ class Users(commands.Cog):
     async def upgrades(self, interaction: discord.Interaction):
         user_id = interaction.user.id
 
-        user = self.datadriver.get_user(user_id)
-        if user is None:
+        if not self.datadriver.user_exist(user_id):
             await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
             return
 

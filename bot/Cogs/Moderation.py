@@ -112,7 +112,7 @@ class Moderation(commands.Cog):
     async def give_card(self, interaction: discord.Interaction, target_user: discord.Member, card: str):
         target_user_id = target_user.id
 
-        if target_user_id not in self.datadriver.users_df.index:
+        if not self.datadriver.user_exist(target_user_id):
             await interaction.response.send_message("User does not exist in database.")
             return
         
@@ -132,19 +132,17 @@ class Moderation(commands.Cog):
     @admin_only()
     @app_commands.autocomplete(pack=pack_autocomplete)
     async def give_pack(self, interaction: discord.Interaction, target_user: discord.Member, pack: str, count: int):
-        user = self.datadriver.get_user(target_user.id)
-
-        if user is None:
+        user_id = interaction.user.id
+        if not self.datadriver.user_exist(user_id):
             await interaction.response.send_message(f"User does not exist in database.")
             return
         
-        user_packs = user["packs"]
+        user_packs = self.datadriver.users_df.at[user_id, "packs"] or []
 
         for _ in range(count):
-            user_packs.append(pack)
+            user_packs.append(pack) # type: ignore
 
         self.datadriver.users_df.at[interaction.user.id, "packs"] = user_packs # type: ignore
-
         self.datadriver.mark_dirty(interaction.user.id)
         
         await interaction.response.send_message(f"Gave {count} pack(s): {pack} to user {target_user.mention}")
