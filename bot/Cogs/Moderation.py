@@ -141,7 +141,7 @@ class Moderation(commands.Cog):
             await interaction.response.send_message("Pack not found.")
             return
         
-        user_packs = self.datadriver.get_user_cards(user_id)
+        user_packs = self.datadriver.get_user_packs(user_id)
 
         for _ in range(count):
             user_packs.append(pack) # type: ignore
