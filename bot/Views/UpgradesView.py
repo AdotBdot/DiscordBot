@@ -48,6 +48,7 @@ class UpgradesView(discord.ui.LayoutView):
             self.add_item(self.header)
 
         user_cash = self.datadriver.get_user_cash(self.author_id)
+        user_melones = self.datadriver.get_user_melones(self.author_id)
 
         # Content
         container = discord.ui.Container()
@@ -55,14 +56,17 @@ class UpgradesView(discord.ui.LayoutView):
 
         for name, level in upgrades.items():
             cost = UPGRADES_INFO[name]["base_cost"] * upgrades[name]
-            affordable = user_cash >= cost
+            cost_melones = 1 if upgrades[name] >= 10 else 0
+
+            affordable = user_cash >= cost and user_melones >= cost_melones
+            label = f"{cost}🥥 {cost_melones}🍉" if cost_melones > 0 else f"{cost}🥥"
 
             section = discord.ui.Section(
                 discord.ui.TextDisplay(content=f"**{UPGRADES_INFO[name]["display_name"]}**: {level}\n{UPGRADES_INFO[name]["description"]}"),
                 accessory=UpgradeButton(
                     upgrade_name=name,
                     view=self,
-                    label=f"{cost}🥥",
+                    label=label,
                     style=discord.ButtonStyle.success if affordable else discord.ButtonStyle.primary
                 )
             )
@@ -77,18 +81,19 @@ class UpgradesView(discord.ui.LayoutView):
         try:
             upgrades = self.datadriver.get_user_upgrades(self.author_id)
             user_cash = self.datadriver.get_user_cash(self.author_id)
-        
-            cost = UPGRADES_INFO[upgrade_name]["base_cost"] * upgrades[upgrade_name]
+            user_melones = self.datadriver.get_user_melones(self.author_id)
 
-            self.datadriver.users.at[self.author_id, "cash"] = user_cash - cost
+            cost = UPGRADES_INFO[upgrade_name]["base_cost"] * upgrades[upgrade_name]
+            cost_melones = 1 if upgrades[upgrade_name] >= 10 else 0
+
+            self.datadriver.set_user_cash(self.author_id, user_cash - cost)
+            self.datadriver.set_user_melones(self.author_id, user_melones - cost_melones)
 
             upgrades[upgrade_name] = (
                 upgrades.get(upgrade_name, 0) + 1
             )
 
-            self.datadriver.users.at[self.author_id, "upgrades"] = upgrades # type: ignore
-
-            self.datadriver.mark_dirty(self.author_id)
+            self.datadriver.set_user_upgrades(self.author_id, upgrades)
 
         finally:
             self.update_view()
