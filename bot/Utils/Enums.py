@@ -88,16 +88,16 @@ UPGRADES_INFO = {
     "luck": {
         "display_name": "Luck",
         "description": "Increases chance of getting higher rarity card.",
-        "cost": 1000
+        "base_cost": 1000
     },
     "drop_rate": {
         "display_name": "Drop Rate",
         "description": "Increases chance of getting a pack.",
-        "cost": 1000
+        "base_cost": 1000
     },
     "pack_size": {
         "display_name": "Pack Size",
         "description": "Increases chance of getting more cards in a pack.",
-        "cost": 1000
+        "base_cost": 1000
     }
 }

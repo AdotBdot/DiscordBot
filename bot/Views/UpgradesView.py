@@ -63,7 +63,7 @@ class UpgradesView(discord.ui.LayoutView):
         upgrades = self.get_upgrades()
 
         for name, level in upgrades.items():
-            cost = UPGRADES_INFO[name]["cost"]
+            cost = UPGRADES_INFO[name]["base_cost"] * upgrades[name]
             affordable = user_cash >= cost
 
             section = discord.ui.Section(
@@ -71,7 +71,7 @@ class UpgradesView(discord.ui.LayoutView):
                 accessory=UpgradeButton(
                     upgrade_name=name,
                     view=self,
-                    label=f"{UPGRADES_INFO[name]["cost"]}🥥",
+                    label=f"{cost}🥥",
                     style=discord.ButtonStyle.success if affordable else discord.ButtonStyle.primary
                 )
             )
@@ -84,12 +84,13 @@ class UpgradesView(discord.ui.LayoutView):
 
     async def upgrade(self, interaction: discord.Interaction, upgrade_name: str):
         try:
-            cost = UPGRADES_INFO[upgrade_name]["cost"]
+            upgrades = self.get_upgrades()
             user_cash = self.get_cash()
+        
+            cost = UPGRADES_INFO[upgrade_name]["base_cost"] * upgrades[upgrade_name]
 
             self.datadriver.users.at[self.author_id, "cash"] = user_cash - cost
 
-            upgrades = self.get_upgrades()
             upgrades[upgrade_name] = (
                 upgrades.get(upgrade_name, 0) + 1
             )
