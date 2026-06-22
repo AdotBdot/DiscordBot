@@ -104,33 +104,33 @@ class Packs(commands.Cog):
         await interaction.response.send_message(view=view)
 
     @pack.command(name="open", description="Opens pack from your inventory.")
-    @app_commands.autocomplete(pack_name=user_pack_autocomplete)
-    async def pack_open(self, interaction: discord.Interaction, pack_name: str, count: Optional[int]):
+    @app_commands.autocomplete(pack=user_pack_autocomplete)
+    async def pack_open(self, interaction: discord.Interaction, pack: str, count: Optional[int]):
         user_id = interaction.user.id
         
         if not self.datadriver.user_exist(user_id):
             await interaction.response.send_message("User does not exist in database.")
             return
         
-        if not self.datadriver.pack_exist(pack_name):
+        if not self.datadriver.pack_exist(pack):
             await interaction.response.send_message("Pack not found.")
             return
         
         open_count = count or 1
         user_packs = self.datadriver.get_user_packs(user_id)
         
-        if user_packs.count(pack_name) < open_count:
-            await interaction.response.send_message(f"You don't have enough **{pack_name}** in your inventory")
+        if user_packs.count(pack) < open_count:
+            await interaction.response.send_message(f"You don't have enough **{pack}** in your inventory")
             return
 
         # Remove pack from user inventory
         for _ in range(open_count):
-            user_packs.remove(pack_name)
+            user_packs.remove(pack)
 
         self.datadriver.set_user_packs(user_id, user_packs)
 
         # Get cards from pack
-        pack_cards = self.datadriver.get_pack_cards(pack_name)
+        pack_cards = self.datadriver.get_pack_cards(pack)
         cards = self.datadriver.get_cards_by_names(pack_cards)
 
         # Group by rarity
@@ -156,7 +156,7 @@ class Packs(commands.Cog):
         view = PageView(
             pages=pages, 
             author_id=interaction.user.id, 
-            header=f"You've opened **{pack_name}**"
+            header=f"You've opened **{pack}**"
             )
         
         await interaction.response.send_message(view=view)

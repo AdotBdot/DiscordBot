@@ -54,8 +54,8 @@ class Trade(commands.Cog):
     trade = app_commands.Group(name="trade", description="Trade related commands")
 
     @trade.command(name="give_card", description="Give card to user.")
-    @app_commands.autocomplete(card_name=user_card_autocomplete)
-    async def trade_give_card(self, interaction: discord.Interaction, to: discord.Member, card_name: str):
+    @app_commands.autocomplete(card=user_card_autocomplete)
+    async def trade_give_card(self, interaction: discord.Interaction, to: discord.Member, card: str):
         user_id = interaction.user.id
         target_user_id = to.id
 
@@ -68,14 +68,14 @@ class Trade(commands.Cog):
 
         user_cards = self.datadriver.get_user_cards(user_id)
 
-        if not card_name in user_cards:
-            await interaction.response.send_message(content=f"You don't have {card_name} in your inventory.")
+        if not card in user_cards:
+            await interaction.response.send_message(content=f"You don't have {card} in your inventory.")
             return
 
         # Update users cards
         target_user_cards = self.datadriver.get_user_cards(target_user_id)
-        user_cards.remove(card_name)
-        target_user_cards.append(card_name)
+        user_cards.remove(card)
+        target_user_cards.append(card)
 
         self.datadriver.set_user_cards(user_id, user_cards)
         self.datadriver.set_user_cards(target_user_id, target_user_cards)
@@ -84,11 +84,11 @@ class Trade(commands.Cog):
         self.datadriver.mark_dirty(user_id)
         self.datadriver.mark_dirty(target_user_id)
 
-        await interaction.response.send_message(content=f"You gave {card_name} to {to.name}.")
+        await interaction.response.send_message(content=f"You gave {card} to {to.name}.")
 
     @trade.command(name="give_pack", description="Give card to user.")
-    @app_commands.autocomplete(pack_name=user_pack_autocomplete)
-    async def trade_give_pack(self, interaction: discord.Interaction, to: discord.Member, pack_name: str):
+    @app_commands.autocomplete(pack=user_pack_autocomplete)
+    async def trade_give_pack(self, interaction: discord.Interaction, to: discord.Member, pack: str):
         user_id = interaction.user.id
         target_user_id = to.id
 
@@ -101,14 +101,14 @@ class Trade(commands.Cog):
 
         user_packs = self.datadriver.get_user_packs(user_id)
 
-        if not pack_name in user_packs:
-            await interaction.response.send_message(content=f"You don't have {pack_name} in your inventory.")
+        if not pack in user_packs:
+            await interaction.response.send_message(content=f"You don't have {pack} in your inventory.")
             return
 
         # Update users packs
         target_user_packs = self.datadriver.get_user_packs(target_user_id)
-        user_packs.remove(pack_name)
-        target_user_packs.append(pack_name)
+        user_packs.remove(pack)
+        target_user_packs.append(pack)
 
         self.datadriver.set_user_packs(user_id, user_packs)
         self.datadriver.set_user_packs(target_user_id, target_user_packs)
@@ -117,7 +117,7 @@ class Trade(commands.Cog):
         self.datadriver.mark_dirty(user_id)
         self.datadriver.mark_dirty(target_user_id)
 
-        await interaction.response.send_message(content=f"You gave {pack_name} to {to.name}.")
+        await interaction.response.send_message(content=f"You gave {pack} to {to.name}.")
 
     @trade.command(name="give_cocoses", description="Give card to user.")
     async def trade_give_cocoses(self, interaction: discord.Interaction, to: discord.Member, cocoses: int):
