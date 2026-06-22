@@ -70,11 +70,10 @@ class Packs(commands.Cog):
 
         await interaction.response.send_message(view=view)
 
-
     @pack.command(name="info", description="Displays information about pack.")
     @app_commands.autocomplete(pack_name=pack_autocomplete)
     async def pack_info(self, interaction: discord.Interaction, pack_name: str):
-        if pack_name not in self.datadriver.packs.index:
+        if not self.datadriver.pack_exist(pack_name):
             await interaction.response.send_message("Pack not found.")
             return
         
@@ -113,26 +112,26 @@ class Packs(commands.Cog):
             await interaction.response.send_message("User does not exist in database.")
             return
         
-        if pack_name not in self.datadriver.packs.index:
+        if not self.datadriver.pack_exist(pack_name):
             await interaction.response.send_message("Pack not found.")
             return
         
         open_count = count or 1
-        user_packs = self.datadriver.users.at[user_id, "packs"] or []
+        user_packs = self.datadriver.get_user_packs(user_id)
         
-        if user_packs.count(pack_name) < open_count: # type: ignore
+        if user_packs.count(pack_name) < open_count:
             await interaction.response.send_message(f"You don't have enough **{pack_name}** in your inventory")
             return
 
         # Remove pack from user inventory
         for _ in range(open_count):
-            user_packs.remove(pack_name) # type: ignore
+            user_packs.remove(pack_name)
 
-        self.datadriver.users.at[user_id, "packs"] = user_packs  # type: ignore
+        self.datadriver.set_user_packs(user_id, user_packs)
 
         # Get cards from pack
-        pack_cards = self.datadriver.packs.at[pack_name, "cards"]
-        cards = self.datadriver.cards.loc[pack_cards]
+        pack_cards = self.datadriver.get_pack_cards(pack_name)
+        cards = self.datadriver.get_cards_by_names(pack_cards)
 
         # Group by rarity
         by_rarity = {rarity: group for rarity, group in cards.groupby("rarity")}
@@ -149,12 +148,9 @@ class Packs(commands.Cog):
             result.append(pool.iloc[random.randrange(len(pool))])
 
         # Add card to user
-        user_cards = self.datadriver.users.at[user_id, "cards"] or []
-        user_cards.extend([card.name for card in result]) # type: ignore
-        self.datadriver.users.at[user_id, "cards"] = user_cards # type: ignore
-
-        # Save user
-        self.datadriver.mark_dirty(user_id)
+        user_cards = self.datadriver.get_user_cards(user_id)
+        user_cards.extend([card.name for card in result])
+        self.datadriver.set_user_cards(user_id, user_cards)
 
         pages = [card_to_container(card) for card in result]
         view = PageView(

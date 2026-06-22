@@ -40,15 +40,6 @@ class UpgradesView(discord.ui.LayoutView):
     async def interaction_check(self, interaction: discord.Interaction) -> bool:
         return interaction.user.id == self.author_id
 
-    def get_upgrades(self) -> dict[str, int]:
-        return self.datadriver.users.at[self.author_id, "upgrades"] or {} # type: ignore
-    
-    def get_cash(self) -> int:
-        return self.datadriver.users.at[self.author_id, "cash"] or 0 # type: ignore
-
-    def get_melones(self) -> int:
-        return self.datadriver.users.at[self.author_id, "melons"] or 0 # type: ignore
-
     def update_view(self):
         self.clear_items()
 
@@ -56,11 +47,11 @@ class UpgradesView(discord.ui.LayoutView):
         if self.header:
             self.add_item(self.header)
 
-        user_cash = self.get_cash()
+        user_cash = self.datadriver.get_user_cash(self.author_id)
 
         # Content
         container = discord.ui.Container()
-        upgrades = self.get_upgrades()
+        upgrades = self.datadriver.get_user_upgrades(self.author_id)
 
         for name, level in upgrades.items():
             cost = UPGRADES_INFO[name]["base_cost"] * upgrades[name]
@@ -84,8 +75,8 @@ class UpgradesView(discord.ui.LayoutView):
 
     async def upgrade(self, interaction: discord.Interaction, upgrade_name: str):
         try:
-            upgrades = self.get_upgrades()
-            user_cash = self.get_cash()
+            upgrades = self.datadriver.get_user_upgrades(self.author_id)
+            user_cash = self.datadriver.get_user_cash(self.author_id)
         
             cost = UPGRADES_INFO[upgrade_name]["base_cost"] * upgrades[upgrade_name]
 

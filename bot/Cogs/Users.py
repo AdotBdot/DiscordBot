@@ -94,15 +94,15 @@ class Users(commands.Cog):
             await interaction.response.send_message("Slow down. You don't have your profile yet. Use **/help** for more information.")
             return
 
-        user_packs = self.datadriver.users.at[user_id, "packs"] or []
+        user_packs = self.datadriver.get_user_packs(user_id)
 
-        if not user_packs: # type: ignore
+        if not user_packs:
             await interaction.response.send_message("You don't have any packs in your inventory.")
             return        
 
         #UI
         packs = {}
-        for pack_name in user_packs: # type: ignore
+        for pack_name in user_packs:
             packs[pack_name] = packs.get(pack_name, 0) + 1
 
         msg = ""
@@ -138,7 +138,7 @@ class Users(commands.Cog):
             await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
             return
 
-        df = self.datadriver.get_user_cards(user_id, bundle=bundle, collection=collection, rarity=rarity, tag=tag)
+        df = self.datadriver.get_cards_by_traits(user_id=user_id, bundle=bundle, collection=collection, rarity=rarity, tag=tag)
         if df.empty:
             await interaction.response.send_message(content="You don't have any cards in your collection.")
             return
@@ -196,7 +196,7 @@ class Users(commands.Cog):
             await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
             return
 
-        df = self.datadriver.get_user_cards(user_id, bundle=bundle, collection=collection, rarity=rarity, tag=tag)
+        df = self.datadriver.get_cards_by_traits(user_id=user_id, bundle=bundle, collection=collection, rarity=rarity, tag=tag)
         if df.empty:
             await interaction.response.send_message(content="You don't have any cards in your collection.")
             return

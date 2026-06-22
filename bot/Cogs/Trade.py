@@ -22,7 +22,7 @@ class Trade(commands.Cog):
         if not self.datadriver.user_exist(user_id):
             return []
         
-        user_cards = self.datadriver.cards.at[user_id, "cards"]
+        user_cards = self.datadriver.get_user_cards(user_id)
 
         choices = [app_commands.Choice(name=card, value=card) for card in user_cards if current.lower() in card.lower()] # type: ignore
 
@@ -66,19 +66,19 @@ class Trade(commands.Cog):
             await interaction.response.send_message(content=f"Slow down. {to.name} don't have his profile yet.")
             return
 
-        user_cards = self.datadriver.users.at[user_id, "cards"] or []
+        user_cards = self.datadriver.get_user_cards(user_id)
 
-        if not card_name in user_cards: # type: ignore
+        if not card_name in user_cards:
             await interaction.response.send_message(content=f"You don't have {card_name} in your inventory.")
             return
 
         # Update users cards
-        target_user_cards = self.datadriver.users.at[target_user_id, "cards"] or []
-        user_cards.remove(card_name) # type: ignore
-        target_user_cards.append(card_name) # type: ignore
+        target_user_cards = self.datadriver.get_user_cards(target_user_id)
+        user_cards.remove(card_name)
+        target_user_cards.append(card_name)
 
-        self.datadriver.users.at[user_id, "cards"] = user_cards # type: ignore
-        self.datadriver.users.at[target_user_id, "cards"] = target_user_cards # type: ignore
+        self.datadriver.set_user_cards(user_id, user_cards)
+        self.datadriver.set_user_cards(target_user_id, target_user_cards)
 
         # Save Users
         self.datadriver.mark_dirty(user_id)
@@ -99,19 +99,19 @@ class Trade(commands.Cog):
             await interaction.response.send_message(content=f"Slow down. {to.name} don't have his profile yet.")
             return
 
-        user_packs = self.datadriver.users.at[user_id, "packs"] or []
+        user_packs = self.datadriver.get_user_packs(user_id)
 
-        if not pack_name in user_packs: # type: ignore
+        if not pack_name in user_packs:
             await interaction.response.send_message(content=f"You don't have {pack_name} in your inventory.")
             return
 
         # Update users packs
-        target_user_packs = self.datadriver.users.at[target_user_id, "packs"] or []
-        user_packs.remove(pack_name) # type: ignore
-        target_user_packs.append(pack_name) # type: ignore
+        target_user_packs = self.datadriver.get_user_packs(target_user_id)
+        user_packs.remove(pack_name)
+        target_user_packs.append(pack_name)
 
-        self.datadriver.users.at[user_id, "packs"] = user_packs # type: ignore
-        self.datadriver.users.at[target_user_id, "packs"] = target_user_packs # type: ignore
+        self.datadriver.set_user_packs(user_id, user_packs)
+        self.datadriver.set_user_packs(target_user_id, target_user_packs)
 
         # Save Users
         self.datadriver.mark_dirty(user_id)
@@ -131,17 +131,17 @@ class Trade(commands.Cog):
             await interaction.response.send_message(content=f"Slow down. {to.name} don't have his profile yet.")
             return
 
-        user_cash = self.datadriver.users.at[user_id, "cash"] or 0
+        user_cash = self.datadriver.get_user_cash(user_id)
 
-        if user_cash < cocoses: # type: ignore
+        if user_cash < cocoses:
             await interaction.response.send_message(content=f"You don't enough cocoses.")
             return
 
         # Update users
-        target_user_cash = self.datadriver.users.at[target_user_id, "cash"] or 0
+        target_user_cash = self.datadriver.get_user_cash(target_user_id)
 
-        self.datadriver.users.at[user_id, "cash"] = user_cash - cocoses # type: ignore
-        self.datadriver.users.at[target_user_id, "cash"] = target_user_cash + cocoses # type: ignore
+        self.datadriver.set_user_cash(user_id, user_cash - cocoses)
+        self.datadriver.set_user_cash(target_user_id, target_user_cash + cocoses)
 
         # Save Users
         self.datadriver.mark_dirty(user_id)

@@ -115,11 +115,11 @@ class Moderation(commands.Cog):
             await interaction.response.send_message("User does not exist in database.")
             return
         
-        if card not in self.datadriver.cards.index:
+        if not self.datadriver.card_exist(card):
             await interaction.response.send_message("Card not found.")
             return
         
-        user_cards = self.datadriver.users.at[target_user_id, "cards"] or []
+        user_cards = self.datadriver.get_user_cards(target_user_id)
         user_cards.append(card) # type: ignore
         self.datadriver.users.at[target_user_id, "cards"] = user_cards # type: ignore
 
@@ -132,11 +132,16 @@ class Moderation(commands.Cog):
     @app_commands.autocomplete(pack=pack_autocomplete)
     async def give_pack(self, interaction: discord.Interaction, target_user: discord.Member, pack: str, count: int):
         user_id = interaction.user.id
+
         if not self.datadriver.user_exist(user_id):
             await interaction.response.send_message(f"User does not exist in database.")
             return
         
-        user_packs = self.datadriver.users.at[user_id, "packs"] or []
+        if not self.datadriver.pack_exist(pack):
+            await interaction.response.send_message("Pack not found.")
+            return
+        
+        user_packs = self.datadriver.get_user_cards(user_id)
 
         for _ in range(count):
             user_packs.append(pack) # type: ignore

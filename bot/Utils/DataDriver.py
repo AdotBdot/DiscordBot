@@ -198,10 +198,48 @@ class DataDriver:
         file_path.write_text(json.dumps(user_data, indent=2, ensure_ascii=False), encoding="utf-8")
 
         return self.users.loc[user_id]
+    
+    def get_user_cards(self, user_id: int) -> list[str]:
+        return self.users.at[user_id, "cards"] or [] # type: ignore
+    
+    def set_user_cards(self, user_id: int, cards: list[str]):
+        self.users.at[user_id, "cards"] = cards # type: ignore
+        self.mark_dirty(user_id)
+
+    def get_user_cash(self, user_id: int) -> int:
+        return self.users.at[user_id, "cash"] or 0 # type: ignore
+    
+    def set_user_cash(self, user_id: int, cash: int):
+        self.users.at[user_id, "cash"] = cash
+        self.mark_dirty(user_id)
+    
+    def get_user_melones(self, user_id: int) -> int:
+        return self.users.at[user_id, "melons"] or 0 # type: ignore
+
+    def set_user_melones(self, user_id: int, melons: int):
+        self.users.at[user_id, "melons"] = melons
+        self.mark_dirty(user_id)
+
+    def get_user_packs(self, user_id: int) -> list[str]:
+        return self.users.at[user_id, "packs"] or [] # type: ignore
+
+    def set_user_packs(self, user_id: int, packs: list[str]):
+        self.users.at[user_id, "packs"] = packs # type: ignore
+        self.mark_dirty(user_id)
+
+    def get_user_upgrades(self, user_id: int) -> dict:
+        return self.users.at[user_id, "upgrades"] or {} # type: ignore
+    
+    def set_user_upgrades(self, user_id: int, upgrades: dict):
+        self.users.at[user_id, "upgrades"] = upgrades # type: ignore
+        self.mark_dirty(user_id)
 
     # ====================
     # Cards methods
     # ====================
+
+    def card_exist(self, name: str) -> bool:
+        return name in self.cards.index
 
     def get_cards_count(self) -> int:
         return len(self.cards)
@@ -225,33 +263,18 @@ class DataDriver:
 
         return self.cards.loc[list(existing)]
     
-    def get_cards_by_traits(self, bundle: Optional[str] = None, collection: Optional[str] = None, rarity: Optional[str] = None, tag: Optional[str] = None) -> pd.DataFrame:
-        if all(x is None for x in [bundle, collection, rarity, tag]):
+    def get_cards_by_traits(self, user_id: Optional[int] = None, bundle: Optional[str] = None, collection: Optional[str] = None, rarity: Optional[str] = None, tag: Optional[str] = None) -> pd.DataFrame:
+        if all(x is None for x in [user_id, bundle, collection, rarity, tag]):
             raise ValueError("At least one trait must be provided")  
 
         df = self.cards
-
-        if bundle is not None:
-            df = df[df["bundle"] == bundle]
-        if collection is not None:
-            df = df[df["collection"] == collection]
-        if rarity is not None:
-            df = df[df["rarity"] == rarity]
-        if tag is not None:
-            df = df[df["tags"].apply(lambda tags: tag in tags)]
-
-        return df
-    
-    def get_user_cards(self, user_id: int, bundle: Optional[str] = None, collection: Optional[str] = None, rarity: Optional[str] = None, tag: Optional[str] = None) -> pd.DataFrame:
-        if user_id not in self.users.index:
-            return pd.DataFrame(columns=self.cards.columns)
-        
-        user_cards = self.users.at[user_id, "cards"]
-
-        if not user_cards:
-            return pd.DataFrame(columns=self.cards.columns)
-        
-        df = self.cards.loc[user_cards]
+        if user_id and self.user_exist(user_id):
+            user_cards = self.users.at[user_id, "cards"] or []
+            
+            if not user_cards:
+                return pd.DataFrame(columns=self.cards.columns)
+            
+            df = df.loc[user_cards]
 
         if bundle is not None:
             df = df[df["bundle"] == bundle]
@@ -268,19 +291,14 @@ class DataDriver:
     # Packs methods
     # ====================
 
+    def pack_exist(self, name: str) -> bool:
+        return name in self.packs.index
+
     def get_pack_by_name(self, name: str):
         if not name in self.packs.index:
             return None
 
         return self.packs.loc[name]
-    
-    def get_user_packs(self, user_id: int) -> list[str]:
-        if not self.user_exist(user_id):
-            return []
-        
-        packs = self.users.at[user_id, "packs"]
 
-        if isinstance(packs, list):
-            return packs
-        
-        return []
+    def get_pack_cards(self, name: str) -> list[str]:
+        return self.packs.at[name, "cards"] or [] # type: ignore
