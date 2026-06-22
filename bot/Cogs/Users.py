@@ -232,7 +232,7 @@ class Users(commands.Cog):
             chunk = df.iloc[i:i + 20]
 
             msg = "\n".join(
-                f"**{RARITY_EMOJI[row["rarity"]]} {row["rarity"]}**: {key} **x{df_counts[key]}**"  # type: ignore
+                f"{RARITY_EMOJI[row["rarity"]]} {key} **x{df_counts[key]}**"  # type: ignore
                 for key, row in chunk.iterrows()
             )
 

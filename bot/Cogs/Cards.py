@@ -93,7 +93,7 @@ class Cards(commands.Cog):
         for i in range(0, len(df), 20):
             chunk = df.iloc[i:i + 20]
             msg = "\n".join(
-                f"**{RARITY_EMOJI[row["rarity"]]} {row["rarity"]}**: {key}" 
+                f"{RARITY_EMOJI[row["rarity"]]} {key}" 
                 for key, row in chunk.iterrows()
             )
 
