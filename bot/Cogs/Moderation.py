@@ -20,7 +20,7 @@ class Moderation(commands.Cog):
         if len(current) < 3:
             return[]
         
-        df = self.datadriver.cards_df
+        df = self.datadriver.cards
 
         matches = df.index[df.index.str.contains(current, case=False, na=False)]
 
@@ -60,7 +60,7 @@ class Moderation(commands.Cog):
     @admin_only()
     async def update_users(self, interaction: discord.Interaction):
         try:
-            for user_id in self.datadriver.users_df.index:
+            for user_id in self.datadriver.users.index:
                 self.datadriver.save_user(user_id)
 
             await interaction.response.send_message(f"Updated user database.")
@@ -79,8 +79,8 @@ class Moderation(commands.Cog):
         container = discord.ui.Container(
             discord.ui.TextDisplay(content=f"**Uptime**: {days}d {hours}h {minutes}m {seconds}s"),
             discord.ui.Separator(visible=True),
-            discord.ui.TextDisplay(content=f"**Users**: {len(self.datadriver.users_df)}"),
-            discord.ui.TextDisplay(content=f"**Bundles**: {len(self.datadriver.bundle_cache)}\n**Collections**: {len(self.datadriver.collection_cache)}\n**Cards**: {self.datadriver.get_cards_count()}\n**Packs**: {len(self.datadriver.packs_df)}")
+            discord.ui.TextDisplay(content=f"**Users**: {len(self.datadriver.users)}"),
+            discord.ui.TextDisplay(content=f"**Bundles**: {len(self.datadriver.bundle_cache)}\n**Collections**: {len(self.datadriver.collection_cache)}\n**Cards**: {self.datadriver.get_cards_count()}\n**Packs**: {len(self.datadriver.packs)}")
         )
 
         view = SimpleView(
@@ -115,13 +115,13 @@ class Moderation(commands.Cog):
             await interaction.response.send_message("User does not exist in database.")
             return
         
-        if card not in self.datadriver.cards_df.index:
+        if card not in self.datadriver.cards.index:
             await interaction.response.send_message("Card not found.")
             return
         
-        user_cards = self.datadriver.users_df.at[target_user_id, "cards"] or []
+        user_cards = self.datadriver.users.at[target_user_id, "cards"] or []
         user_cards.append(card) # type: ignore
-        self.datadriver.users_df.at[target_user_id, "cards"] = user_cards # type: ignore
+        self.datadriver.users.at[target_user_id, "cards"] = user_cards # type: ignore
 
         self.datadriver.mark_dirty(target_user_id)
 
@@ -136,12 +136,12 @@ class Moderation(commands.Cog):
             await interaction.response.send_message(f"User does not exist in database.")
             return
         
-        user_packs = self.datadriver.users_df.at[user_id, "packs"] or []
+        user_packs = self.datadriver.users.at[user_id, "packs"] or []
 
         for _ in range(count):
             user_packs.append(pack) # type: ignore
 
-        self.datadriver.users_df.at[interaction.user.id, "packs"] = user_packs # type: ignore
+        self.datadriver.users.at[interaction.user.id, "packs"] = user_packs # type: ignore
         self.datadriver.mark_dirty(interaction.user.id)
         
         await interaction.response.send_message(f"Gave {count} pack(s): {pack} to user {target_user.mention}")
@@ -155,7 +155,7 @@ class Moderation(commands.Cog):
             await interaction.response.send_message(f"User does not exist in database.")
             return
         
-        self.datadriver.users_df.at[user_id, "cash"] += cocoses # type: ignore
+        self.datadriver.users.at[user_id, "cash"] += cocoses # type: ignore
         self.datadriver.mark_dirty(user_id)
         
         await interaction.response.send_message(f"Gave {cocoses} 🥥 to user {target_user.mention}")
@@ -169,7 +169,7 @@ class Moderation(commands.Cog):
             await interaction.response.send_message(f"User does not exist in database.")
             return
         
-        self.datadriver.users_df.at[user_id, "melons"] += melones # type: ignore
+        self.datadriver.users.at[user_id, "melons"] += melones # type: ignore
         self.datadriver.mark_dirty(user_id)
         
         await interaction.response.send_message(f"Gave {melones} 🍉 to user {target_user.mention}")

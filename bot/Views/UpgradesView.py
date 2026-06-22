@@ -41,13 +41,13 @@ class UpgradesView(discord.ui.LayoutView):
         return interaction.user.id == self.author_id
 
     def get_upgrades(self) -> dict[str, int]:
-        return self.datadriver.users_df.at[self.author_id, "upgrades"] or {} # type: ignore
+        return self.datadriver.users.at[self.author_id, "upgrades"] or {} # type: ignore
     
     def get_cash(self) -> int:
-        return self.datadriver.users_df.at[self.author_id, "cash"] or 0 # type: ignore
+        return self.datadriver.users.at[self.author_id, "cash"] or 0 # type: ignore
 
     def get_melones(self) -> int:
-        return self.datadriver.users_df.at[self.author_id, "melons"] or 0 # type: ignore
+        return self.datadriver.users.at[self.author_id, "melons"] or 0 # type: ignore
 
     def update_view(self):
         self.clear_items()
@@ -87,14 +87,14 @@ class UpgradesView(discord.ui.LayoutView):
             cost = UPGRADES_INFO[upgrade_name]["cost"]
             user_cash = self.get_cash()
 
-            self.datadriver.users_df.at[self.author_id, "cash"] = user_cash - cost
+            self.datadriver.users.at[self.author_id, "cash"] = user_cash - cost
 
             upgrades = self.get_upgrades()
             upgrades[upgrade_name] = (
                 upgrades.get(upgrade_name, 0) + 1
             )
 
-            self.datadriver.users_df.at[self.author_id, "upgrades"] = upgrades # type: ignore
+            self.datadriver.users.at[self.author_id, "upgrades"] = upgrades # type: ignore
 
             self.datadriver.mark_dirty(self.author_id)
 

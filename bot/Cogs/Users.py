@@ -94,7 +94,7 @@ class Users(commands.Cog):
             await interaction.response.send_message("Slow down. You don't have your profile yet. Use **/help** for more information.")
             return
 
-        user_packs = self.datadriver.users_df.at[user_id, "packs"] or []
+        user_packs = self.datadriver.users.at[user_id, "packs"] or []
 
         if not user_packs: # type: ignore
             await interaction.response.send_message("You don't have any packs in your inventory.")

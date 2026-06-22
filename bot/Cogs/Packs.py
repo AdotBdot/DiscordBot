@@ -74,7 +74,7 @@ class Packs(commands.Cog):
     @pack.command(name="info", description="Displays information about pack.")
     @app_commands.autocomplete(pack_name=pack_autocomplete)
     async def pack_info(self, interaction: discord.Interaction, pack_name: str):
-        if pack_name not in self.datadriver.packs_df.index:
+        if pack_name not in self.datadriver.packs.index:
             await interaction.response.send_message("Pack not found.")
             return
         
@@ -113,12 +113,12 @@ class Packs(commands.Cog):
             await interaction.response.send_message("User does not exist in database.")
             return
         
-        if pack_name not in self.datadriver.packs_df.index:
+        if pack_name not in self.datadriver.packs.index:
             await interaction.response.send_message("Pack not found.")
             return
         
         open_count = count or 1
-        user_packs = self.datadriver.users_df.at[user_id, "packs"] or []
+        user_packs = self.datadriver.users.at[user_id, "packs"] or []
         
         if user_packs.count(pack_name) < open_count: # type: ignore
             await interaction.response.send_message(f"You don't have enough **{pack_name}** in your inventory")
@@ -128,11 +128,11 @@ class Packs(commands.Cog):
         for _ in range(open_count):
             user_packs.remove(pack_name) # type: ignore
 
-        self.datadriver.users_df.at[user_id, "packs"] = user_packs  # type: ignore
+        self.datadriver.users.at[user_id, "packs"] = user_packs  # type: ignore
 
         # Get cards from pack
-        pack_cards = self.datadriver.packs_df.at[pack_name, "cards"]
-        cards = self.datadriver.cards_df.loc[pack_cards]
+        pack_cards = self.datadriver.packs.at[pack_name, "cards"]
+        cards = self.datadriver.cards.loc[pack_cards]
 
         # Group by rarity
         by_rarity = {rarity: group for rarity, group in cards.groupby("rarity")}
@@ -149,9 +149,9 @@ class Packs(commands.Cog):
             result.append(pool.iloc[random.randrange(len(pool))])
 
         # Add card to user
-        user_cards = self.datadriver.users_df.at[user_id, "cards"] or []
+        user_cards = self.datadriver.users.at[user_id, "cards"] or []
         user_cards.extend([card.name for card in result]) # type: ignore
-        self.datadriver.users_df.at[user_id, "cards"] = user_cards # type: ignore
+        self.datadriver.users.at[user_id, "cards"] = user_cards # type: ignore
 
         # Save user
         self.datadriver.mark_dirty(user_id)

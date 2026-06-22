@@ -44,9 +44,9 @@ class DataDriver:
         self.tag_cache: list[str] = []
         self.packs_cache: list[str] = []
 
-        self.cards_df = pd.DataFrame(columns=["rarity", "bundle", "collection", "tags"]).set_index(pd.Index([], name="name"))
-        self.packs_df = pd.DataFrame(columns=["cards"]).set_index(pd.Index([], name="name"))
-        self.users_df = pd.DataFrame(columns=["cards", "packs", "cash", "melons"]).set_index(pd.Index([], name="id"))
+        self.cards = pd.DataFrame(columns=["rarity", "bundle", "collection", "tags"]).set_index(pd.Index([], name="name"))
+        self.packs = pd.DataFrame(columns=["cards"]).set_index(pd.Index([], name="name"))
+        self.users = pd.DataFrame(columns=["cards", "packs", "cash", "melons"]).set_index(pd.Index([], name="id"))
 
     def initialize_database(self):
         self.logger.info("Initializing database...")
@@ -58,13 +58,13 @@ class DataDriver:
         self.init_card_caches()
 
     def init_card_caches(self):
-        self.bundle_cache = sorted(self.cards_df["bundle"].dropna().unique().tolist())
-        self.collection_cache = sorted(self.cards_df["collection"].dropna().unique().tolist())
-        self.packs_cache = sorted(self.packs_df.index.unique().tolist())
+        self.bundle_cache = sorted(self.cards["bundle"].dropna().unique().tolist())
+        self.collection_cache = sorted(self.cards["collection"].dropna().unique().tolist())
+        self.packs_cache = sorted(self.packs.index.unique().tolist())
 
         self.tags_cache = sorted({
             tag
-            for tags in self.cards_df["tags"].dropna()
+            for tags in self.cards["tags"].dropna()
             for tag in tags
         })
 
@@ -89,13 +89,13 @@ class DataDriver:
                             "tags": card["tags"]
                         })
 
-        self.cards_df = pd.DataFrame(cards).set_index("name")
-        self.logger.info(f"Loaded {len(self.cards_df)} card(s)")
+        self.cards = pd.DataFrame(cards).set_index("name")
+        self.logger.info(f"Loaded {len(self.cards)} card(s)")
 
     def load_packs(self):
-        all_cards = set(self.cards_df.index)
-        bundles = self.cards_df.groupby("bundle").apply(lambda df: df.index.to_list()).to_dict() if "bundle" in self.cards_df.columns else {}
-        collections = self.cards_df.groupby("collection").apply(lambda df: df.index.to_list()).to_dict() if "collection" in self.cards_df.columns else {}
+        all_cards = set(self.cards.index)
+        bundles = self.cards.groupby("bundle").apply(lambda df: df.index.to_list()).to_dict() if "bundle" in self.cards.columns else {}
+        collections = self.cards.groupby("collection").apply(lambda df: df.index.to_list()).to_dict() if "collection" in self.cards.columns else {}
 
         packs = []
         for file in Path("data/packs").glob("*.json"):
@@ -122,8 +122,8 @@ class DataDriver:
             
             packs.append({"name": name, "cards": cards})
 
-        self.packs_df = pd.DataFrame(packs).set_index("name")
-        self.logger.info(f"Loaded {len(self.packs_df)} pack(s)")
+        self.packs = pd.DataFrame(packs).set_index("name")
+        self.logger.info(f"Loaded {len(self.packs)} pack(s)")
     
     def load_users(self):
         users_data = []
@@ -133,11 +133,11 @@ class DataDriver:
                 users_data.append(json.load(f))
 
         if users_data:
-            self.users_df = pd.DataFrame(users_data).set_index("id")
+            self.users = pd.DataFrame(users_data).set_index("id")
         else:
-            self.users_df = pd.DataFrame(columns=["cards", "packs", "cash", "melons", "upgrades"]).set_index(pd.Index([], name="id"))
+            self.users = pd.DataFrame(columns=["cards", "packs", "cash", "melons", "upgrades"]).set_index(pd.Index([], name="id"))
 
-        self.logger.info(f"Loaded {len(self.users_df)} user(s)")
+        self.logger.info(f"Loaded {len(self.users)} user(s)")
 
     def load_config(self) -> dict:
         return {}
@@ -147,7 +147,7 @@ class DataDriver:
     # ====================
 
     def user_exist(self, user_id: int):
-        return user_id in self.users_df.index
+        return user_id in self.users.index
 
     def create_user(self, user_id: int):
         if self.user_exist(user_id):
@@ -165,7 +165,7 @@ class DataDriver:
             "melons": 0
         }
 
-        self.users_df.loc[user_id] = user_data
+        self.users.loc[user_id] = user_data
 
         self.save_user(user_id)
 
@@ -175,7 +175,7 @@ class DataDriver:
         if not self.user_exist(user_id):
             return None
 
-        return self.users_df.loc[user_id]
+        return self.users.loc[user_id]
 
     def mark_dirty(self, user_id: int):
         self.dirty_users.add(user_id)
@@ -191,45 +191,45 @@ class DataDriver:
             self.logger.info(f"User {user_id} doesn't exist in database")
             return
         
-        user_data = self.users_df.loc[user_id].to_dict()
+        user_data = self.users.loc[user_id].to_dict()
         user_data["id"] = user_id
 
         file_path = USERS_FOLDER / f"{user_id}.json"
         file_path.write_text(json.dumps(user_data, indent=2, ensure_ascii=False), encoding="utf-8")
 
-        return self.users_df.loc[user_id]
+        return self.users.loc[user_id]
 
     # ====================
     # Cards methods
     # ====================
 
     def get_cards_count(self) -> int:
-        return len(self.cards_df)
+        return len(self.cards)
 
     def get_card_by_name(self, name: str):
-        if name not in self.cards_df.index:
+        if name not in self.cards.index:
             return None
         
-        return self.cards_df.loc[name]
+        return self.cards.loc[name]
     
     def get_all_cards(self) -> pd.DataFrame:
-        return self.cards_df.copy()
+        return self.cards.copy()
 
     def get_cards_by_names(self, names: list[str]) -> pd.DataFrame:
         names_set = set(names)
 
-        existing = names_set.intersection(self.cards_df.index)
+        existing = names_set.intersection(self.cards.index)
 
         if not existing:
-            return pd.DataFrame(columns=self.cards_df.columns)
+            return pd.DataFrame(columns=self.cards.columns)
 
-        return self.cards_df.loc[list(existing)]
+        return self.cards.loc[list(existing)]
     
     def get_cards_by_traits(self, bundle: Optional[str] = None, collection: Optional[str] = None, rarity: Optional[str] = None, tag: Optional[str] = None) -> pd.DataFrame:
         if all(x is None for x in [bundle, collection, rarity, tag]):
             raise ValueError("At least one trait must be provided")  
 
-        df = self.cards_df
+        df = self.cards
 
         if bundle is not None:
             df = df[df["bundle"] == bundle]
@@ -243,15 +243,15 @@ class DataDriver:
         return df
     
     def get_user_cards(self, user_id: int, bundle: Optional[str] = None, collection: Optional[str] = None, rarity: Optional[str] = None, tag: Optional[str] = None) -> pd.DataFrame:
-        if user_id not in self.users_df.index:
-            return pd.DataFrame(columns=self.cards_df.columns)
+        if user_id not in self.users.index:
+            return pd.DataFrame(columns=self.cards.columns)
         
-        user_cards = self.users_df.at[user_id, "cards"]
+        user_cards = self.users.at[user_id, "cards"]
 
         if not user_cards:
-            return pd.DataFrame(columns=self.cards_df.columns)
+            return pd.DataFrame(columns=self.cards.columns)
         
-        df = self.cards_df.loc[user_cards]
+        df = self.cards.loc[user_cards]
 
         if bundle is not None:
             df = df[df["bundle"] == bundle]
@@ -269,16 +269,16 @@ class DataDriver:
     # ====================
 
     def get_pack_by_name(self, name: str):
-        if not name in self.packs_df.index:
+        if not name in self.packs.index:
             return None
 
-        return self.packs_df.loc[name]
+        return self.packs.loc[name]
     
     def get_user_packs(self, user_id: int) -> list[str]:
         if not self.user_exist(user_id):
             return []
         
-        packs = self.users_df.at[user_id, "packs"]
+        packs = self.users.at[user_id, "packs"]
 
         if isinstance(packs, list):
             return packs
