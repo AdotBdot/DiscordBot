@@ -18,14 +18,34 @@ RARITY_COLOR = {
     "Divine": 0x34d8eb
 }
 
-BASE_RARITY_WEIGHT = {
-    "Common": 70000,
-    "Uncommon": 20000,
-    "Rare": 7000,
-    "Epic": 2000,
-    "Legendary": 800,
-    "Mythic": 190,
-    "Divine": 10
+RARITY_EMOJI = {
+    "Common": "🪨",
+    "Uncommon": "🍃",
+    "Rare": "💎",
+    "Epic": "🔮",
+    "Legendary": "🔥",
+    "Mythic": "🌌",
+    "Divine": "🌟"
+}
+
+RARITY_VALUE = {
+    "Common": 10,
+    "Uncommon": 25,
+    "Rare": 80,
+    "Epic": 300,
+    "Legendary": 1000,
+    "Mythic": 5000,
+    "Divine": 50000
+}
+
+RARITY_ORDER = {
+    "Common": 1,
+    "Uncommon": 2,
+    "Rare": 3,
+    "Epic": 4,
+    "Legendary": 5,
+    "Mythic": 6,
+    "Divine": 7
 }
 
 RARITY_FLOOR = {
@@ -36,6 +56,16 @@ RARITY_FLOOR = {
     "Legendary": 3000,
     "Mythic": 1000,
     "Divine": 500
+}
+
+BASE_RARITY_WEIGHT = {
+    "Common": 70000,
+    "Uncommon": 20000,
+    "Rare": 7000,
+    "Epic": 2000,
+    "Legendary": 800,
+    "Mythic": 190,
+    "Divine": 10
 }
 
 RARITY_TRANSFER = {
@@ -72,26 +102,6 @@ RARITY_TRANSFER = {
     "Mythic": {
         "Divine": 1.00,
     }
-}
-
-RARITY_EMOJI = {
-    "Common": "🪨",
-    "Uncommon": "🍃",
-    "Rare": "💎",
-    "Epic": "🔮",
-    "Legendary": "🔥",
-    "Mythic": "🌌",
-    "Divine": "🌟"
-}
-
-RARITY_ORDER = {
-    "Common": 1,
-    "Uncommon": 2,
-    "Rare": 3,
-    "Epic": 4,
-    "Legendary": 5,
-    "Mythic": 6,
-    "Divine": 7
 }
 
 UPGRADES_INFO = {

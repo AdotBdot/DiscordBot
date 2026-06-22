@@ -2,7 +2,7 @@ import pandas as pd
 
 import discord
 
-from bot.Utils.Enums import RARITY_COLOR, RARITY_EMOJI
+from bot.Utils.Enums import RARITY_COLOR, RARITY_EMOJI, RARITY_VALUE
 from bot.Utils.Helpers import wrap_text
 
 def card_to_container(card: pd.Series) -> discord.ui.Container:
@@ -17,7 +17,7 @@ def card_to_container(card: pd.Series) -> discord.ui.Container:
 
     container = discord.ui.Container(
             discord.ui.TextDisplay(content=f"## {card.name}"),
-            discord.ui.TextDisplay(content=f"**Rarity**: {rarity} {RARITY_EMOJI[rarity]}\n**Bundle:** {card["bundle"]}\n**Collection:** {card["collection"]}\n**Tags**: {tags}"),
+            discord.ui.TextDisplay(content=f"**Rarity**: {rarity} {RARITY_EMOJI[rarity]}\n**Bundle:** {card["bundle"]}\n**Collection:** {card["collection"]}\n**Tags**: {tags}\n**Value**: {RARITY_VALUE[card["rarity"]]} 🥥"),
             discord.ui.MediaGallery(
                 discord.MediaGalleryItem(media=card["image_url"])
             ),

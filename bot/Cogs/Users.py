@@ -5,7 +5,7 @@ from discord import app_commands
 from discord.ext import commands
 
 from bot.Utils.DataDriver import DataDriver
-from bot.Utils.Enums import RARITY_EMOJI, RARITY_ORDER, RARITIES
+from bot.Utils.Enums import RARITY_EMOJI, RARITY_ORDER, RARITIES, RARITY_VALUE
 
 from bot.Views.DataViews import card_to_container
 from bot.Views.PageView import PageView
@@ -64,9 +64,12 @@ class Users(commands.Cog):
             await interaction.response.send_message(f"Slow down. You don't have your profile yet. Use **/help** for more information.")
             return
 
+        df = self.datadriver.get_cards_by_names(user["cards"]) # type: ignore
+        collection_value = df["rarity"].map(RARITY_VALUE).sum()
+
         total_cards = self.datadriver.get_cards_count()
         container = discord.ui.Container(
-                discord.ui.TextDisplay(content=f"### Collection\n**Size**: {len(user["cards"])}\n**Completion**: {len(set(user["cards"]))}/{total_cards}"),
+                discord.ui.TextDisplay(content=f"### Collection\n**Size**: {len(user["cards"])}\n**Completion**: {len(set(user["cards"]))}/{total_cards}\n**Value**: {collection_value} 🥥"),
                 discord.ui.Separator(visible=True, spacing=discord.SeparatorSpacing.small),
                 discord.ui.TextDisplay(content=f"### Currency\n**Cocoses**: {user["cash"]} 🥥\n**Melones**: {user["melons"]} 🍉")
             )
