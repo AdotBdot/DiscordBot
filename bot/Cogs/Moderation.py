@@ -119,11 +119,10 @@ class Moderation(commands.Cog):
             await interaction.response.send_message("Card not found.")
             return
         
-        user_cards = self.datadriver.get_user_cards(target_user_id)
-        user_cards.append(card) # type: ignore
-        self.datadriver.users.at[target_user_id, "cards"] = user_cards # type: ignore
+        target_user_cards = self.datadriver.get_user_cards(target_user_id)
+        target_user_cards.append(card) # type: ignore
 
-        self.datadriver.mark_dirty(target_user_id)
+        self.datadriver.set_user_cards(target_user_id, target_user_cards)
 
         await interaction.response.send_message(f"Gave **{card}** to {target_user.mention}")
 
@@ -131,9 +130,9 @@ class Moderation(commands.Cog):
     @admin_only()
     @app_commands.autocomplete(pack=pack_autocomplete)
     async def give_pack(self, interaction: discord.Interaction, target_user: discord.Member, pack: str, count: int):
-        user_id = interaction.user.id
+        target_user_id = target_user.id
 
-        if not self.datadriver.user_exist(user_id):
+        if not self.datadriver.user_exist(target_user_id):
             await interaction.response.send_message(f"User does not exist in database.")
             return
         
@@ -141,41 +140,39 @@ class Moderation(commands.Cog):
             await interaction.response.send_message("Pack not found.")
             return
         
-        user_packs = self.datadriver.get_user_packs(user_id)
-
+        target_user_packs = self.datadriver.get_user_packs(target_user_id)
         for _ in range(count):
-            user_packs.append(pack) # type: ignore
+            target_user_packs.append(pack) # type: ignore
 
-        self.datadriver.users.at[interaction.user.id, "packs"] = user_packs # type: ignore
-        self.datadriver.mark_dirty(interaction.user.id)
+        self.datadriver.set_user_packs(target_user_id, target_user_packs)
         
         await interaction.response.send_message(f"Gave {count} pack(s): {pack} to user {target_user.mention}")
 
     @give.command(name="cocoses", description="Gives Cocoses to user inventory.")
     @admin_only()
     async def give_cocoses(self, interaction: discord.Interaction, target_user: discord.Member, cocoses: int):
-        user_id = interaction.user.id
+        target_user_id = target_user.id
 
-        if not self.datadriver.user_exist(user_id):
+        if not self.datadriver.user_exist(target_user_id):
             await interaction.response.send_message(f"User does not exist in database.")
             return
         
-        self.datadriver.users.at[user_id, "cash"] += cocoses # type: ignore
-        self.datadriver.mark_dirty(user_id)
+        self.datadriver.users.at[target_user_id, "cash"] += cocoses # type: ignore
+        self.datadriver.mark_dirty(target_user_id)
         
         await interaction.response.send_message(f"Gave {cocoses} 🥥 to user {target_user.mention}")
 
     @give.command(name="melones", description="Gives Melones to user inventory.")
     @admin_only()
     async def give_melones(self, interaction: discord.Interaction, target_user: discord.Member, melones: int):
-        user_id = interaction.user.id
+        target_user_id = target_user.id
 
-        if not self.datadriver.user_exist(user_id):
+        if not self.datadriver.user_exist(target_user_id):
             await interaction.response.send_message(f"User does not exist in database.")
             return
         
-        self.datadriver.users.at[user_id, "melons"] += melones # type: ignore
-        self.datadriver.mark_dirty(user_id)
+        self.datadriver.users.at[target_user_id, "melons"] += melones # type: ignore
+        self.datadriver.mark_dirty(target_user_id)
         
         await interaction.response.send_message(f"Gave {melones} 🍉 to user {target_user.mention}")
 
