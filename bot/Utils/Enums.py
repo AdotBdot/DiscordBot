@@ -1,3 +1,13 @@
+RARITIES = [
+    "Common",
+    "Uncommon",
+    "Rare",
+    "Epic",
+    "Legendary",
+    "Mythic",
+    "Divine"
+]
+
 RARITY_COLOR = {
     "Common": 0xfdfefe,
     "Uncommon": 0x27ae60,

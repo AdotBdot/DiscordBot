@@ -1,4 +1,8 @@
-from bot.Utils.Enums import RARITY_ORDER, BASE_RARITY_WEIGHT, RARITY_TRANSFER, RARITY_FLOOR
+from collections import Counter
+import random
+
+from bot.Utils.DataDriver import DataDriver
+from bot.Utils.Enums import RARITIES, RARITY_ORDER, BASE_RARITY_WEIGHT, RARITY_TRANSFER, RARITY_FLOOR
 
 def chunk_dict(data: dict, size: int = 10):
     items = list(data.items())
@@ -78,3 +82,38 @@ def get_rarity_weights(level: int) -> dict[str, int]:
             weights["Divine"] += diff
 
     return weights
+
+def merge_roll_rarity(rarities: list[str]) -> str:
+    counter = Counter(rarities)
+
+    chosen = random.choices(list(counter.keys()), weights=list(counter.values()), k=1)[0]
+
+    index = RARITIES.index(chosen)
+
+    if index < len(RARITIES) - 1:
+        return RARITIES[index + 1]
+    
+    return chosen
+
+def merge_roll_collection(collections: list[str]) -> str:
+    counter = Counter(collections)
+
+    names = list(counter.keys())
+    weigts = list(counter.values())
+
+    return random.choices(names, weights=weigts, k=1)[0]
+
+def merge_cards(datadriver: DataDriver, user_id: int, selected_cards: list[str]):
+    selected_df = datadriver.get_cards_by_names(selected_cards)
+
+    rarity = merge_roll_rarity(selected_df["rarity"].tolist())
+    collection = merge_roll_collection(selected_df["collection"].tolist())
+
+    df = datadriver.cards.copy()
+
+    pool = df[(df["rarity"] == rarity) & (df["collection"] == collection)]
+
+    if pool.empty:
+        return None
+    
+    return pool.sample(1).iloc[0]

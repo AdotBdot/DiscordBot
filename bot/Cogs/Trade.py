@@ -1,8 +1,14 @@
+from collections import Counter
+
 import discord
 from discord.ext import commands
 from discord import app_commands
 
 from bot.Utils.DataDriver import DataDriver
+from bot.Utils.Helpers import merge_cards
+
+from bot.Views.DataViews import card_to_container
+from bot.Views.SimpleView import SimpleView
 
 class Trade(commands.Cog):
     def __init__(self, bot, datadriver: DataDriver):
@@ -148,6 +154,55 @@ class Trade(commands.Cog):
         self.datadriver.mark_dirty(target_user_id)
 
         await interaction.response.send_message(content=f"You gave {cocoses}🥥 to {to.name}.")
+
+    @app_commands.command(name="merge", description="Merge cards to get a better one.")
+    @app_commands.autocomplete(card1=user_card_autocomplete, card2=user_card_autocomplete, card3=user_card_autocomplete)
+    async def merge(self, interaction: discord.Interaction, card1: str, card2: str, card3: str):
+        user_id = interaction.user.id
+
+        if not self.datadriver.user_exist(user_id):
+            await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
+            return
+        
+        selected = [card1, card2, card3]
+
+        # Inventory check
+        user_cards = self.datadriver.get_user_cards(user_id)
+
+        invCounter = Counter(user_cards)
+        selCounter = Counter(selected)
+
+        has_cards = all(invCounter[name] >= amount for name, amount in selCounter.items())
+
+        if not has_cards:
+            await interaction.response.send_message(content=f"You don't have selected cards in your inventory.")
+            return
+        
+        result = merge_cards(self.datadriver, user_id, selected)
+
+        if result is None:
+            await interaction.response.send_message("No possible card found.")
+            return
+        
+        # Update user inventory
+        user_cards = self.datadriver.get_user_cards(user_id)
+        user_cards.remove(card1)
+        user_cards.remove(card2)
+        user_cards.remove(card3)
+        user_cards.append(result.name) # type: ignore
+
+        self.datadriver.set_user_cards(user_id, user_cards)
+
+        # UI
+        container = card_to_container(result)
+        view = SimpleView(
+            author_id=user_id,
+            content=container,
+            header="## Merge\nYou have received in merge:"
+        )
+
+        await interaction.response.send_message(view=view)
+
 
 # Setup Cog
 async def setup(bot):
