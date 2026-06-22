@@ -5,7 +5,7 @@ from discord import app_commands
 from discord.ext import commands
 
 from bot.Utils.DataDriver import DataDriver
-from bot.Utils.Enums import BASE_RARITY_WEIGHT, RARITY_EMOJI, RARITY_ORDER
+from bot.Utils.Enums import BASE_RARITY_WEIGHT, RARITIES, RARITY_EMOJI, RARITY_ORDER
 
 from bot.Views.DataViews import card_to_container
 from bot.Views.PageView import PageView
@@ -32,7 +32,7 @@ class Cards(commands.Cog):
         return choices[:25]
 
     async def rarity_autocomplete(self, interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
-        rarities = ["Common", "Uncommon", "Rare", "Epic", "Legendary", "Mythic", "Divine"]
+        rarities = RARITIES
         choices = [app_commands.Choice(name=rarity, value=rarity) for rarity in rarities if current.lower() in rarity.lower()]
         
         return choices[:25]
