@@ -1,6 +1,10 @@
 from collections import Counter
 import random
 
+import discord
+
+from bot.bot import Bot
+
 from bot.Utils.DataDriver import DataDriver
 from bot.Utils.Enums import RARITIES, RARITY_ORDER, BASE_RARITY_WEIGHT, RARITY_TRANSFER, RARITY_FLOOR
 
@@ -117,3 +121,21 @@ def merge_cards(datadriver: DataDriver, user_id: int, selected_cards: list[str])
         return None
     
     return pool.sample(1).iloc[0]
+
+async def confirm(bot: Bot, interaction: discord.Interaction, message: str, timeout: float=20.0) -> bool:
+    await interaction.followup.send(content=f"{message} (y/n/yes/no)")
+
+    def check(msg):
+        return (
+            msg.author.id == interaction.user.id 
+            and msg.channel.id == interaction.channel_id
+            and msg.content.lower() in ["y", "yes", "n", "no"]
+            )
+    
+    try:
+        response = await bot.wait_for("message", timeout=timeout, check=check)
+
+    except TimeoutError:
+        return False
+    
+    return response.content.lower() in ["y", "yes"]
