@@ -40,7 +40,7 @@ class Trade(commands.Cog):
         if not self.datadriver.user_exist(user_id):
             return []
         
-        user_packs = self.datadriver.get_user_packs(user_id)
+        user_packs = set(self.datadriver.get_user_packs(user_id))
 
         if not user_packs:
             return []
