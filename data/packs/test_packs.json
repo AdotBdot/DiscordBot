@@ -26,5 +26,10 @@
         "name": "Instagram",
         "type": "collection",
         "collection_name": "Polskie Influencerki"
+    },
+    {
+        "name": "Major Case",
+        "type": "collection",
+        "collection_name": "Esport"
     }
 ]

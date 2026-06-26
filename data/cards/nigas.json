@@ -1,0 +1,1566 @@
+[
+    {
+        "name": "Counter-Strike",
+        "collections": [
+            {
+                "name": "Esport",
+                "cards": [
+                    {
+                        "name": "ˢᶦᵘᵘᵘᵘᵘᵘchy",
+                        "description": "",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/MIrkgEi.png"
+                    },
+                    {
+                        "name": "Flusha nununu",
+                        "description": "of corse flosha chiter",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/UklYGjw.png"
+                    },
+                    {
+                        "name": "Makazze o sobie",
+                        "description": "0.88 rating na G2, mordo 😭😭😭",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/JTOagYd.png"
+                    },
+                    {
+                        "name": "Jeeeeeeee",
+                        "description": "Fajny chinol",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/FLr3xcy.png"
+                    },
+                    {
+                        "name": "Monesy jacek daniel",
+                        "description": "Pije by zapomnieć",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/Zktftwj.png"
+                    },
+                    {
+                        "name": "Roland from Poland",
+                        "description": "Ta ksywka jest jego największym osiągnięciem w karierze",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/reL103D.jpeg"
+                    },
+                    {
+                        "name": "Stewie2k Kapitan Ameryka",
+                        "description": "Stole25k aka The Slots Criminal",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/uC5RtIe.png"
+                    },
+                    {
+                        "name": "Niko WhatsApp",
+                        "description": "Dzwoni w sprawie pumy",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/5OicX5r.png"
+                    },
+                    {
+                        "name": "Niko Telegram",
+                        "description": "Dzwoni w sprawie zioła",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/jQNgJik.png"
+                    },
+                    {
+                        "name": "Dwie grube dziwki",
+                        "description": "Jedna cięższa od drugiej",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/fWKzTAh.png"
+                    },
+                    {
+                        "name": "Deko Labubu",
+                        "description": "Awper stworzony przez rosyjskiego prowadzącego Kirilla Mikhailova, pseudonim 'Bombel', jako główny bohater serii opowieści 1win nie dostaje się na żadnego majora",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/pA99iSj.png"
+                    },
+                    {
+                        "name": "joeL",
+                        "description": "Jak to jest dostać bana od Akrosa, dobrze?",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/2o8k0A4.png"
+                    },
+                    {
+                        "name": "ArtFr0st lula",
+                        "description": "No co, nie można se podczas oficjalka pospać?",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/NikDhBJ.png"
+                    },
+                    {
+                        "name": "WonderKid",
+                        "description": "Dzieciak na i poza serwerem",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/dnolejB.png"
+                    },
+                    {
+                        "name": "M. Trompette",
+                        "description": "tAtaTatataTatAraRara OLEEEEEEEEEEEEEEEE",
+                        "rarity": "Common",
+                        "tags": ["cs/fans"],
+                        "image_url": "https://i.imgur.com/oNADADE.png"
+                    },
+                    {
+                        "name": "Dżabiszcz",
+                        "description": "Uważaj! Ten osobnik może wyjebać Cie z drużyny, zesrać się na orge, dołączyć do największego rywala, a na sam koniec i tak skończysz z nim w teamie",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/ttglW68.png"
+                    },
+                    {
+                        "name": "HeavyPolice",
+                        "description": "Żyje pod dewizą: donos to najwyższa forma odpowiedzialności obywatelskiej",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/hm5y9Pd.png"
+                    },
+                    {
+                        "name": "Złoty Ropz",
+                        "description": "Syn koleżanki twojej starej",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/93Yngnd.png"
+                    },
+                    {
+                        "name": "Zywoo GOAT",
+                        "description": "Kuzyn syna koleżanki twojej starej",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/lXPohpR.png"
+                    },
+                    {
+                        "name": "Molodoy Snickers",
+                        "description": "Nie jest sobą, kiedy jest głodny",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/Sv3RFBN.png"
+                    },
+                    {
+                        "name": "Torzi Yaoi",
+                        "description": "-aura",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/Y8M6mtc.png"
+                    },
+                    {
+                        "name": "Cadian love",
+                        "description": "Jedyne co potrafi pokazać podczas gry",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/olTdDfj.png"
+                    },
+                    {
+                        "name": "Jame Clash Royale",
+                        "description": "HiHiHiHA",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/mQ44RWi.png"
+                    },
+                    {
+                        "name": "Niko uncanny",
+                        "description": "Po każdym zchokowanym finale jest szansa, że przyjdzie do ciebie w nocy",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/4Ikvj0q.png"
+                    },
+                    {
+                        "name": "Swaaaaag",
+                        "description": "Główny prowodyr obecnej ceny naklejki iBUYPOWER",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/1Md0sG3.png"
+                    },
+                    {
+                        "name": "Tarik leżakuje",
+                        "description": "Tzw. łomżing",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/9uFhqHY.png"
+                    },
+                    {
+                        "name": "Ropz Porsche",
+                        "description": "5min póżniej rozbił je torze",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/kAXPZou.png"
+                    },
+                    {
+                        "name": "Brokuł Poker Face",
+                        "description": "Dostał właśnie wpierdol od Vitality",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/OdYUiTl.png"
+                    },
+                    {
+                        "name": "Eliż",
+                        "description": "mi jaja",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/cIZVVTX.png"
+                    },
+                    {
+                        "name": "Rain fak",
+                        "description": "🖕",
+                        "rarity": "Common",
+                        "tags": ["cs/pros", "cs/faks"],
+                        "image_url": "https://i.imgur.com/GSuWNCs.png"
+                    },
+                    {
+                        "name": "Dupreeh SuS",
+                        "description": "Może małe barabara?",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/cjRwOOT.png"
+                    },
+                    {
+                        "name": "Ropz Cursed",
+                        "description": "Brokpz",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/UCZ1wFM.png"
+                    },
+                    {
+                        "name": "S1ren kiep",
+                        "description": "🚬",
+                        "rarity": "Common",
+                        "tags": ["cs/pros", "cs/kieps"],
+                        "image_url": "https://i.imgur.com/ptFjAbt.png"
+                    },
+                    {
+                        "name": "Wampirek z TikToka",
+                        "description": "Skurwiel trenuje Vitality i się nie chwali",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/7u3Ky5o.png"
+                    },
+                    {
+                        "name": "Spunj DAB",
+                        "description": "Bro your literally 40 😭😭",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/SWl9InU.png"
+                    },
+                    {
+                        "name": "Zywoo git",
+                        "description": "git",
+                        "rarity": "Common",
+                        "tags": ["cs/fans"],
+                        "image_url": "https://i.imgur.com/BLWfRej.png"
+                    },
+                    {
+                        "name": "Freakazoid Tank Top Summer",
+                        "description": "Najkrótszy prime w historii csa - 16 dni",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/Rxm8Fyw.png"
+                    },
+                    {
+                        "name": "Fallen wtf",
+                        "description": "Ja gdy widzę povy teammatów na premierze",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/mLPXKPv.png"
+                    },
+                    {
+                        "name": "Zonic wróżka",
+                        "description": "Tak właśnie zniknęło 20mln falcons",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/fQ5jta5.png"
+                    },
+                    {
+                        "name": "Donk z osłem",
+                        "description": "Wciąż przydatniejszy od magixxa, zontixa i tnira razem wziętych",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/YY5ZfpH.jpeg"
+                    },
+                    {
+                        "name": "Kyosuke zez",
+                        "description": "Konsekwencje grania z kyxsanem",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/HNAlbWa.png"
+                    },
+                    {
+                        "name": "KennyS pije",
+                        "description": "ale tak z boku",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/SuEMZFS.png"
+                    },
+                    {
+                        "name": "Flamez fak",
+                        "description": "🖕",
+                        "rarity": "Common",
+                        "tags": ["cs/pros", "cs/faks"],
+                        "image_url": "https://i.imgur.com/zgUNraG.png"
+                    },
+                    {
+                        "name": "Broky fak",
+                        "description": "🖕",
+                        "rarity": "Common",
+                        "tags": ["cs/pros", "cs/faks"],
+                        "image_url": "https://i.imgur.com/a35cF7e.png"
+                    },
+                    {
+                        "name": "Senzu fak",
+                        "description": "🖕",
+                        "rarity": "Common",
+                        "tags": ["cs/pros", "cs/faks"],
+                        "image_url": "https://i.imgur.com/Fh7BbP1.png"
+                    },
+                    {
+                        "name": "Rain pojebany jakiś",
+                        "description": "Nawciągał się stuffu od Niko",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/Dj2UuQF.png"
+                    },
+                    {
+                        "name": "Dosia turecko-rosyjski bóg",
+                        "description": "Na plaży w Izmirze wszystkie samice jego",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/TYsLXTv.png"
+                    },
+                    {
+                        "name": "Broky furasy",
+                        "description": "Można też użyć sformułowania pozostali członkowie Faze",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/bHZhcvI.png"
+                    },
+                    {
+                        "name": "Donk Uniwersytet Potworny",
+                        "description": "Jak można zdradzić Mike Wazowskiego na rzecz jakiegoś lwa",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/zsOGcTn.jpeg"
+                    },
+                    {
+                        "name": "Chory Apex",
+                        "description": "Zaraża sigmozą",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/c8qlnRz.png"
+                    },
+                    {
+                        "name": "Japanese Makazze",
+                        "description": "Ohayo Zweih-chan!!",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/6y3Vp2H.png"
+                    },
+                    {
+                        "name": "Japanese Zweih",
+                        "description": "Ohayo Makazze-kun!!",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/T6tpAVF.png"
+                    },
+                    {
+                        "name": "Keanu Reeves heroic",
+                        "description": "Typowy fan heroic od 2022 roku",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/XPWT0hs.png"
+                    },
+                    {
+                        "name": "Batrrigan",
+                        "description": "Nocą ściga przestępców w Rijadzie",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/u7gYXbj.png"
+                    },
+                    {
+                        "name": "Adren hypemenik",
+                        "description": "Nawołuje do walenia",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/KrBGab8.png"
+                    },
+                    {
+                        "name": "Shiro czółko",
+                        "description": "Duże czółko",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/FnpN4py.png"
+                    },
+                    {
+                        "name": "Wonderful kiep",
+                        "description": "🚬",
+                        "rarity": "Common",
+                        "tags": ["cs/pros", "cs/kieps"],
+                        "image_url": "https://i.imgur.com/5m8IxVS.png"
+                    },
+                    {
+                        "name": "Via Adamo",
+                        "description": "Upamiętnie dominacji Adama 'friberga' Friberga na bananie w czasach świetności NiP",
+                        "rarity": "Common",
+                        "tags": ["cs/memorial"],
+                        "image_url": "https://i.imgur.com/78YUUjq.png"
+                    },
+                    {
+                        "name": "Dosia zdegustowany",
+                        "description": "Bo podali mu kawę zbożową Inka, której kurwa nie da się pić",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/zOLa2Qi.png"
+                    },
+                    {
+                        "name": "Faze Double Headzik",
+                        "description": "Broky i frozen to jest spermastyczne duo",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/q2b25F5.png"
+                    },
+                    {
+                        "name": "ZywooooooOoO",
+                        "description": "Trochę wyższy niż Atom",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/yuyMvun.png"
+                    },
+                    {
+                        "name": "Monesy duszony",
+                        "description": "Powinno być chyba na odwrót",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/elSJqAz.png"
+                    },
+                    {
+                        "name": "Jcobbb trans",
+                        "description": "Otwarcie celebruje miesiąc równości - cóż za odważny hopak",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/oC6p5ut.png"
+                    },
+                    {
+                        "name": "Kyosuke bikini",
+                        "description": "👙",
+                        "rarity": "Common",
+                        "tags": ["cs/pros", "cs/bikini"],
+                        "image_url": "https://i.imgur.com/j973fdV.png"
+                    },
+                    {
+                        "name": "Teses bikini",
+                        "description": "👙",
+                        "rarity": "Common",
+                        "tags": ["cs/pros", "cs/bikini"],
+                        "image_url": "https://i.imgur.com/CcpLKit.png"
+                    },
+                    {
+                        "name": "Kyxsan bikini",
+                        "description": "👙",
+                        "rarity": "Common",
+                        "tags": ["cs/pros", "cs/bikini"],
+                        "image_url": "https://i.imgur.com/YicrDQn.png"
+                    },
+                    {
+                        "name": "Monesy bikini",
+                        "description": "👙",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros", "cs/bikini"],
+                        "image_url": "https://i.imgur.com/ukBtBRe.png"
+                    },
+                    {
+                        "name": "Niko bikini",
+                        "description": "👙",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros", "cs/bikini"],
+                        "image_url": "https://i.imgur.com/MB09QzK.png"
+                    },
+                    {
+                        "name": "Woxic sztywny git",
+                        "description": "Szacuneczek na blokach",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/bYkg29u.png"
+                    },
+                    {
+                        "name": "Apex w szoku",
+                        "description": "Gdy pojechałeś do kaufa, ale dziś wypada niedziela popierdolona",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/fRP1goo.png"
+                    },
+                    {
+                        "name": "Blamef sigma",
+                        "description": "Imagine wygrać 16 rund z rzędu w cs2",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/anUpQxu.png"
+                    },
+                    {
+                        "name": "Nitro IGL",
+                        "description": "Imagine przegrać 16 rund z rzędu w cs2",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/qrtClX6.png"
+                    },
+                    {
+                        "name": "Gruby Jcobbb",
+                        "description": "Za dużo najadł się wstydu",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/lFOSodi.png"
+                    },
+                    {
+                        "name": "Lody The MongolZ",
+                        "description": "Główny powód przeprowadzki do Mongolii",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/d84ofSB.jpeg"
+                    },
+                    {
+                        "name": "Guardian Pojebany Suka Ruski",
+                        "description": "Słowak na zewnątrz, rusek w sercu",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/JAf2EQf.png"
+                    },
+                    {
+                        "name": "Apex i Zywoo gej",
+                        "description": "Jedyna droga do back to back majorów",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/L10Xo2c.png"
+                    },
+                    {
+                        "name": "Xantares dyktator",
+                        "description": "Ostatecznie rozwiązał kwestie kurdyjską",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/WVlLsSg.jpeg"
+                    },
+                    {
+                        "name": "EmiliaKłAk",
+                        "description": "GOOD",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/rt1V2Jk.png"
+                    },
+                    {
+                        "name": "Jcobbb całuje ściane płaczu",
+                        "description": "Status dicka - obrzezany",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/kNCdjrb.png"
+                    },
+                    {
+                        "name": "Zont1x oreo",
+                        "description": "Głupia cipa nie potrafi zjeść ciastka",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/LJSUwrg.png"
+                    },
+                    {
+                        "name": "Pan i Pani Makazweih",
+                        "description": "Dwóch płatnych esportowców pracujących dla dwóch różnych drużyn wiedzie monotonne małżeńskie życie",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/E1dL9kd.png"
+                    },
+                    {
+                        "name": "Jabbi lobotomia",
+                        "description": "Jego umysł nie produkuje nawet krzty myśli",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/gbhcTeh.png"
+                    },
+                    {
+                        "name": "Kscerato armless",
+                        "description": "Dlatego tak chujowo zagrał w finale majora",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/xueYIm3.png"
+                    },
+                    {
+                        "name": "Monesy z animu dziefczynkom",
+                        "description": "Chciałbyś mieć taką dziunie co",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/NCZOthd.jpeg"
+                    },
+                    {
+                        "name": "Izak google",
+                        "description": "Wprost murzyńskie IQ",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/5rCqVhg.png"
+                    },
+                    {
+                        "name": "Ropz fak",
+                        "description": "🖕",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros", "cs/faks"],
+                        "image_url": "https://i.imgur.com/5yaxr5Y.png"
+                    },
+                    {
+                        "name": "Zelenskyy NAVI",
+                        "description": "Największy kibol w świecie sportów oprócz Nawrockiego",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/x87BQhp.png"
+                    },
+                    {
+                        "name": "Woxic rezolucje",
+                        "description": "Always the same, for the 7 years I think it's same, everything, all settings never changing",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/zUDo5rX.png"
+                    },
+                    {
+                        "name": "JL fak",
+                        "description": "🖕",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros", "cs/faks"],
+                        "image_url": "https://i.imgur.com/7naWBPA.png"
+                    },
+                    {
+                        "name": "Tyloo sus",
+                        "description": "Chodzi o ruchanie",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/o59IOsY.png"
+                    },
+                    {
+                        "name": "Logo Liquid",
+                        "description": "6 finałów przegranych z Astralis, największy choke w historii majorów na Luminosity, przegrana finału Kolonii na SK, wstyd i hańba przynoszona od 4 lat regionowi Ameryki Północnej, a to tylko wierzchołek góry lodowej",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/YbGi7YW.png"
+                    },
+                    {
+                        "name": "Dosia X God",
+                        "description": "Najdoskonalsze wcielenie seksapilu",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/ezR2JCk.png"
+                    },
+                    {
+                        "name": "Giga Kurczak",
+                        "description": "Przeciętny fan csa",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/fans"],
+                        "image_url": "https://i.imgur.com/7X7HO7U.png"
+                    },
+                    {
+                        "name": "Falcons rodzinka",
+                        "description": "Ehh co potrafią zrobić z ludźmi pieniądze",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/m48vsel.png"
+                    },
+                    {
+                        "name": "Papito sad",
+                        "description": "Raz na wozie, raz pod wozem",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/mZa5b2c.png"
+                    },
+                    {
+                        "name": "Donk huuuuuuh",
+                        "description": "W sumie to mu się nie dziwie",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/OdoDsva.png"
+                    },
+                    {
+                        "name": "Jame zez",
+                        "description": "Cheat code na sprawdzanie pozycji",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/c1JsHKc.png"
+                    },
+                    {
+                        "name": "Chinese Kyxsan",
+                        "description": "Xiàn zài wǒ yǒu bing chilling, Wǒ hěn xǐ huān bing chilling",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/fO7T6uD.png"
+                    },
+                    {
+                        "name": "Klub Sportowy Virtus Pro",
+                        "description": "Obowiązuje tu tzw. Prawo Pascala",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/Fwewwua.png"
+                    },
+                    {
+                        "name": "Karrigung Dzong",
+                        "description": "Zbrodniarz wojenny i dyktator, znany z m.in. dania pierwszego tytułu mistrzowskiego dla falcons",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/OQMfijD.png"
+                    },
+                    {
+                        "name": "Niko sus",
+                        "description": "When she touch yo dingaling",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/wkh39OW.png"
+                    },
+                    {
+                        "name": "D1ldos",
+                        "description": "Ma na głowie chu- znaczy bakłażana",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros", "cs/BadBum"],
+                        "image_url": "https://i.imgur.com/a1x7bsG.png"
+                    },
+                    {
+                        "name": "Tortex",
+                        "description": "Lubi keczup",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros", "cs/BadBum"],
+                        "image_url": "https://i.imgur.com/fVLbdDU.png"
+                    },
+                    {
+                        "name": "Majonez",
+                        "description": "Tylko Winiary",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros", "cs/BadBum"],
+                        "image_url": "https://i.imgur.com/YhekiD0.png"
+                    },
+                    {
+                        "name": "Lamus",
+                        "description": "Frajer, fujara, bęcwał, cep, ciołek, głąb, dureń, lebioda, oferma, tłuk",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros", "cs/BadBum"],
+                        "image_url": "https://i.imgur.com/Kiw0NEz.png"
+                    },
+                    {
+                        "name": "Bombel",
+                        "description": "Ma lekką głowę",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros", "cs/BadBum"],
+                        "image_url": "https://i.imgur.com/cgxRQ2y.png"
+                    },
+                    {
+                        "name": "Polski Danger Zone",
+                        "description": "Na IEM Katowice 2019 polscy gracze reprezentujący AGO, Furlan i Gruby, wygrali showmatch odbywający się w trybie Danger Zone, a miejsce z którego Furlan zdobył ostatnie dwa kille zostało oznaczenie przez graffiti",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/memorial"],
+                        "image_url": "https://i.imgur.com/HzYFANQ.png"
+                    },
+                    {
+                        "name": "Dosia 200IQ",
+                        "description": "Graffiti na cześć Dosi, który podczas finału PGL Major Kraków 2017 rzucił granat uniemożliwiają zachowanie broni przez dwóch terrorystów, co w pewnym stopniu pomogło Gambit wygrać cały turniej",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/memorial"],
+                        "image_url": "https://i.imgur.com/TTW6rXB.png"
+                    },
+                    {
+                        "name": "Apex - DreamHack Open Cluj-Napoca 2015",
+                        "description": "Envy 2-0 Natus Vincere",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/1B4fxES.png"
+                    },
+                    {
+                        "name": "Vuggo, JW i Pronax - ESL One Cologne 2015",
+                        "description": "Fnatic 2-0 Envy",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/qaUHRhH.png"
+                    },
+                    {
+                        "name": "Magisk - Major Paris 2023",
+                        "description": "Vitality 2-0 GamerLegion",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/k0g693R.png"
+                    },
+                    {
+                        "name": "KioShiMa, Happy i SmithZz - DreamHack Winter Jönköping 2014",
+                        "description": "LDLC 2-1 Ninjas in Pyjamas",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/NPxR7MV.png"
+                    },
+                    {
+                        "name": "Jw, Znajder i Devilwalk - DreamHack Winter Jönköping 2013",
+                        "description": "Fnatic 2-1 Ninjas in Pyjamas",
+                        "rarity": "Rare",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/oqqx1hI.png"
+                    },
+                    {
+                        "name": "JW i Flusha - ESL One Katowice 2015",
+                        "description": "Fnatic 2-1 Ninjas in Pyjamas",
+                        "rarity": "Rare",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/MvGpLDi.png"
+                    },
+                    {
+                        "name": "Fame - Major Rio 2022",
+                        "description": "Outsiders 2-0 Heroic",
+                        "rarity": "Rare",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/oL6Oj6O.png"
+                    },
+                    {
+                        "name": "Dev1ce i Zonic - Major Berlin 2019",
+                        "description": "Astralis 2-0 Avangar",
+                        "rarity": "Rare",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/nceuCKE.png"
+                    },
+                    {
+                        "name": "Gla1ve - Major Atlanta 2017",
+                        "description": "Astralis 2-1 Virtus Pro",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/HCo9FIq.png"
+                    },
+                    {
+                        "name": "Aleksib - Major Copenhagen 2024",
+                        "description": "Natus Vincere 2-1 FaZe",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/TxWPZGW.png"
+                    },
+                    {
+                        "name": "Def w ogniu",
+                        "description": "Podczas półfinału Esl One Cologne 2014 pomiędzy Fnatic a Dignitas, 29 rundzie meczu Olofmeister rozbroił bombe na krótko przed jego śmiercią od rzuconego palaka przez Dev1ce'a",
+                        "rarity": "Rare",
+                        "tags": ["cs/memorial"],
+                        "image_url": "https://i.imgur.com/mWBS6fr.png"
+                    },
+                    {
+                        "name": "Kyosuke kiep",
+                        "description": "🚬",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros", "cs/kieps"],
+                        "image_url": "https://i.imgur.com/XuOsBtN.jpeg"
+                    },
+                    {
+                        "name": "Cutiesuke",
+                        "description": "Grzmociłbyś, nie mów, że nie",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/92RXcfb.png"
+                    },
+                    {
+                        "name": "Summit1g fak",
+                        "description": "🖕",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/YBNNp8L.png"
+                    },
+                    {
+                        "name": "Tarik nude",
+                        "description": "AAAAAAAAAAAAAHHHHH",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/KdQXH6O.png"
+                    },
+                    {
+                        "name": "Elige Cyberpunk",
+                        "description": "You look lonely, I can fix that",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/z3Rovhu.png"
+                    },
+                    {
+                        "name": "Zonic cheerleaderka",
+                        "description": "Przeczytaj se tekst na obrazku",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/65nsagv.png"
+                    },
+                    {
+                        "name": "Donk pokojówka",
+                        "description": "Wyczyści podłogę zwłokami przeciwników",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/Dhyl1pu.png"
+                    },
+                    {
+                        "name": "BlameF gej",
+                        "description": "Tego w serialu o Johnnym Bravo nie było",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/smIEkU9.png"
+                    },
+                    {
+                        "name": "Jame Jezus",
+                        "description": "Niech błogosławi Cię awupa moja i niech mirage Ci lekki będzie",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/cN4jecL.png"
+                    },
+                    {
+                        "name": "Bonk",
+                        "description": "Gdy gra anubisa",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/tRFV56t.png"
+                    },
+                    {
+                        "name": "Jab Jabich wasted",
+                        "description": "Przegrał na karrigana",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/jlVUo80.png"
+                    },
+                    {
+                        "name": "Jab Jabich aura",
+                        "description": "83% winrate tt, 78% winrate ct, półfinalista majora",
+                        "rarity": "Rare",
+                        "tags": ["cs/fans"],
+                        "image_url": "https://i.imgur.com/UP2H8RX.png"
+                    },
+                    {
+                        "name": "Napruty Pasha",
+                        "description": "Efekt Papito Energy",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/JRC8s9X.png"
+                    },
+                    {
+                        "name": "Bad Fallen",
+                        "description": "Zły fallen, bardzo zły",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/UXRkUoW.png"
+                    },
+                    {
+                        "name": "NigSuke",
+                        "description": "Miguel, Miguel, Miguel",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros", "cs/falcggers"],
+                        "image_url": "https://i.imgur.com/Z3STpsi.png"
+                    },
+                    {
+                        "name": "NeGes",
+                        "description": "Miguel, Miguel, Miguel",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros", "cs/falcggers"],
+                        "image_url": "https://i.imgur.com/dmKw0Zt.png"
+                    },
+                    {
+                        "name": "Woxic????",
+                        "description": "Chłop przyzywa demony podczas meczu",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/BzeEG86.png"
+                    },
+                    {
+                        "name": "Fox z patusiarskim dzieciakiem",
+                        "description": "Lowkey powinno mu się odebrać prawa rodzicielskie",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/0Hd6a43.png"
+                    },
+                    {
+                        "name": "4 awki mid",
+                        "description": "Podczas finału ESL One Cologne 2015 na mapie Dust gracze Fnatic kupili 4 awpy po tt i z respa patrzyli podwójne drzwi, co poskutkowało jednym zdobytym fragiem na Apexie z EnVyUs",
+                        "rarity": "Rare",
+                        "tags": ["cs/memorial"],
+                        "image_url": "https://i.imgur.com/gUT5BgA.png"
+                    },
+                    {
+                        "name": "Olofboost",
+                        "description": "Podwójny boost przy trucku na Overpassie, który pozwolił wrócić Fnatic z wyniku 3-13 przeciwko LDLC w ćwierćfinale DreamHack Winter 2014 (z powodu gigantycznego oburzenia społeczności gracze Fnatic po meczu wycofali się z turnieju)",
+                        "rarity": "Epic",
+                        "tags": ["cs/memorial"],
+                        "image_url": "https://i.imgur.com/RjJLW4v.png"
+                    },
+                    {
+                        "name": "Dwa noscopy S1mpla na Cache'u",
+                        "description": "What is this clutch from s1mple? What, are you serious? What is that? You can't do that, s1mple! That's not allowed! This is not FPL! This is a major! (półfinał ESL One Cologne 2016 pomiędzy Liquid a Fnatic)",
+                        "rarity": "Epic",
+                        "tags": ["cs/memorial"],
+                        "image_url": "https://i.imgur.com/IITK4L7.png"
+                    },
+                    {
+                        "name": "TACO - ESL One Cologne 2016",
+                        "description": "SK 2-0 Liquid",
+                        "rarity": "Epic",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/3MYFu6F.png"
+                    },
+                    {
+                        "name": "Mou i Zeus - Major Kraków 2017",
+                        "description": "Gambit 2-1 Immortals",
+                        "rarity": "Epic",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/NLC3lgQ.png"
+                    },
+                    {
+                        "name": "Autimatic i Stewie2k - Major Boston 2018",
+                        "description": "Cloud9 2-1 FaZe",
+                        "rarity": "Epic",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/T6FQGOO.png"
+                    },
+                    {
+                        "name": "Ropz - Major Antwerp 2022",
+                        "description": "FaZe 2-0 Natus Vincere",
+                        "rarity": "Epic",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/wSwTLVE.png"
+                    },
+                    {
+                        "name": "Ja niepaniemaju po angielske",
+                        "description": "Widać, że shiro nie uczęszczał do Pasha London School",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/OwubgZx.png"
+                    },
+                    {
+                        "name": "Noga KennyS",
+                        "description": "Tak, podczas finałów Esl Pro League faktycznie depilowano graczom nogi",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/0V4T1sM.png"
+                    },
+                    {
+                        "name": "Ronaldinho of CS",
+                        "description": "Nic dodać, nic ująć",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/d83xsws.png"
+                    },
+                    {
+                        "name": "Dupreeh orzeł",
+                        "description": "AMERICA FUCK YEAH ",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/vbTQ3uH.png"
+                    },
+                    {
+                        "name": "MoneGGY",
+                        "description": "Miguel, Miguel, Miguel",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros", "cs/falcggers"],
+                        "image_url": "https://i.imgur.com/0np1EbP.png"
+                    },
+                    {
+                        "name": "NiGO",
+                        "description": "Miguel, Miguel, Miguel",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros", "cs/falcggers"],
+                        "image_url": "https://i.imgur.com/FoiQyQi.png"
+                    },
+                    {
+                        "name": "Yekindar x Eva Elfie",
+                        "description": "Kolab na który czekała cała Łotwa",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/QEWcSyw.png"
+                    },
+                    {
+                        "name": "FlameZ MVK",
+                        "description": "Tel Aviv impressed",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/QO5BDvu.png"
+                    },
+                    {
+                        "name": "Guardian Goku",
+                        "description": "IT'S OVER 9000!",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/mksqz6A.png"
+                    },
+                    {
+                        "name": "Izak 9/11",
+                        "description": "Aj psia jucha",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/64gPx2K.png"
+                    },
+                    {
+                        "name": "Dev1ce i trofeum",
+                        "description": "Które rozjebał",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/u3ugRI2.png"
+                    },
+                    {
+                        "name": "Czingis lesba",
+                        "description": "6767676767676767676767676767676767676767",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/KsFKu5a.png"
+                    },
+                    {
+                        "name": "Yekindar Pov",
+                        "description": "Chłop widzi w 4d",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/3IbhahS.png"
+                    },
+                    {
+                        "name": "HUASOPEEK aura",
+                        "description": "Imagine przegrać na typa w klapkach z McQueenem",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/Q6I5qCN.png"
+                    },
+                    {
+                        "name": "Zews, Fallen i TACO - MLG Columbus 2016",
+                        "description": "Luminosity 2-0 Natus Vincere",
+                        "rarity": "Legendary",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/N3NJvO6.png"
+                    },
+                    {
+                        "name": "Xyp9x - Major London 2018",
+                        "description": "Astralis 2-0 Natus Vincere",
+                        "rarity": "Legendary",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/4CtcWHb.png"
+                    },
+                    {
+                        "name": "Zywoo - Major Austin 2025",
+                        "description": "Vitality 2-1 The MongolZ",
+                        "rarity": "Legendary",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/mDLmiB7.png"
+                    },
+                    {
+                        "name": "Apex - Major Budapest 2025",
+                        "description": "Vitality 3-1 FaZe",
+                        "rarity": "Legendary",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/19Yw78Y.png"
+                    },
+                    {
+                        "name": "Skaczący awup",
+                        "description": "4 zabójstwa Coldzery, w tym jeden skaczący noscope eliminujący dwóch rywali, rozpoczynające największy choke w historii mistrzostw świata prowadzący do zwycięstwa w półfinale MLG Columbus Luminosity, pomimo wielu punktów mapowych Liquid",
+                        "rarity": "Legendary",
+                        "tags": ["cs/memorial"],
+                        "image_url": "https://i.imgur.com/eoTRh77.png"
+                    },
+                    {
+                        "name": "Fallen spooky aura",
+                        "description": "Największy strach Team Liquid",
+                        "rarity": "Legendary",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/sKP5kBO.png"
+                    },
+                    {
+                        "name": "KarrNIGGER",
+                        "description": "ULTRA SLOWED MIGUEL PHONK ",
+                        "rarity": "Legendary",
+                        "tags": ["cs/pros", "cs/falcggers"],
+                        "image_url": "https://i.imgur.com/MjpMqOk.png"
+                    },
+                    {
+                        "name": "Wzruszony Pasha",
+                        "description": "The Biceps Criminal",
+                        "rarity": "Legendary",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/bRWcmWK.png"
+                    },
+                    {
+                        "name": "HAHAHAHAHA",
+                        "description": "Najbardziej legendarny throw Falcons, które wjebalo 3v5 z zaplantowaną paką i obstawionym całym bombsidem B na Inferno rundę meczową przeciwko MiBR, co skutkowało parę rund później odpadnięciem z majora w Austin",
+                        "rarity": "Legendary",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/TR8MrAX.png"
+                    },
+                    {
+                        "name": "Word.exe",
+                        "description": "Forsaken - mistrz ukrywania cheatów na komputerze, ewentualnie szarpania się adminem",
+                        "rarity": "Legendary",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/ZvEFzma.png"
+                    },
+                    {
+                        "name": "Niko i stół z dziurą",
+                        "description": "Ciekawostka: odbyła się wtedy prawdopodobnie pierwsza i jedyna przerwa medyczna w historii csa",
+                        "rarity": "Legendary",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/jKRirma.png"
+                    },
+                    {
+                        "name": "Kurczak incydent",
+                        "description": "Złośliwość rzeczy martwych, albo i żywych???",
+                        "rarity": "Legendary",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/bjYh3Qr.png"
+                    },
+                    {
+                        "name": "Pepe el s1mple",
+                        "description": "Csgo goat",
+                        "rarity": "Legendary",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/w6IFH23.jpeg"
+                    },
+                    {
+                        "name": "Hooxi Gigachad",
+                        "description": "Im gorszy rating tym lepsze wyniki drużynowe",
+                        "rarity": "Legendary",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/R2fuSXy.jpeg"
+                    },
+                    {
+                        "name": "Donk - Major Shanghai 2024",
+                        "description": "Spirit 2-1 FaZe",
+                        "rarity": "Mythic",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/9WIn4SH.png"
+                    },
+                    {
+                        "name": "Dupreeh - IEM Katowice 2019",
+                        "description": "Astralis 2-0 Ence",
+                        "rarity": "Mythic",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/EGT88xb.png"
+                    },
+                    {
+                        "name": "Neo, Snax i Byali - EMS One Katowice 2014",
+                        "description": "Virtus Pro 2-0 Ninjas in Pyjamas",
+                        "rarity": "Mythic",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/A3ggYW5.png"
+                    },
+                    {
+                        "name": "Apex fak",
+                        "description": "🖕",
+                        "rarity": "Mythic",
+                        "tags": ["cs/pros", "cs/faks"],
+                        "image_url": "https://i.imgur.com/YKTFR2a.png"
+                    },
+                    {
+                        "name": "THE Choke",
+                        "description": "Niko w tzw. primie",
+                        "rarity": "Mythic",
+                        "tags": ["cs/fans"],
+                        "image_url": "https://i.imgur.com/klGrcaR.png"
+                    },
+                    {
+                        "name": "Na pewno nie snax",
+                        "description": "Siema, posluchacie, JA NIE JESTEM SNAX, ja przy yy ja przeciez wogóle nie mam csa, yyy ja wogóle komputera nie mam, yy ja kompletnie nie gram w csa, Posluchajceie, ja wam wogóle świadcze że ja nie jestem podobny do snaxa",
+                        "rarity": "Mythic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/W22v9vl.png"
+                    },
+                    {
+                        "name": "Jame the Redeemer",
+                        "description": "Jame time",
+                        "rarity": "Mythic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/VXFn2tn.png"
+                    },
+                    {
+                        "name": "GeT_RiGhT - Esl One Cologne 2014",
+                        "description": "Ninjas in Pyjamas 2-1 Fnatic",
+                        "rarity": "Divine",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/ZcNPSKq.png"
+                    },
+                    {
+                        "name": "S1mple - Major Stockholm 2021",
+                        "description": "Natus Vincere 2-0 G2",
+                        "rarity": "Divine",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/YlYSGLt.png"
+                    },
+                    {
+                        "name": "Niko - Major Cologne 2026",
+                        "description": "Falcons 3-0 Furia",
+                        "rarity": "Divine",
+                        "tags": ["cs/glory"],
+                        "image_url": "https://i.imgur.com/zHNvZ4r.png"
+                    },
+                    {
+                        "name": "Bot Allu",
+                        "description": "Dosłownie bot, bo FaZe nic nie trafiał",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/GzVUrdW.png"
+                    },
+                    {
+                        "name": "Stabbi The Movie",
+                        "description": "Historia o przyjaźni, zdradzie i zjednoczeniu",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/oHsCHIc.png"
+                    },
+                    {
+                        "name": "Jame AWPENHEIMER",
+                        "description": "Now I am become death",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/zWNAXij.png"
+                    },
+                    {
+                        "name": "Aleksib Diuna",
+                        "description": "Nie mogę się bać. Strach jest zabójcą umysłu. Strach jest małą śmiercią, która prowadzi do całkowitego unicestwienia.",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/aBPoo5C.png"
+                    },
+                    {
+                        "name": "S1mple ksiądz",
+                        "description": "Just a fucking bitch",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/q3xvX7n.png"
+                    },
+                    {
+                        "name": "Michu Defuj",
+                        "description": "Defuj, defuj, michu defuj, defuj, MICHU DEFUUUUUJ",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/NuvAbCg.png"
+                    },
+                    {
+                        "name": "Legendary kwartet",
+                        "description": "Najlepsi naszej ery",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/id5rl2C.png"
+                    },
+                    {
+                        "name": "Papito MMA",
+                        "description": "Szkoda, że dostał wpierdol od Dubiela",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/XqW5pfU.png"
+                    },
+                    {
+                        "name": "AntyVirus radar",
+                        "description": "Cheatuj, ustaw, zgarnij, spierdol",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/79ciOuN.png"
+                    },
+                    {
+                        "name": "OhnePixel git",
+                        "description": "Git",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/DAtg8i3.png"
+                    },
+                    {
+                        "name": "Scream aura",
+                        "description": "They talk about my one taps",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/WKUa7iu.png"
+                    },
+                    {
+                        "name": "Mouz disband and retire",
+                        "description": "Rel w chuj",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/Vs6g8l1.png"
+                    },
+                    {
+                        "name": "Zews kiep",
+                        "description": "🚬",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros", "cs/kieps"],
+                        "image_url": "https://i.imgur.com/xRyB8J1.png"
+                    },
+                    {
+                        "name": "Perfecto kiep",
+                        "description": "🚬",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros", "cs/kieps"],
+                        "image_url": "https://i.imgur.com/8eLUmuQ.png"
+                    },
+                    {
+                        "name": "Nicoodoz snusik",
+                        "description": "Przejebał clutcha, ale snusik musi być",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/uUv9Avy.png"
+                    },
+                    {
+                        "name": "Kurczaki na zewnątrz",
+                        "description": "🐔🐔🐔",
+                        "rarity": "Epic",
+                        "tags": ["cs/fans"],
+                        "image_url": "https://i.imgur.com/hX5eYhm.png"
+                    },
+                    {
+                        "name": "S1mple fak",
+                        "description": "🖕",
+                        "rarity": "Legendary",
+                        "tags": ["cs/pros", "cs/faks"],
+                        "image_url": "https://i.imgur.com/TEfHiLE.png"
+                    },
+                    {
+                        "name": "Snax is hungry",
+                        "description": "WHAT IN GOD NAME IS THAT FROM SNAX",
+                        "rarity": "Mythic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/Ra0mrVu.png"
+                    },
+                    {
+                        "name": "Pasha fitness",
+                        "description": "Ćwiczenia odbywały się w Pasha Fitness School",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/O0ciRkk.png"
+                    },
+                    {
+                        "name": "Snax fitness",
+                        "description": "Ćwiczenia odbywały się w Pasha Fitness School",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/jGm7TpX.png"
+                    },
+                    {
+                        "name": "Pasha biegnie",
+                        "description": "THERE IS NO TOMORROW",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/jrMRFe2.png"
+                    },
+                    {
+                        "name": "Snax biegnie",
+                        "description": "THERE IS NO TOMORROW",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/tTNIIpR.png"
+                    },
+                    {
+                        "name": "Snax git",
+                        "description": "I have six pack, perfect",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/M5jylVM.png"
+                    },
+                    {
+                        "name": "Snax tańczy w błotku",
+                        "description": "Absolutely Godlike",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/H7TDi36.png"
+                    },
+                    {
+                        "name": "Snax Wick",
+                        "description": "Chapter 3 Parabellum",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/noJPgHj.png"
+                    },
+                    {
+                        "name": "Stewie2k narkobóg",
+                        "description": "W tym kraju najpierw trzeba zarobić pieniądze. A kiedy już się je zdobędzie, zyskuje się władzę. A kiedy zyskuje się władzę, zdobywa się kobiety",
+                        "rarity": "Legendary",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/Kfmypmu.png"
+                    },
+                    {
+                        "name": "Stewie Montana",
+                        "description": "Dwie zasady to nie lekceważ chciwości innych i nie wciągaj własnego towaru",
+                        "rarity": "Mythic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/QP4I0nJ.png"
+                    },
+                    {
+                        "name": "Graviti trashtalk",
+                        "description": "You take the mouse and you click! You click!",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/qkm8sWH.png"
+                    },
+                    {
+                        "name": "Scream Groot",
+                        "description": "I AM ONE TAPS",
+                        "rarity": "Mythic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/KbMF3ft.png"
+                    },
+                    {
+                        "name": "Scream Goku",
+                        "description": "El Chapo, I am the god",
+                        "rarity": "Rare",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/LIRLJTc.png"
+                    },
+                    {
+                        "name": "KennyS leży",
+                        "description": "I przegląda insta",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/OC32jyO.png"
+                    },
+                    {
+                        "name": "Scream SuS",
+                        "description": "Cześć, z tej strony Scream, wydojrzałem i dotykałem cip",
+                        "rarity": "Legendary",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/aF8STMA.png"
+                    },
+                    {
+                        "name": "S1mple idzie do szkoły",
+                        "description": "Nie wie jeszcze, że dziś są odwołane zajęcia",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/vkHuxBi.png"
+                    },
+                    {
+                        "name": "Smooya SuS",
+                        "description": "PEGI 3",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/4ONDbLh.png"
+                    },
+                    {
+                        "name": "Olofmeister tańczy",
+                        "description": "Tańczy do Caramelldansen",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/jo6BI4I.png"
+                    },
+                    {
+                        "name": "Skadoodle poker face",
+                        "description": "Ten gość z tyłu dziwnie wygląda",
+                        "rarity": "Common",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/A6I6SZ2.png"
+                    },
+                    {
+                        "name": "TACO gilotynka",
+                        "description": "Śmierć wszystkim konfidentom",
+                        "rarity": "Epic",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/bU43QsD.png"
+                    },
+                    {
+                        "name": "S1mple śpiewa",
+                        "description": "Dwadzieścia pięć lat temu, słońce, zielona łąka. Robak siadł mi na łapie, patrz jaka ładna biedronka. Zjadłem tę kurwę ku osłupieniu mamy. Wtedy rozkminiła, że jestem jakiś niedojebany",
+                        "rarity": "Legendary",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/0in9tj9.png"
+                    },
+                    {
+                        "name": "S1mple The Undertaker",
+                        "description": "Anal nathrach, do che'l de'nmha, Except the Lord of Darkness as your savior, Anal nathrach Tiera natrach, Allow the purity of Evil to guide you",
+                        "rarity": "Divine",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/BpEf3A3.png"
+                    },
+                    {
+                        "name": "Maikelele",
+                        "description": "Maikelelelelelelele",
+                        "rarity": "Uncommon",
+                        "tags": ["cs/pros"],
+                        "image_url": "https://i.imgur.com/F6RPnvO.png"
+                    }                    
+                ]
+            }
+        ]
+    }
+]
