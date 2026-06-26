@@ -9,6 +9,7 @@ import discord
 from discord.ext import commands
 
 # Data
+from bot.Utils.Autocomplete import AutocompleteService
 from bot.Utils.DataDriver import DataDriver, DataDriverScheduler
 
 class Bot(commands.Bot):
@@ -23,8 +24,10 @@ class Bot(commands.Bot):
         self.logger.propagate = False
         self.logger.addHandler(logs_handler)
 
-        self.datadriver = DataDriver(logs_handler)
+        self.datadriver: DataDriver = DataDriver(logs_handler)
         self.datadriver.initialize_database()
+
+        self.autocomplete: AutocompleteService = AutocompleteService(self.datadriver)
 
         self.scheduler = DataDriverScheduler(self.datadriver)
 

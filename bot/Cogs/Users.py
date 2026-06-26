@@ -4,6 +4,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
+from bot.Utils.Autocomplete import ac
 from bot.Utils.DataDriver import DataDriver
 from bot.Utils.Enums import RARITY_EMOJI, RARITY_ORDER, RARITIES, RARITY_VALUE
 
@@ -16,41 +17,6 @@ class Users(commands.Cog):
     def __init__(self, bot, datadriver: DataDriver):
         self.bot = bot
         self.datadriver: DataDriver = datadriver
-
-    # ====================
-    # Autocomplete
-    # ====================
-
-    async def bundle_autocomplete(self, interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
-        bundles = self.datadriver.bundle_cache
-        choices = [app_commands.Choice(name=bundle, value=bundle) for bundle in bundles if current.lower() in bundle.lower()]
-        
-        return choices[:25]
-
-    async def collection_autocomplete(self, interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
-        collections = self.datadriver.collection_cache
-        choices = [app_commands.Choice(name=collection, value=collection) for collection in collections if current.lower() in collection.lower()]
-        
-        return choices[:25]
-
-    async def rarity_autocomplete(self, interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
-        rarities = RARITIES
-        choices = [app_commands.Choice(name=rarity, value=rarity) for rarity in rarities if current.lower() in rarity.lower()]
-        
-        return choices[:25]
-
-    async def tag_autocomplete(self, interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
-        tags = self.datadriver.tag_cache
-        choices = [app_commands.Choice(name=tag, value=tag) for tag in tags if current.lower() in tag.lower()]
-        
-        return choices[:25]
-
-    async def sort_by_autocomplete(self, interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
-        sort_bys = ["RarityAscending", "NameAscending", "CollectionAscending", "BundleAscending", 
-                    "RarityDescending", "NameDescending", "CollectionDescending", "BundleDescending"]
-        choices = [app_commands.Choice(name=sort_by, value=sort_by) for sort_by in sort_bys if current.lower() in sort_by.lower()]
-        
-        return choices[:25]
 
     # ====================
     # Profile commands
@@ -126,8 +92,14 @@ class Users(commands.Cog):
 
         await interaction.response.send_message(view=view)
 
-    @inventory.command(name="cards_gallery", description="Displays cards in user inventory")
-    @app_commands.autocomplete(bundle=bundle_autocomplete, collection=collection_autocomplete, rarity=rarity_autocomplete, tag=tag_autocomplete, sort_by=sort_by_autocomplete)
+    # ====================
+    # Collection commands
+    # ====================
+
+    collection = app_commands.Group(name="collection", description="Inventory related commands.")
+
+    @inventory.command(name="gallery", description="Displays cards in user inventory")
+    @app_commands.autocomplete(bundle=ac("bundle"), collection=ac("collection"), rarity=ac("rarity"), tag=ac("tag"), sort_by=ac("sort_by"))
     async def inventory_cards_gallery(self, interaction: discord.Interaction, 
                         bundle: Optional[str] = None, 
                         collection: Optional[str] = None,
@@ -184,8 +156,8 @@ class Users(commands.Cog):
         
         await interaction.response.send_message(view=view)
 
-    @inventory.command(name="cards_list", description="Displays cards in user inventory")
-    @app_commands.autocomplete(bundle=bundle_autocomplete, collection=collection_autocomplete, rarity=rarity_autocomplete, tag=tag_autocomplete, sort_by=sort_by_autocomplete)
+    @inventory.command(name="list", description="Displays cards in user inventory")
+    @app_commands.autocomplete(bundle=ac("bundle"), collection=ac("collection"), rarity=ac("rarity"), tag=ac("tag"), sort_by=ac("sort_by"))
     async def inventory_cards_list(self, interaction: discord.Interaction, 
                         bundle: Optional[str] = None, 
                         collection: Optional[str] = None,

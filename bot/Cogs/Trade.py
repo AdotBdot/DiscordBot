@@ -4,6 +4,7 @@ import discord
 from discord.ext import commands
 from discord import app_commands
 
+from bot.Utils.Autocomplete import ac
 from bot.Utils.DataDriver import DataDriver
 from bot.Utils.Helpers import merge_cards
 
@@ -16,51 +17,13 @@ class Trade(commands.Cog):
         self.datadriver = datadriver
 
     # ====================
-    # Autocomplete
-    # ====================
-
-    async def user_card_autocomplete(self, interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
-        if len(current) < 3:
-            return[]
-        
-        user_id = interaction.user.id
-
-        if not self.datadriver.user_exist(user_id):
-            return []
-        
-        user_cards = self.datadriver.get_user_cards(user_id)
-
-        choices = [app_commands.Choice(name=card, value=card) for card in user_cards if current.lower() in card.lower()] # type: ignore
-
-        return choices[:25]
-
-    async def user_pack_autocomplete(self, interaction: discord.Interaction, current:str) -> list[app_commands.Choice[str]]:
-        user_id = interaction.user.id
-
-        if not self.datadriver.user_exist(user_id):
-            return []
-        
-        user_packs = set(self.datadriver.get_user_packs(user_id))
-
-        if not user_packs:
-            return []
-        
-        choices = [
-            app_commands.Choice(name=pack, value=pack) 
-            for pack in set(user_packs) 
-            if current.lower() in pack.lower()
-            ]
-
-        return choices[:25]
-
-    # ====================
     # Trade commands
     # ====================
 
     trade = app_commands.Group(name="trade", description="Trade related commands")
 
     @trade.command(name="give_card", description="Give card to user.")
-    @app_commands.autocomplete(card=user_card_autocomplete)
+    @app_commands.autocomplete(card=ac("user_card"))
     async def trade_give_card(self, interaction: discord.Interaction, to: discord.Member, card: str):
         user_id = interaction.user.id
         target_user_id = to.id
@@ -93,7 +56,7 @@ class Trade(commands.Cog):
         await interaction.response.send_message(content=f"You gave {card} to {to.name}.")
 
     @trade.command(name="give_pack", description="Give card to user.")
-    @app_commands.autocomplete(pack=user_pack_autocomplete)
+    @app_commands.autocomplete(pack=ac("user_pack"))
     async def trade_give_pack(self, interaction: discord.Interaction, to: discord.Member, pack: str):
         user_id = interaction.user.id
         target_user_id = to.id
@@ -156,7 +119,7 @@ class Trade(commands.Cog):
         await interaction.response.send_message(content=f"You gave {cocoses}🥥 to {to.name}.")
 
     @app_commands.command(name="merge", description="Merge cards to get a better one.")
-    @app_commands.autocomplete(card1=user_card_autocomplete, card2=user_card_autocomplete, card3=user_card_autocomplete)
+    @app_commands.autocomplete(card1=ac("user_card"), card2=ac("user_card"), card3=ac("user_card"))
     async def merge(self, interaction: discord.Interaction, card1: str, card2: str, card3: str):
         user_id = interaction.user.id
 

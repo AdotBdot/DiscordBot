@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from discord import app_commands
 
+from bot.Utils.Autocomplete import ac
 from bot.Utils.DataDriver import DataDriver
 from bot.Utils.Permissions import admin_only
 
@@ -11,29 +12,6 @@ class Moderation(commands.Cog):
     def __init__(self, bot, datadriver: DataDriver):
         self.bot = bot
         self.datadriver = datadriver
-        
-    # ====================
-    # Autocomplete
-    # ====================
-
-    async def card_autocomplete(self, interaction: discord.Interaction, current:str) -> list[app_commands.Choice[str]]:
-        if len(current) < 3:
-            return[]
-        
-        df = self.datadriver.cards
-
-        matches = df.index[df.index.str.contains(current, case=False, na=False)]
-
-        return [
-            app_commands.Choice(name=name, value=name)
-            for name in matches[:25]
-        ]
-
-    async def pack_autocomplete(self, interaction: discord.Interaction, current:str) -> list[app_commands.Choice[str]]:
-        packs = self.datadriver.packs_cache
-        choices = [app_commands.Choice(name=pack, value=pack) for pack in packs if current.lower() in pack.lower()]
-        
-        return choices[:25]
 
     # ====================
     # General commands
@@ -99,6 +77,14 @@ class Moderation(commands.Cog):
 
         await interaction.response.send_message("Reloaded cards database.")
 
+    @app_commands.command(name="refresh_daily", description="Refreshes daily traits.")
+    @admin_only()
+    async def refresh_daily(self, interaction: discord.Interaction):
+        self.datadriver.refresh_daily()
+        self.datadriver.save_data_cache()
+
+        await interaction.response.send_message("Refreshed dailies.")
+
     # ====================
     # Give commands
     # ====================
@@ -107,7 +93,7 @@ class Moderation(commands.Cog):
     
     @give.command(name="card", description="Gives card to user collection.")
     @admin_only()
-    @app_commands.autocomplete(card=card_autocomplete)
+    @app_commands.autocomplete(card=ac("card"))
     async def give_card(self, interaction: discord.Interaction, target_user: discord.Member, card: str):
         target_user_id = target_user.id
 
@@ -128,7 +114,7 @@ class Moderation(commands.Cog):
 
     @give.command(name="pack")
     @admin_only()
-    @app_commands.autocomplete(pack=pack_autocomplete)
+    @app_commands.autocomplete(pack=ac("pack"))
     async def give_pack(self, interaction: discord.Interaction, target_user: discord.Member, pack: str, count: int):
         target_user_id = target_user.id
 

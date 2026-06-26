@@ -1,3 +1,4 @@
+from collections import Counter
 import random
 from typing import Optional
 
@@ -5,6 +6,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
+from bot.Utils.Autocomplete import ac
 from bot.Utils.DataDriver import DataDriver
 from bot.Utils.Enums import BASE_RARITY_WEIGHT, RARITY_EMOJI
 
@@ -16,35 +18,6 @@ class Packs(commands.Cog):
     def __init__(self, bot, datadriver: DataDriver):
         self.bot = bot
         self.datadriver = datadriver
-
-    # ====================
-    # Autocomplete
-    # ====================
-
-    async def pack_autocomplete(self, interaction: discord.Interaction, current:str) -> list[app_commands.Choice[str]]:
-        packs = self.datadriver.packs_cache
-        choices = [app_commands.Choice(name=pack, value=pack) for pack in packs if current.lower() in pack.lower()]
-        
-        return choices[:25]
-
-    async def user_pack_autocomplete(self, interaction: discord.Interaction, current:str) -> list[app_commands.Choice[str]]:
-        user_id = interaction.user.id
-
-        if not self.datadriver.user_exist(user_id):
-            return []
-        
-        user_packs = self.datadriver.get_user_packs(user_id)
-
-        if not user_packs:
-            return []
-        
-        choices = [
-            app_commands.Choice(name=pack, value=pack) 
-            for pack in set(user_packs) 
-            if current.lower() in pack.lower()
-            ]
-
-        return choices[:25]
 
     # ====================
     # Pack commands
@@ -71,7 +44,7 @@ class Packs(commands.Cog):
         await interaction.response.send_message(view=view)
 
     @pack.command(name="info", description="Displays information about pack.")
-    @app_commands.autocomplete(pack_name=pack_autocomplete)
+    @app_commands.autocomplete(pack_name=ac("pack"))
     async def pack_info(self, interaction: discord.Interaction, pack_name: str):
         if not self.datadriver.pack_exist(pack_name):
             await interaction.response.send_message("Pack not found.")
@@ -104,12 +77,12 @@ class Packs(commands.Cog):
         await interaction.response.send_message(view=view)
 
     @pack.command(name="open", description="Opens pack from your inventory.")
-    @app_commands.autocomplete(pack=user_pack_autocomplete)
+    @app_commands.autocomplete(pack=ac("user_pack"))
     async def pack_open(self, interaction: discord.Interaction, pack: str, count: Optional[int]):
         user_id = interaction.user.id
         
         if not self.datadriver.user_exist(user_id):
-            await interaction.response.send_message("User does not exist in database.")
+            await interaction.response.send_message("Slow down. You don't have your profile yet. Use **/help** for more information.")
             return
         
         if not self.datadriver.pack_exist(pack):
@@ -147,12 +120,24 @@ class Packs(commands.Cog):
             pool = by_rarity[chosen_rarity]
             result.append(pool.iloc[random.randrange(len(pool))])
 
+        # Count duplicates
+        card_counts = Counter(card.name for card in result)
+
         # Add card to user
         user_cards = self.datadriver.get_user_cards(user_id)
         user_cards.extend([card.name for card in result])
         self.datadriver.set_user_cards(user_id, user_cards)
 
-        pages = [card_to_container(card) for card in result]
+        # UI
+        pages = []
+        for card_name, amount in card_counts.items():
+            card = next(card for card in result if card.name == card_name)
+
+            container = card_to_container(card)
+            container.add_item(discord.ui.TextDisplay(content=f"Received: **x{amount}**"))
+
+            pages.append(container)
+
         view = PageView(
             pages=pages, 
             author_id=interaction.user.id, 
