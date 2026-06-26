@@ -1,7 +1,9 @@
 import asyncio
+from datetime import datetime
 import json
 import logging
 from pathlib import Path
+import random
 from typing import Optional
 
 import pandas as pd
@@ -37,7 +39,8 @@ class DataDriver:
         self.logger.addHandler(logs_handler)
 
         self.dirty_users: set[int] = set()
-        self.config = {}
+
+        self.cache = {}
 
         self.bundle_cache: list[str] = []
         self.collection_cache: list[str] = []
@@ -55,18 +58,27 @@ class DataDriver:
         self.load_packs()
         self.load_users()
 
+        self.load_data_cache()
+
         self.init_card_caches()
+        pass
 
     def init_card_caches(self):
         self.bundle_cache = sorted(self.cards["bundle"].dropna().unique().tolist())
         self.collection_cache = sorted(self.cards["collection"].dropna().unique().tolist())
         self.packs_cache = sorted(self.packs.index.unique().tolist())
 
-        self.tags_cache = sorted({
-            tag
+        self.tag_cache = sorted({
+            tag.strip()
             for tags in self.cards["tags"].dropna()
-            for tag in tags
+            for tag in (
+                tags if isinstance(tags, (list, tuple, set))
+                else str(tags).split(',')
+            )
+            if tag
         })
+
+        self.tag_cache = [tag.lower() for tag in self.tag_cache]
 
     def load_cards(self):
         cards_data = []
@@ -139,8 +151,46 @@ class DataDriver:
 
         self.logger.info(f"Loaded {len(self.users)} user(s)")
 
-    def load_config(self) -> dict:
-        return {}
+    def load_data_cache(self):
+        with open("data/config/cache.json", "r", encoding="utf-8") as file:
+            self.cache = json.load(file)
+
+        self.logger.info(f"Loaded cache")
+
+    def save_data_cache(self):
+        file_path = Path("data/config/cache.json")
+        file_path.write_text(json.dumps(self.cache, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
+
+    # ====================
+    # Daily methods
+    # ====================
+
+    def get_last_daily_refresh(self) -> datetime:
+        date_string = self.cache["last_daily_refresh"]
+
+        last_refresh = datetime.strptime(date_string, "%Y-%m-%d %H:%M:%S.%f")
+
+        return(last_refresh)
+
+    def refresh_daily(self):
+        card_names = self.cards.index
+
+        self.cache["daily_shop_cards"] = random.choices(card_names, k=3)
+        self.cache["daily_shop_packs"] = random.choices(self.packs_cache, k=3)
+        self.cache["daily_claims"] = []
+        
+        self.cache["last_daily_refresh"] = str(datetime.now())
+
+        self.logger.info(f"Refreshed dailies.")
+
+    def get_daily_cards(self) -> list[str]:
+        return self.cache["daily_shop_cards"] or []
+
+    def get_daily_packs(self) -> list[str]:
+        return self.cache["daily_shop_packs"] or []
+    
+    def user_claimed_daily(self, user_id) -> bool:
+        return user_id in self.cache["daily_claims"]
 
     # ====================
     # User methods
