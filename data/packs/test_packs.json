@@ -31,5 +31,10 @@
         "name": "Major Case",
         "type": "collection",
         "collection_name": "Esport"
+    },
+    {
+        "name": "Mountain Case",
+        "type": "collection",
+        "collection_name": "Kolekcja Górska"
     }
 ]

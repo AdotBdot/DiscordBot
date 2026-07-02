@@ -9,126 +9,126 @@
                         "name": "BMO",
                         "description": "",
                         "rarity": "Uncommon",
-                        "tags": ["at/bmo"],
+                        "tags": ["at_bmo"],
                         "image_url": "https://i.imgur.com/lnY0skS.png"
                     },
                     {
                         "name": "Farmland Finn (Adult)",
                         "description": "",
                         "rarity": "Epic",
-                        "tags": ["at/finn"],
+                        "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/2jdyzbM.jpeg"
                     },
                     {
                         "name": "Farmland Finn",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/finn"],
+                        "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/x8ze1BZ.png"
                     },
                     {
                         "name": "Flame Princess",
                         "description": "",
                         "rarity": "Uncommon",
-                        "tags": ["at/flame-princess"],
+                        "tags": ["at_flame-princess"],
                         "image_url": "https://i.imgur.com/WgYGu1c.png"
                     },
                     {
                         "name": "Grass Finn",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/finn"],
+                        "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/Pdx18vH.png"
                     },
                     {
                         "name": "Gunter",
                         "description": "",
                         "rarity": "Uncommon",
-                        "tags": ["at/gunter"],
+                        "tags": ["at_gunter"],
                         "image_url": "https://i.imgur.com/Nkq09OU.png"
                     },
                     {
                         "name": "Ice King",
                         "description": "",
                         "rarity": "Uncommon",
-                        "tags": ["at/ice-king"],
+                        "tags": ["at_ice-king"],
                         "image_url": "https://i.imgur.com/KiYDtXV.jpeg"
                     },
                     {
                         "name": "Jake the Dog",
                         "description": "",
                         "rarity": "Uncommon",
-                        "tags": ["at/jake"],
+                        "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/IgAwewh.png"
                     },
                     {
                         "name": "Lady Rainicorn",
                         "description": "",
                         "rarity": "Uncommon",
-                        "tags": ["at/lady-rainicorn"],
+                        "tags": ["at_lady-rainicorn"],
                         "image_url": "https://i.imgur.com/HTv8DHA.jpeg"
                     },
                     {
                         "name": "Lumpy Finn & Jake",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/jake", "at/finn"],
+                        "tags": ["at_jake", "at_finn"],
                         "image_url": "https://i.imgur.com/EYAnVFy.png"
                     },
                     {
                         "name": "Lumpy Space Princess",
                         "description": "",
                         "rarity": "Uncommon",
-                        "tags": ["at/lumpy-space-princess"],
+                        "tags": ["at_lumpy-space-princess"],
                         "image_url": "https://i.imgur.com/Yak519x.jpeg"
                     },
                     {
                         "name": "Marceline",
                         "description": "",
                         "rarity": "Uncommon",
-                        "tags": ["at/marceline"],
+                        "tags": ["at_marceline"],
                         "image_url": "https://i.imgur.com/9jGRQLL.png"
                     },
                     {
                         "name": "Princess Bubblegum",
                         "description": "",
                         "rarity": "Uncommon",
-                        "tags": ["at/princess-bubblegum"],
+                        "tags": ["at_princess-bubblegum"],
                         "image_url": "https://i.imgur.com/gOuoFiG.png"
                     },
                     {
                         "name": "Prismo",
                         "description": "",
                         "rarity": "Uncommon",
-                        "tags": ["at/prismo"],
+                        "tags": ["at_prismo"],
                         "image_url": "https://i.imgur.com/j23JgoG.png"
                     },       
                     {
                         "name": "The Lich",
                         "description": "",
                         "rarity": "Mythic",
-                        "tags": ["at/the-lich"],
+                        "tags": ["at_the-lich"],
                         "image_url": "https://i.imgur.com/uV2PMzA.jpeg"
                     },
                     {
                         "name": "Fionna Campbell",
                         "description": "",
                         "rarity": "Uncommon",
-                        "tags": ["at/fionna-"],
+                        "tags": ["at_fionna-"],
                         "image_url": "https://i.imgur.com/OZRvEih.png"
                     },
                     {
                         "name": "Cake",
                         "description": "",
                         "rarity": "Uncommon",
-                        "tags": ["at/cake"],
+                        "tags": ["at_cake"],
                         "image_url": "https://i.imgur.com/hbQwoaR.png"
                     },       
                     {
                         "name": "Simon Petrikov",
                         "description": "",
                         "rarity": "Uncommon",
-                        "tags": ["at/simon-petrikov"],
+                        "tags": ["at_simon-petrikov"],
                         "image_url": "https://i.imgur.com/DczMKOh.jpeg"
                     },
                     {
@@ -149,84 +149,84 @@
                         "name": "Lemongrab (Fat)",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/lemongrab"],
+                        "tags": ["at_lemongrab"],
                         "image_url": "https://i.imgur.com/humIPJt.png"
                     },
                     {
                         "name": "Lemongrab",
                         "description": "",
                         "rarity": "Common",
-                        "tags": ["at/lemongrab"],
+                        "tags": ["at_lemongrab"],
                         "image_url": "https://i.imgur.com/ZrL9g16.jpeg"
                     },
                     {
                         "name": "Tree Trunks",
                         "description": "",
                         "rarity": "Common",
-                        "tags": ["at/tree-trunks"],
+                        "tags": ["at_tree-trunks"],
                         "image_url": "https://i.imgur.com/IayiLti.png"
                     },
                     {
                         "name": "Mad Scientist Princess Bubblegum",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/princess-bubblegum"],
+                        "tags": ["at_princess-bubblegum"],
                         "image_url": "https://i.imgur.com/2wzo189.png"
                     },
                     {
                         "name": "Loli Princess Bubblegum",
                         "description": "",
                         "rarity": "Epic",
-                        "tags": ["at/princess-bubblegum"],
+                        "tags": ["at_princess-bubblegum"],
                         "image_url": "https://i.imgur.com/PeXLwrt.png"
                     },
                     {
                         "name": "PB & Marceline Lesbians",
                         "description": "",
                         "rarity": "Epic",
-                        "tags": ["at/princess-bubblegum", "at/marceline"],
+                        "tags": ["at_princess-bubblegum", "at_marceline"],
                         "image_url": "https://i.imgur.com/lGNAEKy.png"
                     },
                     {
                         "name": "Peppermint Butler",
                         "description": "",
                         "rarity": "Uncommon",
-                        "tags": ["at/peppermint-butler"],
+                        "tags": ["at_peppermint-butler"],
                         "image_url": "https://i.imgur.com/J82Qe7q.png"
                     },
                     {
                         "name": "Dark Caster Peppermint Butler",
                         "description": "",
                         "rarity": "Mythic",
-                        "tags": ["at/peppermint-butler"],
+                        "tags": ["at_peppermint-butler"],
                         "image_url": "https://i.imgur.com/0NwbN18.png"
                     },
                     {
                         "name": "Huntress and Finn Playing",
                         "description": "",
                         "rarity": "Epic",
-                        "tags": ["at/finn", "at/huntress"],
+                        "tags": ["at_finn", "at_huntress"],
                         "image_url": "https://i.imgur.com/HWXyOhg.png"
                     },
                     {
                         "name": "Huntress Wizard",
                         "description": "",
                         "rarity": "Uncommon",
-                        "tags": ["at/huntress"],
+                        "tags": ["at_huntress"],
                         "image_url": "https://i.imgur.com/rXxExPd.png"
                     },
                     {
                         "name": "Huntress Sad",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/huntress"],
+                        "tags": ["at_huntress"],
                         "image_url": "https://i.imgur.com/rMkH3ro.png"
                     },
                     {
                         "name": "Elegant Ice King",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/ice-king"],
+                        "tags": ["at_ice-king"],
                         "image_url": "https://i.imgur.com/Iq2KOgS.png"
                     },
                     {
@@ -240,63 +240,63 @@
                         "name": "Peppermint Butler (Young)",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/peppermint-butler"],
+                        "tags": ["at_peppermint-butler"],
                         "image_url": "https://i.imgur.com/maAvH7E.png"
                     },
                     {
                         "name": "Finn the Human (Adult)",
                         "description": "",
                         "rarity": "Epic",
-                        "tags": ["at/finn"],
+                        "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/yh5yxqu.png"
                     },
                     {
                         "name": "The Lich Skeleton",
                         "description": "\"Fall\"",
                         "rarity": "Legendary",
-                        "tags": ["at/the-lich"],
+                        "tags": ["at_the-lich"],
                         "image_url": "https://i.imgur.com/JFGEs6Q.png"
                     },
                     {
                         "name": "Finn Losing His Arm",
                         "description": "It's not worth it.",
                         "rarity": "Epic",
-                        "tags": ["at/finn"],
+                        "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/bt79i18.png"
                     },
                     {
                         "name": "Baby Finn",
                         "description": "I'm a buff baby that can dance like a man. I can shake them up. Fanny, I can shake them again.",
                         "rarity": "Rare",
-                        "tags": ["at/finn"],
+                        "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/APRuTOe.png"
                     },
                     {
                         "name": "Bacon Pancakes Jake",
                         "description": "Bacon pancakes making bacon pancakes. Take some bacon and I put it in a pancake. Bacon pancakes that's what it's gonna make. Bacon Pancake!",
                         "rarity": "Epic",
-                        "tags": ["at/jake"],
+                        "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/FH7nnHP.png"
                     },
                     {
                         "name": "Wizard Betty",
                         "description": "",
                         "rarity": "Legendary",
-                        "tags": ["at/betty-grof"],
+                        "tags": ["at_betty-grof"],
                         "image_url": "https://i.imgur.com/IpzxmUA.png"
                     },
                     {
                         "name": "Betty Grof",
                         "description": "",
                         "rarity": "Uncommon",
-                        "tags": ["at/betty-grof"],
+                        "tags": ["at_betty-grof"],
                         "image_url": "https://i.imgur.com/Wcwfwa3.png"
                     },
                     {
                         "name": "Butt Plug Jake",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/jake"],
+                        "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/HVAkLjr.png"
                     },
                     {
@@ -317,49 +317,49 @@
                         "name": "Dramatic Jake",
                         "description": "Bitten by spider in Marceline's closet lol.",
                         "rarity": "Epic",
-                        "tags": ["at/jake"],
+                        "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/mlK9olb.png"
                     },
                     {
                         "name": "Magic Fist",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/finn", "at/jake"],
+                        "tags": ["at_finn", "at_jake"],
                         "image_url": "https://i.imgur.com/avBKmkD.png"
                     },
                     {
                         "name": "Simon Petrikov Teacher",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/simon-petrikov"],
+                        "tags": ["at_simon-petrikov"],
                         "image_url": "https://i.imgur.com/3Grb32o.png"
                     },
                     {
                         "name": "Lo-fi Jake",
                         "description": "",
                         "rarity": "Epic",
-                        "tags": ["at/jake"],
+                        "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/ZuUAsv4.gif"
                     },
                     {
                         "name": "BMO Changes Batteries",
                         "description": "",
                         "rarity": "Legendary",
-                        "tags": ["at/bmo"],
+                        "tags": ["at_bmo"],
                         "image_url": "https://i.imgur.com/ZKtr7Oo.gif"
                     },
                     {
                         "name": "Breakdance Jake",
                         "description": "",
                         "rarity": "Epic",
-                        "tags": ["at/jake"],
+                        "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/cj8a4UX.gif"
                     },
                     {
                         "name": "Prismo Awoken by Lich",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/prismo"],
+                        "tags": ["at_prismo"],
                         "image_url": "https://i.imgur.com/SpdBVJ9.png"
                     },
                     {
@@ -408,28 +408,28 @@
                         "name": "Jake the Egg",
                         "description": "Mmm, egg in me.",
                         "rarity": "Rare",
-                        "tags": ["at/jake"],
+                        "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/nK0mfSE.png"
                     },
                     {
                         "name": "Jake the Brick",
                         "description": "Nah, I think I'm just gonna keep being a brick for a while.",
                         "rarity": "Rare",
-                        "tags": ["at/jake"],
+                        "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/vUDmmWt.png"
                     },
                     {
                         "name": "Finn the God",
                         "description": "I made you do those crummy things!",
                         "rarity": "Epic",
-                        "tags": ["at/finn"],
+                        "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/9plZbOb.png"
                     },
                     {
                         "name": "Little Finn",
                         "description": "All the Little People.",
                         "rarity": "Rare",
-                        "tags": ["at/finn"],
+                        "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/dIZOCDE.png"
                     },
                     {
@@ -443,49 +443,49 @@
                         "name": "Little Gunter",
                         "description": "All the Little People.",
                         "rarity": "Rare",
-                        "tags": ["at/gunter"],
+                        "tags": ["at_gunter"],
                         "image_url": "https://i.imgur.com/e5xuCQo.png"
                     },
                     {
                         "name": "Little Ice King",
                         "description": "All the Little People.",
                         "rarity": "Rare",
-                        "tags": ["at/ice-king"],
+                        "tags": ["at_ice-king"],
                         "image_url": "https://i.imgur.com/iXBLrj3.png"
                     },
                     {
                         "name": "Little Jake",
                         "description": "All the Little People.",
                         "rarity": "Rare",
-                        "tags": ["at/jake"],
+                        "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/O5aNNTU.png"
                     },
                     {
                         "name": "Little Marceline",
                         "description": "All the Little People.",
                         "rarity": "Rare",
-                        "tags": ["at/marceline"],
+                        "tags": ["at_marceline"],
                         "image_url": "https://i.imgur.com/0TXjN1p.png"
                     },
                     {
                         "name": "Little Princesses Fighting",
                         "description": "All the Little People.",
                         "rarity": "Epic",
-                        "tags": ["at/princess-bubblegum", "at/flame-princess"],
+                        "tags": ["at_princess-bubblegum", "at_flame-princess"],
                         "image_url": "https://i.imgur.com/val3CIP.png"
                     },
                     {
                         "name": "Little Vampire King",
                         "description": "All the Little People.",
                         "rarity": "Uncommon",
-                        "tags": ["at/vampire-king"],
+                        "tags": ["at_vampire-king"],
                         "image_url": "https://i.imgur.com/IKXKqCr.png"
                     },
                     {
                         "name": "The Horse",
                         "description": "All the Little People.",
                         "rarity": "Epic",
-                        "tags": ["at/ice-king"],
+                        "tags": ["at_ice-king"],
                         "image_url": "https://i.imgur.com/g7QkuTu.png"
                     },
                     {
@@ -513,63 +513,63 @@
                         "name": "Hot Blob Princess",
                         "description": "Slime Elemental",
                         "rarity": "Rare",
-                        "tags": ["at/hot-dog-princess"],
+                        "tags": ["at_hot-dog-princess"],
                         "image_url": "https://i.imgur.com/i0Ioi09.png"
                     },
                     {
                         "name": "Hot Dog Princess",
                         "description": "",
                         "rarity": "Common",
-                        "tags": ["at/hot-dog-princess"],
+                        "tags": ["at_hot-dog-princess"],
                         "image_url": "https://i.imgur.com/5eRChQo.png"
                     },
                     {
                         "name": "Mellow Tea Party PB",
                         "description": "I shoudn't drink so much teaaa.",
                         "rarity": "Rare",
-                        "tags": ["at/princess-bubblegum"],
+                        "tags": ["at_princess-bubblegum"],
                         "image_url": "https://i.imgur.com/pfzrGDs.png"
                     },
                     {
                         "name": "Slime Finn",
                         "description": "Slime Elemental",
                         "rarity": "Rare",
-                        "tags": ["at/finn"],
+                        "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/flGd7nJ.png"
                     },
                     {
                         "name": "Slime Jake",
                         "description": "Slime Elemental",
                         "rarity": "Rare",
-                        "tags": ["at/jake"],
+                        "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/wIKxJhB.png"
                     },
                     {
                         "name": "Party Splat",
                         "description": "Slime Elemental",
                         "rarity": "Rare",
-                        "tags": ["at/party-pat"],
+                        "tags": ["at_party-pat"],
                         "image_url": "https://i.imgur.com/khFfMVb.png"
                     },
                     {
                         "name": "Lumpy Slime Princess",
                         "description": "Slime Elemental",
                         "rarity": "Rare",
-                        "tags": ["at/lumpy-space-princess"],
+                        "tags": ["at_lumpy-space-princess"],
                         "image_url": "https://i.imgur.com/FakveGt.png"
                     },
                     {
                         "name": "Abracajamiel",
                         "description": "Slime Elemental",
                         "rarity": "Rare",
-                        "tags": ["at/abracadaniel"],
+                        "tags": ["at_abracadaniel"],
                         "image_url": "https://i.imgur.com/QjJclvx.png"
                     },
                     {
                         "name": "Party Pat",
                         "description": "",
                         "rarity": "Common",
-                        "tags": ["at/party-pat"],
+                        "tags": ["at_party-pat"],
                         "image_url": "https://i.imgur.com/5rcSCOY.png"
                     },
                     {
@@ -590,21 +590,21 @@
                         "name": "Overstreched Jake",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/jake"],
+                        "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/Y8wYTqD.png"
                     },
                     {
                         "name": "Shapeshifter Jake",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/jake"],
+                        "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/yYvrtaj.png"
                     },
                     {
                         "name": "Big AF Slime Princess",
                         "description": "Slime Princess got biiig.",
                         "rarity": "Epic",
-                        "tags": ["at/slime-princess"],
+                        "tags": ["at_slime-princess"],
                         "image_url": "https://i.imgur.com/SF35p1Y.png"
                     },
                     {
@@ -625,49 +625,49 @@
                         "name": "Shoko",
                         "description": "",
                         "rarity": "Common",
-                        "tags": ["at/shoko"],
+                        "tags": ["at_shoko"],
                         "image_url": "https://i.imgur.com/kfoAYar.png"
                     },
                     {
                         "name": "Shoko Mutant",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/shoko"],
+                        "tags": ["at_shoko"],
                         "image_url": "https://i.imgur.com/7PywSZc.png"
                     },
                     {
                         "name": "Shoko Ghost",
                         "description": "",
                         "rarity": "Divine",
-                        "tags": ["at/shoko"],
+                        "tags": ["at_shoko"],
                         "image_url": "https://i.imgur.com/uUuYo5i.png"
                     },
                     {
                         "name": "(N)Ice King",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/ice-king"],
+                        "tags": ["at_ice-king"],
                         "image_url": "https://i.imgur.com/8RbpuUj.png"
                     },
                     {
                         "name": "Slime Princess",
                         "description": "",
                         "rarity": "Common",
-                        "tags": ["at/slime-princess"],
+                        "tags": ["at_slime-princess"],
                         "image_url": "https://i.imgur.com/yt2a2WJ.png"
                     },
                     {
                         "name": "Possessed Princess Bubblegum",
                         "description": "Jaaaake",
                         "rarity": "Epic",
-                        "tags": ["at/princess-bubblegum"],
+                        "tags": ["at_princess-bubblegum"],
                         "image_url": "https://i.imgur.com/EW3PHKi.png"
                     },
                     {
                         "name": "Banana Guardian Finn",
                         "description": "Sic'em, Jake!",
                         "rarity": "Rare",
-                        "tags": ["at/finn"],
+                        "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/pCUZI1x.png"
                     },
                     {
@@ -681,7 +681,7 @@
                         "name": "Cinnamon Bun",
                         "description": "Because everything is more fun with a cinnamon bun!",
                         "rarity": "Common",
-                        "tags": ["at/cinnamon-bun"],
+                        "tags": ["at_cinnamon-bun"],
                         "image_url": "https://i.imgur.com/ZXWMjIq.png"
                     },
                     {
@@ -730,14 +730,14 @@
                         "name": "Wizard Jake",
                         "description": "",
                         "rarity": "Epic",
-                        "tags": ["at/jake"],
+                        "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/9kYtIYa.png"
                     },
                     {
                         "name": "Wizard Finn",
                         "description": "",
                         "rarity": "Epic",
-                        "tags": ["at/finn"],
+                        "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/DAALlUD.png"
                     },
                     {
@@ -751,14 +751,14 @@
                         "name": "Choose Goose",
                         "description": "",
                         "rarity": "Common",
-                        "tags": ["at/choose-goose"],
+                        "tags": ["at_choose-goose"],
                         "image_url": "https://i.imgur.com/PISVVLE.png"
                     },
                     {
                         "name": "Evil Choose Goose",
                         "description": "",
                         "rarity": "Legendary",
-                        "tags": ["at/choose-goose"],
+                        "tags": ["at_choose-goose"],
                         "image_url": "https://i.imgur.com/lYHBUGG.png"
                     },
                     {
@@ -772,7 +772,7 @@
                         "name": "Magic Man",
                         "description": "",
                         "rarity": "Common",
-                        "tags": ["at/magic-man"],
+                        "tags": ["at_magic-man"],
                         "image_url": "https://i.imgur.com/3vmeS37.png"
                     },
                     {
@@ -786,21 +786,21 @@
                         "name": "Party Jake",
                         "description": "",
                         "rarity": "Legendary",
-                        "tags": ["at/jake"],
+                        "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/zeYVkMs.png"
                     },
                     {
                         "name": "Achoose Goose",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/choose-goose"],
+                        "tags": ["at_choose-goose"],
                         "image_url": "https://i.imgur.com/SA5pyGv.png"
                     },
                     {
                         "name": "Winter Finn & Jake",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/jake", "at/finn"],
+                        "tags": ["at_jake", "at_finn"],
                         "image_url": "https://i.imgur.com/1JAyiVT.png"
                     },
                     {
@@ -814,7 +814,7 @@
                         "name": "Joshua Holo",
                         "description": "",
                         "rarity": "Epic",
-                        "tags": ["at/joshua"],
+                        "tags": ["at_joshua"],
                         "image_url": "https://i.imgur.com/RgxeDdR.png"
                     },
                     {
@@ -849,7 +849,7 @@
                         "name": "Joshua",
                         "description": "",
                         "rarity": "Common",
-                        "tags": ["at/joshua"],
+                        "tags": ["at_joshua"],
                         "image_url": "https://i.imgur.com/QOqjFoz.png"
                     },
                     {
@@ -870,35 +870,35 @@
                         "name": "Normal Man",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/magic-man"],
+                        "tags": ["at_magic-man"],
                         "image_url": "https://i.imgur.com/M1O7rur.png"
                     },
                     {
                         "name": "Demonic Finn",
                         "description": "",
                         "rarity": "Legendary",
-                        "tags": ["at/finn"],
+                        "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/UBxT1Ze.png"
                     },
                     {
                         "name": "Dungeon Train Finn",
                         "description": "",
                         "rarity": "Epic",
-                        "tags": ["at/finn"],
+                        "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/HVmCPNS.png"
                     },
                     {
                         "name": "Fly Finn",
                         "description": "How'd you shake them others?",
                         "rarity": "Rare",
-                        "tags": ["at/finn"],
+                        "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/xzag6k3.png"
                     },
                     {
                         "name": "Ghost Fly",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/joshua"],
+                        "tags": ["at_joshua"],
                         "image_url": "https://i.imgur.com/FBMNFd8.png"
                     },
                     {
@@ -912,21 +912,21 @@
                         "name": "Monstrous Hunson Abadeer",
                         "description": "",
                         "rarity": "Legendary",
-                        "tags": ["at/hunson-abadeer"],
+                        "tags": ["at_hunson-abadeer"],
                         "image_url": "https://i.imgur.com/rWW6wW7.png"
                     },
                     {
                         "name": "Sheet Ghost Jake",
                         "description": "What do you call a bear that only attacks guys names Paul?",
                         "rarity": "Epic",
-                        "tags": ["at/jake"],
+                        "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/pp3PK9h.png"
                     },
                     {
                         "name": "Hunson Abadeer",
                         "description": "",
                         "rarity": "Uncommon",
-                        "tags": ["at/hunson-abadeer"],
+                        "tags": ["at_hunson-abadeer"],
                         "image_url": "https://i.imgur.com/5XMIH5h.png"
                     },
                     {
@@ -940,84 +940,84 @@
                         "name": "Zombie Jake",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/jake"],
+                        "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/aZsQuwm.png"
                     },
                     {
                         "name": "Zombie Lady Rainicorn",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/lady-rainicorn"],
+                        "tags": ["at_lady-rainicorn"],
                         "image_url": "https://i.imgur.com/uv6xRyX.png"
                     },
                     {
                         "name": "Zombie LSP",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/lumpy-space-princess"],
+                        "tags": ["at_lumpy-space-princess"],
                         "image_url": "https://i.imgur.com/qrMe4on.png"
                     },
                     {
                         "name": "Zombie Princess Bubblegum",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/princess-bubblegum"],
+                        "tags": ["at_princess-bubblegum"],
                         "image_url": "https://i.imgur.com/4qsu5TM.png"
                     },
                     {
                         "name": "Fun the Human",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/finn"],
+                        "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/GO1DLT8.png"
                     },
                     {
                         "name": "Candy Gunter",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/gunter"],
+                        "tags": ["at_gunter"],
                         "image_url": "https://i.imgur.com/cKOk4iD.png"
                     },
                     {
                         "name": "Candy Flame Princess",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/flame-princess"],
+                        "tags": ["at_flame-princess"],
                         "image_url": "https://i.imgur.com/Uf33oG3.png"
                     },
                     {
                         "name": "Marshmaline the Campfire Queen",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/marceline"],
+                        "tags": ["at_marceline"],
                         "image_url": "https://i.imgur.com/b492481.png"
                     },
                     {
                         "name": "Fire Finn",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/finn"],
+                        "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/DPKPTjL.png"
                     },
                     {
                         "name": "Flame Knight",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at/cinnamon-bun"],
+                        "tags": ["at_cinnamon-bun"],
                         "image_url": "https://i.imgur.com/C3BxbqM.png"
                     },
                     {
                         "name": "Lady Flamicorn",
                         "description": "",
                         "rarity": "Epic",
-                        "tags": ["at/lady-rainicorn"],
+                        "tags": ["at_lady-rainicorn"],
                         "image_url": "https://i.imgur.com/6Kql2Bw.png"
                     },
                     {
                         "name": "Pure Elemental Princess Bubblegum",
                         "description": "",
                         "rarity": "Epic",
-                        "tags": ["at/princess-bubblegum"],
+                        "tags": ["at_princess-bubblegum"],
                         "image_url": "https://i.imgur.com/me1JrwJ.png"
                     }
                 ]
