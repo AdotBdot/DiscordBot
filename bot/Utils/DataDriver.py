@@ -147,7 +147,7 @@ class DataDriver:
         if users_data:
             self.users = pd.DataFrame(users_data).set_index("id")
         else:
-            self.users = pd.DataFrame(columns=["cards", "packs", "cash", "melons", "upgrades"]).set_index(pd.Index([], name="id"))
+            self.users = pd.DataFrame(columns=["cards", "packs", "cash", "melons", "upgrades", "locked_rarities", "locked_collections"]).set_index(pd.Index([], name="id"))
 
         self.logger.info(f"Loaded {len(self.users)} user(s)")
 
@@ -212,7 +212,9 @@ class DataDriver:
                 "pack_size": 1
             },
             "cash": 0,
-            "melons": 0
+            "melons": 0,
+            "locked_rarities": [],
+            "locked_collections": []
         }
 
         self.users.loc[user_id] = user_data
@@ -282,6 +284,20 @@ class DataDriver:
     
     def set_user_upgrades(self, user_id: int, upgrades: dict):
         self.users.at[user_id, "upgrades"] = upgrades # type: ignore
+        self.mark_dirty(user_id)
+
+    def get_user_locked_rarities(self, user_id: int) -> list[str]:
+        return self.users.at[user_id, "locked_rarities"] or []  # type: ignore
+    
+    def set_user_locked_rarities(self, user_id: int, rarities: list[str]):
+        self.users.at[user_id, "locked_rarities"] = rarities # type: ignore
+        self.mark_dirty(user_id)
+
+    def get_user_locked_collections(self, user_id: int) -> list[str]:
+        return self.users.at[user_id, "locked_collections"] or [] # type: ignore
+
+    def set_user_locked_collections(self, user_id: int, collections: list[str]):
+        self.users.at[user_id, "locked_collections"] = collections # type: ignore
         self.mark_dirty(user_id)
 
     # ====================

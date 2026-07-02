@@ -89,8 +89,15 @@ class Shop(commands.Cog):
             await interaction.response.send_message(content=f"Card not found.")
             return
         
-        user_cards = self.datadriver.get_user_cards(user_id)
+        card_data = self.datadriver.get_card_by_name(card)
+        locked_rarities = self.datadriver.get_user_locked_rarities(user_id)
+        locked_collections = self.datadriver.get_user_locked_collections(user_id)
 
+        if card_data["rarity"] in locked_rarities or card_data["collection"] in locked_collections: # type: ignore
+            await interaction.response.send_message(content=f"**{card}** is protected and cannot be sold.")
+            return
+
+        user_cards = self.datadriver.get_user_cards(user_id)
         amount = user_cards.count(card)
 
         if amount <= 1:
@@ -132,7 +139,7 @@ class Shop(commands.Cog):
         if not user_cards:
             await interaction.response.send_message(content=f"You don't have any cards in your collection.")
             return
-        
+
         card_counts = Counter(user_cards)
 
         duplicates = {card: count - 1 for card, count in card_counts.items() if count > 1}
@@ -141,20 +148,28 @@ class Shop(commands.Cog):
             await interaction.followup.send(content="You don't have any duplicates to sell.")
             return
         
-        # Count cards and value
-        cards_df = self.datadriver.get_cards_by_names(list(duplicates.keys()))
+        # Process locked cards
+        locked_rarities = self.datadriver.get_user_locked_rarities(user_id)
+        locked_collections = self.datadriver.get_user_locked_collections(user_id)
 
+        cards_df = self.datadriver.cards.loc[list(duplicates.keys())]
+        cards_df = cards_df[~cards_df["rarity"].isin(locked_rarities) & ~cards_df["collection"].isin(locked_collections)]
+
+        duplicates = {card: duplicates[card] for card in cards_df.index}
+
+        if not duplicates:
+            await interaction.followup.send(content="You don't have any duplicates to sell.")
+            return
+
+        # Count cards and value
         total_value = 0
         total_cards = 0
 
-        for _, row in cards_df.iterrows():
-            card_name = row.name
-            rarity = row["rarity"]
-
-            amount = duplicates[card_name] # type: ignore
+        for row in cards_df.itertuples():
+            amount = duplicates[row.Index]
 
             total_cards += amount
-            total_value += RARITY_VALUE[rarity] * amount
+            total_value += RARITY_VALUE[row.rarity] * amount # type: ignore
 
         # Confirm sale
         confirmed = await confirm(
@@ -167,8 +182,16 @@ class Shop(commands.Cog):
             await interaction.followup.send(content="Sale cancelled.")
             return
         
-        # Remove duplicates
-        new_intentory = list(set(user_cards))
+        # Build new inventory
+        remaining_to_sell = Counter(duplicates)
+        new_intentory = []
+        
+        for card in user_cards:
+            if remaining_to_sell[card] > 0:
+                remaining_to_sell[card] -= 1
+            else:
+                new_intentory.append(card)
+
         self.datadriver.set_user_cards(user_id, new_intentory)
 
         # Give cocoses to user

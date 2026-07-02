@@ -98,7 +98,7 @@ class Users(commands.Cog):
 
     collection = app_commands.Group(name="collection", description="Inventory related commands.")
 
-    @inventory.command(name="gallery", description="Displays cards in user inventory")
+    @collection.command(name="gallery", description="Displays cards in user inventory")
     @app_commands.autocomplete(bundle=ac("bundle"), collection=ac("collection"), rarity=ac("rarity"), tag=ac("tag"), sort_by=ac("sort_by"))
     async def inventory_cards_gallery(self, interaction: discord.Interaction, 
                         bundle: Optional[str] = None, 
@@ -156,7 +156,7 @@ class Users(commands.Cog):
         
         await interaction.response.send_message(view=view)
 
-    @inventory.command(name="list", description="Displays cards in user inventory")
+    @collection.command(name="list", description="Displays cards in user inventory")
     @app_commands.autocomplete(bundle=ac("bundle"), collection=ac("collection"), rarity=ac("rarity"), tag=ac("tag"), sort_by=ac("sort_by"))
     async def inventory_cards_list(self, interaction: discord.Interaction, 
                         bundle: Optional[str] = None, 
@@ -221,6 +221,58 @@ class Users(commands.Cog):
         
         await interaction.response.send_message(view=view)
 
+    @collection.command(name="completion", description="Displays selected collection completion")
+    @app_commands.autocomplete(collection=ac("collection"))
+    async def inventory_collection_completion(self, interaction: discord.Interaction, 
+                        collection: Optional[str] = None
+                        ):
+        user_id = interaction.user.id
+
+        if not self.datadriver.user_exist(user_id):
+            await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
+            return
+
+        user_cards = self.datadriver.get_cards_by_traits(user_id=user_id, collection=collection)
+        
+        all_cards = self.datadriver.get_cards_by_traits(collection=collection)
+        if all_cards.empty:
+            await interaction.response.send_message("Collection not found.")
+            return
+        
+        total_by_rarity = (all_cards["rarity"].value_counts())
+        owned_by_rarity = (user_cards.reset_index().drop_duplicates(subset="name")["rarity"].value_counts())
+
+        lines = []
+        total_cards = 0
+        owned_cards = 0
+
+        for rarity in RARITIES:
+            total = total_by_rarity.get(rarity, 0)
+            owned = owned_by_rarity.get(rarity, 0)
+
+            total_cards += total
+            owned_cards += owned
+
+            lines.append(f"{RARITY_EMOJI[rarity]} **{rarity}**: {owned}/{total}")
+
+        percentage = (owned_cards / total_cards * 100 if total_cards > 0 else 0)
+        
+        container = discord.ui.Container(
+            discord.ui.TextDisplay(content=f"### {collection}"),
+            discord.ui.Separator(visible=True, spacing=discord.SeparatorSpacing.small),
+            discord.ui.TextDisplay(content=f"**Progress**: {percentage:.2f}%"),
+            discord.ui.TextDisplay(content="\n".join(lines))
+        )
+
+        view = SimpleView(
+            author_id=user_id,
+            content=container,
+            header=f"{interaction.user.mention}\n## Collection",
+            thumbnail=interaction.user.display_avatar.url
+            )
+        await interaction.response.send_message(view=view)
+
+
     # ====================
     # Upgrades commands
     # ====================
@@ -242,6 +294,90 @@ class Users(commands.Cog):
 
         await interaction.response.send_message(view=view)
        
+    # ====================
+    # Lock commands
+    # ====================
+
+    lock = app_commands.Group(name="lock", description="Locks related commands.")
+
+    @lock.command(name="collection", description="Locks selling for desired collection.")
+    @app_commands.autocomplete(collection=ac("collection"))
+    async def lock_collection(self, interaction: discord.Interaction, collection: str):
+        user_id = interaction.user.id
+
+        if not self.datadriver.user_exist(user_id):
+            await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
+            return
+
+        if collection not in self.datadriver.collection_cache:
+            await interaction.response.send_message(content=f"Collection: **{collection}** not found.")
+            return
+        
+        user_locks = self.datadriver.get_user_locked_collections(user_id)
+        user_locks.append(collection)
+        self.datadriver.set_user_locked_collections(user_id, user_locks)
+
+        await interaction.response.send_message(f"Successfully locked collection: **{collection}**")
+
+    @lock.command(name="rarity", description="Locks selling for desired collection.")
+    @app_commands.autocomplete(rarity=ac("rarity"))
+    async def lock_rarity(self, interaction: discord.Interaction, rarity: str):
+        user_id = interaction.user.id
+
+        if not self.datadriver.user_exist(user_id):
+            await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
+            return
+
+        if rarity not in RARITIES:
+            await interaction.response.send_message(content=f"Rarity **{rarity}** does not exists.")
+            return
+        
+        user_locks = self.datadriver.get_user_locked_rarities(user_id)
+        user_locks.append(rarity)
+        self.datadriver.set_user_locked_rarities(user_id, user_locks)
+
+        await interaction.response.send_message(f"Successfully locked rarity: **{rarity}**")
+
+    unlock = app_commands.Group(name="unlock", description="Locks related commands.")
+
+    @unlock.command(name="collection", description="Locks selling for desired collection.")
+    @app_commands.autocomplete(collection=ac("collection"))
+    async def unlock_collection(self, interaction: discord.Interaction, collection: str):
+        user_id = interaction.user.id
+
+        if not self.datadriver.user_exist(user_id):
+            await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
+            return
+
+        if collection not in self.datadriver.collection_cache:
+            await interaction.response.send_message(content=f"Collection: **{collection}** not found.")
+            return
+        
+        user_locks = self.datadriver.get_user_locked_collections(user_id)
+        user_locks.remove(collection)
+        self.datadriver.set_user_locked_collections(user_id, user_locks)
+
+        await interaction.response.send_message(f"Successfully unlocked collection: **{collection}**")
+
+    @unlock.command(name="rarity", description="Locks selling for desired collection.")
+    @app_commands.autocomplete(rarity=ac("rarity"))
+    async def unlock_rarity(self, interaction: discord.Interaction, rarity: str):
+        user_id = interaction.user.id
+
+        if not self.datadriver.user_exist(user_id):
+            await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
+            return
+
+        if rarity not in RARITIES:
+            await interaction.response.send_message(content=f"Rarity **{rarity}** does not exists.")
+            return
+        
+        user_locks = self.datadriver.get_user_locked_rarities(user_id)
+        user_locks.remove(rarity)
+        self.datadriver.set_user_locked_rarities(user_id, user_locks)
+
+        await interaction.response.send_message(f"Successfully unlocked rarity: **{rarity}**")
+
 # Setup Cog
 async def setup(bot):
     await bot.add_cog(Users(bot, bot.datadriver))
