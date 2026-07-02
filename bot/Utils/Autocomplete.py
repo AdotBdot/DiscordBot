@@ -69,7 +69,7 @@ class AutocompleteService:
         current = current.lower()
 
         tags = self.datadriver.tag_cache
-        choices = [app_commands.Choice(name=tag, value=tag) for tag in tags if current in tags]
+        choices = [app_commands.Choice(name=tag, value=tag) for tag in tags if current in tag]
         
         return choices[:25]
 
