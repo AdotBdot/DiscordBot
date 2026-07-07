@@ -389,25 +389,32 @@ class Users(commands.Cog):
         locked_rarities = self.datadriver.get_user_locked_rarities(user_id)
         locked_collections = self.datadriver.get_user_locked_collections(user_id)
 
-        rarities_msg = []
-        for rarity in locked_rarities:
-            rarities_msg.append(f"{RARITY_EMOJI[rarity]} **{rarity}**")
+        rarities_msg = ["### Locked rarities"]
+        if not locked_rarities:
+            rarities_msg.append("None")
+        else:
+            for rarity in locked_rarities:
+                rarities_msg.append(f"{RARITY_EMOJI[rarity]} **{rarity}**")
+
+        collection_msg = ["### Locked collections"]
+        if not locked_collections:
+            collection_msg.append("None")
+        else:
+            collection_msg += locked_collections
 
         rarities_msg = '\n'.join(rarities_msg)
-        collection_msg = '\n'.join(locked_collections)
+        collection_msg = '\n'.join(collection_msg)
 
         container = discord.ui.Container(
-            discord.ui.TextDisplay(content="### Locked rarities"),
             discord.ui.TextDisplay(content=rarities_msg),
             discord.ui.Separator(visible=True, spacing=discord.SeparatorSpacing.small),
-            discord.ui.TextDisplay(content="### Locked collections"),
             discord.ui.TextDisplay(content=collection_msg)
         )
 
         view = SimpleView(
             author_id=user_id,
             content=container,
-            header="Locks",
+            header=f"{interaction.user.mention}\n## Locks",
             thumbnail=interaction.user.display_avatar.url
         )
 
