@@ -141,6 +141,12 @@ class Trade(commands.Cog):
             await interaction.response.send_message(content=f"You don't have selected cards in your inventory.")
             return
         
+        selected_cards = self.datadriver.get_cards_by_names(selected)
+
+        if not selected_cards[0]["rarity"] == selected_cards[1]["rarity"] and selected_cards[1]["rarity"] == selected_cards[2]["rarity"]:
+            await interaction.response.send_message(content=f"Selected cards must be the same rarity.")
+            return
+        
         result = merge_cards(self.datadriver, user_id, selected)
 
         if result is None:
