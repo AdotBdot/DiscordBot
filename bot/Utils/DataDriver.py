@@ -48,7 +48,7 @@ class DataDriver:
         self.packs_cache: list[str] = []
 
         self.cards = pd.DataFrame(columns=["rarity", "bundle", "collection", "tags"]).set_index(pd.Index([], name="name"))
-        self.packs = pd.DataFrame(columns=["cards"]).set_index(pd.Index([], name="name"))
+        self.packs = pd.DataFrame(columns=["price", "cards"]).set_index(pd.Index([], name="name"))
         self.users = pd.DataFrame(columns=["cards", "packs", "cash", "melons"]).set_index(pd.Index([], name="id"))
 
     def initialize_database(self):
@@ -117,6 +117,7 @@ class DataDriver:
         for pack in file_packs:
             name = pack["name"]
             ptype = pack["type"]
+            price = pack["price"]
 
             if ptype == "all":
                 cards = list(all_cards)
@@ -132,7 +133,7 @@ class DataDriver:
                 self.logger.info(f"Invalid pack type '{ptype}' for pack '{name}'. Skipping")
                 continue
             
-            packs.append({"name": name, "cards": cards})
+            packs.append({"name": name, "cards": cards, "price": price})
 
         self.packs = pd.DataFrame(packs).set_index("name")
         self.logger.info(f"Loaded {len(self.packs)} pack(s)")
@@ -368,3 +369,6 @@ class DataDriver:
 
     def get_pack_cards(self, name: str) -> list[str]:
         return self.packs.at[name, "cards"] or [] # type: ignore
+    
+    def get_pack_price(self, name: str) -> int:
+        return self.packs.at[name, "price"] or 0 # type: ignore

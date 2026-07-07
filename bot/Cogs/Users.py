@@ -378,6 +378,41 @@ class Users(commands.Cog):
 
         await interaction.response.send_message(f"Successfully unlocked rarity: **{rarity}**")
 
+    @lock.command(name="list", description="Displays locked rarities and collections.")
+    async def lock_list(self, interaction: discord.Interaction):
+        user_id = interaction.user.id
+
+        if not self.datadriver.user_exist(user_id):
+            await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
+            return
+        
+        locked_rarities = self.datadriver.get_user_locked_rarities(user_id)
+        locked_collections = self.datadriver.get_user_locked_collections(user_id)
+
+        rarities_msg = []
+        for rarity in locked_rarities:
+            rarities_msg.append(f"{RARITY_EMOJI[rarity]} **{rarity}**")
+
+        rarities_msg = '\n'.join(rarities_msg)
+        collection_msg = '\n'.join(locked_collections)
+
+        container = discord.ui.Container(
+            discord.ui.TextDisplay(content="### Locked rarities"),
+            discord.ui.TextDisplay(content=rarities_msg),
+            discord.ui.Separator(visible=True, spacing=discord.SeparatorSpacing.small),
+            discord.ui.TextDisplay(content="### Locked collections"),
+            discord.ui.TextDisplay(content=collection_msg)
+        )
+
+        view = SimpleView(
+            author_id=user_id,
+            content=container,
+            header="Locks",
+            thumbnail=interaction.user.display_avatar.url
+        )
+
+        await interaction.response.send_message(view=view)
+
 # Setup Cog
 async def setup(bot):
     await bot.add_cog(Users(bot, bot.datadriver))

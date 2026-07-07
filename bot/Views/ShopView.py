@@ -69,7 +69,7 @@ class ShopView(discord.ui.LayoutView):
         shop_container = discord.ui.Container()
 
         for pack in packs:
-            item_price_cash = 250
+            item_price_cash = self.datadriver.get_pack_price(pack)
             item_price_melones = 0
 
             section = discord.ui.Section(
@@ -88,6 +88,8 @@ class ShopView(discord.ui.LayoutView):
             shop_container.add_item(section)
 
         # Daily Shop page
+
+        # Daily Cards
         daily_cards = self.datadriver.get_daily_cards()
         daily_cards_df = self.datadriver.get_cards_by_names(daily_cards)
 
@@ -117,10 +119,11 @@ class ShopView(discord.ui.LayoutView):
         daily_container.add_item(discord.ui.Separator(visible=True, spacing=discord.SeparatorSpacing.small))
         daily_container.add_item(discord.ui.TextDisplay(content="## Daily Packs"))
 
+        # Daily Packs
         daily_packs = self.datadriver.get_daily_packs()
 
         for daily_pack in daily_packs:
-            item_price_cash = 250
+            item_price_cash = self.datadriver.get_pack_price(daily_pack)
             item_price_melones = 0
 
             section = discord.ui.Section(
@@ -128,7 +131,7 @@ class ShopView(discord.ui.LayoutView):
                 accessory=BuyButton(
                     view=self,
                     item_type="pack",
-                    item_name=daily_pack, # type: ignore
+                    item_name=daily_pack,
                     price_cash=item_price_cash,
                     price_melones=item_price_melones
                 )

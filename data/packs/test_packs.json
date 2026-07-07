@@ -1,15 +1,18 @@
 [
     {
         "name": "Common Pack",
+        "price": 250,
         "type": "all"
     },
     {
         "name": "Cartoons Pack",
+        "price": 400,
         "type": "bundle",
         "bundle_name": "Cartoons"
     },
     {
         "name": "pack_custom",
+        "price": 150,
         "type": "custom",
         "cards": [
             "Ice King",
@@ -19,21 +22,25 @@
     },
     {
         "name": "The Enchiridion",
+        "price": 550,
         "type": "collection",
         "collection_name": "Adventure Time"
     },
     {
         "name": "Instagram",
+        "price": 550,
         "type": "collection",
         "collection_name": "Polskie Influencerki"
     },
     {
         "name": "Major Case",
+        "price": 550,
         "type": "collection",
         "collection_name": "Esport"
     },
     {
         "name": "Mountain Case",
+        "price": 550,
         "type": "collection",
         "collection_name": "Kolekcja Górska"
     }
