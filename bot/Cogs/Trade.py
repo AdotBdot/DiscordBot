@@ -147,6 +147,19 @@ class Trade(commands.Cog):
             await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
             return
         
+        # Cards check
+        if not self.datadriver.card_exist(card1):
+            await interaction.response.send_message(content=f"Card {card1} not found.")
+            return
+
+        if not self.datadriver.card_exist(card2):
+            await interaction.response.send_message(content=f"Card {card2} not found.")
+            return
+
+        if not self.datadriver.card_exist(card3):
+            await interaction.response.send_message(content=f"Card {card3} not found.")
+            return
+
         # Inventory check
         selected = [card1, card2, card3]
         user_cards = self.datadriver.get_user_cards(user_id)
@@ -160,14 +173,14 @@ class Trade(commands.Cog):
             await interaction.response.send_message(content=f"You don't have selected cards in your inventory.")
             return
         
+        # Rarity check
         selected_cards = self.datadriver.get_cards_by_names(selected)
-
-        if not selected_cards[0]["rarity"] == selected_cards[1]["rarity"] and selected_cards[1]["rarity"] == selected_cards[2]["rarity"]:
+        if selected_cards["rarity"].nunique() != 1:
             await interaction.response.send_message(content=f"Selected cards must be the same rarity.")
             return
         
+        # Merge cards
         result = merge_cards(self.datadriver, user_id, selected)
-
         if result is None:
             await interaction.response.send_message("No possible card found.")
             return
@@ -182,7 +195,7 @@ class Trade(commands.Cog):
         self.datadriver.set_user_cards(user_id, user_cards)
 
         # Logs
-        self.logger.info(f"{user_id} merged cards: '{card1}', '{card2}', '{card3}' and received: '{result}'")
+        self.logger.info(f"{user_id} merged cards: '{card1}', '{card2}', '{card3}' and received: '{result.name}'")
 
         # UI
         container = card_to_container(result)

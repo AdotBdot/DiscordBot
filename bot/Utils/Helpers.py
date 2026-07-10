@@ -87,17 +87,13 @@ def get_rarity_weights(level: int) -> dict[str, int]:
 
     return weights
 
-def merge_roll_rarity(rarities: list[str]) -> str:
-    counter = Counter(rarities)
-
-    chosen = random.choices(list(counter.keys()), weights=list(counter.values()), k=1)[0]
-
-    index = RARITIES.index(chosen)
+def merge_roll_rarity(rarity: str) -> str:
+    index = RARITIES.index(rarity)
 
     if index < len(RARITIES) - 1:
         return RARITIES[index + 1]
     
-    return chosen
+    return rarity
 
 def merge_roll_collection(collections: list[str]) -> str:
     counter = Counter(collections)
@@ -110,17 +106,19 @@ def merge_roll_collection(collections: list[str]) -> str:
 def merge_cards(datadriver: DataDriver, user_id: int, selected_cards: list[str]):
     selected_df = datadriver.get_cards_by_names(selected_cards)
 
-    rarity = merge_roll_rarity(selected_df["rarity"].tolist())
+    source_rarity = selected_df["rarity"].iat[0]
+    target_rarity = merge_roll_rarity(source_rarity) # type: ignore
+
     collection = merge_roll_collection(selected_df["collection"].tolist())
 
     df = datadriver.cards.copy()
 
-    pool = df[(df["rarity"] == rarity) & (df["collection"] == collection)]
+    pool = df[(df["rarity"] == target_rarity) & (df["collection"] == collection)]
 
     if pool.empty:
         return None
     
-    return pool.sample(1).iloc[0]
+    return pool.sample(n=1).iloc[0]
 
 async def confirm(bot: Bot, interaction: discord.Interaction, message: str, timeout: float=20.0) -> bool:
     await interaction.followup.send(content=f"{message} (y/n/yes/no)")
