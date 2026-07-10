@@ -1,3 +1,5 @@
+import logging
+
 import discord
 from discord.ext import commands
 from discord import app_commands
@@ -12,6 +14,11 @@ class Moderation(commands.Cog):
     def __init__(self, bot, datadriver: DataDriver):
         self.bot = bot
         self.datadriver = datadriver
+
+        self.logger = logging.getLogger("Moderation")
+        self.logger.setLevel(logging.INFO)
+        self.logger.propagate = False
+        self.logger.addHandler(bot.logs_handler)
 
     # ====================
     # General commands
@@ -73,7 +80,7 @@ class Moderation(commands.Cog):
     async def reload_cards(self, interaction: discord.Interaction):
         self.datadriver.load_cards()
         self.datadriver.load_packs()
-        self.datadriver.init_card_caches()
+        self.datadriver.init_cache()
 
         await interaction.response.send_message("Reloaded cards database.")
 
@@ -110,6 +117,9 @@ class Moderation(commands.Cog):
 
         self.datadriver.set_user_cards(target_user_id, target_user_cards)
 
+        # Logs
+        self.logger.info(f"Gave card: '{card}' to {target_user_id}")
+
         await interaction.response.send_message(f"Gave **{card}** to {target_user.mention}")
 
     @give.command(name="pack")
@@ -131,7 +141,10 @@ class Moderation(commands.Cog):
             target_user_packs.append(pack) # type: ignore
 
         self.datadriver.set_user_packs(target_user_id, target_user_packs)
-        
+
+        # Logs
+        self.logger.info(f"Gave {count} pack(s): '{pack}' to {target_user_id}")
+
         await interaction.response.send_message(f"Gave {count} pack(s): {pack} to user {target_user.mention}")
 
     @give.command(name="cocoses", description="Gives Cocoses to user inventory.")
@@ -146,6 +159,9 @@ class Moderation(commands.Cog):
         self.datadriver.users.at[target_user_id, "cash"] += cocoses # type: ignore
         self.datadriver.mark_dirty(target_user_id)
         
+        # Logs
+        self.logger.info(f"Gave {cocoses} cocoses to {target_user_id}")
+
         await interaction.response.send_message(f"Gave {cocoses} 🥥 to user {target_user.mention}")
 
     @give.command(name="melones", description="Gives Melones to user inventory.")
@@ -160,6 +176,9 @@ class Moderation(commands.Cog):
         self.datadriver.users.at[target_user_id, "melons"] += melones # type: ignore
         self.datadriver.mark_dirty(target_user_id)
         
+        # Logs
+        self.logger.info(f"Gave {melones} melones to {target_user_id}")
+
         await interaction.response.send_message(f"Gave {melones} 🍉 to user {target_user.mention}")
 
 # Setup Cog

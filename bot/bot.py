@@ -19,6 +19,8 @@ class Bot(commands.Bot):
         intents = discord.Intents.all()
         super().__init__(intents=intents, command_prefix=">")
 
+        self.logs_handler = logs_handler
+
         self.logger = logging.getLogger("Bot")
         self.logger.setLevel(logging.INFO)
         self.logger.propagate = False
@@ -58,9 +60,8 @@ class Bot(commands.Bot):
 
                 if cog:
                     commands_list = cog.get_app_commands()
-                    self.logger.info(f"Loaded {ext} with {len(commands_list)} command(s):")
-                    for cmd in commands_list:
-                        print(f"  - /{cmd.name}")
+                    commands_msg = ", ".join([cmd.name for cmd in commands_list])
+                    self.logger.info(f"Loaded {ext} with {len(commands_list)} command(s): {commands_msg}")
             except Exception as e:
                 self.logger.error(f"Failed loading {ext}: {e}")
         

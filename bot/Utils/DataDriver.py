@@ -31,6 +31,9 @@ class DataDriverScheduler:
             for user_id in dirty:
                 self.datadriver.save_user(user_id)
 
+            # Logs
+            self.datadriver.logger.info(f"Saved {len(dirty)} user(s) to database")
+
 class DataDriver:
     def __init__(self, logs_handler):
         self.logger = logging.getLogger("DataDriver")
@@ -60,10 +63,9 @@ class DataDriver:
 
         self.load_data_cache()
 
-        self.init_card_caches()
-        pass
+        self.init_cache()
 
-    def init_card_caches(self):
+    def init_cache(self):
         self.bundle_cache = sorted(self.cards["bundle"].dropna().unique().tolist())
         self.collection_cache = sorted(self.cards["collection"].dropna().unique().tolist())
         self.packs_cache = sorted(self.packs.index.unique().tolist())
@@ -156,7 +158,7 @@ class DataDriver:
         with open("data/config/cache.json", "r", encoding="utf-8") as file:
             self.cache = json.load(file)
 
-        self.logger.info(f"Loaded cache")
+        self.logger.info(f"Created cache")
 
     def save_data_cache(self):
         file_path = Path("data/config/cache.json")
@@ -182,7 +184,7 @@ class DataDriver:
         
         self.cache["last_daily_refresh"] = str(datetime.now())
 
-        self.logger.info(f"Refreshed dailies.")
+        self.logger.info(f"Refreshed dailies")
 
     def get_daily_cards(self) -> list[str]:
         return self.cache["daily_shop_cards"] or []

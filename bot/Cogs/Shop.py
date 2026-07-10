@@ -1,4 +1,5 @@
 from collections import Counter
+import logging
 import random
 from typing import Optional
 
@@ -18,6 +19,11 @@ class Shop(commands.Cog):
     def __init__(self, bot, datadriver: DataDriver):
         self.bot = bot
         self.datadriver = datadriver
+
+        self.logger = logging.getLogger("Shop")
+        self.logger.setLevel(logging.INFO)
+        self.logger.propagate = False
+        self.logger.addHandler(bot.logs_handler)
 
     # ====================
     # General commands
@@ -74,6 +80,9 @@ class Shop(commands.Cog):
 
         self.datadriver.set_user_cash(user_id, user_cash + sell_price)
 
+        # Logs
+        self.logger.info(f"{user_id} sold {sell_count} card(s): '{card}'")
+
         await interaction.response.send_message(content=f"Sold **{sell_count}x {card}**\nYou received **{sell_price}** 🥥.")
 
     @sell.command(name="duplicates")
@@ -116,6 +125,9 @@ class Shop(commands.Cog):
         sell_value = RARITY_VALUE[rarity] * (amount - 1) # type: ignore
         
         self.datadriver.set_user_cash(user_id, user_cash + sell_value)
+
+        # Logs
+        self.logger.info(f"{user_id} sold {amount-1} duplicate(s) of '{card}' for {sell_value}")
 
         await interaction.response.send_message(
             content=(
@@ -198,6 +210,9 @@ class Shop(commands.Cog):
         user_cash = self.datadriver.get_user_cash(user_id)
         self.datadriver.set_user_cash(user_id, user_cash + total_value)
 
+        #Logs
+        self.logger.info(f"{user_id} sold {total_cards} card(s) for {total_value}")
+
         await interaction.followup.send(
             content=(
                 f"Successfully sold **{total_cards} duplicate cards**.\n"
@@ -231,6 +246,9 @@ class Shop(commands.Cog):
 
         self.datadriver.set_user_cash(user_id, user_cash + reward_cash)
         self.datadriver.set_user_packs(user_id, user_packs.append(reward_pack)) # type: ignore
+
+        # Logs
+        self.logger.info(f"{user_id} claimed daily reward")
 
         await interaction.response.send_message(content=f"You've received **{reward_pack}** + {reward_cash} 🥥")
         

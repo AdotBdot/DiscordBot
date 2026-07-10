@@ -1,3 +1,4 @@
+import logging
 from typing import Optional
 
 import discord
@@ -17,6 +18,11 @@ class Users(commands.Cog):
     def __init__(self, bot, datadriver: DataDriver):
         self.bot = bot
         self.datadriver: DataDriver = datadriver
+
+        self.logger = logging.getLogger("Users")
+        self.logger.setLevel(logging.INFO)
+        self.logger.propagate = False
+        self.logger.addHandler(bot.logs_handler)
 
     # ====================
     # Profile commands
@@ -317,6 +323,9 @@ class Users(commands.Cog):
         user_locks.append(collection)
         self.datadriver.set_user_locked_collections(user_id, user_locks)
 
+        # Logs
+        self.logger.info(f"{user_id} locked collection: '{collection}'")
+
         await interaction.response.send_message(f"Successfully locked collection: **{collection}**")
 
     @lock.command(name="rarity", description="Locks selling for desired collection.")
@@ -335,6 +344,9 @@ class Users(commands.Cog):
         user_locks = self.datadriver.get_user_locked_rarities(user_id)
         user_locks.append(rarity)
         self.datadriver.set_user_locked_rarities(user_id, user_locks)
+
+        # Logs
+        self.logger.info(f"{user_id} locked rarity: '{rarity}'")
 
         await interaction.response.send_message(f"Successfully locked rarity: **{rarity}**")
 
@@ -357,6 +369,9 @@ class Users(commands.Cog):
         user_locks.remove(collection)
         self.datadriver.set_user_locked_collections(user_id, user_locks)
 
+        # Logs
+        self.logger.info(f"{user_id} unlocked collection: '{collection}'")
+
         await interaction.response.send_message(f"Successfully unlocked collection: **{collection}**")
 
     @unlock.command(name="rarity", description="Locks selling for desired collection.")
@@ -375,6 +390,9 @@ class Users(commands.Cog):
         user_locks = self.datadriver.get_user_locked_rarities(user_id)
         user_locks.remove(rarity)
         self.datadriver.set_user_locked_rarities(user_id, user_locks)
+
+        # Logs
+        self.logger.info(f"{user_id} unlocked rarity: '{rarity}'")
 
         await interaction.response.send_message(f"Successfully unlocked rarity: **{rarity}**")
 

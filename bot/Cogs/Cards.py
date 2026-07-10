@@ -1,3 +1,4 @@
+import logging
 from typing import Optional
 
 import discord
@@ -16,6 +17,11 @@ class Cards(commands.Cog):
         self.bot = bot
         self.datadriver = datadriver
     
+        self.logger = logging.getLogger("Cards")
+        self.logger.setLevel(logging.INFO)
+        self.logger.propagate = False
+        self.logger.addHandler(bot.logs_handler)
+
     # ====================
     # Card commands
     # ====================

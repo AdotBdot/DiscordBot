@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+import logging
 import random
 
 import discord
@@ -11,6 +12,11 @@ class Events(commands.Cog):
     def __init__(self, bot, datadriver: DataDriver):
         self.bot = bot
         self.datadriver = datadriver
+
+        self.logger = logging.getLogger("Events")
+        self.logger.setLevel(logging.INFO)
+        self.logger.propagate = False
+        self.logger.addHandler(bot.logs_handler)
 
         self.voice_time = {}
 
@@ -57,6 +63,9 @@ class Events(commands.Cog):
 
         if user:
             try:
+                # Logs
+                self.logger.info(f"Gave random pack: '{pack}' to {user_id}")
+
                 await user.send(f"You received a random pack: **{pack}**")
             except discord.Forbidden:
                 pass

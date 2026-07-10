@@ -1,4 +1,5 @@
 from collections import Counter
+import logging
 import random
 from typing import Optional
 
@@ -18,6 +19,11 @@ class Packs(commands.Cog):
     def __init__(self, bot, datadriver: DataDriver):
         self.bot = bot
         self.datadriver = datadriver
+
+        self.logger = logging.getLogger("Packs")
+        self.logger.setLevel(logging.INFO)
+        self.logger.propagate = False
+        self.logger.addHandler(bot.logs_handler)
 
     # ====================
     # Pack commands
@@ -127,6 +133,9 @@ class Packs(commands.Cog):
         user_cards = self.datadriver.get_user_cards(user_id)
         user_cards.extend([card.name for card in result])
         self.datadriver.set_user_cards(user_id, user_cards)
+
+        # Logs
+        self.logger.info(f"{user_id} has opened {open_count} pack(s): '{pack}'")
 
         # UI
         pages = []

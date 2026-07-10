@@ -1,4 +1,5 @@
 from collections import Counter
+import logging
 
 import discord
 from discord.ext import commands
@@ -15,6 +16,11 @@ class Trade(commands.Cog):
     def __init__(self, bot, datadriver: DataDriver):
         self.bot = bot
         self.datadriver = datadriver
+
+        self.logger = logging.getLogger("Trade")
+        self.logger.setLevel(logging.INFO)
+        self.logger.propagate = False
+        self.logger.addHandler(bot.logs_handler)
 
     # ====================
     # Trade commands
@@ -53,6 +59,9 @@ class Trade(commands.Cog):
         self.datadriver.mark_dirty(user_id)
         self.datadriver.mark_dirty(target_user_id)
 
+        # Logs
+        self.logger.info(f"{user_id} gave card: '{card}' to {target_user_id}")
+
         await interaction.response.send_message(content=f"You gave {card} to {to.name}.")
 
     @trade.command(name="give_pack", description="Give card to user.")
@@ -86,6 +95,9 @@ class Trade(commands.Cog):
         self.datadriver.mark_dirty(user_id)
         self.datadriver.mark_dirty(target_user_id)
 
+        # Logs
+        self.logger.info(f"{user_id} gave pack: '{pack}' to {target_user_id}")
+
         await interaction.response.send_message(content=f"You gave {pack} to {to.name}.")
 
     @trade.command(name="give_cocoses", description="Give card to user.")
@@ -115,6 +127,9 @@ class Trade(commands.Cog):
         # Save Users
         self.datadriver.mark_dirty(user_id)
         self.datadriver.mark_dirty(target_user_id)
+
+        # Logs
+        self.logger.info(f"{user_id} gave {cocoses} cocoses to {target_user_id}")
 
         await interaction.response.send_message(content=f"You gave {cocoses}🥥 to {to.name}.")
 
@@ -161,6 +176,9 @@ class Trade(commands.Cog):
         user_cards.append(result.name) # type: ignore
 
         self.datadriver.set_user_cards(user_id, user_cards)
+
+        # Logs
+        self.logger.info(f"{user_id} merged cards: '{card1}', '{card2}', '{card3}' and received: '{result}'")
 
         # UI
         container = card_to_container(result)

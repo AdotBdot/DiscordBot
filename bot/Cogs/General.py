@@ -1,3 +1,5 @@
+import logging
+
 import discord
 from discord.ext import commands
 from discord import app_commands
@@ -10,6 +12,11 @@ class General(commands.Cog):
     def __init__(self, bot, datadriver: DataDriver):
         self.bot = bot
         self.datadriver = datadriver
+
+        self.logger = logging.getLogger("General")
+        self.logger.setLevel(logging.INFO)
+        self.logger.propagate = False
+        self.logger.addHandler(bot.logs_handler)
 
     def format_command(self, command: app_commands.Command | app_commands.Group, indent: int=0) -> list[str]:
         lines = []
