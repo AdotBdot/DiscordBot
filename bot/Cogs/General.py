@@ -45,16 +45,19 @@ class General(commands.Cog):
 
     @app_commands.command(name="lesgo", description="Creates user profile.")
     async def lesgo(self, interaction:discord.Interaction):
+        # Checks
         if self.datadriver.user_exist(interaction.user.id):
             await interaction.response.send_message("You already have profile created.")
             return
         
         self.datadriver.create_user(user_id=interaction.user.id)
+
+        # UI
         await interaction.response.send_message("Your profile has been created.")
 
     @app_commands.command(name="help", description="Displays help.")
     async def help(self, interaction: discord.Interaction):
-
+        # UI
         pages = []
 
         for cog_name, cog in self.bot.cogs.items():

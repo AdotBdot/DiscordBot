@@ -31,12 +31,14 @@ class Shop(commands.Cog):
 
     @app_commands.command(name="shop")
     async def shop(self, interaction: discord.Interaction):
+        # Checks
         user_id = interaction.user.id
 
         if not self.datadriver.user_exist(user_id):
             await interaction.response.send_message(content=f"Slow down. You don't have your profile yet. Use **/help** for more information.")
             return
         
+        # UI
         view = ShopView(user_id, self.datadriver)
         await interaction.response.send_message(view=view)
 
@@ -49,6 +51,7 @@ class Shop(commands.Cog):
     @sell.command(name="card")
     @app_commands.autocomplete(card=ac("user_card"))
     async def sell_card(self, interaction: discord.Interaction, card: str, amount: Optional[int] = 1):
+        # Checks
         user_id = interaction.user.id
 
         if not self.datadriver.user_exist(user_id):
@@ -88,6 +91,7 @@ class Shop(commands.Cog):
     @sell.command(name="duplicates")
     @app_commands.autocomplete(card=ac("user_card"))
     async def sell_duplicates(self, interaction: discord.Interaction, card: str):
+        # Checks
         user_id = interaction.user.id
 
         if not self.datadriver.user_exist(user_id):
@@ -129,6 +133,7 @@ class Shop(commands.Cog):
         # Logs
         self.logger.info(f"{user_id} sold {amount-1} duplicate(s) of '{card}' for {sell_value}")
 
+        # UI
         await interaction.response.send_message(
             content=(
                 f"Sold **{amount - 1}x {card}** duplicates.\n"
@@ -138,6 +143,7 @@ class Shop(commands.Cog):
 
     @sell.command(name="all_duplicates")
     async def sell_all_duplicates(self, interaction: discord.Interaction):
+        # Checks
         user_id = interaction.user.id
 
         if not self.datadriver.user_exist(user_id):
@@ -213,6 +219,7 @@ class Shop(commands.Cog):
         #Logs
         self.logger.info(f"{user_id} sold {total_cards} card(s) for {total_value}")
 
+        # UI
         await interaction.followup.send(
             content=(
                 f"Successfully sold **{total_cards} duplicate cards**.\n"
@@ -226,6 +233,7 @@ class Shop(commands.Cog):
 
     @app_commands.command(name="daily", description="Retrieve daily rewards.")
     async def daily(self, interaction: discord.Interaction):
+        # Checks
         user_id = interaction.user.id
 
         if not self.datadriver.user_exist(user_id):
@@ -236,8 +244,10 @@ class Shop(commands.Cog):
             await interaction.response.send_message("You've already claimed your dialy rewards.")
             return
         
+        # Mark user
         self.datadriver.cache["daily_claims"].append(user_id)
 
+        # Give daily reward to user
         reward_cash = random.randint(100, 200)
         reward_pack = random.choice(self.datadriver.packs_cache)
 
@@ -250,6 +260,7 @@ class Shop(commands.Cog):
         # Logs
         self.logger.info(f"{user_id} claimed daily reward")
 
+        # UI
         await interaction.response.send_message(content=f"You've received **{reward_pack}** + {reward_cash} 🥥")
         
 # Setup Cog

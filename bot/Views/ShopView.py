@@ -59,8 +59,10 @@ class ShopView(discord.ui.LayoutView):
     def update_view(self):
         self.clear_items()
 
+        # Header
         self.add_item(self.header)
 
+        # User data
         user_cash = self.datadriver.get_user_cash(self.author_id)
         user_melones = self.datadriver.get_user_melones(self.author_id)
 
@@ -88,7 +90,6 @@ class ShopView(discord.ui.LayoutView):
             shop_container.add_item(section)
 
         # Daily Shop page
-
         # Daily Cards
         daily_cards = self.datadriver.get_daily_cards()
         daily_cards_df = self.datadriver.get_cards_by_names(daily_cards)
@@ -141,6 +142,7 @@ class ShopView(discord.ui.LayoutView):
 
             daily_container.add_item(section)
 
+        # Action row
         if self.current_shop == "shop":
             self.add_item(shop_container)
         else:

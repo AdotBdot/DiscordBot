@@ -35,6 +35,7 @@ class Packs(commands.Cog):
     async def pack_list(self, interaction:discord.Interaction):
         packs = self.datadriver.packs_cache
 
+        # UI
         msg = "\n".join(f"**{p}**" for p in packs)
 
         container = discord.ui.Container(
@@ -52,17 +53,19 @@ class Packs(commands.Cog):
     @pack.command(name="info", description="Displays information about pack.")
     @app_commands.autocomplete(pack_name=ac("pack"))
     async def pack_info(self, interaction: discord.Interaction, pack_name: str):
+        # Checks
         if not self.datadriver.pack_exist(pack_name):
             await interaction.response.send_message("Pack not found.")
             return
         
+        # Query pack info
         pack = self.datadriver.get_pack_by_name(pack_name)
-
         pack_cards = self.datadriver.get_cards_by_names(pack["cards"]) # type: ignore
 
         all_rarities = ["Common", "Uncommon", "Rare", "Epic", "Legendary", "Mythic", "Divine"]
         rarity_count = pack_cards["rarity"].value_counts().reindex(all_rarities, fill_value=0)
 
+        # UI
         msg = "\n".join(
             f"{RARITY_EMOJI[rarity]} **{rarity}**: {count}" # type: ignore
             for rarity, count in rarity_count.items()
@@ -85,6 +88,7 @@ class Packs(commands.Cog):
     @pack.command(name="open", description="Opens pack from your inventory.")
     @app_commands.autocomplete(pack=ac("user_pack"))
     async def pack_open(self, interaction: discord.Interaction, pack: str, count: Optional[int]):
+        # Checks
         user_id = interaction.user.id
         
         if not self.datadriver.user_exist(user_id):

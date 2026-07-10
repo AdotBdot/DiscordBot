@@ -55,12 +55,14 @@ class Moderation(commands.Cog):
     @app_commands.command(name="stats", description="Displays bot stats.")
     @admin_only()
     async def status(self, interaction: discord.Interaction):
+        # Query bot status
         total_seconds = int(self.bot.uptime.total_seconds())
 
         days, remainder = divmod(total_seconds, 86400)
         hours, remainder = divmod(remainder, 3600)
         minutes, seconds = divmod(remainder, 60)
 
+        # UI
         container = discord.ui.Container(
             discord.ui.TextDisplay(content=f"**Uptime**: {days}d {hours}h {minutes}m {seconds}s"),
             discord.ui.Separator(visible=True),
@@ -78,10 +80,12 @@ class Moderation(commands.Cog):
     @app_commands.command(name="reload_cards", description="Reloads cards database.")
     @admin_only()
     async def reload_cards(self, interaction: discord.Interaction):
+        # Reload cards and rebuild cache
         self.datadriver.load_cards()
         self.datadriver.load_packs()
         self.datadriver.init_cache()
 
+        # UI
         await interaction.response.send_message("Reloaded cards database.")
 
     @app_commands.command(name="refresh_daily", description="Refreshes daily traits.")
@@ -90,6 +94,7 @@ class Moderation(commands.Cog):
         self.datadriver.refresh_daily()
         self.datadriver.save_data_cache()
 
+        # UI
         await interaction.response.send_message("Refreshed dailies.")
 
     # ====================
@@ -102,6 +107,7 @@ class Moderation(commands.Cog):
     @admin_only()
     @app_commands.autocomplete(card=ac("card"))
     async def give_card(self, interaction: discord.Interaction, target_user: discord.Member, card: str):
+        # Checks
         target_user_id = target_user.id
 
         if not self.datadriver.user_exist(target_user_id):
@@ -112,9 +118,9 @@ class Moderation(commands.Cog):
             await interaction.response.send_message("Card not found.")
             return
         
+        # Give card to user
         target_user_cards = self.datadriver.get_user_cards(target_user_id)
         target_user_cards.append(card) # type: ignore
-
         self.datadriver.set_user_cards(target_user_id, target_user_cards)
 
         # Logs
@@ -126,6 +132,7 @@ class Moderation(commands.Cog):
     @admin_only()
     @app_commands.autocomplete(pack=ac("pack"))
     async def give_pack(self, interaction: discord.Interaction, target_user: discord.Member, pack: str, count: int):
+        # Checks
         target_user_id = target_user.id
 
         if not self.datadriver.user_exist(target_user_id):
@@ -136,6 +143,7 @@ class Moderation(commands.Cog):
             await interaction.response.send_message("Pack not found.")
             return
         
+        # Give pack to user
         target_user_packs = self.datadriver.get_user_packs(target_user_id)
         for _ in range(count):
             target_user_packs.append(pack) # type: ignore
@@ -145,40 +153,47 @@ class Moderation(commands.Cog):
         # Logs
         self.logger.info(f"Gave {count} pack(s): '{pack}' to {target_user_id}")
 
+        # UI
         await interaction.response.send_message(f"Gave {count} pack(s): {pack} to user {target_user.mention}")
 
     @give.command(name="cocoses", description="Gives Cocoses to user inventory.")
     @admin_only()
     async def give_cocoses(self, interaction: discord.Interaction, target_user: discord.Member, cocoses: int):
+        # Checks
         target_user_id = target_user.id
 
         if not self.datadriver.user_exist(target_user_id):
             await interaction.response.send_message(f"User does not exist in database.")
             return
         
+        # Give cocoses to user
         self.datadriver.users.at[target_user_id, "cash"] += cocoses # type: ignore
         self.datadriver.mark_dirty(target_user_id)
         
         # Logs
         self.logger.info(f"Gave {cocoses} cocoses to {target_user_id}")
 
+        # UI
         await interaction.response.send_message(f"Gave {cocoses} 🥥 to user {target_user.mention}")
 
     @give.command(name="melones", description="Gives Melones to user inventory.")
     @admin_only()
     async def give_melones(self, interaction: discord.Interaction, target_user: discord.Member, melones: int):
+        # Checks
         target_user_id = target_user.id
 
         if not self.datadriver.user_exist(target_user_id):
             await interaction.response.send_message(f"User does not exist in database.")
             return
         
+        # Give melones to user
         self.datadriver.users.at[target_user_id, "melons"] += melones # type: ignore
         self.datadriver.mark_dirty(target_user_id)
         
         # Logs
         self.logger.info(f"Gave {melones} melones to {target_user_id}")
 
+        # UI
         await interaction.response.send_message(f"Gave {melones} 🍉 to user {target_user.mention}")
 
 # Setup Cog

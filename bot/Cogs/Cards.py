@@ -30,20 +30,16 @@ class Cards(commands.Cog):
 
     @card.command(name="list", description="Lists cards with selected traits.")
     @app_commands.autocomplete(bundle=ac("bundle"), collection=ac("collection"), rarity=ac("rarity"), tag=ac("tag"), sort_by=ac("sort_by"))
-    async def card_list(self, interaction: discord.Interaction, 
-                        bundle: Optional[str] = None, 
-                        collection: Optional[str] = None,
-                        rarity: Optional[str] = None,
-                        tag: Optional[str] = None,
-                        sort_by: Optional[str] = None
-                        ):
-        
+    async def card_list(self, interaction: discord.Interaction, bundle: Optional[str] = None, collection: Optional[str] = None,
+                        rarity: Optional[str] = None, tag: Optional[str] = None, sort_by: Optional[str] = None):
+        # Query cards
         df = self.datadriver.get_cards_by_traits(bundle=bundle, collection=collection, rarity=rarity, tag=tag)
 
         if df.empty:
             await interaction.response.send_message("No cards found.")
             return
 
+        # Sort cards
         if sort_by:
             reversed = "Descending" in sort_by
 
@@ -61,6 +57,7 @@ class Cards(commands.Cog):
                 await interaction.response.send_message(content=f"Invalid key: {sort_by}")
                 return
 
+        # UI
         pages = []
         for i in range(0, len(df), 20):
             chunk = df.iloc[i:i + 20]
@@ -82,19 +79,16 @@ class Cards(commands.Cog):
 
     @card.command(name="gallery", description="Displays cards gallery with selected traits.")
     @app_commands.autocomplete(bundle=ac("bundle"), collection=ac("collection"), rarity=ac("rarity"), tag=ac("tag"), sort_by=ac("sort_by"))
-    async def card_gallery(self, interaction: discord.Interaction, 
-                        bundle: Optional[str] = None, 
-                        collection: Optional[str] = None,
-                        rarity: Optional[str] = None,
-                        tag: Optional[str] = None,
-                        sort_by: Optional[str] = None
-                        ):
+    async def card_gallery(self, interaction: discord.Interaction, bundle: Optional[str] = None, collection: Optional[str] = None, 
+                           rarity: Optional[str] = None, tag: Optional[str] = None, sort_by: Optional[str] = None):
+        # Query cards
         df = self.datadriver.get_cards_by_traits(bundle=bundle, collection=collection, rarity=rarity, tag=tag)
 
         if df.empty:
             await interaction.response.send_message("No cards found.")
             return
 
+        # Sort cards
         if sort_by:
             reversed = "Descending" in sort_by
 
@@ -112,6 +106,7 @@ class Cards(commands.Cog):
                 await interaction.response.send_message(content=f"Invalid key: {sort_by}")
                 return
 
+        # UI
         pages = [card_to_container(row) for _, row in df.iterrows()]
         view = PageView(
             author_id=interaction.user.id,
