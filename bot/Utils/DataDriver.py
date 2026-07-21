@@ -57,18 +57,25 @@ class DataDriver:
     def initialize_database(self):
         self.logger.info("Initializing database...")
 
+        self.load_config()
+
         self.load_cards()
         self.load_packs()
         self.load_users()
 
-        self.load_data_cache()
-
         self.init_cache()
 
     def init_cache(self):
+        self.logger.info("Initializing cache...")
+
         self.bundle_cache = sorted(self.cards["bundle"].dropna().unique().tolist())
+        self.logger.info(f"Cached {len(self.bundle_cache)} bundles")
+
         self.collection_cache = sorted(self.cards["collection"].dropna().unique().tolist())
+        self.logger.info(f"Cached {len(self.collection_cache)} collections")
+
         self.packs_cache = sorted(self.packs.index.unique().tolist())
+        self.logger.info(f"Cached {len(self.packs_cache)} packs")
 
         self.tag_cache = sorted({
             tag.strip()
@@ -81,6 +88,7 @@ class DataDriver:
         })
 
         self.tag_cache = [tag.lower() for tag in self.tag_cache]
+        self.logger.info(f"Cached {len(self.tag_cache)} tags")
 
     def load_cards(self):
         cards_data = []
@@ -154,13 +162,13 @@ class DataDriver:
 
         self.logger.info(f"Loaded {len(self.users)} user(s)")
 
-    def load_data_cache(self):
+    def load_config(self):
         with open("data/config/cache.json", "r", encoding="utf-8") as file:
             self.cache = json.load(file)
 
-        self.logger.info(f"Created cache")
+        self.logger.info(f"Loaded config")
 
-    def save_data_cache(self):
+    def save_config(self):
         file_path = Path("data/config/cache.json")
         file_path.write_text(json.dumps(self.cache, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
 
