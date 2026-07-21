@@ -106,7 +106,7 @@ class Users(commands.Cog):
     # Collection commands
     # ====================
 
-    collection = app_commands.Group(name="collection", description="Inventory related commands.")
+    collection = app_commands.Group(name="collection", description="User collection related commands.", parent=inventory)
 
     @collection.command(name="gallery", description="Displays cards in user inventory")
     @app_commands.autocomplete(bundle=ac("bundle"), collection=ac("collection"), rarity=ac("rarity"), tag=ac("tag"), sort_by=ac("sort_by"))
@@ -162,7 +162,7 @@ class Users(commands.Cog):
         
         await interaction.response.send_message(view=view)
 
-    @collection.command(name="list", description="Displays cards in user inventory")
+    @collection.command(name="list", description="Lists cards in user inventory")
     @app_commands.autocomplete(bundle=ac("bundle"), collection=ac("collection"), rarity=ac("rarity"), tag=ac("tag"), sort_by=ac("sort_by"))
     async def inventory_cards_list(self, interaction: discord.Interaction, bundle: Optional[str] = None, collection: Optional[str] = None,
                         rarity: Optional[str] = None, tag: Optional[str] = None, sort_by: Optional[str] = None):
@@ -305,7 +305,7 @@ class Users(commands.Cog):
 
     lock = app_commands.Group(name="lock", description="Locks related commands.")
 
-    @lock.command(name="collection", description="Locks selling for desired collection.")
+    @lock.command(name="collection", description="Locks selected collection.")
     @app_commands.autocomplete(collection=ac("collection"))
     async def lock_collection(self, interaction: discord.Interaction, collection: str):
         # Checks
@@ -330,7 +330,7 @@ class Users(commands.Cog):
         # UI
         await interaction.response.send_message(f"Successfully locked collection: **{collection}**")
 
-    @lock.command(name="rarity", description="Locks selling for desired collection.")
+    @lock.command(name="rarity", description="Locks selected rarity.")
     @app_commands.autocomplete(rarity=ac("rarity"))
     async def lock_rarity(self, interaction: discord.Interaction, rarity: str):
         # Checks
@@ -355,9 +355,9 @@ class Users(commands.Cog):
         # UI
         await interaction.response.send_message(f"Successfully locked rarity: **{rarity}**")
 
-    unlock = app_commands.Group(name="unlock", description="Locks related commands.")
+    unlock = app_commands.Group(name="unlock", description="Unlocks related commands.")
 
-    @unlock.command(name="collection", description="Locks selling for desired collection.")
+    @unlock.command(name="collection", description="Unlocks selected collection.")
     @app_commands.autocomplete(collection=ac("collection"))
     async def unlock_collection(self, interaction: discord.Interaction, collection: str):
         # Checks
@@ -382,7 +382,7 @@ class Users(commands.Cog):
         # UI
         await interaction.response.send_message(f"Successfully unlocked collection: **{collection}**")
 
-    @unlock.command(name="rarity", description="Locks selling for desired collection.")
+    @unlock.command(name="rarity", description="Unlocks selected rarity.")
     @app_commands.autocomplete(rarity=ac("rarity"))
     async def unlock_rarity(self, interaction: discord.Interaction, rarity: str):
         # Checks

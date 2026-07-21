@@ -88,7 +88,7 @@ class Moderation(commands.Cog):
         # UI
         await interaction.response.send_message("Reloaded cards database.")
 
-    @app_commands.command(name="refresh_daily", description="Refreshes daily traits.")
+    @app_commands.command(name="refresh_daily", description="Refreshes daily rewards.")
     @admin_only()
     async def refresh_daily(self, interaction: discord.Interaction):
         self.datadriver.refresh_daily()
@@ -101,7 +101,7 @@ class Moderation(commands.Cog):
     # Give commands
     # ====================
 
-    give = app_commands.Group(name="give", description="Gives item to user inventory.")
+    give = app_commands.Group(name="give", description="Give related commands.")
     
     @give.command(name="card", description="Gives card to user collection.")
     @admin_only()
@@ -128,7 +128,7 @@ class Moderation(commands.Cog):
 
         await interaction.response.send_message(f"Gave **{card}** to {target_user.mention}")
 
-    @give.command(name="pack")
+    @give.command(name="pack", description="Gives pack to user inventory.")
     @admin_only()
     @app_commands.autocomplete(pack=ac("pack"))
     async def give_pack(self, interaction: discord.Interaction, target_user: discord.Member, pack: str, count: int):

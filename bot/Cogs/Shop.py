@@ -29,7 +29,7 @@ class Shop(commands.Cog):
     # General commands
     # ====================
 
-    @app_commands.command(name="shop")
+    @app_commands.command(name="shop", description="Open shop.")
     async def shop(self, interaction: discord.Interaction):
         # Checks
         user_id = interaction.user.id
