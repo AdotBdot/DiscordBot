@@ -115,6 +115,30 @@ class Cards(commands.Cog):
 
         await interaction.response.send_message(view=view)
 
+    @card.command(name="search", description="Search for a card.")
+    async def card_search(self, interaction: discord.Interaction, name: str):
+        # Checks
+        if len(name) < 3:
+            await interaction.response.send_message("Querry must be at least 3 characters long.")
+            return
+        
+        # Query cards
+        df = self.datadriver.cards.copy()
+        df = df[df.index.str.contains(name, case=False, na=False)]
+        
+        if df.empty:
+            await interaction.response.send_message("No cards found.")
+            return
+
+        # UI
+        pages = [card_to_container(row) for _, row in df.iterrows()]
+        view = PageView(
+            author_id=interaction.user.id,
+            pages=pages
+        )
+
+        await interaction.response.send_message(view=view)
+
 # Setup Cog
 async def setup(bot):
     await bot.add_cog(Cards(bot, bot.datadriver))
