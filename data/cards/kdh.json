@@ -1,0 +1,1237 @@
+[
+    {
+        "name": "Movies",
+        "collections": [
+            {
+                "name": "K-Pop Demon Hunters",
+                "cards": [
+                    {
+                        "name": "Loli Mira",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/Ubmg10u.png"
+                    },
+                    {
+                        "name": "Family Dissapointment Mira",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/5tJyCsD.png"
+                    },
+                    {
+                        "name": "Cute Zoey",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/cSlgkE0.png"
+                    },
+                    {
+                        "name": "Loli Rumi",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_rumi", "kdh_pokahontas"],
+                        "image_url": "https://i.imgur.com/Nj07uVp.png"
+                    },
+                    {
+                        "name": "Met Gala Mira",
+                        "description": "Who else could wear a sleeping bag to the Met Gala?",
+                        "rarity": "Mythic",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/PJL7t0N.png"
+                    },
+                    {
+                        "name": "You better watch out Zoey",
+                        "description": "She goes hard",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/i2vr3Hd.png"
+                    },
+                    {
+                        "name": "Bobby",
+                        "description": "Where are the girls?",
+                        "rarity": "Common",
+                        "tags": ["kdh_bobby"],
+                        "image_url": "https://i.imgur.com/poclnUo.png"
+                    },
+                    {
+                        "name": "For the Fans Mira",
+                        "description": "For the Fans!",
+                        "rarity": "Rare",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/qBF1m02.png"
+                    },
+                    {
+                        "name": "For the Fans Rumi",
+                        "description": "For the Fans!",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/sMWegbK.png"
+                    },
+                    {
+                        "name": "For the Fans Zoey",
+                        "description": "For the Fans!",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/UHIIQgT.png"
+                    },
+                    {
+                        "name": "Eating Disorder Zoey",
+                        "description": "They will face my wrath!",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/uyWrLBr.png"
+                    },
+                    {
+                        "name": "Deep Throat Rumi",
+                        "description": "Ah!",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/57euOxL.png"
+                    },
+                    {
+                        "name": "Spice Queen Mira",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/kLK32OE.png"
+                    },
+                    {
+                        "name": "Crispy Chick Zoey",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/0rbqcQ0.png"
+                    },
+                    {
+                        "name": "Hamburger Zoey",
+                        "description": "There's no water in these",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/Ed7NrFW.png"
+                    },
+                    {
+                        "name": "Rumi skręt jelit",
+                        "description": "I'm sorry, what?",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/8j7tWXm.png"
+                    },
+                    {
+                        "name": "Belly Fart Mira",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/huy4scQ.png"
+                    },
+                    {
+                        "name": "Superstar Flavor Rumi",
+                        "description": "Time for our pre-game ramyon!",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/oKpzR9v.png"
+                    },
+                    {
+                        "name": "Shining Star Zoey",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/nJDFkTX.png"
+                    },
+                    {
+                        "name": "Teakwondo Zoey",
+                        "description": "",
+                        "rarity": "Legendary",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/zND8u6s.png"
+                    },
+                    {
+                        "name": "Reflux Zoey",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/RGrrN0o.png"
+                    },
+                    {
+                        "name": "Gruby Zdezorientowany Cwel",
+                        "description": "",
+                        "rarity": "Common",
+                        "tags": ["kdh_demon"],
+                        "image_url": "https://i.imgur.com/p6EWtys.png"
+                    },
+                    {
+                        "name": "Kettle Mira",
+                        "description": "Beating you is what I do, Do, do, yeah!",
+                        "rarity": "Rare",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/5zItJ5i.png"
+                    },
+                    {
+                        "name": "Kettle Rumi",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/0yfENvm.png"
+                    },
+                    {
+                        "name": "Kettle Zoey",
+                        "description": "I'm naughty, not even sorry!",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/whRARhb.png"
+                    },
+                    {
+                        "name": "Nah Ah Mira",
+                        "description": "Nah, Nah!",
+                        "rarity": "Rare",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/GQbQvjn.png"
+                    },
+                    {
+                        "name": "Nah Ah Rumi",
+                        "description": "Nah, Nah!",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/mYJX1LF.png"
+                    },
+                    {
+                        "name": "Nah Ah Zoey",
+                        "description": "Nah, Nah!",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/2C4VkCn.png"
+                    },
+                    {
+                        "name": "One-Punch Mira",
+                        "description": "",
+                        "rarity": "Legendary",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/6M1wdvS.png"
+                    },
+                    {
+                        "name": "Chad Mira",
+                        "description": "",
+                        "rarity": "Legendary",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/aAFLLQR.png"
+                    },
+                    {
+                        "name": "Chad Rumi",
+                        "description": "",
+                        "rarity": "Legendary",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/Cp3OhLg.png"
+                    },
+                    {
+                        "name": "Chad Zoey",
+                        "description": "",
+                        "rarity": "Legendary",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/0QPGHtn.png"
+                    },
+                    {
+                        "name": "Keine Ramyon Rumi",
+                        "description": "Ready in 3 minutes",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/F12JS1K.png"
+                    },
+                    {
+                        "name": "Mira's Gok-do",
+                        "description": "",
+                        "rarity": "Mythic",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/ge7pY6x.png"
+                    },
+                    {
+                        "name": "Rumi's Ramyon",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/NsihBBD.png"
+                    },
+                    {
+                        "name": "Rumi's Saingeom",
+                        "description": "",
+                        "rarity": "Mythic",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/13Keqoi.png"
+                    },
+                    {
+                        "name": "911 Glory Demons",
+                        "description": "",
+                        "rarity": "Uncommon",
+                        "tags": ["kdh_demon"],
+                        "image_url": "https://i.imgur.com/51NStmR.png"
+                    },
+                    {
+                        "name": "Mad Bitch Demon",
+                        "description": "",
+                        "rarity": "Uncommon",
+                        "tags": ["kdh_demon"],
+                        "image_url": "https://i.imgur.com/VccP9GL.png"
+                    },
+                    {
+                        "name": "Noodle Snob Mira",
+                        "description": "Yeah, this plane's trashed",
+                        "rarity": "Rare",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/xJNJM4l.png"
+                    },
+                    {
+                        "name": "Mira's Ramyon",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/glyPuoT.png"
+                    },
+                    {
+                        "name": "Zoey's Ramyon",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/sHIPsm1.png"
+                    },
+                    {
+                        "name": "Noodle Snob Rumi",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/v0bgzKB.png"
+                    },
+                    {
+                        "name": "Sayonara Rumi",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/A7zm09x.png"
+                    },
+                    {
+                        "name": "Noodle Snob Zoey",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/B7h4Uyf.png"
+                    },
+                    {
+                        "name": "Cute and Savage Zoey",
+                        "description": "Mirror, mirror on my phone Who's the baddest?",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/uk8mjn6.png"
+                    },
+                    {
+                        "name": "Done Done Done",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_rumi", "kdh_mira", "kdh_zoey"],
+                        "image_url": "https://i.imgur.com/lxLYf9z.png"
+                    },
+                    {
+                        "name": "The Last Selfie Demon",
+                        "description": "Cool costume",
+                        "rarity": "Uncommon",
+                        "tags": ["kdh_demon"],
+                        "image_url": "https://i.imgur.com/lcG5A8d.png"
+                    },
+                    {
+                        "name": "Napalm Era Mira",
+                        "description": "Fit check for my napalm era",
+                        "rarity": "Rare",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/v1qNw0t.png"
+                    },
+                    {
+                        "name": "Orbital Force 1 Rumi",
+                        "description": "",
+                        "rarity": "Legendary",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/og59CxZ.png"
+                    },
+                    {
+                        "name": "Neo-Nazist Rumi",
+                        "description": "",
+                        "rarity": "Uncommon",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/gUM75zf.png"
+                    },
+                    {
+                        "name": "Zoey thinks she's the new Eminem and she is",
+                        "description": "Okay, I know I ramble. But when shootin' my words, I go Rambo! Took blood and tears to look natural!",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/BdkmQyt.png"
+                    },
+                    {
+                        "name": "Crying Demon",
+                        "description": "",
+                        "rarity": "Uncommon",
+                        "tags": ["kdh_demon"],
+                        "image_url": "https://i.imgur.com/aFjLFtw.png"
+                    },
+                    {
+                        "name": "Demon Romance",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_romance"],
+                        "image_url": "https://i.imgur.com/0z7gXOy.png"
+                    },
+                    {
+                        "name": "Bathrobe Bobby",
+                        "description": "Robe me. I'm a 34 short.",
+                        "rarity": "Uncommon",
+                        "tags": ["kdh_bobby"],
+                        "image_url": "https://i.imgur.com/61vuuFL.png"
+                    },
+                    {
+                        "name": "Fingers Crossed Jinu",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_jinu"],
+                        "image_url": "https://i.imgur.com/KFoS0df.png"
+                    },
+                    {
+                        "name": "Shadow Derpy",
+                        "description": "",
+                        "rarity": "Divine",
+                        "tags": ["kdh_tiger"],
+                        "image_url": "https://i.imgur.com/oSMlmDd.png"
+                    },
+                    {
+                        "name": "Neo-Nazist Mira",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/mYJiGq8.png"
+                    },
+                    {
+                        "name": "Neo-Nazist Zoey",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/r5SsiqT.png"
+                    },
+                    {
+                        "name": "Couch Enthusiasts",
+                        "description": "Couch! Couch! Couch! Couch! Couch! Couch! Couch! Couch! Couch! Couch! Couch! Couch! Couch! Couch! Couch! Couch! Couch!",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey", "kdh_mira"],
+                        "image_url": "https://i.imgur.com/8iiI15t.png"
+                    },
+                    {
+                        "name": "Golden Mira",
+                        "description": "No! No! No! No! No! No! No! No! No! No! ",
+                        "rarity": "Rare",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/PAVTOLz.png"
+                    },
+                    {
+                        "name": "Golden Rumi",
+                        "description": "Hey. Have a good break?",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/WnDXloC.png"
+                    },
+                    {
+                        "name": "Golden Zoey",
+                        "description": "No! No! No! No! No! No! No! No! No! No! (but cute)",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/7vmJBLA.png"
+                    },
+                    {
+                        "name": "Sunlight Sister Zoey",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/T0EeG9l.png"
+                    },
+                    {
+                        "name": "Bathrobe Huntrx",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_mira", "kdh_rumi", "kdh_zoey"],
+                        "image_url": "https://i.imgur.com/uyI8uwu.png"
+                    },
+                    {
+                        "name": "Rumi thinks she's a queen and she is",
+                        "description": "She was a ghost. She was alone. LMAO",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/edih4Yt.png"
+                    },
+                    {
+                        "name": "Zoey Hawk's Pro Skater 1+2",
+                        "description": "Tony Hawk's Pro Skater takes place in an urban environment permeated by an ambience of punk rock and ska punk music. The player takes control of a variety of skateboarders and must complete missions by performing skateboarding tricks and collecting objects.",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/1EIGMRX.png"
+                    },
+                    {
+                        "name": "K-Pop Cops",
+                        "description": "MAYDAY! MAYDAY! There's 10000 fans at the door screaming and sounding really scary!",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/GisvWxh.png"
+                    },
+                    {
+                        "name": "Pokahontas destroys poor child's life",
+                        "description": "Coś tam pierdoli że w sumie to masz przypał w chuj ale wystarczy że pokonasz armię demonów z demonem lvl 1000 na czele i będzie git",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi", "kdh_pokahontas"],
+                        "image_url": "https://i.imgur.com/RVKKEns.png"
+                    },
+                    {
+                        "name": "Zupa z Elfa i Cebuli Rumi",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/i1nWzbh.png"
+                    },
+                    {
+                        "name": "Sweater Mira",
+                        "description": "",
+                        "rarity": "Uncommon",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/3H3rH51.png"
+                    },
+                    {
+                        "name": "2 Fast 2 Huntrx",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey", "kdh_mira", "kdh_rumi"],
+                        "image_url": "https://i.imgur.com/s5WmiFo.png"
+                    },
+                    {
+                        "name": "Wild AF Mira",
+                        "description": "Dzika chicka na morde ci nasika. (za to jej płacą)",
+                        "rarity": "Rare",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/7QEJwka.png"
+                    },
+                    {
+                        "name": "Totally Legit Zoey",
+                        "description": "Don't worry. It's totally legit.",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/6aHXraw.png"
+                    },
+                    {
+                        "name": "Rumi cries about her insecurities",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/wtCCvPg.png"
+                    },
+                    {
+                        "name": "Death Stare Mira",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/8sTNVGI.png"
+                    },
+                    {
+                        "name": "Insecure Zoey",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/MeKw42t.png"
+                    },
+                    {
+                        "name": "The Doctor",
+                        "description": "Let me see",
+                        "rarity": "Common",
+                        "tags": ["kdh_doctor"],
+                        "image_url": "https://i.imgur.com/wGEcwrH.png"
+                    },
+                    {
+                        "name": "Totally Undercover Zoey",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/OCGmMiK.png"
+                    },
+                    {
+                        "name": "Thumbs Up Rumi",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/0jF14Ua.png"
+                    },
+                    {
+                        "name": "Thumbs Up Zoey",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/Zlceo1Z.png"
+                    },
+                    {
+                        "name": "Undercover Rumi",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/bsVZnLS.png"
+                    },
+                    {
+                        "name": "Unlucko Doctor",
+                        "description": "",
+                        "rarity": "Uncommon",
+                        "tags": ["kdh_doctor"],
+                        "image_url": "https://i.imgur.com/fueoWw8.png"
+                    },
+                    {
+                        "name": "Abby",
+                        "description": "",
+                        "rarity": "Common",
+                        "tags": ["kdh_abby"],
+                        "image_url": "https://i.imgur.com/dcb8wUs.png"
+                    },
+                    {
+                        "name": "Baby",
+                        "description": "",
+                        "rarity": "Common",
+                        "tags": ["kdh_baby"],
+                        "image_url": "https://i.imgur.com/Lvq2qkU.png"
+                    },
+                    {
+                        "name": "Epic Fall Rumi",
+                        "description": "Gross",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/l3FuzLp.png"
+                    },
+                    {
+                        "name": "Jinu",
+                        "description": "",
+                        "rarity": "Uncommon",
+                        "tags": ["kdh_jinu"],
+                        "image_url": "https://i.imgur.com/2RaLXdE.png"
+                    },
+                    {
+                        "name": "Mystery",
+                        "description": "",
+                        "rarity": "Common",
+                        "tags": ["kdh_mystery"],
+                        "image_url": "https://i.imgur.com/tFtiXc0.png"
+                    },
+                    {
+                        "name": "Popcorn Besties",
+                        "description": "Sooo hot",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey", "kdh_mira"],
+                        "image_url": "https://i.imgur.com/knnJPGR.png"
+                    },
+                    {
+                        "name": "Romance",
+                        "description": "",
+                        "rarity": "Common",
+                        "tags": ["kdh_romance"],
+                        "image_url": "https://i.imgur.com/NQxUVxk.png"
+                    },
+                    {
+                        "name": "Sneak Peek Chicks",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey", "kdh_mira"],
+                        "image_url": "https://i.imgur.com/S0hKHHV.png"
+                    },
+                    {
+                        "name": "Dih Aura Jinu",
+                        "description": "",
+                        "rarity": "Legendary",
+                        "tags": ["kdh_jinu"],
+                        "image_url": "https://i.imgur.com/3o0jtv1.png"
+                    },
+                    {
+                        "name": "Edgy Huntrx",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_zoey", "kdh_mira", "kdh_rumi"],
+                        "image_url": "https://i.imgur.com/W3MTQS7.png"
+                    },
+                    {
+                        "name": "Spicy Abby",
+                        "description": "Abby is down",
+                        "rarity": "Rare",
+                        "tags": ["kdh_abby"],
+                        "image_url": "https://i.imgur.com/1QA0FK3.png"
+                    },
+                    {
+                        "name": "Spicy Baby",
+                        "description": "Goo goo, ga ga",
+                        "rarity": "Rare",
+                        "tags": ["kdh_baby"],
+                        "image_url": "https://i.imgur.com/U3FkkSB.png"
+                    },
+                    {
+                        "name": "Spicy Mystery",
+                        "description": "Mystery is history",
+                        "rarity": "Rare",
+                        "tags": ["kdh_mystery"],
+                        "image_url": "https://i.imgur.com/DcTPjSO.png"
+                    },
+                    {
+                        "name": "Spicy Romance",
+                        "description": "Romance got heartburn?",
+                        "rarity": "Rare",
+                        "tags": ["kdh_romance"],
+                        "image_url": "https://i.imgur.com/fj1dmZW.png"
+                    },
+                    {
+                        "name": "Rumi got squished",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/GRyWXHz.png"
+                    },
+                    {
+                        "name": "Zoey Heart Attack",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/pWSBX8E.png"
+                    },
+                    {
+                        "name": "It was a prank Jinu",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_jinu"],
+                        "image_url": "https://i.imgur.com/2kT1Zgy.png"
+                    },
+                    {
+                        "name": "Betrayed Hunters",
+                        "description": "In the balls! In the balls!",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey", "kdh_rumi", "kdh_mira"],
+                        "image_url": "https://i.imgur.com/vm8zkwu.png"
+                    },
+                    {
+                        "name": "Eat da Ballz Zoey",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/pkNABEu.png"
+                    },
+                    {
+                        "name": "Totally not overreacted mad puff Mira",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/QJ5Z52q.png"
+                    },
+                    {
+                        "name": "Spicy Jinu",
+                        "description": "That's one flaming-hot Jinu",
+                        "rarity": "Rare",
+                        "tags": ["kdh_jinu"],
+                        "image_url": "https://i.imgur.com/bdYG7S4.png"
+                    },
+                    {
+                        "name": "Shut your mug Mira",
+                        "description": "",
+                        "rarity": "Uncommon",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/CS6Ms7L.png"
+                    },
+                    {
+                        "name": "Shut your mug Rumi",
+                        "description": "",
+                        "rarity": "Uncommon",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/7hEBIgA.png"
+                    },
+                    {
+                        "name": "Shut your sweet little face Zoey",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/3Ol6004.png"
+                    },
+                    {
+                        "name": "Fake Jinu",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_jinu"],
+                        "image_url": "https://i.imgur.com/XYvJP1n.png"
+                    },
+                    {
+                        "name": "Hideous Zoey",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/Q2cNyTz.png"
+                    },
+                    {
+                        "name": "Sussie",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/B2RXRv3.png"
+                    },
+                    {
+                        "name": "Rujinu",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_rumi", "kdh_jinu"],
+                        "image_url": "https://i.imgur.com/jJ4J5Vz.png"
+                    },
+                    {
+                        "name": "Saja Boys",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_jinu", "kdh_abby", "kdh_baby", "kdh_romance", "kdh_mystery"],
+                        "image_url": "https://i.imgur.com/LVzPjwz.png"
+                    },
+                    {
+                        "name": "Teddy Bears and Choo Choo Trains Rumi",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/SHtunYl.png"
+                    },
+                    {
+                        "name": "Derpy",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_tiger"],
+                        "image_url": "https://i.imgur.com/plYWvIh.png"
+                    },
+                    {
+                        "name": "Wassup Zoey",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/YqESWMB.png"
+                    },
+                    {
+                        "name": "Typical Saja Fan Demon",
+                        "description": "",
+                        "rarity": "Uncommon",
+                        "tags": ["kdh_demon"],
+                        "image_url": "https://i.imgur.com/sLsVntE.png"
+                    },
+                    {
+                        "name": "Pouty Little Zoey",
+                        "description": "",
+                        "rarity": "Legendary",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/dwP73qO.png"
+                    },
+                    {
+                        "name": "Miromabby",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_romance", "kdh_mira", "kdh_abby"],
+                        "image_url": "https://i.imgur.com/RPy9rdQ.png"
+                    },
+                    {
+                        "name": "Office Pokahontas",
+                        "description": "Dalej pierdoli że chuja możesz ale będzie git.",
+                        "rarity": "Uncommon",
+                        "tags": ["kdh_pokahontas"],
+                        "image_url": "https://i.imgur.com/U6pQ0xf.png"
+                    },
+                    {
+                        "name": "Pajamas Mira",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/rm8NXes.png"
+                    },
+                    {
+                        "name": "Pajamas Zoey",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/4Sxro3X.png"
+                    },
+                    {
+                        "name": "Redbull gives you wiings",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_rumi", "kdh_jinu"],
+                        "image_url": "https://i.imgur.com/kjlurJ5.png"
+                    },
+                    {
+                        "name": "Zoeystery",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_zoey", "kdh_mystery"],
+                        "image_url": "https://i.imgur.com/LiZMdy4.png"
+                    },
+                    {
+                        "name": "Demon Rumi",
+                        "description": "",
+                        "rarity": "Legendary",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/LEcrqdz.png"
+                    },
+                    {
+                        "name": "Epic Sajas",
+                        "description": "",
+                        "rarity": "Legendary",
+                        "tags": ["kdh_jinu", "kdh_abby", "kdh_baby", "kdh_mystery", "kdh_romance"],
+                        "image_url": "https://i.imgur.com/J21qDJv.png"
+                    },
+                    {
+                        "name": "K-Pop Moon",
+                        "description": "",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/Pm0U1xI.png"
+                    },
+                    {
+                        "name": "Pajamas Rumi",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/7YeZC1z.png"
+                    },
+                    {
+                        "name": "Pokahontas still thinks it's not too late",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_pokahontas"],
+                        "image_url": "https://i.imgur.com/gnnAFMH.png"
+                    },
+                    {
+                        "name": "Mount Huntrxmore",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_mira", "kdh_rumi", "kdh_zoey"],
+                        "image_url": "https://i.imgur.com/shWk08j.png"
+                    },
+                    {
+                        "name": "Selfish Solo Rumi",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/7yCG1PI.png"
+                    },
+                    {
+                        "name": "Huntrx",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_zoey", "kdh_rumi", "kdh_mira"],
+                        "image_url": "https://i.imgur.com/KsGhrmp.png"
+                    },
+                    {
+                        "name": "Mira ciśnie kloca w jacuzzi",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/xRWvXDn.png"
+                    },
+                    {
+                        "name": "Bath Rumi",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/PMXhXMv.png"
+                    },
+                    {
+                        "name": "Bath Zoey",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/Z144GUN.png"
+                    },
+                    {
+                        "name": "Cartoon Jinu",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_jinu", "kdh_cartoon"],
+                        "image_url": "https://i.imgur.com/WUnyeD0.png"
+                    },
+                    {
+                        "name": "Cartoon Mira",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_mira", "kdh_cartoon"],
+                        "image_url": "https://i.imgur.com/RTIQfzS.png"
+                    },
+                    {
+                        "name": "Cartoon Rumi",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_rumi", "kdh_cartoon"],
+                        "image_url": "https://i.imgur.com/moR8Qj3.png"
+                    },
+                    {
+                        "name": "Cartoon Derpy",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_tiger", "kdh_cartoon"],
+                        "image_url": "https://i.imgur.com/wdef4rx.png"
+                    },
+                    {
+                        "name": "Cartoon Zoey",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_zoey", "kdh_cartoon"],
+                        "image_url": "https://i.imgur.com/GjCzr5c.png"
+                    },
+                    {
+                        "name": "Cartoon Bath Hunters",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_mira", "kdh_rumi", "kdh_zoey", "kdh_cartoon"],
+                        "image_url": "https://i.imgur.com/Xf2MAS6.png"
+                    },
+                    {
+                        "name": "Cartoon Bobby",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_bobby", "kdh_cartoon"],
+                        "image_url": "https://i.imgur.com/qB6BHT9.png"
+                    },
+                    {
+                        "name": "Cartoon Couch Hunters",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_mira", "kdh_zoey", "kdh_rumi", "kdh_cartoon"],
+                        "image_url": "https://i.imgur.com/qLkHlCd.png"
+                    },
+                    {
+                        "name": "Cartoon Demon",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_demon", "kdh_cartoon"],
+                        "image_url": "https://i.imgur.com/26MsMTl.png"
+                    },
+                    {
+                        "name": "Cartoon Doctor",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_doctor", "kdh_cartoon"],
+                        "image_url": "https://i.imgur.com/1YpVLui.png"
+                    },
+                    {
+                        "name": "Cartoon Huntrx",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_zoey", "kdh_rumi", "kdh_mira", "kdh_cartoon"],
+                        "image_url": "https://i.imgur.com/guIFyqG.png"
+                    },
+                    {
+                        "name": "Cartoon Met Gala Mira",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_mira", "kdh_cartoon"],
+                        "image_url": "https://i.imgur.com/pmiB2vn.png"
+                    },
+                    {
+                        "name": "Cartoon Pokahontas",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_pokahontas", "kdh_cartoon"],
+                        "image_url": "https://i.imgur.com/VHIICEf.png"
+                    },
+                    {
+                        "name": "A mnie kurwa razi po gałach",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/0VEQjZ3.png"
+                    },
+                    {
+                        "name": "Almost There Rumi",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_rumi", "meme"],
+                        "image_url": "https://i.imgur.com/UTZay74.png"
+                    },
+                    {
+                        "name": "Do you need democracy?",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_zoey", "meme"],
+                        "image_url": "https://i.imgur.com/BGYGYRI.png"
+                    },
+                    {
+                        "name": "Mac Mira",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_mira", "meme"],
+                        "image_url": "https://i.imgur.com/jjOtbBz.png"
+                    },
+                    {
+                        "name": "Mad Killer Rumi",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_rumi", "meme"],
+                        "image_url": "https://i.imgur.com/k0TwGy8.png"
+                    },
+                    {
+                        "name": "Suicidal Rumi",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_rumi", "meme"],
+                        "image_url": "https://i.imgur.com/5onm3cH.png"
+                    },
+                    {
+                        "name": "Sussy Lizard Zoey",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_zoey", "meme"],
+                        "image_url": "https://i.imgur.com/AzFbHbe.png"
+                    },
+                    {
+                        "name": "Zoey's Shin-kal",
+                        "description": "",
+                        "rarity": "Mythic",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/WZ7loSa.png"
+                    },
+                    {
+                        "name": "Suck ma' dih Mira",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_mira", "meme"],
+                        "image_url": "https://i.imgur.com/Or0KeHB.png"
+                    },
+                    {
+                        "name": "Suck ma' dih Rumi",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_rumi", "meme"],
+                        "image_url": "https://i.imgur.com/opOuyKd.png"
+                    },
+                    {
+                        "name": "Rumi Fuck Up",
+                        "description": "",
+                        "rarity": "Legendary",
+                        "tags": ["meme"],
+                        "image_url": "https://i.imgur.com/EPDOzWo.png"
+                    },
+                    {
+                        "name": "Suck ma' dih Zoey",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_zoey", "meme"],
+                        "image_url": "https://i.imgur.com/CiFqlvH.png"
+                    },
+                    {
+                        "name": "Grinch Mira",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_mira", "meme"],
+                        "image_url": "https://i.imgur.com/uyjebdS.png"
+                    },
+                    {
+                        "name": "Illiterate Zoey",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_zoey", "meme"],
+                        "image_url": "https://i.imgur.com/DMsLqQ9.png"
+                    },
+                    {
+                        "name": "No No Square Rumi",
+                        "description": "No no, don't touch me there. This is my no no square.",
+                        "rarity": "Epic",
+                        "tags": ["kdh_rumi", "meme"],
+                        "image_url": "https://i.imgur.com/VHfE3u9.png"
+                    },
+                    {
+                        "name": "Pelúcias Guerreiras",
+                        "description": "",
+                        "rarity": "Divine",
+                        "tags": ["kdh_rumi", "meme"],
+                        "image_url": "https://i.imgur.com/kw7ceth.png"
+                    },
+                    {
+                        "name": "Mascara Rumi",
+                        "description": "Heels, nails, blade, mascara!",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi"],
+                        "image_url": "https://i.imgur.com/bMhbUUM.png"
+                    },
+                    {
+                        "name": "Bathrobe Mira",
+                        "description": "Mmm! I can't wait to eat kimbap and stare at the ceiling.",
+                        "rarity": "Rare",
+                        "tags": ["kdh_mira"],
+                        "image_url": "https://i.imgur.com/BqSwrp7.png"
+                    },
+                    {
+                        "name": "Bathrobe Zoey",
+                        "description": "I already picked a movie for us. It's actually a list of 700 two-second videos all about turtles.",
+                        "rarity": "Rare",
+                        "tags": ["kdh_zoey"],
+                        "image_url": "https://i.imgur.com/rU3LTY2.png"
+                    },
+                    {
+                        "name": "Gwi-Ma",
+                        "description": "",
+                        "rarity": "Legendary",
+                        "tags": ["kdh_demon"],
+                        "image_url": "https://i.imgur.com/wMXVQN1.png"
+                    },
+                    {
+                        "name": "Pokahontas",
+                        "description": "Foster mother cunt",
+                        "rarity": "Common",
+                        "tags": ["kdh_pokahontas"],
+                        "image_url": "https://i.imgur.com/X16NjxH.png"
+                    },
+                    {
+                        "name": "Handsome Co-Host",
+                        "description": "",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/kMUktw4.png"
+                    },
+                    {
+                        "name": "Saunowy Dziadu",
+                        "description": "My little soda pop",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/J0ld3Ej.png"
+                    },
+                    {
+                        "name": "Rumi'egg",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_rumi", "meme"],
+                        "image_url": "https://i.imgur.com/CezkPO0.png"
+                    },
+                    {
+                        "name": "Grumi",
+                        "description": "",
+                        "rarity": "Legendary",
+                        "tags": ["kdh_rumi", "meme"],
+                        "image_url": "https://i.imgur.com/SNgrB1W.png"
+                    },
+                    {
+                        "name": "Jinu Squirt",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_jinu", "meme"],
+                        "image_url": "https://i.imgur.com/5VPJMVc.png"
+                    },
+                    {
+                        "name": "Skibidi Jinu",
+                        "description": "",
+                        "rarity": "Rare",
+                        "tags": ["kdh_jinu", "meme"],
+                        "image_url": "https://i.imgur.com/v1EUDfj.png"
+                    },
+                    {
+                        "name": "Zoey fighting farmers in Vietnam",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["kdh_zoey", "meme"],
+                        "image_url": "https://i.imgur.com/BB8HFZI.png"
+                    },
+                    {
+                        "name": "Jak Zagadka",
+                        "description": "",
+                        "rarity": "Epic",
+                        "tags": ["meme"],
+                        "image_url": "https://i.imgur.com/jF50UQo.png"
+                    }
+                ]
+            }
+        ]
+    }
+]
