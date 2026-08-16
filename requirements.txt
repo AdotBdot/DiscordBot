@@ -1,0 +1,2 @@
+pandas
+discord.py
