@@ -92,7 +92,7 @@ class Moderation(commands.Cog):
     @admin_only()
     async def refresh_daily(self, interaction: discord.Interaction):
         self.datadriver.refresh_daily()
-        self.datadriver.save_config()
+        self.datadriver.save_cache()
 
         # UI
         await interaction.response.send_message("Refreshed dailies.")

@@ -41,6 +41,8 @@ class DataDriver:
         self.logger.propagate = False
         self.logger.addHandler(logs_handler)
 
+        self.config: dict = {}
+
         self.dirty_users: set[int] = set()
 
         self.cache = {}
@@ -58,6 +60,8 @@ class DataDriver:
         self.logger.info("Initializing database...")
 
         self.load_config()
+
+        self.load_cache()
 
         self.load_cards()
         self.load_packs()
@@ -163,12 +167,22 @@ class DataDriver:
         self.logger.info(f"Loaded {len(self.users)} user(s)")
 
     def load_config(self):
-        with open("data/config/cache.json", "r", encoding="utf-8") as file:
-            self.cache = json.load(file)
+        with open("data/config/config.json", "r", encoding="utf-8") as file:
+            self.config = json.load(file)
 
         self.logger.info(f"Loaded config")
 
     def save_config(self):
+        file_path = Path("data/config/config.json")
+        file_path.write_text(json.dumps(self.config, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
+
+    def load_cache(self):
+        with open("data/config/cache.json", "r", encoding="utf-8") as file:
+            self.cache = json.load(file)
+
+        self.logger.info(f"Loaded cache")
+
+    def save_cache(self):
         file_path = Path("data/config/cache.json")
         file_path.write_text(json.dumps(self.cache, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
 
