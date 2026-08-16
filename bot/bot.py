@@ -36,6 +36,8 @@ class Bot(commands.Bot):
     async def on_ready(self) -> None:
         self.logger.info(f'Logged in as: {self.user}')
 
+        await self.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="/help"))
+
     async def on_error(self, event_method: str, *args:typing.Any, **kwards: typing.Any) -> None:
         self.logger.info(f"An error has occurred in {event_method}.\n{traceback.format_exc()}")
 
