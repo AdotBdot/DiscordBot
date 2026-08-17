@@ -43,5 +43,23 @@
         "price": 550,
         "type": "collection",
         "collection_name": "Kolekcja Górska"
+    },
+    {
+        "name": "Filmweb Pack",
+        "price": 550,
+        "type": "collection",
+        "collection_name": "Kolekcja Filmowa"
+    },
+    {
+        "name": "Honmoon Pack",
+        "price": 550,
+        "type": "collection",
+        "collection_name": "K-Pop Demon Hunters"
+    },
+    {
+        "name": "K-Pack",
+        "price": 550,
+        "type": "collection",
+        "collection_name": "Kolekcja K-popowa"
     }
 ]
