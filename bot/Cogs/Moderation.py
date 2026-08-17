@@ -83,7 +83,7 @@ class Moderation(commands.Cog):
         # Reload cards and rebuild cache
         self.datadriver.load_cards()
         self.datadriver.load_packs()
-        self.datadriver.init_cache()
+        self.datadriver.init_cards_cache()
 
         # UI
         await interaction.response.send_message("Reloaded cards database.")

@@ -75,12 +75,12 @@ class DataDriver:
         self.load_packs()
         self.load_users()
 
-        self.init_cache()
+        self.init_cards_cache()
 
         self.load_cache()
 
-    def init_cache(self):
-        self.logger.info("Initializing cache...")
+    def init_cards_cache(self):
+        self.logger.info("Initializing cards cache...")
 
         self.bundle_cache = sorted(self.cards["bundle"].dropna().unique().tolist())
         self.logger.info(f"Cached {len(self.bundle_cache)} bundles")
