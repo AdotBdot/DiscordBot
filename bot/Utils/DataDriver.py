@@ -8,6 +8,8 @@ from typing import Optional
 
 import pandas as pd
 
+from bot.Utils.Enums import RARITIES
+
 CARDS_FOLDER = Path("data/cards")
 PACKS_FOLDER = Path("data/packs")
 USERS_FOLDER = Path("data/users")
@@ -104,6 +106,8 @@ class DataDriver:
         self.tag_cache = [tag.lower() for tag in self.tag_cache]
         self.logger.info(f"Cached {len(self.tag_cache)} tags")
 
+
+    # TODO: Validate symbols in tags
     def load_cards(self):
         cards_data = []
         for file in Path("data/cards").glob("*.json"):
@@ -115,6 +119,15 @@ class DataDriver:
             for bundle in data:
                 for collection in bundle["collections"]:
                     for card in collection["cards"]:
+                        if any(item["name"] == card["name"] for item in cards):
+                            item = next((item for item in cards if item.get("name") == card["name"]))
+                            self.logger.error(f"Card name conflict: '{collection["name"]}:{card["name"]}' '{item["collection"]}:{item["name"]}'. Skipping")
+                            continue
+                        
+                        if card["rarity"] not in RARITIES:
+                            self.logger.error(f"Invalid card rarity: '{collection["name"]}:{card["name"]}:{card["rarity"]}'. Skipping")
+                            continue
+
                         cards.append({
                             "name": card["name"],
                             "bundle": bundle["name"],
