@@ -18,7 +18,10 @@ class Moderation(commands.Cog):
         self.logger = logging.getLogger("Moderation")
         self.logger.setLevel(logging.INFO)
         self.logger.propagate = False
-        self.logger.addHandler(bot.logs_handler)
+        
+        if not self.logger.handlers:
+            self.logger.addHandler(bot.logs_handler)
+            self.logger.addHandler(bot.file_handler)
 
     # ====================
     # General commands

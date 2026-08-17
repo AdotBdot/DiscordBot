@@ -16,7 +16,10 @@ class General(commands.Cog):
         self.logger = logging.getLogger("General")
         self.logger.setLevel(logging.INFO)
         self.logger.propagate = False
-        self.logger.addHandler(bot.logs_handler)
+        
+        if not self.logger.handlers:
+            self.logger.addHandler(bot.logs_handler)
+            self.logger.addHandler(bot.file_handler)
 
     def format_command(self, command: app_commands.Command | app_commands.Group, indent: int=0) -> list[str]:
         lines = []

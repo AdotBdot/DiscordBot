@@ -37,11 +37,14 @@ class DataDriverScheduler:
             self.datadriver.logger.info(f"Saved {len(dirty)} user(s) to database")
 
 class DataDriver:
-    def __init__(self, logs_handler):
+    def __init__(self, logs_handler, file_handler):
         self.logger = logging.getLogger("DataDriver")
         self.logger.setLevel(logging.INFO)
         self.logger.propagate = False
-        self.logger.addHandler(logs_handler)
+        
+        if not self.logger.handlers:
+            self.logger.addHandler(logs_handler)
+            self.logger.addHandler(file_handler)
 
         self.config: dict = {
             "admin_role": None,

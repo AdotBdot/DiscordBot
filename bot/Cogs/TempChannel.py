@@ -14,7 +14,10 @@ class TempChannel(commands.Cog):
         self.logger = logging.getLogger("TempChannel")
         self.logger.setLevel(logging.INFO)
         self.logger.propagate = False
-        self.logger.addHandler(bot.logs_handler)
+        
+        if not self.logger.handlers:
+            self.logger.addHandler(bot.logs_handler)
+            self.logger.addHandler(bot.file_handler)
 
         self.create_channel_id = 806164430449672222
         self.category_id = 787000243547537439

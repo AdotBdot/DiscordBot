@@ -15,18 +15,20 @@ from bot.Utils.DataDriver import DataDriver, DataDriverScheduler
 class Bot(commands.Bot):
     _uptime: datetime.datetime = datetime.datetime.utcnow()
 
-    def __init__(self, logs_handler):
+    def __init__(self, logs_handler, file_handler):
         intents = discord.Intents.all()
         super().__init__(intents=intents, command_prefix=">")
 
         self.logs_handler = logs_handler
+        self.file_handler = file_handler
 
         self.logger = logging.getLogger("Bot")
         self.logger.setLevel(logging.INFO)
         self.logger.propagate = False
         self.logger.addHandler(logs_handler)
+        self.logger.addHandler(file_handler)
 
-        self.datadriver: DataDriver = DataDriver(logs_handler)
+        self.datadriver: DataDriver = DataDriver(logs_handler, file_handler)
         self.datadriver.initialize_database()
 
         self.autocomplete: AutocompleteService = AutocompleteService(self.datadriver)
