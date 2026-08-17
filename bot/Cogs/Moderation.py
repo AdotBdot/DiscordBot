@@ -196,6 +196,69 @@ class Moderation(commands.Cog):
         # UI
         await interaction.response.send_message(f"Gave {melones} 🍉 to user {target_user.mention}")
 
+    # ====================
+    # Settings commands
+    # ====================
+
+    config = app_commands.Group(name="config", description="Config related commands")
+
+    # TODO: Secure 
+    @config.command(name="display", description="Displays current bot config")
+    @admin_only()
+    async def config_display(self, interaction: discord.Interaction):
+        guild = interaction.guild
+        if not guild:
+            return
+
+        admin_role = interaction.guild.get_role(self.datadriver.config["admin_role"])
+        create_channel = interaction.guild.get_channel(self.datadriver.config["create_channel_id"])
+        voice_category = interaction.guild.get_channel(self.datadriver.config["voice_category_id"])
+
+        admin_role_name = admin_role.name if admin_role else "Invalid Role"
+        create_channel_name = create_channel.name if create_channel else "Invalid Channel"
+        voice_category_name = voice_category.name if voice_category else "Invalid Category"
+
+        # UI
+        container = discord.ui.Container(
+            discord.ui.TextDisplay(content=f"**Admin Role**: {admin_role_name}"),
+            discord.ui.TextDisplay(content=f"**Create Channel**: {create_channel_name}"),
+            discord.ui.TextDisplay(content=f"**Voice Category**: {voice_category_name}")
+        )
+
+        view = SimpleView(
+            author_id=interaction.user.id,
+            content=container, 
+            header="## Bot config")
+
+        await interaction.response.send_message(view=view)
+
+
+    set = app_commands.Group(name="set", description="Set values in config", parent=config)
+
+    @set.command(name="admin_role", description="Sets admin role.")
+    @admin_only()
+    async def set_admin_role(self, interaction: discord.Interaction, role: discord.Role):
+        self.datadriver.set_admin_role(role.id)
+
+        # UI
+        await interaction.response.send_message(f"Set admin role to {role.name}")
+
+    @set.command(name="create_channel", description="Sets admin role.")
+    @admin_only()
+    async def set_create_channel(self, interaction: discord.Interaction, channel: discord.VoiceChannel):
+        self.datadriver.set_create_channel(channel.id)
+
+        # UI
+        await interaction.response.send_message(f"Set create channel to {channel.name}")
+
+    @set.command(name="voice_category", description="Sets admin role.")
+    @admin_only()
+    async def set_voice_category(self, interaction: discord.Interaction, category: discord.CategoryChannel):
+        self.datadriver.set_voice_category(category.id)
+
+        # UI
+        await interaction.response.send_message(f"Set voice category to {category.name}")
+
 # Setup Cog
 async def setup(bot):
     await bot.add_cog(Moderation(bot, bot.datadriver))
