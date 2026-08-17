@@ -41,11 +41,21 @@ class DataDriver:
         self.logger.propagate = False
         self.logger.addHandler(logs_handler)
 
-        self.config: dict = {}
+        self.config: dict = {
+            "admin_role": None,
+            "prefix": '>',
+            "create_channel_id": None,
+            "voice_category_id": None
+        }
 
         self.dirty_users: set[int] = set()
 
-        self.cache = {}
+        self.cache: dict = {
+            "daily_claims": [],
+            "daily_shop_cards": [],
+            "daily_shop_packs": [],
+            "last_daily_refresh": None
+        }
 
         self.bundle_cache: list[str] = []
         self.collection_cache: list[str] = []
@@ -61,13 +71,13 @@ class DataDriver:
 
         self.load_config()
 
-        self.load_cache()
-
         self.load_cards()
         self.load_packs()
         self.load_users()
 
         self.init_cache()
+
+        self.load_cache()
 
     def init_cache(self):
         self.logger.info("Initializing cache...")
@@ -166,8 +176,19 @@ class DataDriver:
 
         self.logger.info(f"Loaded {len(self.users)} user(s)")
 
+    # ====================
+    # Config
+    # ====================
+
     def load_config(self):
-        with open("data/config/config.json", "r", encoding="utf-8") as file:
+        config_path = Path("data/config/config.json")
+
+        if not config_path.exists():
+            self.save_config()
+            self.logger.info("Config file did not exist. Created default config.")
+            return
+
+        with config_path.open("r", encoding="utf-8") as file:
             self.config = json.load(file)
 
         self.logger.info(f"Loaded config")
@@ -176,8 +197,38 @@ class DataDriver:
         file_path = Path("data/config/config.json")
         file_path.write_text(json.dumps(self.config, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
 
+    def set_admin_role(self, id: int):
+        self.config["admin_role"] = id
+        self.logger.info(f"Set admin role to: {id}")
+
+        self.save_config()
+
+    def set_voice_category(self, id: int):
+        self.config["voice_category_id"] = id
+        self.logger.info(f"Set voice vategory to: {id}")
+
+        self.save_config()
+
+    def set_create_channel(self, id: int):
+        self.config["create_channel_id"] = id
+        self.logger.info(f"Set create channel to: {id}")
+
+        self.save_config()
+
+    # ====================
+    # Daily methods
+    # ====================
+
     def load_cache(self):
-        with open("data/config/cache.json", "r", encoding="utf-8") as file:
+        cache_path = Path("data/config/cache.json")
+
+        if not cache_path.exists():
+            self.refresh_daily()
+            self.save_cache()
+            self.logger.info("Cache file did not exist. Created default cache.")
+            return
+
+        with cache_path.open("r", encoding="utf-8") as file:
             self.cache = json.load(file)
 
         self.logger.info(f"Loaded cache")
@@ -185,10 +236,6 @@ class DataDriver:
     def save_cache(self):
         file_path = Path("data/config/cache.json")
         file_path.write_text(json.dumps(self.cache, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
-
-    # ====================
-    # Daily methods
-    # ====================
 
     def get_last_daily_refresh(self) -> datetime:
         date_string = self.cache["last_daily_refresh"]
