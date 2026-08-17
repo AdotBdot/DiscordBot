@@ -210,9 +210,9 @@ class Moderation(commands.Cog):
         if not guild:
             return
 
-        admin_role = interaction.guild.get_role(self.datadriver.config["admin_role"])
-        create_channel = interaction.guild.get_channel(self.datadriver.config["create_channel_id"])
-        voice_category = interaction.guild.get_channel(self.datadriver.config["voice_category_id"])
+        admin_role = interaction.guild.get_role(self.datadriver.config["admin_role"]) # type: ignore
+        create_channel = interaction.guild.get_channel(self.datadriver.config["create_channel_id"]) # type: ignore
+        voice_category = interaction.guild.get_channel(self.datadriver.config["voice_category_id"]) # type: ignore
 
         admin_role_name = admin_role.name if admin_role else "Invalid Role"
         create_channel_name = create_channel.name if create_channel else "Invalid Channel"
