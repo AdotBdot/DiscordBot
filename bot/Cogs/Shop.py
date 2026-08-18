@@ -250,8 +250,12 @@ class Shop(commands.Cog):
         # Mark user
         self.datadriver.cache["daily_claims"].append(user_id)
 
+        # Get user upgrades
+        user_upgrades = self.datadriver.get_user_upgrades(user_id)
+
         # Give daily reward to user
-        reward_cash = random.randint(100, 200)
+        multiplier = int(1 + user_upgrades["luck"]/5)
+        reward_cash = random.randint(100*multiplier, 200*multiplier)
         reward_pack = random.choice(self.datadriver.packs_cache)
 
         user_cash = self.datadriver.get_user_cash(user_id)

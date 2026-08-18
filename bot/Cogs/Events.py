@@ -1,3 +1,4 @@
+import asyncio
 from datetime import datetime, timedelta
 import logging
 import random
@@ -52,8 +53,10 @@ class Events(commands.Cog):
 
                     self.voice_time[user_id] = (self.voice_time.get(user_id, 0) + 1)
 
+                    user_upgrades = self.datadriver.get_user_upgrades(user_id)
+                    
                     if self.voice_time[user_id] % 10 == 0:
-                        if random.random() <= 0.20:
+                        if random.random() <= 0.15 + user_upgrades["drop_rate"]/100:
                             await self.give_random_pack(user_id)
 
     async def give_random_pack(self, user_id):
@@ -94,6 +97,63 @@ class Events(commands.Cog):
 
         if now >= next_midnight:
             self.datadriver.refresh_daily()
+
+    # ==========================
+    # RANDOM EVENTS
+    # ==========================
+
+    # FIX: Overpowered as fuck
+    @commands.Cog.listener()
+    async def on_message(self, message: discord.Message):
+        # Checks
+        if message.author.bot:
+            return
+
+        user_id = message.author.id
+
+        if not self.datadriver.user_exist(user_id):
+            return
+
+        # Fetch user upgrades
+        user_upgrades = self.datadriver.get_user_upgrades(user_id)
+
+        # Event chance
+        if random.random() > 0.01 + user_upgrades["luck"]/100:
+            return
+
+        # Add reaction
+        emoji = '🗿'
+
+        try:
+            await message.add_reaction(emoji)
+        except discord.HTTPException:
+            return
+
+        # Timeout check
+        def check(reaction_event: discord.Reaction, user: discord.User | discord.Member):
+            return (user.id == user_id and reaction_event.message.id == message.id and str(reaction_event.emoji) == emoji)
+
+        try:
+            await self.bot.wait_for("reaction_add", timeout=10, check=check)
+        except asyncio.TimeoutError:
+            return
+
+        # Give rewards to user
+        multiplier = int(1 + user_upgrades["luck"]/5)
+        reward_cash = random.randint(250*multiplier, 500*multiplier)
+        reward_pack = random.choice(self.datadriver.packs_cache)
+
+        user_cash = self.datadriver.get_user_cash(user_id)
+        user_packs = self.datadriver.get_user_packs(user_id)
+
+        self.datadriver.set_user_cash(user_id, user_cash + reward_cash)
+        self.datadriver.set_user_packs(user_id, user_packs.append(reward_pack)) # type: ignore
+
+        # Logs
+        self.logger.info(f"{user_id} claimed moiai event")
+
+        # UI
+        await message.channel.send(f"🗿 {message.author.mention} you've received {reward_cash} 🥥 🗿")
 
 # Setup Cog
 async def setup(bot):

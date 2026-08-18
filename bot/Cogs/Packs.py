@@ -122,16 +122,22 @@ class Packs(commands.Cog):
         # Group by rarity
         by_rarity = {rarity: group for rarity, group in cards.groupby("rarity")}
 
+        # Fetch user upgrades
+        user_upgrades = self.datadriver.get_user_upgrades(user_id)
+
+        # Calculate weights
         rarities = list(by_rarity.keys())
         weights = [BASE_RARITY_WEIGHT[r] for r in rarities]  # type: ignore
 
         # Open pack
         result = []
 
-        for _ in range(5 * open_count):
-            chosen_rarity = random.choices(rarities, weights=weights, k=1)[0]
-            pool = by_rarity[chosen_rarity]
-            result.append(pool.iloc[random.randrange(len(pool))])
+        for _ in range(open_count):
+            cards_per_pack = random.randint(5, 5 + user_upgrades["pack_size"])
+            for _ in range(cards_per_pack):
+                chosen_rarity = random.choices(rarities, weights=weights, k=1)[0]
+                pool = by_rarity[chosen_rarity]
+                result.append(pool.iloc[random.randrange(len(pool))])
 
         # Count duplicates
         card_counts = Counter(card.name for card in result)
