@@ -295,9 +295,9 @@ class DataDriver:
             "cards": [],
             "packs": ["Common Pack"],
             "upgrades": {
-                "luck": 1,
-                "drop_rate": 1,
-                "pack_size": 1
+                "luck": 0,
+                "drop_rate": 0,
+                "pack_size": 0
             },
             "cash": 0,
             "melons": 0,
