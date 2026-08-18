@@ -58,8 +58,13 @@ class UpgradesView(discord.ui.LayoutView):
             cost = UPGRADES_INFO[name]["base_cost"] * upgrades[name]
             cost_melones = 1 if upgrades[name] >= 10 else 0
 
-            affordable = user_cash >= cost and user_melones >= cost_melones
-            label = f"{cost}🥥 {cost_melones}🍉" if cost_melones > 0 else f"{cost}🥥"
+            locked = user_cash >= cost and user_melones >= cost_melones and level < UPGRADES_INFO[name]["max_level"]
+
+            label = ""
+            if level >= UPGRADES_INFO[name]["max_level"]:
+                label = "Max"
+            else:
+                label = f"{cost}🥥 {cost_melones}🍉" if cost_melones > 0 else f"{cost}🥥"
 
             section = discord.ui.Section(
                 discord.ui.TextDisplay(content=f"**{UPGRADES_INFO[name]["display_name"]}**: {level}\n{UPGRADES_INFO[name]["description"]}"),
@@ -67,11 +72,11 @@ class UpgradesView(discord.ui.LayoutView):
                     upgrade_name=name,
                     view=self,
                     label=label,
-                    style=discord.ButtonStyle.success if affordable else discord.ButtonStyle.primary
+                    style=discord.ButtonStyle.success if locked else discord.ButtonStyle.primary
                 )
             )
 
-            section.accessory.disabled = not affordable # type: ignore
+            section.accessory.disabled = not locked # type: ignore
 
             container.add_item(section)
 

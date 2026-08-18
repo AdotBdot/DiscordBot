@@ -107,17 +107,20 @@ RARITY_TRANSFER = {
 UPGRADES_INFO = {
     "luck": {
         "display_name": "Luck",
-        "description": "Increases chance of getting higher rarity card.",
-        "base_cost": 1000
+        "description": "Increases overall luck.",
+        "base_cost": 1000,
+        "max_level": 10
     },
     "drop_rate": {
         "display_name": "Drop Rate",
         "description": "Increases chance of getting a pack.",
-        "base_cost": 1000
+        "base_cost": 1000,
+        "max_level": 10
     },
     "pack_size": {
         "display_name": "Pack Size",
-        "description": "Increases chance of getting more cards in a pack.",
-        "base_cost": 1000
+        "description": "Chance of getting more cards in a pack.",
+        "base_cost": 1000,
+        "max_level": 5
     }
 }
