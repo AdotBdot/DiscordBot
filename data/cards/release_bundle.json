@@ -142,7 +142,7 @@
                         "name": "Golb",
                         "description": "",
                         "rarity": "Mythic",
-                        "tags": [""],
+                        "tags": ["at_golb"],
                         "image_url": "https://i.imgur.com/p71VHbQ.png"
                     },       
                     {
@@ -911,7 +911,7 @@
                     {
                         "name": "Monstrous Hunson Abadeer",
                         "description": "",
-                        "rarity": "Mythic",
+                        "rarity": "Legendary",
                         "tags": ["at_hunson-abadeer"],
                         "image_url": "https://i.imgur.com/rWW6wW7.png"
                     },
@@ -1271,6 +1271,27 @@
                         "rarity": "Common",
                         "tags": [],
                         "image_url": "https://i.imgur.com/hEt3hDq.png"
+                    },
+                    {
+                        "name": "Darren",
+                        "description": "S06E10 - Something Big",
+                        "rarity": "Uncommon",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/Hp2M0ab.png"
+                    },
+                    {
+                        "name": "Maja",
+                        "description": "S06E10 - Something Big",
+                        "rarity": "Uncommon",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/hqR9xBy.png"
+                    },
+                    {
+                        "name": "...",
+                        "description": "S10E13 - Come Along With Me \n..........................................",
+                        "rarity": "Divine",
+                        "tags": ["at_golb"],
+                        "image_url": "https://i.imgur.com/rkWNJ1n.png"
                     }
                 ]
             }
