@@ -118,17 +118,22 @@ class DataDriver:
                 cards_data.append(json.load(f))
 
         cards = []
+        conflicts = 0
+        skipped = 0
         for data in cards_data:
             for bundle in data:
                 for collection in bundle["collections"]:
                     for card in collection["cards"]:
                         if any(item["name"] == card["name"] for item in cards):
                             item = next((item for item in cards if item.get("name") == card["name"]))
-                            self.logger.error(f"Card name conflict: '{collection["name"]}:{card["name"]}' '{item["collection"]}:{item["name"]}'. Skipping")
+                            self.logger.debug(f"Card name conflict: '{collection["name"]}:{card["name"]}' '{item["collection"]}:{item["name"]}'. Skipping")
+                            conflicts += 1
+                            skipped += 1
                             continue
                         
                         if card["rarity"] not in RARITIES:
-                            self.logger.error(f"Invalid card rarity: '{collection["name"]}:{card["name"]}:{card["rarity"]}'. Skipping")
+                            self.logger.debug(f"Invalid card rarity: '{collection["name"]}:{card["name"]}:{card["rarity"]}'. Skipping")
+                            skipped += 1
                             continue
 
                         cards.append({
@@ -142,7 +147,7 @@ class DataDriver:
                         })
 
         self.cards = pd.DataFrame(cards).set_index("name")
-        self.logger.info(f"Loaded {len(self.cards)} card(s)")
+        self.logger.info(f"Loaded {len(self.cards)} card(s), Conflicts: {conflicts}, Skipped: {skipped}")
 
     def load_packs(self):
         all_cards = set(self.cards.index)
