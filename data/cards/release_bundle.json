@@ -224,7 +224,7 @@
                     },
                     {
                         "name": "Elegant Ice King",
-                        "description": "",
+                        "description": "S09E04 - Elements: Winter Light",
                         "rarity": "Rare",
                         "tags": ["at_ice-king"],
                         "image_url": "https://i.imgur.com/Iq2KOgS.png"
@@ -246,13 +246,13 @@
                     {
                         "name": "Finn the Human (Adult)",
                         "description": "",
-                        "rarity": "Epic",
+                        "rarity": "Legendary",
                         "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/yh5yxqu.png"
                     },
                     {
                         "name": "The Lich Skeleton",
-                        "description": "S06E02 - Escape from the Citadel\n\"Fall\"",
+                        "description": "S06E02 - Escape from the Citadel \n\"Fall\"",
                         "rarity": "Legendary",
                         "tags": ["at_the-lich"],
                         "image_url": "https://i.imgur.com/JFGEs6Q.png"
@@ -309,7 +309,7 @@
                     {
                         "name": "King Worm",
                         "description": "",
-                        "rarity": "Common",
+                        "rarity": "Uncommon",
                         "tags": [""],
                         "image_url": "https://i.imgur.com/NVCGKqr.png"
                     },
@@ -406,7 +406,7 @@
                     },
                     {
                         "name": "Jake the Egg",
-                        "description": "Mmm, egg in me.",
+                        "description": "S08E23 - Islands: Imaginary Resources \nMmm, egg in me.",
                         "rarity": "Rare",
                         "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/nK0mfSE.png"
@@ -420,70 +420,70 @@
                     },
                     {
                         "name": "Finn the God",
-                        "description": "I made you do those crummy things!",
+                        "description": "S05E05 - All the Little People. \nI made you do those crummy things!",
                         "rarity": "Epic",
                         "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/9plZbOb.png"
                     },
                     {
                         "name": "Little Finn",
-                        "description": "All the Little People.",
+                        "description": "S05E05 - All the Little People.",
                         "rarity": "Rare",
                         "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/dIZOCDE.png"
                     },
                     {
                         "name": "Little Flame Princess",
-                        "description": "All the Little People.",
+                        "description": "S05E05 - All the Little People.",
                         "rarity": "Rare",
                         "tags": [],
                         "image_url": "https://i.imgur.com/2nnocGx.png"
                     },
                     {
                         "name": "Little Gunter",
-                        "description": "All the Little People.",
+                        "description": "S05E05 - All the Little People.",
                         "rarity": "Rare",
                         "tags": ["at_gunter"],
                         "image_url": "https://i.imgur.com/e5xuCQo.png"
                     },
                     {
                         "name": "Little Ice King",
-                        "description": "All the Little People.",
+                        "description": "S05E05 - All the Little People.",
                         "rarity": "Rare",
                         "tags": ["at_ice-king"],
                         "image_url": "https://i.imgur.com/iXBLrj3.png"
                     },
                     {
                         "name": "Little Jake",
-                        "description": "All the Little People.",
+                        "description": "S05E05 - All the Little People.",
                         "rarity": "Rare",
                         "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/O5aNNTU.png"
                     },
                     {
                         "name": "Little Marceline",
-                        "description": "All the Little People.",
+                        "description": "S05E05 - All the Little People.",
                         "rarity": "Rare",
                         "tags": ["at_marceline"],
                         "image_url": "https://i.imgur.com/0TXjN1p.png"
                     },
                     {
                         "name": "Little Princesses Fighting",
-                        "description": "All the Little People.",
+                        "description": "S05E05 - All the Little People.",
                         "rarity": "Epic",
                         "tags": ["at_princess-bubblegum", "at_flame-princess"],
                         "image_url": "https://i.imgur.com/val3CIP.png"
                     },
                     {
                         "name": "Little Vampire King",
-                        "description": "All the Little People.",
+                        "description": "S05E05 - All the Little People.",
                         "rarity": "Uncommon",
                         "tags": ["at_vampire-king"],
                         "image_url": "https://i.imgur.com/IKXKqCr.png"
                     },
                     {
                         "name": "The Horse",
-                        "description": "All the Little People.",
+                        "description": "S05E05 - All the Little People.",
                         "rarity": "Epic",
                         "tags": ["at_ice-king"],
                         "image_url": "https://i.imgur.com/g7QkuTu.png"
@@ -568,7 +568,7 @@
                     {
                         "name": "Party Pat",
                         "description": "",
-                        "rarity": "Common",
+                        "rarity": "Uncommon",
                         "tags": ["at_party-pat"],
                         "image_url": "https://i.imgur.com/5rcSCOY.png"
                     },
@@ -617,7 +617,7 @@
                     {
                         "name": "N.E.P.T.R.",
                         "description": "**Never-Ending Pie-Throwing Robot**",
-                        "rarity": "Common",
+                        "rarity": "Uncommon",
                         "tags": ["at_neptr"],
                         "image_url": "https://i.imgur.com/vcYwN9P.png"
                     },
@@ -659,7 +659,7 @@
                     {
                         "name": "Possessed Princess Bubblegum",
                         "description": "S02E25 - Mortal Recoil\nJaaaake",
-                        "rarity": "Epic",
+                        "rarity": "Legendary",
                         "tags": ["at_princess-bubblegum"],
                         "image_url": "https://i.imgur.com/EW3PHKi.png"
                     },
@@ -715,7 +715,7 @@
                     {
                         "name": "Shelby",
                         "description": "",
-                        "rarity": "Common",
+                        "rarity": "Uncommon",
                         "tags": ["at_shelby"],
                         "image_url": "https://i.imgur.com/XsHqzJR.png"
                     },
@@ -743,7 +743,7 @@
                     {
                         "name": "Abraham Lincoln (AT)",
                         "description": "",
-                        "rarity": "Common",
+                        "rarity": "Epic",
                         "tags": [],
                         "image_url": "https://i.imgur.com/HN4KPQp.png"
                     },
@@ -793,12 +793,12 @@
                         "name": "Achoose Goose",
                         "description": "",
                         "rarity": "Rare",
-                        "tags": ["at_choose-goose"],
+                        "tags": ["at_choose-goose", "at_elemental_ice"],
                         "image_url": "https://i.imgur.com/SA5pyGv.png"
                     },
                     {
                         "name": "Winter Finn & Jake",
-                        "description": "",
+                        "description": "S09E04 - Elements: Winter Light",
                         "rarity": "Rare",
                         "tags": ["at_jake", "at_finn"],
                         "image_url": "https://i.imgur.com/1JAyiVT.png"
@@ -848,7 +848,7 @@
                     {
                         "name": "Joshua",
                         "description": "",
-                        "rarity": "Common",
+                        "rarity": "Uncommon",
                         "tags": ["at_joshua"],
                         "image_url": "https://i.imgur.com/QOqjFoz.png"
                     },
@@ -868,7 +868,7 @@
                     },
                     {
                         "name": "Normal Man",
-                        "description": "",
+                        "description": "S08E07 - Normal Man",
                         "rarity": "Rare",
                         "tags": ["at_magic-man"],
                         "image_url": "https://i.imgur.com/M1O7rur.png"
@@ -911,7 +911,7 @@
                     {
                         "name": "Monstrous Hunson Abadeer",
                         "description": "",
-                        "rarity": "Legendary",
+                        "rarity": "Mythic",
                         "tags": ["at_hunson-abadeer"],
                         "image_url": "https://i.imgur.com/rWW6wW7.png"
                     },
@@ -1030,14 +1030,14 @@
                     {
                         "name": "Candy Mr. Pig",
                         "description": "S09E02 - Elements: Skyhooks",
-                        "rarity": "Epic",
+                        "rarity": "Rare",
                         "tags": ["at_mr-pig", "at_elemental_candy"],
                         "image_url": "https://i.imgur.com/LbCS4wr.png"
                     },
                     {
                         "name": "Candy Tree Trunks",
                         "description": "S09E02 - Elements: Skyhooks",
-                        "rarity": "Epic",
+                        "rarity": "Rare",
                         "tags": ["at_tree-trunks", "at_elemental_candy"],
                         "image_url": "https://i.imgur.com/o233FgE.png"
                     },
@@ -1072,7 +1072,7 @@
                     {
                         "name": "Cheesy Jake",
                         "description": "S03E16 - Jake vs. Me-Mow",
-                        "rarity": "Epic",
+                        "rarity": "Rare",
                         "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/ucSRBDH.png"
                     },
@@ -1137,12 +1137,12 @@
                         "description": "S02E24 - Mortal Folly",
                         "rarity": "Legendary",
                         "tags": ["at_the-lich"],
-                        "image_url": "https://i.imgur.com/yoCalrW.png"
+                        "image_url": "https://i.imgur.com/tuFriI4.png"
                     },
                     {
                         "name": "Possessed Snail",
                         "description": "S02E24 - Mortal Folly",
-                        "rarity": "Epic",
+                        "rarity": "Legendary",
                         "tags": [],
                         "image_url": "https://i.imgur.com/JXu6xaD.png"
                     },
@@ -1161,9 +1161,9 @@
                         "image_url": "https://i.imgur.com/JkyhlDD.png"
                     },
                     {
-                        "name": "Legendary",
+                        "name": "Gate Guardian",
                         "description": "S2E17 - Death in Bloom",
-                        "rarity": "Epic",
+                        "rarity": "Legendary",
                         "tags": [],
                         "image_url": "https://i.imgur.com/kdOdqUD.png"
                     },
@@ -1184,7 +1184,7 @@
                     {
                         "name": "Marceline's Mom",
                         "description": "S07E07 - Everything Stays",
-                        "rarity": "Legendary",
+                        "rarity": "Epic",
                         "tags": [],
                         "image_url": "https://i.imgur.com/RNcavPU.png"
                     },
@@ -1194,6 +1194,83 @@
                         "rarity": "Rare",
                         "tags": ["at_marceline"],
                         "image_url": "https://i.imgur.com/6R7lhxb.png"
+                    },
+                    {
+                        "name": "James Baxter",
+                        "description": "S08E18 - Horse and Ball",
+                        "rarity": "Uncommon",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/veFKmW3.png"
+                    },
+                    {
+                        "name": "Raggedy Princess",
+                        "description": "S08E18 - Horse and Ball",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/QxUh0HU.png"
+                    },
+                    {
+                        "name": "Evil Hermit",
+                        "description": "S08E02 - Don't Look",
+                        "rarity": "Uncommon",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/y7Wz1KU.png"
+                    },
+                    {
+                        "name": "Chatsberry",
+                        "description": "S08E19 - Jelly Beans Have Power",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/lMTrzDT.png"
+                    },
+                    {
+                        "name": "Patience St. Pim",
+                        "description": "S08E19 - Jelly Beans Have Power",
+                        "rarity": "Rare",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/inryNlY.png"
+                    },
+                    {
+                        "name": "Coffee Lich",
+                        "description": "S08E08 - Elements",
+                        "rarity": "Rare",
+                        "tags": ["at_the-lich"],
+                        "image_url": "https://i.imgur.com/lE7sRYd.png"
+                    },
+                    {
+                        "name": "Trashcan Jake",
+                        "description": "S08E08 - Elements",
+                        "rarity": "Rare",
+                        "tags": ["at_jake"],
+                        "image_url": "https://i.imgur.com/2XcqCgl.png"
+                    },
+                    {
+                        "name": "Pure Elemental Patience St. Pim",
+                        "description": "S09E04 - Elements: Winter Light",
+                        "rarity": "Legendary",
+                        "tags": ["at_elemental_ice"],
+                        "image_url": "https://i.imgur.com/SRbeD6J.png"
+                    },
+                    {
+                        "name": "Ice Jake",
+                        "description": "S09E04 - Elements: Winter Light",
+                        "rarity": "Rare",
+                        "tags": ["at_jake", "at_elemental_ice"],
+                        "image_url": "https://i.imgur.com/O1wSnW6.png"
+                    },
+                    {
+                        "name": "Paper Pete",
+                        "description": "S03E22 - Paper Pete",
+                        "rarity": "Uncommon",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/hEt3hDq.png"
+                    },
+                    {
+                        "name": "Moldos",
+                        "description": "S03E22 - Paper Pete",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/hEt3hDq.png"
                     }
                 ]
             }
