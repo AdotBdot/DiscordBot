@@ -44,12 +44,11 @@ class Moderation(commands.Cog):
         except Exception as e:
             await interaction.response.send_message(f"Error reloading module {ext}: '{e}'.")
 
-    @app_commands.command(name="update_users", description="Forces users database update.")
+    @app_commands.command(name="reload_users", description="Forces users database update.")
     @admin_only()
-    async def update_users(self, interaction: discord.Interaction):
+    async def reload_users(self, interaction: discord.Interaction):
         try:
-            for user_id in self.datadriver.users.index:
-                self.datadriver.save_user(user_id)
+            self.datadriver.load_users()
 
             await interaction.response.send_message(f"Updated user database.")
         except Exception as e:
