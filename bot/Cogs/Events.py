@@ -2,12 +2,32 @@ import asyncio
 from datetime import datetime, timedelta
 import logging
 import random
+from typing import Callable, Awaitable, Any
 
 import discord
 from discord.ext import commands, tasks
 from discord import app_commands
 
 from bot.Utils.DataDriver import DataDriver
+
+class EventManager:
+    def __init__(self):
+
+        self.events: dict[str, Callable[[discord.Message], Awaitable[None]]]
+        self.active_events: set[int] = set()
+
+    def register_event(self, event_name: str, event: Callable[[discord.Message], Awaitable[None]]) -> None:
+        if event_name in self.events:
+            return
+        
+        self.events[event_name] = event
+
+    async def trigger(self, event_name: str, message: discord.Message) -> None:
+        func = self.events.get(event_name)
+        if func is None:
+            return
+
+        asyncio.create_task(func(message)) # type: ignore
 
 class Events(commands.Cog):
     def __init__(self, bot, datadriver: DataDriver):
@@ -141,13 +161,10 @@ class Events(commands.Cog):
         # Give rewards to user
         multiplier = int(1 + user_upgrades["luck"]/5)
         reward_cash = random.randint(250*multiplier, 500*multiplier)
-        reward_pack = random.choice(self.datadriver.packs_cache)
 
         user_cash = self.datadriver.get_user_cash(user_id)
-        user_packs = self.datadriver.get_user_packs(user_id)
 
         self.datadriver.set_user_cash(user_id, user_cash + reward_cash)
-        self.datadriver.set_user_packs(user_id, user_packs.append(reward_pack)) # type: ignore
 
         # Logs
         self.logger.info(f"{user_id} claimed moiai event")
