@@ -1444,7 +1444,7 @@
                         "name": "Unicorn Jake",
                         "description": "S2E12 - Her Parents",
                         "rarity": "Rare",
-                        "tags": [],
+                        "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/ZYehdm6.jpeg"
                     }
                 ]
