@@ -13,14 +13,14 @@
                         "image_url": "https://i.imgur.com/lnY0skS.png"
                     },
                     {
-                        "name": "Farmland Finn (Adult)",
+                        "name": "Farmworld Finn (Adult)",
                         "description": "",
                         "rarity": "Epic",
                         "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/2jdyzbM.jpeg"
                     },
                     {
-                        "name": "Farmland Finn",
+                        "name": "Farmworld Finn",
                         "description": "",
                         "rarity": "Rare",
                         "tags": ["at_finn"],
@@ -812,7 +812,7 @@
                     },
                     {
                         "name": "Joshua Holo",
-                        "description": "",
+                        "description": "S03E25 - Dad's Dungeon",
                         "rarity": "Epic",
                         "tags": ["at_joshua"],
                         "image_url": "https://i.imgur.com/RgxeDdR.png"
@@ -882,7 +882,7 @@
                     },
                     {
                         "name": "Dungeon Train Finn",
-                        "description": "S05E36",
+                        "description": "S05E36 - Dungeon Train",
                         "rarity": "Epic",
                         "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/HVmCPNS.png"
@@ -1116,7 +1116,7 @@
                         "description": "S01E16 - Ocean of Fear",
                         "rarity": "Epic",
                         "tags": ["at_finn"],
-                        "image_url": "https://i.imgur.com/q7sAJ6c.png"
+                        "image_url": "https://i.imgur.com/LvFHZo4.png"
                     },
                     {
                         "name": "Three Wise Men",
@@ -1446,6 +1446,34 @@
                         "rarity": "Rare",
                         "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/ZYehdm6.jpeg"
+                    },
+                    {
+                        "name": "Farmworld Finn Ice Wizard",
+                        "description": "S7E23 - Crossover",
+                        "rarity": "Rare",
+                        "tags": ["at_finn"],
+                        "image_url": "https://i.imgur.com/2Iy0W5m.png"
+                    },
+                    {
+                        "name": "Farmworld Finn's Parents",
+                        "description": "S7E23 - Crossover",
+                        "rarity": "Uncommon",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/3Qa7XwR.jpeg"
+                    },
+                    {
+                        "name": "Farmworld Jake",
+                        "description": "S7E23 - Crossover",
+                        "rarity": "Rare",
+                        "tags": ["at_jake"],
+                        "image_url": "https://i.imgur.com/7bDlAl2.jpeg"
+                    },
+                    {
+                        "name": "Farmworld Lich",
+                        "description": "S7E23 - Crossover",
+                        "rarity": "Epic",
+                        "tags": ["at_the-lich"],
+                        "image_url": "https://i.imgur.com/eDVpHQC.png"
                     }
                 ]
             }
