@@ -1288,10 +1288,164 @@
                     },
                     {
                         "name": "...",
-                        "description": "S10E13 - Come Along With Me \n..............................................................................",
+                        "description": "S10E13 - Come Along With Me \n...",
                         "rarity": "Divine",
                         "tags": ["at_golb"],
                         "image_url": "https://i.imgur.com/rkWNJ1n.png"
+                    },
+                    {
+                        "name": "Brain Gunter",
+                        "description": "S06E40 - Orgalord",
+                        "rarity": "Epic",
+                        "tags": ["at_gunter"],
+                        "image_url": "https://i.imgur.com/K0y18EQ.png"
+                    },
+                    {
+                        "name": "Egyptian Gunter",
+                        "description": "S06E40 - Orgalord",
+                        "rarity": "Legendary",
+                        "tags": ["at_gunter"],
+                        "image_url": "https://i.imgur.com/68Gs7e3.png"
+                    },
+                    {
+                        "name": "Glitched Jake",
+                        "description": "S06E19 - Is That You?",
+                        "rarity": "Rare",
+                        "tags": ["at_jake"],
+                        "image_url": "https://i.imgur.com/UdEYlXM.png"
+                    },
+                    {
+                        "name": "Baby Jake",
+                        "description": "S06E16 - Joshua & Margaret Investigations",
+                        "rarity": "Epic",
+                        "tags": ["at_jake"],
+                        "image_url": "https://i.imgur.com/XzmEtz5.png"
+                    },
+                    {
+                        "name": "Dragon",
+                        "description": "S05E17 - Davey",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/nDIx18a.jpeg"
+                    },
+                    {
+                        "name": "Davey",
+                        "description": "S05E17 - Davey",
+                        "rarity": "Rare",
+                        "tags": ["at_finn"],
+                        "image_url": "https://i.imgur.com/KUFQJqM.jpeg"
+                    },
+                    {
+                        "name": "Robber Jake",
+                        "description": "S05E17 - Davey",
+                        "rarity": "Rare",
+                        "tags": ["at_jake"],
+                        "image_url": "https://i.imgur.com/DZJNuYw.jpeg"
+                    },
+                    {
+                        "name": "Gagging Woman",
+                        "description": "S05E15 - A Glitch is a Glitch",
+                        "rarity": "Mythic",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/7OhDmcl.jpeg"
+                    },
+                    {
+                        "name": "Glitched BMO",
+                        "description": "S05E15 - A Glitch is a Glitch",
+                        "rarity": "Rare",
+                        "tags": ["at_bmo", "at_glitched"],
+                        "image_url": "https://i.imgur.com/9pPrlr3.png"
+                    },
+                    {
+                        "name": "Glitched Finn and Jake",
+                        "description": "S05E15 - A Glitch is a Glitch",
+                        "rarity": "Epic",
+                        "tags": ["at_finn", "at_jake"],
+                        "image_url": "https://i.imgur.com/GW1QQNS.jpeg"
+                    },
+                    {
+                        "name": "Glitched Ice King",
+                        "description": "S05E15 - A Glitch is a Glitch",
+                        "rarity": "Rare",
+                        "tags": ["at_ice-king"],
+                        "image_url": "https://i.imgur.com/Gu2wTZn.jpeg"
+                    },
+                    {
+                        "name": "Glitched Mr. Cupcake",
+                        "description": "S05E15 - A Glitch is a Glitch",
+                        "rarity": "Uncommon",
+                        "tags": ["at_mr-cupcake"],
+                        "image_url": "https://i.imgur.com/gG0TBjL.jpeg"
+                    },
+                    {
+                        "name": "Glitched PB",
+                        "description": "S05E15 - A Glitch is a Glitch",
+                        "rarity": "Rare",
+                        "tags": ["at_princess-bubblegum"],
+                        "image_url": "https://i.imgur.com/ptJWdNV.jpeg"
+                    },
+                    {
+                        "name": "The Glitch",
+                        "description": "S05E15 - A Glitch is a Glitch",
+                        "rarity": "Mythic",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/7KmRKQm.jpeg"
+                    },
+                    {
+                        "name": "Island Lady",
+                        "description": "S5E22 - The Party's Over, Isla de Señorita",
+                        "rarity": "Rare",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/ycWPIK1.jpeg"
+                    },
+                    {
+                        "name": "Gareth",
+                        "description": "S5E23 - One Last Job",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/t5zq7gG.jpeg"
+                    },
+                    {
+                        "name": "Billy",
+                        "description": "S1E25 - His Hero",
+                        "rarity": "Mythic",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/3WjwlGc.jpeg"
+                    },
+                    {
+                        "name": "Rap Flame Princess",
+                        "description": "S8E10 - Music Hole",
+                        "rarity": "Epic",
+                        "tags": ["at_flame-princess"],
+                        "image_url": "https://i.imgur.com/F8g53d6.jpeg"
+                    },
+                    {
+                        "name": "Music Hole",
+                        "description": "S8E10 - Music Hole",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/afGGOU3.jpeg"
+                    },
+                    {
+                        "name": "Kissing Snails",
+                        "description": "S2E6 - Slow Love",
+                        "rarity": "Uncommon",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/Btwk3iP.jpeg"
+                    },
+                    {
+                        "name": "Lady Rainicorn's Parents",
+                        "description": "S2E12 - Her Parents",
+                        "rarity": "Uncommon",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/es1ecau.jpeg"
+                    },
+                    {
+                        "name": "Unicorn Jake",
+                        "description": "S2E12 - Her Parents",
+                        "rarity": "Rare",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/ZYehdm6.jpeg"
                     }
                 ]
             }
