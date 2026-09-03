@@ -783,14 +783,14 @@
                         "image_url": "https://i.imgur.com/k0g693R.png"
                     },
                     {
-                        "name": "KioShiMa, Happy i SmithZz - DreamHack Winter Jönköping 2014",
+                        "name": "KioShiMa, Happy i SmithZz - DreamHack Winter 2014",
                         "description": "LDLC 2-1 Ninjas in Pyjamas",
                         "rarity": "Uncommon",
                         "tags": ["cs_glory"],
                         "image_url": "https://i.imgur.com/NPxR7MV.png"
                     },
                     {
-                        "name": "Jw, Znajder i Devilwalk - DreamHack Winter Jönköping 2013",
+                        "name": "Jw, Znajder i Devilwalk - DreamHack Winter 2013",
                         "description": "Fnatic 2-1 Ninjas in Pyjamas",
                         "rarity": "Rare",
                         "tags": ["cs_glory"],
@@ -1547,7 +1547,7 @@
                     },
                     {
                         "name": "S1mple The Undertaker",
-                        "description": "Anal nathrach, do che'l de'nmha, Except the Lord of Darkness as your savior, Anal nathrach Tiera natrach, Allow the purity of Evil to guide you",
+                        "description": "Anal nathrach, do che'l de'nmha, Accept the Lord of Darkness as your savior, Anal nathrach Tiera natrach, Allow the purity of Evil to guide you",
                         "rarity": "Divine",
                         "tags": ["cs_pros"],
                         "image_url": "https://i.imgur.com/BpEf3A3.png"
@@ -1558,7 +1558,119 @@
                         "rarity": "Uncommon",
                         "tags": ["cs_pros"],
                         "image_url": "https://i.imgur.com/F6RPnvO.png"
-                    }                    
+                    },    
+                    {
+                        "name": "Apex CEO of Sex",
+                        "description": "Swoim siurem skończył erę Vitality",
+                        "rarity": "Rare",
+                        "tags": ["cs_pros"],
+                        "image_url": "https://i.ibb.co/7x5DTwxz/image.png"
+                    },
+                    {
+                        "name": "Logo Falcons",
+                        "description": "20 mln euro = 3 lata bycia irrelevant, 7 finałów przejebanych z rzędu, choke 12-6 na ostatniej mapie przeciwko Vitality na IEM Melbourne, 1 puchar pocieszenia wygrany tylko dlatego bo w enemy grał zawodnik którego przed turniejem kupiłeś",
+                        "rarity": "Uncommon",
+                        "tags": ["cs_pros"],
+                        "image_url": "https://i.ibb.co/qFB3BrRm/image.png"
+                    },
+                    {
+                        "name": "Szkolne Spirit",
+                        "description": "Ucz się ucz, bo nauka to do potęgi klucz",
+                        "rarity": "Uncommon",
+                        "tags": ["cs_pros"],
+                        "image_url": "https://i.ibb.co/FqmSnpDk/image.png"
+                    },
+                    {
+                        "name": "Donk kamerki",
+                        "description": "Każdy wielki tak zaczynał (patrz Natsu)",
+                        "rarity": "Rare",
+                        "tags": ["cs_pros"],
+                        "image_url": "https://i.ibb.co/cK5W50xG/image.png"
+                    },
+                    {
+                        "name": "Powrót Luminosity",
+                        "description": "Tak się dzieje jak bierzesz graczy z ukraińskiej orgi",
+                        "rarity": "Common",
+                        "tags": ["cs_pros"],
+                        "image_url": "https://i.ibb.co/9Hd1NshX/image.png"
+                    },
+                    {
+                        "name": "Jcobbb unstoppable",
+                        "description": "Nie ma grubasa - nie ma problemu",
+                        "rarity": "Uncommon",
+                        "tags": ["cs_pros"],
+                        "image_url": "https://i.ibb.co/vvhHgWTs/image.png"
+                    },
+                    {
+                        "name": "S1mple JFK",
+                        "description": "Prime S1mple mógłby ściągnąć Bin Ladena, Kirka i JFK jednym strzałem",
+                        "rarity": "Uncommon",
+                        "tags": ["cs_pros"],
+                        "image_url": "https://i.ibb.co/1tNrrQd0/image.png"
+                    },
+                    {
+                        "name": "Jcobbb cwel",
+                        "description": "Jcobbb przed azjatką",
+                        "rarity": "Uncommon",
+                        "tags": ["cs_pros"],
+                        "image_url": "https://i.ibb.co/zTF7nvHC/image.png"
+                    },
+                    {
+                        "name": "Jcobbb hacker",
+                        "description": "Jcobbb po azjatce",
+                        "rarity": "Rare",
+                        "tags": ["cs_pros"],
+                        "image_url": "https://i.ibb.co/Zz9rK4Tq/image.png"
+                    },
+                    {
+                        "name": "7 Deadly Sins",
+                        "description": "Hieronim Bosch, ok. 1500, olej na desce, 120 × 150 cm",
+                        "rarity": "Epic",
+                        "tags": ["cs_pros"],
+                        "image_url": "https://i.ibb.co/Jwmj7cFQ/image.png"
+                    },
+                    {
+                        "name": "Magixx Vitality",
+                        "description": "Koniec świata",
+                        "rarity": "Common",
+                        "tags": ["cs_pros"],
+                        "image_url": "https://i.ibb.co/NgzqYH7H/image.png"
+                    },
+                    {
+                        "name": "Olofmeister Hiroshima",
+                        "description": "Zdefowałby i Tsar Bombe",
+                        "rarity": "Common",
+                        "tags": ["cs_pros"],
+                        "image_url": "https://i.ibb.co/fGXKnFcj/image.png"
+                    },
+                    {
+                        "name": "Donkgger",
+                        "description": "Miguel, Miguel, Miguel",
+                        "rarity": "Rare",
+                        "tags": ["cs_pros"],
+                        "image_url": "https://i.ibb.co/wNTq3gVn/image.png"
+                    },
+                    {
+                        "name": "Ropz komentarz",
+                        "description": "Typowy estończyk",
+                        "rarity": "Common",
+                        "tags": ["cs_pros"],
+                        "image_url": "https://i.ibb.co/VYFdTjsQ/image.png"
+                    },
+                    {
+                        "name": "Magixx's 1v4 spraydown",
+                        "description": "Jeden spray - 4 kille, które uratowały dupe Spirit w legendarnym ćwierćfinale IEM Cologne Major 2026 przeciwko G2",
+                        "rarity": "Rare",
+                        "tags": ["cs_memorial"],
+                        "image_url": "https://i.ibb.co/TMBwbxHY/image.png"
+                    },
+                    {
+                        "name": "Nissim Pov",
+                        "description": "Uczył się w Yekindar Latvian School",
+                        "rarity": "Common",
+                        "tags": ["cs_pros"],
+                        "image_url": "https://i.ibb.co/LXnT11gC/image.png"
+                    }
                 ]
             }
         ]
