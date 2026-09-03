@@ -525,7 +525,7 @@
                     },
                     {
                         "name": "Mellow Tea Party PB",
-                        "description": "S01E01 - Trouble in Lumpy Space\n I shoudn't drink so much teaaa.",
+                        "description": "S01E02 - Trouble in Lumpy Space\n I shoudn't drink so much teaaa.",
                         "rarity": "Rare",
                         "tags": ["at_princess-bubblegum"],
                         "image_url": "https://i.imgur.com/pfzrGDs.png"
@@ -1474,6 +1474,76 @@
                         "rarity": "Epic",
                         "tags": ["at_the-lich"],
                         "image_url": "https://i.imgur.com/eDVpHQC.png"
+                    },
+                    {
+                        "name": "LSP's Parents",
+                        "description": "S01E02 - Trouble in Lumpy Space",
+                        "rarity": "Uncommon",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/AkToD4o.jpeg"
+                    },
+                    {
+                        "name": "Crystal Guardian",
+                        "description": "S01E04 - Tree Trunks",
+                        "rarity": "Uncommon",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/rrDA4pk.jpeg"
+                    },
+                    {
+                        "name": "Skeleton Butterflies",
+                        "description": "S01E04 - Tree Trunks",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/tNsLYEw.jpeg"
+                    },
+                    {
+                        "name": "Keyper",
+                        "description": "S01E05 - The Enchiridion!",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/oKLp72z.jpeg"
+                    },
+                    {
+                        "name": "Jiggler",
+                        "description": "S01E06 - The Jiggler",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/dQ8KTiZ.jpeg"
+                    },
+                    {
+                        "name": "Mr. Turtle",
+                        "description": "S01E13 - City of Thieves",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/dRB704R.jpeg"
+                    },
+                    {
+                        "name": "Hag",
+                        "description": "S01E13 - City of Thieves",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/SPIX9f5.jpeg"
+                    },
+                    {
+                        "name": "King of Thieves",
+                        "description": "S01E13 - City of Thieves",
+                        "rarity": "Epic",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/UzAUd6s.jpeg"
+                    },
+                    {
+                        "name": "Penny",
+                        "description": "S01E13 - City of Thieves",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/BSW24sL.jpeg"
+                    },
+                    {
+                        "name": "Thief Jake",
+                        "description": "S01E13 - City of Thieves",
+                        "rarity": "Rare",
+                        "tags": ["at_jake"],
+                        "image_url": "https://i.imgur.com/En0x7Hb.jpeg"
                     }
                 ]
             }
