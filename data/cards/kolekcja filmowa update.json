@@ -545,7 +545,7 @@
                         "image_url": "https://i.imgur.com/e31ddaM.png"
                     },
                     {
-                        "name": "Rocket",
+                        "name": "Rocket / The Narrator",
                         "description": "Alexandre Rodrigues | City of God (2002)",
                         "rarity": "Common",
                         "tags": ["movie"],
@@ -671,7 +671,7 @@
                         "image_url": "https://i.imgur.com/PkiTaal.png"
                     },
                     {
-                        "name": "Julia Żugaj",
+                        "name": "Julia Zuzanna Żugaj",
                         "description": "Jesteśmy Żugajkami (2025)",
                         "rarity": "Rare",
                         "tags": ["movie", "movie_polski"],
@@ -2330,7 +2330,7 @@
                         "image_url": "https://i.imgur.com/rcZqSJu.png"
                     },
                     {
-                        "name": "Bruce Wayne / Batman",
+                        "name": "Bruce Wayne",
                         "description": "Christian Bale | The Dark Knight (2008)",
                         "rarity": "Epic",
                         "tags": ["movie"],
@@ -3387,7 +3387,7 @@
                         "image_url": "https://i.imgur.com/FMsLDVy.png"
                     },
                     {
-                        "name": "Joker",
+                        "name": "Joker / The Clown",
                         "description": "Jared Leto | Suicide Squad (2016)",
                         "rarity": "Common",
                         "tags": ["movie"],
@@ -4871,7 +4871,7 @@
                         "image_url": "https://i.imgur.com/on7ngxH.png"
                     },
                     {
-                        "name": "Sarah Connor",
+                        "name": "Sarah Jeanette Connor",
                         "description": "Linda Hamilton | Terminator 2: Judgment Day (1991)",
                         "rarity": "Rare",
                         "tags": ["movie"],
@@ -5144,7 +5144,7 @@
                         "image_url": "https://i.imgur.com/Yx0xapt.png"
                     },
                     {
-                        "name": "Godzilla",
+                        "name": "Godzilla / Kaiju",
                         "description": "Haruo Nakajima | Godzilla (1954)",
                         "rarity": "Rare",
                         "tags": ["movie", "movie_classic"],
@@ -6234,6 +6234,62 @@
                         "rarity": "Rare",
                         "tags": ["movie"],
                         "image_url": "https://i.imgur.com/GWoTpUW.png"
+                    },
+                    {
+                        "name": "Ricky Baker i Hector Faulkner",
+                        "description": "Julian Dennison oraz Sam Neill | Hunt for the Wilderpeople (2016)",
+                        "rarity": "Common",
+                        "tags": ["movie"],
+                        "image_url": "https://i.imgur.com/i62jzwm.png"
+                    },
+                    {
+                        "name": "Sing",
+                        "description": "Stephen Chow | Kung Fu Hustle (2004)",
+                        "rarity": "Common",
+                        "tags": ["movie"],
+                        "image_url": "https://i.imgur.com/BeEX90U.png"
+                    },
+                    {
+                        "name": "The Landlady of Pigsty Alley",
+                        "description": "Yuen Qiu | Kung Fu Hustle (2004)",
+                        "rarity": "Uncommon",
+                        "tags": ["movie"],
+                        "image_url": "https://i.imgur.com/bnPSQ1E.png"
+                    },
+                    {
+                        "name": "Mad Dog",
+                        "description": "Yayan Ruhian | The Raid (2011)",
+                        "rarity": "Common",
+                        "tags": ["movie"],
+                        "image_url": "https://i.imgur.com/Z9wAObS.png"
+                    },
+                    {
+                        "name": "Ali G",
+                        "description": "Sacha Baron Cohen | Ali G Indahouse (2002)",
+                        "rarity": "Legendary",
+                        "tags": ["movie"],
+                        "image_url": "https://i.imgur.com/neDkDdI.png"
+                    },
+                    {
+                        "name": "Jimmy",
+                        "description": "Sharlto Copley | Hardcore Henry (2015)",
+                        "rarity": "Common",
+                        "tags": ["movie"],
+                        "image_url": "https://i.imgur.com/VCgBHJq.png"
+                    },
+                    {
+                        "name": "Kyle Alan 'Nobby' Butcher",
+                        "description": "Sacha Baron Cohen | Grimsby (2016)",
+                        "rarity": "Rare",
+                        "tags": ["movie"],
+                        "image_url": "https://i.imgur.com/Lanck4f.png"
+                    },
+                    {
+                        "name": "Odysseus i Athena",
+                        "description": "Matt Damon oraz Zendaya | The Odyssey (2026)",
+                        "rarity": "Epic",
+                        "tags": ["movie"],
+                        "image_url": "https://i.imgur.com/i0HIgGg.png"
                     }
                 ]
             }
