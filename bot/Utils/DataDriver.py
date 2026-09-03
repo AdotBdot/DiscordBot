@@ -39,7 +39,7 @@ class DataDriverScheduler:
 class DataDriver:
     def __init__(self, logs_handler, file_handler):
         self.logger = logging.getLogger("DataDriver")
-        self.logger.setLevel(logging.INFO)
+        self.logger.setLevel(logging.DEBUG)
         self.logger.propagate = False
         
         if not self.logger.handlers:
