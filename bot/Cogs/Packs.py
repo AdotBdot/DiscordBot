@@ -9,7 +9,7 @@ from discord.ext import commands
 
 from bot.Utils.Autocomplete import ac
 from bot.Utils.DataDriver import DataDriver
-from bot.Utils.Enums import BASE_RARITY_WEIGHT, RARITY_EMOJI
+from bot.Utils.Enums import RARITY_WEIGHTS, RARITY_EMOJI
 
 from bot.Views.DataViews import card_to_container
 from bot.Views.PageView import PageView
@@ -127,7 +127,7 @@ class Packs(commands.Cog):
 
         # Calculate weights
         rarities = list(by_rarity.keys())
-        weights = [BASE_RARITY_WEIGHT[r] for r in rarities]  # type: ignore
+        weights = [BASE_RARITY_WEIGHT[user_upgrades["luck"]][r] for r in rarities]  # type: ignore
 
         # Open pack
         result = []

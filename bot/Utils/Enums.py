@@ -58,6 +58,118 @@ RARITY_FLOOR = {
     "Divine": 500
 }
 
+RARITY_WEIGHTS = {
+    0: {
+        "Common": 70000,
+        "Uncommon": 20000,
+        "Rare": 7000,
+        "Epic": 2000,
+        "Legendary": 800,
+        "Mythic": 190,
+        "Divine": 10,
+    },
+
+    1: {
+        "Common": 66000,
+        "Uncommon": 21000,
+        "Rare": 8000,
+        "Epic": 3000,
+        "Legendary": 1200,
+        "Mythic": 650,
+        "Divine": 150,
+    },
+
+    2: {
+        "Common": 62000,
+        "Uncommon": 22000,
+        "Rare": 9000,
+        "Epic": 4000,
+        "Legendary": 1600,
+        "Mythic": 1000,
+        "Divine": 400,
+    },
+
+    3: {
+        "Common": 58000,
+        "Uncommon": 22500,
+        "Rare": 10000,
+        "Epic": 5000,
+        "Legendary": 2200,
+        "Mythic": 1500,
+        "Divine": 800,
+    },
+
+    4: {
+        "Common": 54000,
+        "Uncommon": 23000,
+        "Rare": 11000,
+        "Epic": 6000,
+        "Legendary": 2800,
+        "Mythic": 2000,
+        "Divine": 1200,
+    },
+
+    5: {
+        "Common": 50000,
+        "Uncommon": 23500,
+        "Rare": 12000,
+        "Epic": 7000,
+        "Legendary": 3500,
+        "Mythic": 2500,
+        "Divine": 1500,
+    },
+
+    6: {
+        "Common": 46000,
+        "Uncommon": 24000,
+        "Rare": 13000,
+        "Epic": 8000,
+        "Legendary": 4200,
+        "Mythic": 3000,
+        "Divine": 1800,
+    },
+
+    7: {
+        "Common": 42000,
+        "Uncommon": 24500,
+        "Rare": 14000,
+        "Epic": 9000,
+        "Legendary": 5000,
+        "Mythic": 3500,
+        "Divine": 2000,
+    },
+
+    8: {
+        "Common": 38000,
+        "Uncommon": 25000,
+        "Rare": 15000,
+        "Epic": 10000,
+        "Legendary": 5800,
+        "Mythic": 4000,
+        "Divine": 2200,
+    },
+
+    9: {
+        "Common": 34000,
+        "Uncommon": 25500,
+        "Rare": 16000,
+        "Epic": 11000,
+        "Legendary": 6500,
+        "Mythic": 4500,
+        "Divine": 2500,
+    },
+
+    10: {
+        "Common": 30000,
+        "Uncommon": 26000,
+        "Rare": 17000,
+        "Epic": 12000,
+        "Legendary": 7500,
+        "Mythic": 5000,
+        "Divine": 2500,
+    },
+}
+
 BASE_RARITY_WEIGHT = {
     "Common": 70000,
     "Uncommon": 20000,
