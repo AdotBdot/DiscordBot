@@ -155,20 +155,20 @@
                     {
                         "name": "Lemongrab",
                         "description": "",
-                        "rarity": "Common",
+                        "rarity": "Uncommon",
                         "tags": ["at_lemongrab"],
                         "image_url": "https://i.imgur.com/ZrL9g16.jpeg"
                     },
                     {
                         "name": "Tree Trunks",
                         "description": "",
-                        "rarity": "Common",
+                        "rarity": "Uncommon",
                         "tags": ["at_tree-trunks"],
                         "image_url": "https://i.imgur.com/IayiLti.png"
                     },
                     {
                         "name": "Mad Scientist Princess Bubblegum",
-                        "description": "",
+                        "description": "S01E01",
                         "rarity": "Rare",
                         "tags": ["at_princess-bubblegum"],
                         "image_url": "https://i.imgur.com/2wzo189.png"
@@ -252,28 +252,28 @@
                     },
                     {
                         "name": "The Lich Skeleton",
-                        "description": "S06E02 - Escape from the Citadel \n\"Fall\"",
+                        "description": "S06E02 - Escape from the Citadel \n \"Fall\"",
                         "rarity": "Legendary",
                         "tags": ["at_the-lich"],
                         "image_url": "https://i.imgur.com/JFGEs6Q.png"
                     },
                     {
                         "name": "Finn Losing His Arm",
-                        "description": "S06E02 - Escape from Citadel\n It's not worth it.",
+                        "description": "S06E02 - Escape from Citadel \n It's not worth it.",
                         "rarity": "Epic",
                         "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/bt79i18.png"
                     },
                     {
                         "name": "Baby Finn",
-                        "description": "S03E03 - Memory of a Memory\n I'm a buff baby that can dance like a man. I can shake them up. Fanny, I can shake them again.",
+                        "description": "S03E03 - Memory of a Memory \n I'm a buff baby that can dance like a man. I can shake them up. Fanny, I can shake them again.",
                         "rarity": "Rare",
                         "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/APRuTOe.png"
                     },
                     {
                         "name": "Bacon Pancakes Jake",
-                        "description": "S04E16 - Burning Low\n acon pancakes making bacon pancakes. Take some bacon and I put it in a pancake. Bacon pancakes that's what it's gonna make. Bacon Pancake!",
+                        "description": "S04E16 - Burning Low \n acon pancakes making bacon pancakes. Take some bacon and I put it in a pancake. Bacon pancakes that's what it's gonna make. Bacon Pancake!",
                         "rarity": "Epic",
                         "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/FH7nnHP.png"
@@ -315,7 +315,7 @@
                     },
                     {
                         "name": "Dramatic Jake",
-                        "description": "S03E21 - Marceline's Closet\n Bitten by spider in Marceline's closet lol.",
+                        "description": "S03E21 - Marceline's Closet \n Bitten by spider in Marceline's closet lol.",
                         "rarity": "Epic",
                         "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/mlK9olb.png"
@@ -372,55 +372,55 @@
                     {
                         "name": "Charlie",
                         "description": "",
-                        "rarity": "Common",
+                        "rarity": "Uncommon",
                         "tags": [],
                         "image_url": "https://i.imgur.com/69MlSMq.png"
                     },
                     {
                         "name": "Jake Jr.",
                         "description": "",
-                        "rarity": "Common",
+                        "rarity": "Uncommon",
                         "tags": [],
                         "image_url": "https://i.imgur.com/P5CTGXN.png"
                     },
                     {
                         "name": "Kim Kil Whan",
                         "description": "",
-                        "rarity": "Common",
+                        "rarity": "Uncommon",
                         "tags": [],
                         "image_url": "https://i.imgur.com/CjmXmR4.png"
                     },
                     {
                         "name": "T.V.",
                         "description": "",
-                        "rarity": "Common",
+                        "rarity": "Uncommon",
                         "tags": [],
                         "image_url": "https://i.imgur.com/Tk1znVC.png"
                     },
                     {
                         "name": "Viola",
                         "description": "",
-                        "rarity": "Common",
+                        "rarity": "Uncommon",
                         "tags": [],
                         "image_url": "https://i.imgur.com/E6WmYHS.png"
                     },
                     {
                         "name": "Jake the Egg",
-                        "description": "S08E23 - Islands: Imaginary Resources\nMmm, egg in me.",
+                        "description": "S08E23 - Islands: Imaginary Resources \n Mmm, egg in me.",
                         "rarity": "Rare",
                         "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/nK0mfSE.png"
                     },
                     {
                         "name": "Jake the Brick",
-                        "description": "S06E20 - Jake The Brick\n Nah, I think I'm just gonna keep being a brick for a while.",
+                        "description": "S06E20 - Jake The Brick \n Nah, I think I'm just gonna keep being a brick for a while.",
                         "rarity": "Rare",
                         "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/vUDmmWt.png"
                     },
                     {
                         "name": "Finn the God",
-                        "description": "S05E05 - All the Little People. \nI made you do those crummy things!",
+                        "description": "S05E05 - All the Little People. \n I made you do those crummy things!",
                         "rarity": "Epic",
                         "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/9plZbOb.png"
@@ -504,7 +504,7 @@
                     },
                     {
                         "name": "Bussinessmen",
-                        "description": "S01E08 - Business Time\n We. Are. Bussinessmen",
+                        "description": "S01E08 - Business Time \n We. Are. Bussinessmen",
                         "rarity": "Common",
                         "tags": [],
                         "image_url": "https://i.imgur.com/xL2STVN.png"
@@ -525,7 +525,7 @@
                     },
                     {
                         "name": "Mellow Tea Party PB",
-                        "description": "S01E02 - Trouble in Lumpy Space\n I shoudn't drink so much teaaa.",
+                        "description": "S01E02 - Trouble in Lumpy Space \n I shoudn't drink so much teaaa.",
                         "rarity": "Rare",
                         "tags": ["at_princess-bubblegum"],
                         "image_url": "https://i.imgur.com/pfzrGDs.png"
@@ -602,21 +602,21 @@
                     },
                     {
                         "name": "Big AF Slime Princess",
-                        "description": "S09E06 - Slime Central\nSlime Princess got biiig.",
+                        "description": "S09E06 - Slime Central \n Slime Princess got biiig.",
                         "rarity": "Epic",
                         "tags": ["at_slime-princess"],
                         "image_url": "https://i.imgur.com/SF35p1Y.png"
                     },
                     {
                         "name": "Baloons",
-                        "description": "S01E15 - What is Life?\nDid y'all smack me into that mountain on purpose?",
+                        "description": "S01E15 - What is Life? \n Did y'all smack me into that mountain on purpose?",
                         "rarity": "Common",
                         "tags": [],
                         "image_url": "https://i.imgur.com/I847xhe.png"
                     },
                     {
                         "name": "N.E.P.T.R.",
-                        "description": "**Never-Ending Pie-Throwing Robot**",
+                        "description": "S01E15 - What is Life? \n **Never-Ending Pie-Throwing Robot**",
                         "rarity": "Uncommon",
                         "tags": ["at_neptr"],
                         "image_url": "https://i.imgur.com/vcYwN9P.png"
@@ -631,7 +631,7 @@
                     {
                         "name": "Shoko Mutant",
                         "description": "S05E34 - The Vault",
-                        "rarity": "Rare",
+                        "rarity": "Epic",
                         "tags": ["at_shoko"],
                         "image_url": "https://i.imgur.com/7PywSZc.png"
                     },
@@ -658,14 +658,14 @@
                     },
                     {
                         "name": "Possessed Princess Bubblegum",
-                        "description": "S02E25 - Mortal Recoil\nJaaaake",
+                        "description": "S02E25 - Mortal Recoil \n Jaaaake",
                         "rarity": "Legendary",
                         "tags": ["at_princess-bubblegum"],
                         "image_url": "https://i.imgur.com/EW3PHKi.png"
                     },
                     {
                         "name": "Banana Guardian Finn",
-                        "description": "S07E35 - The Thin Yellow Line\n Sic'em, Jake!",
+                        "description": "S07E35 - The Thin Yellow Line \n Sic'em, Jake!",
                         "rarity": "Rare",
                         "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/pCUZI1x.png"
@@ -707,7 +707,7 @@
                     },
                     {
                         "name": "Ricardio",
-                        "description": "S01E07 - Ricardio the Heard Guy",
+                        "description": "S01E07 - Ricardio the Heart Guy",
                         "rarity": "Common",
                         "tags": [],
                         "image_url": "https://i.imgur.com/7vJHD0f.png"
@@ -784,7 +784,7 @@
                     },
                     {
                         "name": "Party Jake",
-                        "description": "",
+                        "description": "S02E07 - Power Animal",
                         "rarity": "Legendary",
                         "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/zeYVkMs.png"
@@ -855,7 +855,7 @@
                     {
                         "name": "Card Wars Pig",
                         "description": "S04E14 - Card Wars",
-                        "rarity": "Rare",
+                        "rarity": "Epic",
                         "tags": [],
                         "image_url": "https://i.imgur.com/vMmatXE.png"
                     },
@@ -889,7 +889,7 @@
                     },
                     {
                         "name": "Fly Finn",
-                        "description": "S06E17 - Ghost Fly\n How'd you shake them others?",
+                        "description": "S06E17 - Ghost Fly \n How'd you shake them others?",
                         "rarity": "Rare",
                         "tags": ["at_finn"],
                         "image_url": "https://i.imgur.com/xzag6k3.png"
@@ -917,7 +917,7 @@
                     },
                     {
                         "name": "Sheet Ghost Jake",
-                        "description": "S06E17 - Ghost Fly\n What do you call a bear that only attacks guys names Paul?",
+                        "description": "S06E17 - Ghost Fly \n What do you call a bear that only attacks guys names Paul?",
                         "rarity": "Epic",
                         "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/pp3PK9h.png"
@@ -945,21 +945,21 @@
                     },
                     {
                         "name": "Zombie Lady Rainicorn",
-                        "description": "",
+                        "description": "S03E13 - From Bad to Worse",
                         "rarity": "Rare",
                         "tags": ["at_lady-rainicorn"],
                         "image_url": "https://i.imgur.com/uv6xRyX.png"
                     },
                     {
                         "name": "Zombie LSP",
-                        "description": "",
+                        "description": "S03E13 - From Bad to Worse",
                         "rarity": "Rare",
                         "tags": ["at_lumpy-space-princess"],
                         "image_url": "https://i.imgur.com/qrMe4on.png"
                     },
                     {
                         "name": "Zombie Princess Bubblegum",
-                        "description": "",
+                        "description": "S03E13 - From Bad to Worse",
                         "rarity": "Rare",
                         "tags": ["at_princess-bubblegum"],
                         "image_url": "https://i.imgur.com/4qsu5TM.png"
@@ -1050,14 +1050,14 @@
                     },
                     {
                         "name": "N.E.C.T.R.",
-                        "description": "S09E02 - Elements: Skyhooks\nNectr the Little Robot",
+                        "description": "S09E02 - Elements: Skyhooks \n Nectr the Little Robot",
                         "rarity": "Epic",
                         "tags": ["at_neptr", "at_elemental_candy"],
                         "image_url": "https://i.imgur.com/cAPBFLH.png"
                     },
                     {
                         "name": "Shelby the Gummy Worm",
-                        "description": "S09E02 - Elements: Skyhooks\nI'm Shelby the Worm... THE GUMMY WORM!",
+                        "description": "S09E02 - Elements: Skyhooks \n I'm Shelby the Worm... THE GUMMY WORM!",
                         "rarity": "Epic",
                         "tags": ["at_shelby", "at_elemental_candy"],
                         "image_url": "https://i.imgur.com/qmGne6b.png"
@@ -1270,7 +1270,7 @@
                         "description": "S03E22 - Paper Pete",
                         "rarity": "Common",
                         "tags": [],
-                        "image_url": "https://i.imgur.com/hEt3hDq.png"
+                        "image_url": "https://i.imgur.com/u6dJuNU.png"
                     },
                     {
                         "name": "Darren",
@@ -1288,7 +1288,7 @@
                     },
                     {
                         "name": "...",
-                        "description": "S10E13 - Come Along With Me \n...",
+                        "description": "S10E13 - Come Along With Me \n ...",
                         "rarity": "Divine",
                         "tags": ["at_golb"],
                         "image_url": "https://i.imgur.com/rkWNJ1n.png"
@@ -1576,14 +1576,14 @@
                     {
                         "name": "Shrim",
                         "description": "S01E16 - Ocean of Fear",
-                        "rarity": "Rare",
+                        "rarity": "Epic",
                         "tags": [],
                         "image_url": "https://i.imgur.com/BC4Uzwb.jpeg"
                     },
                     {
                         "name": "Guardian Angel",
                         "description": "S01E18 - Dungeon",
-                        "rarity": "Common",
+                        "rarity": "Epic",
                         "tags": [],
                         "image_url": "https://i.imgur.com/aTp0vXm.jpeg"
                     },
