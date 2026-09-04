@@ -7,7 +7,7 @@ from discord.ext import commands
 
 from bot.Utils.Autocomplete import ac
 from bot.Utils.DataDriver import DataDriver
-from bot.Utils.Enums import BASE_RARITY_WEIGHT, RARITIES, RARITY_EMOJI, RARITY_ORDER
+from bot.Utils.Enums import RARITY_EMOJI, RARITY_ORDER
 
 from bot.Views.DataViews import card_to_container
 from bot.Views.PageView import PageView

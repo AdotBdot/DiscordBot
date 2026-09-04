@@ -68,7 +68,6 @@ RARITY_WEIGHTS = {
         "Mythic": 190,
         "Divine": 10,
     },
-
     1: {
         "Common": 66000,
         "Uncommon": 21000,
@@ -78,7 +77,6 @@ RARITY_WEIGHTS = {
         "Mythic": 650,
         "Divine": 150,
     },
-
     2: {
         "Common": 62000,
         "Uncommon": 22000,
@@ -88,7 +86,6 @@ RARITY_WEIGHTS = {
         "Mythic": 1000,
         "Divine": 400,
     },
-
     3: {
         "Common": 58000,
         "Uncommon": 22500,
@@ -98,7 +95,6 @@ RARITY_WEIGHTS = {
         "Mythic": 1500,
         "Divine": 800,
     },
-
     4: {
         "Common": 54000,
         "Uncommon": 23000,
@@ -108,7 +104,6 @@ RARITY_WEIGHTS = {
         "Mythic": 2000,
         "Divine": 1200,
     },
-
     5: {
         "Common": 50000,
         "Uncommon": 23500,
@@ -118,7 +113,6 @@ RARITY_WEIGHTS = {
         "Mythic": 2500,
         "Divine": 1500,
     },
-
     6: {
         "Common": 46000,
         "Uncommon": 24000,
@@ -128,7 +122,6 @@ RARITY_WEIGHTS = {
         "Mythic": 3000,
         "Divine": 1800,
     },
-
     7: {
         "Common": 42000,
         "Uncommon": 24500,
@@ -138,7 +131,6 @@ RARITY_WEIGHTS = {
         "Mythic": 3500,
         "Divine": 2000,
     },
-
     8: {
         "Common": 38000,
         "Uncommon": 25000,
@@ -148,7 +140,6 @@ RARITY_WEIGHTS = {
         "Mythic": 4000,
         "Divine": 2200,
     },
-
     9: {
         "Common": 34000,
         "Uncommon": 25500,
@@ -158,7 +149,6 @@ RARITY_WEIGHTS = {
         "Mythic": 4500,
         "Divine": 2500,
     },
-
     10: {
         "Common": 30000,
         "Uncommon": 26000,
@@ -168,52 +158,6 @@ RARITY_WEIGHTS = {
         "Mythic": 5000,
         "Divine": 2500,
     },
-}
-
-BASE_RARITY_WEIGHT = {
-    "Common": 70000,
-    "Uncommon": 20000,
-    "Rare": 7000,
-    "Epic": 2000,
-    "Legendary": 800,
-    "Mythic": 190,
-    "Divine": 10
-}
-
-RARITY_TRANSFER = {
-    "Common": {
-        "Uncommon": 0.40,
-        "Rare": 0.30,
-        "Epic": 0.15,
-        "Legendary": 0.10,
-        "Mythic": 0.04,
-        "Divine": 0.01,
-    },
-    "Uncommon": {
-        "Rare": 0.50,
-        "Epic": 0.25,
-        "Legendary": 0.15,
-        "Mythic": 0.08,
-        "Divine": 0.02,
-    },
-    "Rare": {
-        "Epic": 0.60,
-        "Legendary": 0.25,
-        "Mythic": 0.10,
-        "Divine": 0.05,
-    },
-    "Epic": {
-        "Legendary": 0.60,
-        "Mythic": 0.30,
-        "Divine": 0.10,
-    },
-    "Legendary": {
-        "Mythic": 0.70,
-        "Divine": 0.30,
-    },
-    "Mythic": {
-        "Divine": 1.00,
-    }
 }
 
 UPGRADES_INFO = {

@@ -127,7 +127,7 @@ class Packs(commands.Cog):
 
         # Calculate weights
         rarities = list(by_rarity.keys())
-        weights = [BASE_RARITY_WEIGHT[user_upgrades["luck"]][r] for r in rarities]  # type: ignore
+        weights = [RARITY_WEIGHTS[user_upgrades["luck"]][r] for r in rarities]  # type: ignore
 
         # Open pack
         result = []
