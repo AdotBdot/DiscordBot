@@ -55,7 +55,7 @@ class UpgradesView(discord.ui.LayoutView):
         upgrades = self.datadriver.get_user_upgrades(self.author_id)
 
         for name, level in upgrades.items():
-            cost = UPGRADES_INFO[name]["base_cost"] * upgrades[name]
+            cost = UPGRADES_INFO[name]["base_cost"] * (1 + upgrades[name])
             cost_melones = 1 if upgrades[name] >= 10 else 0
 
             locked = user_cash >= cost and user_melones >= cost_melones and level < UPGRADES_INFO[name]["max_level"]
