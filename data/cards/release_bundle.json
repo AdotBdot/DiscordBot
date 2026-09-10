@@ -294,7 +294,7 @@
                     },
                     {
                         "name": "Butt Plug Jake",
-                        "description": "",
+                        "description": "S02E10 - To Cut a Woman's Hair",
                         "rarity": "Rare",
                         "tags": ["at_jake"],
                         "image_url": "https://i.imgur.com/HVAkLjr.png"
@@ -1393,7 +1393,7 @@
                     },
                     {
                         "name": "Island Lady",
-                        "description": "S5E22 - The Party's Over, Isla de Señorita",
+                        "description": "S05E22 - The Party's Over, Isla de Señorita",
                         "rarity": "Common",
                         "tags": [],
                         "image_url": "https://i.imgur.com/ycWPIK1.jpeg"
@@ -1407,7 +1407,7 @@
                     },
                     {
                         "name": "Billy",
-                        "description": "S1E25 - His Hero",
+                        "description": "S01E25 - His Hero",
                         "rarity": "Mythic",
                         "tags": [],
                         "image_url": "https://i.imgur.com/3WjwlGc.jpeg"
@@ -1600,6 +1600,125 @@
                         "rarity": "Common",
                         "tags": [],
                         "image_url": "https://i.imgur.com/R1z9GxS.jpeg"
+                    },
+                    {
+                        "name": "Dimple Plant",
+                        "description": "S01E22 - Henchman",
+                        "rarity": "Epic",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/iGsYMHC.jpeg"
+                    },
+                    {
+                        "name": "Donny",
+                        "description": "S01E21 - Donny",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/Wc50sqd.jpeg"
+                    },
+                    {
+                        "name": "Why-wolf",
+                        "description": "S01E21 - Donny",
+                        "rarity": "Uncommon",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/p7VOb1Z.jpeg"
+                    },
+                    {
+                        "name": "Leg Finn",
+                        "description": "S01E20 - Freak City",
+                        "rarity": "Rare",
+                        "tags": ["at_finn"],
+                        "image_url": "https://i.imgur.com/W9EnFTF.jpeg"
+                    },
+                    {
+                        "name": "Chug Chug Jake",
+                        "description": "S02E07 - Power Animal",
+                        "rarity": "Rare",
+                        "tags": ["at_jake"],
+                        "image_url": "https://i.imgur.com/WvwHhC4.jpeg"
+                    },
+                    {
+                        "name": "Crystal Finn",
+                        "description": "S02E08 - Crystals Have Power",
+                        "rarity": "Epic",
+                        "tags": ["at_finn"],
+                        "image_url": "https://i.imgur.com/DmeUZo9.jpeg"
+                    },
+                    {
+                        "name": "Mini Queen",
+                        "description": "S01E25 - His Hero",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/yLY9UIQ.jpeg"
+                    },
+                    {
+                        "name": "Nazi PB",
+                        "description": "S01E24 - What Have You Done?",
+                        "rarity": "Epic",
+                        "tags": ["at_princess-bubblegum"],
+                        "image_url": "https://i.imgur.com/v1b9kS9.jpeg"
+                    },
+                    {
+                        "name": "Quartzion the Crystal Queen",
+                        "description": "S02E08 - Crystals Have Power",
+                        "rarity": "Legendary",
+                        "tags": ["at_tree-trunks"],
+                        "image_url": "https://i.imgur.com/z9fJyzl.jpeg"
+                    },
+                    {
+                        "name": "Princess Princess Princess",
+                        "description": "S02E03 - Loyalty to the King",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/ZLs5gDr.jpeg"
+                    },
+                    {
+                        "name": "Sir Slicer",
+                        "description": "S02E04 - Blood Under the Skin",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/EP4J3vc.jpeg"
+                    },
+                    {
+                        "name": "Holo Princess Bubblegum",
+                        "description": "S02E09 - The Other Tarts",
+                        "rarity": "Epic",
+                        "tags": ["at_princess-bubblegum"],
+                        "image_url": "https://i.imgur.com/7xLP8ym.jpeg"
+                    },
+                    {
+                        "name": "Tart Toter",
+                        "description": "S02E09 - The Other Tarts",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/V2NSNJh.jpeg"
+                    },
+                    {
+                        "name": "Fuck Up",
+                        "description": "S02E09 - The Other Tarts",
+                        "rarity": "Rare",
+                        "tags": ["at_jake", "at_finn"],
+                        "image_url": "https://i.imgur.com/cx3bKNE.jpeg"
+                    },
+                    {
+                        "name": "Finn",
+                        "description": "S02E09 - The Other Tarts",
+                        "rarity": "Uncommon",
+                        "tags": ["at_finn"],
+                        "image_url": "https://i.imgur.com/u3Ka861.jpeg"
+                    },
+                    {
+                        "name": "Dr Princess",
+                        "description": "S02E11 - The Chamber of Frozen Blades",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/3DYBBnA.jpeg"
+                    },
+                    {
+                        "name": "Giant Monster Marceline",
+                        "description": "S02E20 - Go With Me",
+                        "rarity": "Legendary",
+                        "tags": ["at_marceline"],
+                        "image_url": "https://i.imgur.com/hc0bsum.jpeg"
                     }
                 ]
             }
