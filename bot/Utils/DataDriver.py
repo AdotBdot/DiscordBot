@@ -205,6 +205,7 @@ class DataDriver:
         config_path = Path("data/config/config.json")
 
         if not config_path.exists():
+            config_path.parent.mkdir(exist_ok=True, parents=True)
             self.save_config()
             self.logger.info("Config file did not exist. Created default config.")
             return
@@ -216,7 +217,7 @@ class DataDriver:
 
     def save_config(self):
         file_path = Path("data/config/config.json")
-        file_path.write_text(json.dumps(self.config, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
+        file_path.write_text(json.dumps(self.config, indent=2, ensure_ascii=False, default=str), encoding="utf-8", )
 
     def set_admin_role(self, id: int):
         self.config["admin_role"] = id
@@ -245,6 +246,7 @@ class DataDriver:
 
         if not cache_path.exists():
             self.refresh_daily()
+            cache_path.parent.mkdir(exist_ok=True, parents=True)
             self.save_cache()
             self.logger.info("Cache file did not exist. Created default cache.")
             return
