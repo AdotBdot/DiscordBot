@@ -1719,6 +1719,69 @@
                         "rarity": "Legendary",
                         "tags": ["at_marceline"],
                         "image_url": "https://i.imgur.com/hc0bsum.jpeg"
+                    },
+                    {
+                        "name": "Clam Jake",
+                        "description": "S03E14 - Beautopia",
+                        "rarity": "Rare",
+                        "tags": ["at_jake"],
+                        "image_url": "https://i.imgur.com/kRHghsw.jpeg"
+                    },
+                    {
+                        "name": "Dolphin Jake",
+                        "description": "S03E14 - Beautopia",
+                        "rarity": "Rare",
+                        "tags": ["at_jake"],
+                        "image_url": "https://i.imgur.com/rvgousu.jpeg"
+                    },
+                    {
+                        "name": "Lub Glub",
+                        "description": "S03E14 - Beautopia",
+                        "rarity": "Epic",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/69mZ0EI.jpeg"
+                    },
+                    {
+                        "name": "Fight King",
+                        "description": "S03E02 - Morituri te Salutamus",
+                        "rarity": "Legendary",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/MTXCBcZ.jpeg"
+                    },
+                    {
+                        "name": "Door Lord",
+                        "description": "S03E10 - What Was Missing",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/d4P6T39.jpeg"
+                    },
+                    {
+                        "name": "Sience",
+                        "description": "S03E13 - From Bad to Worse",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/geUOHVO.jpeg"
+                    },
+                    {
+                        "name": "Cute King",
+                        "description": "S03E01 - Conquest of Cuteness",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/t1Scvky.jpeg"
+                    },
+                    {
+                        "name": "Breakfast Princess",
+                        "description": "S03E04 - Hitman",
+                        "rarity": "Common",
+                        "tags": [],
+                        "image_url": "https://i.imgur.com/YDj2j7t.jpeg"
+                    },
+                    {
+                        "name": "Loli Marceline",
+                        "description": "S03E03 - Memory of a Memory",
+                        "rarity": "Epic",
+                        "tags": ["at_marceline"],
+                        "image_url": "https://i.imgur.com/4LhAh1Y.jpeg"
                     }
                 ]
             }
