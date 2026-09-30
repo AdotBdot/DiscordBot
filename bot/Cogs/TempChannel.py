@@ -19,8 +19,6 @@ class TempChannel(commands.Cog):
             self.logger.addHandler(bot.logs_handler)
             self.logger.addHandler(bot.file_handler)
 
-        self.create_channel_id = 806164430449672222
-        self.category_id = 787000243547537439
         self.temp_channels: set[int] = set()
 
     def get_voice_overwrites(self, guild: discord.Guild, member_id: int) -> dict:
@@ -44,39 +42,53 @@ class TempChannel(commands.Cog):
 
     @commands.Cog.listener()
     async def on_voice_state_update(self, member: discord.Member, before: discord.VoiceState, after: discord.VoiceState):
-        if after.channel is not None and after.channel.id == self.datadriver.config["create_channel_id"]:
-            guild = member.guild
-            category = guild.get_channel(self.datadriver.config["voice_category_id"])
+        create_channel_id = self.datadriver.config["create_channel_id"]
 
-            if not isinstance(category, discord.CategoryChannel):
-                return
-
-            overwrites = self.get_voice_overwrites(guild=member.guild, member_id=member.id)
-
-            channel = await guild.create_voice_channel(
-                name = f"🔶┋{member.display_name}", 
-                category=category, 
-                overwrites=overwrites,
-                bitrate=96000, 
-                reason=f"Temporary voice channel for {member}")
-            self.temp_channels.add(channel.id)
-
-            self.logger.info(f"Created temp voice channel: '{channel.name}'")
-
-            try:
-                await member.move_to(channel)
-            except discord.HTTPException:
-                await channel.delete(reason="Failed to move member")
-                self.temp_channels.discard(channel.id)
-                return
-
-        if before.channel is not None and before.channel.id in self.temp_channels:
+        # Remove empty temp channels
+        if (before.channel is not None and before.channel.id in self.temp_channels and len(before.channel.members) == 0):
             channel = before.channel
 
-            if len(channel.members) == 0:
+            try:
                 await channel.delete(reason="Temporary voice channel is empty")
-                self.temp_channels.discard(channel.id)
                 self.logger.info(f"Deleted temp voice channel: '{channel.name}'")
+            except discord.NotFound:
+                pass
+            finally:
+                self.temp_channels.discard(channel.id)
+
+        # Create temp channel
+        joined_create = (after.channel is not None and after.channel.id == create_channel_id and (before.channel is None or before.channel.id != create_channel_id))
+
+        if not joined_create:
+            return
+
+        guild = member.guild
+        category = guild.get_channel(self.datadriver.config["voice_category_id"])
+
+        if not isinstance(category, discord.CategoryChannel):
+            return
+
+        overwrites = self.get_voice_overwrites(guild=member.guild, member_id=member.id)
+
+        channel = await guild.create_voice_channel(
+            name = f"🔶┋{member.display_name}", 
+            category=category, 
+            overwrites=overwrites,
+            bitrate=96000, 
+            reason=f"Temporary voice channel for {member}")
+
+        self.temp_channels.add(channel.id)
+        self.logger.info(f"Created temp voice channel: '{channel.name}'")
+
+        try:
+            await member.move_to(channel)
+        except discord.HTTPException:
+            try:
+                await channel.delete(reason="Failed to move member")
+            except discord.NotFound:
+                pass
+
+            self.temp_channels.discard(channel.id)
 
 # Setup Cog
 async def setup(bot):
